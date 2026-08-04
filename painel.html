@@ -429,7 +429,7 @@
   'use strict';
 
   /* ====================== AJUSTE AQUI ====================== */
-  var API = 'https://superacao-analytics.SEU-SUBDOMINIO.workers.dev';
+   var API = 'https://superacao-analytics.beatrizgribas.workers.dev';
   /* ========================================================= */
 
   var $ = function(id){ return document.getElementById(id); };
@@ -467,7 +467,7 @@
   function entrar(){
     var v = $('chave').value.trim();
     if(!v){ return erroPorta('Digite a chave de acesso.'); }
-    if(API.indexOf('SEU-SUBDOMINIO') !== -1){
+    if(API.indexOf('https://superacao-analytics.beatrizgribas.workers.dev') !== -1){
       return erroPorta('Este arquivo ainda não foi configurado: falta trocar o endereço na linha var API, no final do painel.html.');
     }
     sessionStorage.setItem('sa_chave', v);
