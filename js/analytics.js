@@ -21,7 +21,7 @@
 var API = 'https://superacao-analytics.beatrizgribas.workers.dev';
   /* ========================================================= */
 
-  if (API.indexOf('SEU-SUBDOMINIO') !== -1) {
+  if (API.indexOf('https://superacao-analytics.beatrizgribas.workers.dev') !== -1) {
     console.warn('[analytics] endereco do Worker ainda nao foi configurado');
     return;
   }
