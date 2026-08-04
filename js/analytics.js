@@ -18,7 +18,7 @@
   'use strict';
 
   /* ====================== AJUSTE AQUI ====================== */
-  var API = 'https://superacao-analytics.SEU-SUBDOMINIO.workers.dev';
+  var API = 'https://superacao-analytics.beatrizgribas.workers.dev';
   /* ========================================================= */
 
   if (API.indexOf('SEU-SUBDOMINIO') !== -1) {
