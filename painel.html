@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Painel de uso · SuperAção SP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --papel:#F2F4F7;
+    --carta:#FFFFFF;
+    --tinta:#0E2338;
+    --tinta2:#4A5B6E;
+    --tinta3:#7B8A9B;
+    --azul:#14458C;
+    --azul-claro:#E4ECF8;
+    --ambar:#A85B0B;
+    --ambar-fundo:#FDF3E6;
+    --ambar-barra:#E0A85F;
+    --verde:#0B6E52;
+    --linha:#D9E0E8;
+    --raio:10px;
+  }
+
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0}
+  body{
+    background:var(--papel);
+    color:var(--tinta);
+    font-family:'Archivo',system-ui,sans-serif;
+    font-size:15px;
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+  }
+  .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:600}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 20px 64px}
+
+  .eyebrow{
+    font-size:11px;font-weight:600;letter-spacing:.14em;
+    text-transform:uppercase;color:var(--azul);margin:0 0 6px
+  }
+
+  /* cabecalho */
+  header{background:var(--carta);border-bottom:1px solid var(--linha)}
+  .topo{
+    max-width:1080px;margin:0 auto;padding:18px 20px;
+    display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between
+  }
+  .marca h1{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .marca p{margin:2px 0 0;font-size:13px;color:var(--tinta2)}
+  .controles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+  .periodo{display:flex;border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden}
+  .periodo button{
+    border:0;background:var(--carta);color:var(--tinta2);
+    font-family:inherit;font-size:13px;font-weight:500;
+    padding:8px 12px;cursor:pointer;border-right:1px solid var(--linha)
+  }
+  .periodo button:last-child{border-right:0}
+  .periodo button[aria-pressed="true"]{background:var(--azul);color:#fff}
+  .periodo button:hover:not([aria-pressed="true"]){background:var(--azul-claro)}
+
+  .btn{
+    font-family:inherit;font-size:13px;font-weight:500;
+    padding:8px 14px;border-radius:var(--raio);cursor:pointer;
+    border:1px solid var(--linha);background:var(--carta);color:var(--tinta)
+  }
+  .btn:hover{background:var(--azul-claro);border-color:var(--azul-claro)}
+  .btn-principal{background:var(--azul);border-color:var(--azul);color:#fff}
+  .btn-principal:hover{background:#0F3670;border-color:#0F3670}
+  .btn-fantasma{border-color:transparent;background:transparent;color:var(--tinta3)}
+  .btn-fantasma:hover{background:transparent;color:var(--azul);text-decoration:underline}
+  :focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+
+  /* bloco assinatura: onde falta oferta */
+  .lacunas{
+    background:var(--ambar-fundo);
+    border:1px solid #F0DCC0;
+    border-radius:var(--raio);
+    padding:24px;margin-top:28px
+  }
+  .lacunas .eyebrow{color:var(--ambar)}
+  .lacunas h2{font-size:26px;font-weight:700;letter-spacing:-.02em;margin:0 0 4px}
+  .lacunas .sub{margin:0 0 20px;font-size:14px;color:var(--tinta2);max-width:58ch}
+
+  .barra-linha{
+    display:grid;grid-template-columns:minmax(150px,1.1fr) minmax(0,2fr) auto;
+    gap:14px;align-items:center;padding:9px 0;border-top:1px solid #EFE0C9
+  }
+  .barra-linha:first-of-type{border-top:0}
+  .barra-rotulo{font-size:14px;font-weight:500}
+  .barra-rotulo small{display:block;font-size:12px;font-weight:400;color:var(--tinta2)}
+  .barra-trilho{height:9px;background:#F5E6D0;border-radius:99px;overflow:hidden}
+  .barra-preenche{height:100%;background:var(--ambar-barra);border-radius:99px;width:0;transition:width .5s ease}
+  .barra-valor{font-size:14px;color:var(--ambar)}
+
+  /* indicadores */
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+  .kpi{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:16px 18px}
+  .kpi .rotulo{font-size:12px;font-weight:500;color:var(--tinta2);margin:0 0 6px}
+  .kpi .valor{font-size:30px;line-height:1.1;letter-spacing:-.02em}
+  .kpi .nota{font-size:12px;color:var(--tinta3);margin:4px 0 0}
+
+  /* tabelas */
+  .colunas{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .cartao{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:18px 20px 8px}
+  .cartao h3{font-size:16px;font-weight:600;margin:0 0 2px}
+  .cartao .sub{font-size:13px;color:var(--tinta2);margin:0 0 12px}
+  table{width:100%;border-collapse:collapse;font-size:14px}
+  th{
+    text-align:left;font-size:11px;font-weight:600;letter-spacing:.08em;
+    text-transform:uppercase;color:var(--tinta3);padding:0 0 6px;border-bottom:1px solid var(--linha)
+  }
+  td{padding:8px 0;border-bottom:1px solid #EEF1F5}
+  tr:last-child td{border-bottom:0}
+  td.direita,th.direita{text-align:right}
+  .rolagem{max-height:340px;overflow-y:auto}
+
+  /* jornada */
+  .jornada-linha{
+    display:grid;grid-template-columns:minmax(160px,1.4fr) minmax(0,3fr) auto auto;
+    gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid #EEF1F5;font-size:14px
+  }
+  .jornada-linha:last-child{border-bottom:0}
+  .jornada-trilho{height:9px;background:#EDF1F6;border-radius:99px;overflow:hidden}
+  .jornada-preenche{height:100%;background:var(--azul);border-radius:99px;width:0;transition:width .5s ease}
+  .jornada-pct{font-size:13px;color:var(--tinta3);min-width:46px;text-align:right}
+  .jornada-linha.alerta .jornada-preenche{background:var(--ambar-barra)}
+  .jornada-linha.alerta .num{color:var(--ambar)}
+
+  .vazio{padding:22px 0;color:var(--tinta3);font-size:14px}
+  .rodape{margin-top:28px;font-size:12px;color:var(--tinta3);line-height:1.6}
+
+  /* entrada */
+  .porta{min-height:100vh;display:grid;place-items:center;padding:24px}
+  .porta-caixa{
+    background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);
+    padding:32px;width:100%;max-width:400px
+  }
+  .porta-caixa h1{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:-.01em}
+  .porta-caixa p{font-size:14px;color:var(--tinta2);margin:0 0 20px}
+  label{display:block;font-size:13px;font-weight:500;margin:0 0 6px}
+  input[type=password]{
+    width:100%;font-family:inherit;font-size:15px;padding:10px 12px;
+    border:1px solid var(--linha);border-radius:var(--raio);background:var(--papel);color:var(--tinta)
+  }
+  input[type=password]:focus{background:var(--carta)}
+  .erro{color:#A3251B;font-size:13px;margin:10px 0 0}
+  .porta .btn-principal{width:100%;margin-top:14px;padding:11px}
+
+  .oculto{display:none !important}
+  .carregando{opacity:.45;pointer-events:none}
+
+  @media (max-width:820px){
+    .kpis{grid-template-columns:repeat(2,1fr)}
+    .colunas{grid-template-columns:1fr}
+    .lacunas h2{font-size:22px}
+    .barra-linha{grid-template-columns:1fr auto;gap:8px}
+    .barra-trilho{grid-column:1 / -1;order:3}
+    .jornada-linha{grid-template-columns:1fr auto auto}
+    .jornada-trilho{grid-column:1 / -1;order:4}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{transition:none !important;animation:none !important}
+  }
+</style>
+</head>
+<body>
+
+<!-- ENTRADA -->
+<div class="porta" id="porta">
+  <div class="porta-caixa">
+    <p class="eyebrow">SuperAção SP</p>
+    <h1>Painel de uso do portal</h1>
+    <p>Informe a chave de acesso para ver os dados.</p>
+    <label for="chave">Chave de acesso</label>
+    <input type="password" id="chave" autocomplete="current-password" spellcheck="false">
+    <p class="erro oculto" id="porta-erro"></p>
+    <button class="btn btn-principal" id="entrar">Entrar</button>
+  </div>
+</div>
+
+<!-- PAINEL -->
+<div id="painel" class="oculto">
+  <header>
+    <div class="topo">
+      <div class="marca">
+        <p class="eyebrow">Governo do Estado de São Paulo · SEDS · FGV</p>
+        <h1>Painel de uso do portal</h1>
+        <p id="atualizado">Carregando dados</p>
+      </div>
+      <div class="controles">
+        <div class="periodo" role="group" aria-label="Período">
+          <button data-dias="7">7 dias</button>
+          <button data-dias="30" aria-pressed="true">30 dias</button>
+          <button data-dias="90">90 dias</button>
+          <button data-dias="365">1 ano</button>
+        </div>
+        <button class="btn" id="atualizar">Atualizar</button>
+        <button class="btn btn-fantasma" id="sair">Sair</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="wrap" id="conteudo">
+
+    <section class="lacunas">
+      <p class="eyebrow">Prioridade do período</p>
+      <h2>Onde falta oferta</h2>
+      <p class="sub">Cidades e áreas em que alguém procurou e o portal não tinha nenhum curso ou vaga para mostrar. É a lista de onde a oferta precisa chegar.</p>
+      <div id="lista-lacunas"></div>
+      <div style="margin-top:18px;display:flex;gap:8px;flex-wrap:wrap">
+        <button class="btn" id="copiar">Copiar resumo para o relatório</button>
+        <button class="btn" id="baixar-lacunas">Baixar planilha (CSV)</button>
+      </div>
+    </section>
+
+    <div class="kpis">
+      <div class="kpi">
+        <p class="rotulo">Pessoas que usaram</p>
+        <p class="valor num" id="k-sessoes">–</p>
+        <p class="nota">sessões no período</p>
+      </div>
+      <div class="kpi">
+        <p class="rotulo">Municípios alcançados</p>
+        <p class="valor num" id="k-cidades">–</p>
+        <p class="nota">cidades pesquisadas</p>
+      </div>
+      <div class="kpi">
+        <p class="rotulo">Cliques em cursos e vagas</p>
+        <p class="valor num" id="k-cliques">–</p>
+        <p class="nota">encaminhamentos gerados</p>
+      </div>
+      <div class="kpi">
+        <p class="rotulo">Buscas sem resultado</p>
+        <p class="valor num" id="k-lacunas" style="color:var(--ambar)">–</p>
+        <p class="nota" id="k-lacunas-nota">do total de buscas</p>
+      </div>
+    </div>
+
+    <div class="colunas">
+      <div class="cartao">
+        <h3>Cidades que mais buscaram</h3>
+        <p class="sub">Município escolhido pelo visitante.</p>
+        <div class="rolagem">
+          <table>
+            <thead><tr><th>Município</th><th class="direita">Buscas</th></tr></thead>
+            <tbody id="tb-cidades"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="cartao">
+        <h3>Cursos mais procurados</h3>
+        <p class="sub">Cliques para abrir o curso na plataforma de origem.</p>
+        <div class="rolagem">
+          <table>
+            <thead><tr><th>Curso</th><th>Origem</th><th class="direita">Cliques</th></tr></thead>
+            <tbody id="tb-cursos"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div class="cartao" style="margin-top:14px;padding-bottom:18px">
+      <h3>O caminho até a oportunidade</h3>
+      <p class="sub">Quantas pessoas chegaram a cada etapa. A barra compara com o total de quem abriu o portal.</p>
+      <div id="lista-jornada"></div>
+    </div>
+
+    <p class="rodape">
+      Os dados são anônimos: não guardamos nome, e-mail, telefone nem endereço de IP. A contagem de sessões usa um identificador aleatório que expira quando a pessoa fecha a aba.<br>
+      Exporte os dados a cada semestre para manter o histórico do programa.
+    </p>
+  </div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ====== AJUSTE AQUI ====== */
+  var API = 'superacao-analytics.beatrizgribas.workers.dev/';
+  /* ========================= */
+
+  var dias = 30;
+  var dados = null;
+
+  var $ = function(id){ return document.getElementById(id); };
+  var fmt = function(n){ return (n||0).toLocaleString('pt-BR'); };
+  var esc = function(s){
+    return String(s == null ? '' : s).replace(/[&<>"]/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];
+    });
+  };
+
+  var ROTULOS = {
+    visitou:'Abriram o portal',
+    selecionou_municipio:'Escolheram a cidade',
+    abriu_mapa:'Abriram o mapa',
+    selecionou_area:'Escolheram uma área',
+    viu_resultados:'Viram cursos e vagas',
+    busca_sem_resultado:'Não encontraram nada',
+    clique_curso:'Clicaram em um curso',
+    clique_vaga:'Clicaram em uma vaga',
+    viu_aviso_senac:'Viram o aviso de curso pago',
+    prosseguiu_curso_pago:'Seguiram para o curso pago',
+    clique_whatsapp:'Chamaram no WhatsApp',
+    cadastro_manual:'Cadastros feitos por supervisores'
+  };
+  var ORDEM = ['visitou','selecionou_municipio','abriu_mapa','selecionou_area',
+               'viu_resultados','busca_sem_resultado','clique_curso','clique_vaga',
+               'viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp','cadastro_manual'];
+  var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'EVG',
+                 bradesco:'Fund. Bradesco', manual:'Cadastro do programa' };
+
+  /* ---------- entrada ---------- */
+  function chave(){ return sessionStorage.getItem('sa_chave') || ''; }
+
+  $('entrar').addEventListener('click', entrar);
+  $('chave').addEventListener('keydown', function(e){ if(e.key === 'Enter') entrar(); });
+
+  function entrar(){
+    var v = $('chave').value.trim();
+    if(!v){ return erroPorta('Digite a chave de acesso.'); }
+    sessionStorage.setItem('sa_chave', v);
+    abrirPainel();
+  }
+  function erroPorta(msg){
+    var el = $('porta-erro');
+    el.textContent = msg;
+    el.classList.remove('oculto');
+  }
+  function abrirPainel(){
+    $('porta').classList.add('oculto');
+    $('painel').classList.remove('oculto');
+    carregar();
+  }
+  $('sair').addEventListener('click', function(){
+    sessionStorage.removeItem('sa_chave');
+    location.reload();
+  });
+
+  /* ---------- período ---------- */
+  Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function(b){
+    b.addEventListener('click', function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function(o){
+        o.removeAttribute('aria-pressed');
+      });
+      b.setAttribute('aria-pressed','true');
+      dias = parseInt(b.dataset.dias, 10);
+      carregar();
+    });
+  });
+  $('atualizar').addEventListener('click', carregar);
+
+  /* ---------- carga ---------- */
+  function carregar(){
+    var alvo = $('conteudo');
+    alvo.classList.add('carregando');
+    $('atualizado').textContent = 'Carregando dados';
+
+    fetch(API + '/dash?k=' + encodeURIComponent(chave()) + '&dias=' + dias)
+      .then(function(r){
+        if(r.status === 401){ throw new Error('CHAVE'); }
+        if(!r.ok){ throw new Error('HTTP ' + r.status); }
+        return r.json();
+      })
+      .then(function(j){
+        dados = j;
+        desenhar(j);
+        alvo.classList.remove('carregando');
+        var agora = new Date();
+        $('atualizado').textContent = 'Últimos ' + dias + ' dias · atualizado às ' +
+          agora.toLocaleTimeString('pt-BR', {hour:'2-digit', minute:'2-digit'});
+      })
+      .catch(function(e){
+        alvo.classList.remove('carregando');
+        if(e.message === 'CHAVE'){
+          sessionStorage.removeItem('sa_chave');
+          $('painel').classList.add('oculto');
+          $('porta').classList.remove('oculto');
+          $('chave').value = '';
+          erroPorta('A chave não confere. Verifique com quem administra o portal.');
+          return;
+        }
+        $('atualizado').textContent = 'Não foi possível carregar os dados. Verifique a conexão e toque em Atualizar.';
+      });
+  }
+
+  /* ---------- desenho ---------- */
+  function total(j, ev){
+    var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0];
+    return r ? r.total : 0;
+  }
+  function sessoes(j, ev){
+    var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0];
+    return r ? r.sessoes : 0;
+  }
+
+  function desenhar(j){
+    /* lacunas */
+    var lac = j.lacunas || [];
+    var box = $('lista-lacunas');
+    if(!lac.length){
+      box.innerHTML = '<p class="vazio">Nenhuma busca terminou sem resultado neste período. Toda cidade e área procurada tinha alguma oferta para mostrar.</p>';
+    } else {
+      var topo = lac.slice(0, 10);
+      var max = topo[0].vezes || 1;
+      box.innerHTML = topo.map(function(l){
+        return '<div class="barra-linha">' +
+          '<div class="barra-rotulo">' + esc(l.cidade || 'Cidade não informada') +
+            '<small>' + esc(l.area || 'Área não informada') + '</small></div>' +
+          '<div class="barra-trilho"><div class="barra-preenche" data-p="' +
+            Math.round((l.vezes / max) * 100) + '"></div></div>' +
+          '<div class="barra-valor num">' + fmt(l.vezes) + '</div>' +
+        '</div>';
+      }).join('');
+      requestAnimationFrame(function(){
+        Array.prototype.forEach.call(box.querySelectorAll('.barra-preenche'), function(el){
+          el.style.width = el.dataset.p + '%';
+        });
+      });
+    }
+
+    /* indicadores */
+    var comResultado = total(j, 'viu_resultados');
+    var semResultado = total(j, 'busca_sem_resultado');
+    var buscas = comResultado + semResultado;
+
+    $('k-sessoes').textContent = fmt(sessoes(j, 'visitou'));
+    $('k-cidades').textContent = fmt((j.cidades || []).length);
+    $('k-cliques').textContent = fmt(total(j, 'clique_curso') + total(j, 'clique_vaga'));
+    $('k-lacunas').textContent = fmt(semResultado);
+    $('k-lacunas-nota').textContent = buscas
+      ? Math.round((semResultado / buscas) * 100) + '% das buscas do período'
+      : 'nenhuma busca no período';
+
+    /* cidades */
+    $('tb-cidades').innerHTML = (j.cidades || []).length
+      ? j.cidades.map(function(c){
+          return '<tr><td>' + esc(c.cidade) + '</td><td class="direita num">' + fmt(c.buscas) + '</td></tr>';
+        }).join('')
+      : '<tr><td colspan="2" class="vazio">Nenhuma cidade pesquisada no período.</td></tr>';
+
+    /* cursos */
+    $('tb-cursos').innerHTML = (j.cursos || []).length
+      ? j.cursos.map(function(c){
+          return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
+            esc(FONTES[c.fonte] || c.fonte || '–') + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
+        }).join('')
+      : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
+
+    /* jornada */
+    var base = total(j, 'visitou') || 1;
+    var jbox = $('lista-jornada');
+    var linhas = ORDEM.filter(function(ev){ return total(j, ev) > 0; });
+    jbox.innerHTML = linhas.length
+      ? linhas.map(function(ev){
+          var t = total(j, ev);
+          var pct = Math.min(Math.round((t / base) * 100), 100);
+          var alerta = (ev === 'busca_sem_resultado') ? ' alerta' : '';
+          return '<div class="jornada-linha' + alerta + '">' +
+            '<div>' + esc(ROTULOS[ev] || ev) + '</div>' +
+            '<div class="jornada-trilho"><div class="jornada-preenche" data-p="' + pct + '"></div></div>' +
+            '<div class="num">' + fmt(t) + '</div>' +
+            '<div class="jornada-pct">' + pct + '%</div>' +
+          '</div>';
+        }).join('')
+      : '<p class="vazio">Ainda não há eventos registrados neste período.</p>';
+    requestAnimationFrame(function(){
+      Array.prototype.forEach.call(jbox.querySelectorAll('.jornada-preenche'), function(el){
+        el.style.width = el.dataset.p + '%';
+      });
+    });
+  }
+
+  /* ---------- exportar ---------- */
+  $('copiar').addEventListener('click', function(){
+    if(!dados){ return; }
+    var j = dados;
+    var semResultado = total(j, 'busca_sem_resultado');
+    var linhas = [
+      'SuperAção SP · portal de cursos e vagas · últimos ' + dias + ' dias (' +
+        new Date().toLocaleDateString('pt-BR') + ')',
+      '',
+      fmt(sessoes(j, 'visitou')) + ' sessões, ' + fmt((j.cidades || []).length) +
+        ' municípios pesquisados, ' + fmt(total(j, 'clique_curso') + total(j, 'clique_vaga')) +
+        ' cliques em cursos e vagas.',
+      'Buscas que não encontraram nenhuma oferta: ' + fmt(semResultado) + '.',
+      ''
+    ];
+    if((j.lacunas || []).length){
+      linhas.push('Maiores lacunas de oferta:');
+      j.lacunas.slice(0, 10).forEach(function(l, i){
+        linhas.push((i + 1) + '. ' + (l.cidade || 'Cidade não informada') + ' · ' +
+          (l.area || 'Área não informada') + ': ' + fmt(l.vezes) + ' buscas sem resultado');
+      });
+    }
+    var texto = linhas.join('\n');
+    var botao = this;
+    navigator.clipboard.writeText(texto).then(function(){
+      botao.textContent = 'Resumo copiado';
+      setTimeout(function(){ botao.textContent = 'Copiar resumo para o relatório'; }, 2200);
+    }).catch(function(){
+      botao.textContent = 'Não foi possível copiar';
+      setTimeout(function(){ botao.textContent = 'Copiar resumo para o relatório'; }, 2200);
+    });
+  });
+
+  $('baixar-lacunas').addEventListener('click', function(){
+    if(!dados || !(dados.lacunas || []).length){ return; }
+    var csv = ['Municipio;Area;Buscas sem resultado'];
+    dados.lacunas.forEach(function(l){
+      csv.push('"' + (l.cidade || '') + '";"' + (l.area || '') + '";' + l.vezes);
+    });
+    var blob = new Blob(['\ufeff' + csv.join('\n')], {type:'text/csv;charset=utf-8'});
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'superacao-lacunas-' + dias + 'dias-' +
+      new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+  });
+
+  /* ---------- início ---------- */
+  if(chave()){ abrirPainel(); }
+})();
+</script>
+</body>
+</html>
