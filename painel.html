@@ -448,7 +448,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   'use strict';
 
   /* ====================== AJUSTE AQUI ====================== */
-  var API = 'https://superacao-analytics.SEU-SUBDOMINIO.workers.dev';
+  var API = 'superacao-analytics.beatrizgribas.workers.dev';
   /* ========================================================= */
 
   var $ = function(id){ return document.getElementById(id); };
@@ -486,7 +486,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   function entrar(){
     var v = $('chave').value.trim();
     if(!v){ return erroPorta('Digite a chave de acesso.'); }
-    if(API.indexOf('SEU-SUBDOMINIO') !== -1){
+    if(API.indexOf('superacao-analytics.beatrizgribas.workers.dev') !== -1){
       console.warn('[painel] a linha var API ainda está com o endereço de exemplo');
     }
     sessionStorage.setItem('sa_chave', v);
