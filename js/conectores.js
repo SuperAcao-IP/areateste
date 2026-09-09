@@ -356,7 +356,7 @@ function normalizarCursoSebrae(item){
   const fmt     = sebraeAttr(pv,"event_format");       // ex.: "Curso autoinstrucional"
   return {
     nome: pv.name || p.name || "Curso",
-    inst: "Sebrae SP · online, gratuito",
+    inst: "Sebrae SP",
     modalidade: fmt || "Online",
     carga: fmtCargaSebrae(duracao),
     _cargaH: duracao,                                  // usado pelo filtro de 10h
@@ -577,7 +577,7 @@ function csvParaObjetos(text, campoObrigatorio){
 function normalizarCursoPlanilha(row){
   return {
     nome: row.curso || "",
-    inst: (row.instituicao||"") + (row.modalidade?" · "+row.modalidade:""),
+    inst: row.instituicao || "",
     modalidade: row.modalidade || "",
     carga: row.carga || "",
     link: row.link || "",
@@ -623,9 +623,9 @@ function mesclarPlanilha(cursos, cidade){
     const deVizinha = !daCidade && vizinhas.some(v=>normTxt(v)===mun);
     if(!daCidade && !deVizinha) return;
     const id = c._area ? classificar(c._area) : classificar(c.nome);
-    const sufixo = ehOnlineFlag ? " · online" : " · presencial em "+c._municipio;
+    const sufixo = ehOnlineFlag ? "" : " · "+c._municipio;
     const obj = Object.assign({}, c, {
-      inst: (c.inst||"")+(c.inst?"":" ")+sufixo,
+      inst: ((c.inst||"")+sufixo).replace(/^ · /,""),
       _deOutraCidade: deVizinha ? c._municipio : null
     });
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).cursos.push(obj);
