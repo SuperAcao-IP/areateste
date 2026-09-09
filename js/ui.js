@@ -160,7 +160,8 @@ function initMapa(cidade){
   const d=MAPA[cidade]||{};
   setTimeout(()=>{
     MAP=L.map("mapaP",{scrollWheelZoom:false}).setView([-23.1,-47.05],13);
-    L.tileLayer("https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",{attribution:"&copy; OpenStreetMap &copy; CARTO",subdomains:"abcd",maxZoom:19}).addTo(MAP);
+    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"&copy; OpenStreetMap",maxZoom:19}).addTo(MAP);
+    MAP.getPane("tilePane").style.filter="grayscale(1) contrast(.92) brightness(1.06)";
     const b=[];
     ["curso","empregador","cras"].forEach(tp=>(d[tp]||[]).forEach(p=>{
       L.circleMarker([p.lat,p.lon],{radius:8,color:"#fff",weight:2,fillColor:COR[tp],fillOpacity:1}).bindPopup("<b>"+p.n+"</b>").addTo(MAP);
