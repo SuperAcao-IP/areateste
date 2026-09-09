@@ -532,7 +532,10 @@ async function carregarSebraeEAtualizar(cidade, token){
    PLANILHA MANUAL  ·  Google Sheets publicado como CSV
    - Cursos cadastrados manualmente pela equipe numa planilha do Google.
    - Colunas: municipio | curso | instituicao | modalidade | carga |
-              link | area | inscricoes_ate | status
+              link | area | inscricoes_de | inscricoes_ate | status | agente
+   - "inscricoes_de" (opcional): data em que as inscricoes abrem.
+     O curso aparece no site desde ja, com selo e o botao travado
+     ate a data chegar. Em branco = ja esta aberto.
    - Cursos com municipio "Online" aparecem em todas as cidades.
    - Aplica o mesmo filtro de carga horaria >= 10h.
    - Se a planilha nao responder, o portal continua funcionando normalmente.
@@ -580,6 +583,7 @@ function normalizarCursoPlanilha(row){
     link: row.link || "",
     _area: row.area || "",
     _municipio: row.municipio || "",
+    _de: row.inscricoes_de || "",
     _ate: row.inscricoes_ate || "",
     _status: row.status || "Aberto",
     _origem: row.origem || "",
