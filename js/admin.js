@@ -126,10 +126,10 @@ async function salvarAdm(){
   }
   let obj, ok;
   if(abaAdm==="cursos"){
-    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:"admin"};
     ok=obj.curso&&obj.area&&obj.municipio;
   }else{
-    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:"admin"};
     ok=obj.cargo&&obj.area&&obj.municipio;
   }
   if(!ok){ alert("Preencha pelo menos Município, Área e o "+(abaAdm==="cursos"?"Curso":"Cargo")+"."); return; }
