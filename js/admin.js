@@ -88,7 +88,7 @@ function renderAdmin(){
       +acampo("Instituição",ainp("a_inst",it.instituicao),true)
       +acampo("Modalidade",aselect("a_mod",MODAL_ADM,it.modalidade),true)
       +acampo("Carga horária",ainp("a_carga",it.carga),true)
-      +acampo("Link de inscrição ou endereço no mapa",ainp("a_link",it.link,"https://"),true,"Se o curso for presencial e não tiver inscrição online, cole aqui o endereço do Google Maps.")
+      +acampo("Link de inscrição ou endereço no mapa",ainp("a_link",it.link,"https://"),true)
       +acampo("Inscrições a partir de",ainp("a_de",it.inscricoes_de,"","date"))
       +acampo("Inscrições até",ainp("a_ate",it.inscricoes_ate,"","date"),true)
       +acampo("Status",aselect("a_status",["Aberto","Encerrado"],it.status||"Aberto"),true)
@@ -129,10 +129,10 @@ async function salvarAdm(){
   }
   let obj, ok;
   if(abaAdm==="cursos"){
-    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:"admin"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:"admin",origem:"painel"};
     ok=obj.curso&&obj.area&&obj.municipio;
   }else{
-    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:"admin"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:"admin",origem:"painel"};
     ok=obj.cargo&&obj.area&&obj.municipio;
   }
   if(!ok){ alert("Preencha pelo menos Município, Área e o "+(abaAdm==="cursos"?"Curso":"Cargo")+"."); return; }
@@ -156,11 +156,11 @@ async function salvarAdm(){
       /* injeta o item direto no cache local para aparecer na lista imediatamente
          (o CSV publicado do Google Sheets pode levar alguns minutos para atualizar) */
       if(abaAdm==="cursos"){
-        const novoItem = normalizarCursoPlanilha(Object.assign({}, obj, {origem:"admin"}));
+        const novoItem = normalizarCursoPlanilha(Object.assign({}, obj, {origem:"painel"}));
         if(!cachePlanilha.cursos) cachePlanilha.cursos = [];
         cachePlanilha.cursos.push(novoItem);
       }else{
-        const novoItem = normalizarVagaPlanilha(Object.assign({}, obj, {origem:"admin"}));
+        const novoItem = normalizarVagaPlanilha(Object.assign({}, obj, {origem:"painel"}));
         if(!cachePlanilhaVagas.vagas) cachePlanilhaVagas.vagas = [];
         cachePlanilhaVagas.vagas.push(novoItem);
       }
@@ -194,9 +194,9 @@ function renderListaAdm(){
   /* mostra APENAS os itens cadastrados pelo painel (origem=admin) */
   let arr;
   if(abaAdm==="cursos"){
-    arr = (cachePlanilha.cursos||[]).filter(c=>(c._agente||"").toLowerCase()==="admin").map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
+    arr = (cachePlanilha.cursos||[]).filter(c=>c._origem==="painel").map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
   }else{
-    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>(v._agente||"").toLowerCase()==="admin").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||"", _raw:v}));
+    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._origem==="painel").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||"", _raw:v}));
   }
   if(!arr.length){ wrap.innerHTML='<p class="a_vazio">Nenhum '+(abaAdm==="cursos"?"curso":"vaga")+' cadastrado(a) na planilha ainda. Use o formulário acima para adicionar.</p>'; return; }
   wrap.innerHTML='<table class="a_tabela"><thead><tr><th>'+(abaAdm==="cursos"?"Curso":"Cargo")+'</th><th>Área</th><th>Município</th><th>Situação</th><th></th></tr></thead><tbody>'
