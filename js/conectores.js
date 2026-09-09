@@ -584,9 +584,10 @@ function normalizarCursoPlanilha(row){
     _area: row.area || "",
     _municipio: row.municipio || "",
     _de: row.inscricoes_de || "",
+    _agente: row.agente || "",
     _ate: row.inscricoes_ate || "",
     _status: row.status || "Aberto",
-    _origem: row.origem || "",
+    _origem: row.agente || row.origem || "",
     _planilha: true
   };
 }
@@ -676,7 +677,8 @@ function normalizarVagaPlanilha(row){
     _area: row.area || "",
     _municipio: row.municipio || "",
     _status: row.status || "Aberto",
-    _origem: row.origem || "",
+    _agente: row.agente || "",
+    _origem: row.agente || row.origem || "",
     _planilha: true
   };
 }
