@@ -252,20 +252,63 @@ window._abrirModalSenac = function(url){
   document.onkeydown = function(e){ if(e.key==="Escape" && overlay.classList.contains("aberto")) close(); };
 };
 
+/* ============================================================
+   INSCRICOES QUE AINDA NAO ABRIRAM
+   ------------------------------------------------------------
+   Curso com "inscricoes_de" no futuro aparece na lista normal-
+   mente, mas com um selo avisando a data e o botao desativado.
+   Na data, libera sozinho e o selo some.
+   ============================================================ */
+(function(){
+  if(document.getElementById("estilo-abertura")) return;
+  const st=document.createElement("style");
+  st.id="estilo-abertura";
+  st.textContent=".selo-abertura{display:inline-flex;align-items:center;gap:6px;background:#fff4e5;border:1px solid #ffd9a8;color:#8a4b00;font-size:.78rem;font-weight:700;line-height:1.3;border-radius:8px;padding:5px 9px;margin:0 0 9px}"
+    +".btn-curso.btn-bloqueado{background:#e8ebee!important;color:#8a949e!important;border:1px solid #dde1e6!important;cursor:not-allowed;pointer-events:none;box-shadow:none!important}";
+  document.head.appendChild(st);
+})();
+function _dataSimples(v){
+  if(!v) return null;
+  const s=String(v).trim(); if(!s) return null;
+  const br=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  const iso=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  let d=null;
+  if(br) d=new Date(+br[3],+br[2]-1,+br[1]);
+  else if(iso) d=new Date(+iso[1],+iso[2]-1,+iso[3]);
+  else { const t=new Date(s); if(!isNaN(t.getTime())) d=new Date(t.getFullYear(),t.getMonth(),t.getDate()); }
+  return d && !isNaN(d.getTime()) ? d : null;
+}
+function aindaNaoAbriu(c){
+  const d=_dataSimples(c && c._de);
+  if(!d) return null;
+  const hoje=new Date(); hoje.setHours(0,0,0,0);
+  return d>hoje ? d : null;
+}
+function _dataCurta(d){
+  const dd=String(d.getDate()).padStart(2,"0"), mm=String(d.getMonth()+1).padStart(2,"0");
+  return dd+"/"+mm+(d.getFullYear()!==new Date().getFullYear()?"/"+d.getFullYear():"");
+}
+
 function cartaoCurso(c){
   const rotulo = ehLinkMaps(c.link) ? "Local de inscrição" : "Como se inscrever";
+  const abreEm = aindaNaoAbriu(c);
   let acao = "";
-  if(urlValida(c.link)){
+  if(abreEm && urlValida(c.link)){
+    acao = '<span class="btn-curso btn-bloqueado" aria-disabled="true" title="As inscrições ainda não começaram">'+rotulo+' '+linkExterno+'</span>';
+  } else if(urlValida(c.link)){
     if(ehSenac(c)){
       acao = '<a class="btn-curso btn-senac" href="#" onclick="event.preventDefault();window._abrirModalSenac(\''+esc(c.link).replace(/'/g,"\\'")+'\')">'+rotulo+' '+linkExterno+'</a>';
     } else {
       acao = '<a class="btn-curso" href="'+esc(c.link)+'" target="_blank" rel="noopener noreferrer">'+rotulo+' '+linkExterno+'</a>';
     }
   }
+  const seloAbertura = abreEm
+    ? `<div class="selo-abertura"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8a4b00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Inscrições a partir de ${_dataCurta(abreEm)}</div>`
+    : "";
   const badgeVizinha = c._deOutraCidade
     ? `<div class="badge-outra-cidade"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg> Curso disponível em ${esc(c._deOutraCidade)} (município vizinho)</div>`
     : "";
-  return `<div class="curso">${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  return `<div class="curso">${seloAbertura}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
 }
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
