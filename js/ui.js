@@ -30,9 +30,9 @@ async function montarDados(cidade){
     (DADOS_CIDADE[id]=DADOS_CIDADE[id]||{cursos:[],oportunidades:[]})[tipo].push(obj);
   };
   EVG.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
-    {nome:c.titulo, inst:c.inst+" · EVG (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
+    {nome:c.titulo, inst:c.inst+" · EVG", modalidade:"Online", carga:c.carga, link:c.link}));
   EV.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
-    {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
+    {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual", modalidade:"Online", carga:c.carga, link:c.link}));
   /* cursos manuais (dados.json) */
   (DADOS.cursos||[]).forEach(c=>{
     const daCidade = ehDaCidade(c.municipio,cidade) || ehOnline(c.municipio);
