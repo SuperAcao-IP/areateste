@@ -45,8 +45,21 @@ const OUTROS = { id:"outros", nome:"Outros", descricao:"Capacitações gerais e 
 /* classificador central por palavras-chave (ignora acentos e caixa) */
 function classificar(t){
   t = normTxt(t);
-  for(const a of AREAS){ if(a.kw.some(k=>t.includes(k))) return a.id; }
+  for(const a of AREAS){ if(a.kw.some(k=>contemPalavra(t,k))) return a.id; }
   return "outros";
+}
+/* A palavra-chave so vale se começar no inicio de uma palavra.
+   Sem isso "spa" casava dentro de "eSPAnhol" e jogava o curso em Beleza.
+   Continua valendo para radicais ("estetic" acha "esteticista"), porque
+   o que se exige e o começo da palavra, nao a palavra inteira. */
+function contemPalavra(texto, chave){
+  let i = texto.indexOf(chave);
+  while(i !== -1){
+    const antes = i === 0 ? "" : texto[i-1];
+    if(!/[a-z0-9]/.test(antes)) return true;
+    i = texto.indexOf(chave, i+1);
+  }
+  return false;
 }
 /* area de um curso: tenta pelos rotulos/tema; se nao achar, tenta pelo nome */
 function areaDoCurso(nome){
