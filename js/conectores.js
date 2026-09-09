@@ -587,7 +587,7 @@ function normalizarCursoPlanilha(row){
     _agente: row.agente || "",
     _ate: row.inscricoes_ate || "",
     _status: row.status || "Aberto",
-    _origem: row.agente || row.origem || "",
+    _origem: row.origem || "",
     _planilha: true
   };
 }
@@ -678,7 +678,7 @@ function normalizarVagaPlanilha(row){
     _municipio: row.municipio || "",
     _status: row.status || "Aberto",
     _agente: row.agente || "",
-    _origem: row.agente || row.origem || "",
+    _origem: row.origem || "",
     _planilha: true
   };
 }
