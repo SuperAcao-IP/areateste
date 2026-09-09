@@ -17,6 +17,8 @@
 const MODAL_ADM=["Presencial","Online","Híbrido"];
 const CONTRATO_ADM=["CLT","Estágio","Jovem Aprendiz","Temporário","PJ / Autônomo","Outro"];
 const MUN_ADM=["Online / Todos os municípios"].concat(MUNICIPIOS);
+/* mesmas opcoes do menu suspenso da coluna "agente" na planilha */
+const AGENTES_ADM=["admin","Luiza","Fernanda","Isabela","Ana Paula","Sofia","Luiz","Kauanne","Beatriz","Outro"];
 let abaAdm="cursos", editIdx=-1;
 const elOverlay=document.getElementById("admin");
 document.getElementById("abrirAdmin").addEventListener("click",async()=>{
@@ -38,8 +40,8 @@ function acampo(lbl,inner,obrig,dica){
     +(dica?'<span class="a_dica">'+dica+'</span>':'')+inner+'</label>';
 }
 /* campos que nao podem ficar em branco */
-const OBRIG_CURSOS=[["a_mun","Município"],["a_area","Área"],["a_curso","Curso"],["a_inst","Instituição"],["a_mod","Modalidade"],["a_carga","Carga horária"],["a_link","Link de inscrição ou endereço no mapa"],["a_ate","Inscrições até"],["a_status","Status"]];
-const OBRIG_VAGAS=[["a_mun","Município"],["a_area","Área"],["a_cargo","Cargo / vaga"],["a_empresa","Empresa"],["a_cidade","Cidade"],["a_tipo","Tipo de contrato"],["a_link","Link da vaga"],["a_val","Validade (até)"],["a_status","Status"]];
+const OBRIG_CURSOS=[["a_mun","Município"],["a_area","Área"],["a_curso","Curso"],["a_inst","Instituição"],["a_mod","Modalidade"],["a_carga","Carga horária"],["a_link","Link de inscrição ou endereço no mapa"],["a_ate","Inscrições até"],["a_status","Status"],["a_agente","Agente"]];
+const OBRIG_VAGAS=[["a_mun","Município"],["a_area","Área"],["a_cargo","Cargo / vaga"],["a_empresa","Empresa"],["a_cidade","Cidade"],["a_tipo","Tipo de contrato"],["a_link","Link da vaga"],["a_val","Validade (até)"],["a_status","Status"],["a_agente","Agente"]];
 function limparErrosAdm(){
   document.querySelectorAll("#admin-form .a_campo.erro").forEach(el=>el.classList.remove("erro"));
   const v=document.getElementById("a_erro"); if(v) v.remove();
@@ -89,6 +91,7 @@ function renderAdmin(){
       +acampo("Inscrições a partir de",ainp("a_de",it.inscricoes_de,"","date"),false,"Opcional. Se preencher, o curso aparece no site com aviso e o link só libera nessa data.")
       +acampo("Inscrições até",ainp("a_ate",it.inscricoes_ate,"","date"),true)
       +acampo("Status",aselect("a_status",["Aberto","Encerrado"],it.status||"Aberto"),true)
+      +acampo("Agente",aselect("a_agente",AGENTES_ADM,it.agente||"admin"),true,"Quem está cadastrando. Deixe em \u201cadmin\u201d se for cadastro geral da plataforma.")
       +abotoes();
   }else{
     f.innerHTML='<p class="a_legenda_obrig">Os campos marcados com <b class="a_obrig">*</b> são obrigatórios.</p>'
@@ -101,6 +104,7 @@ function renderAdmin(){
       +acampo("Link da vaga",ainp("a_link",it.link,"https://"),true)
       +acampo("Validade (até)",ainp("a_val",it.validade,"","date"),true)
       +acampo("Status",aselect("a_status",["Aberto","Encerrado"],it.status||"Aberto"),true)
+      +acampo("Agente",aselect("a_agente",AGENTES_ADM,it.agente||"admin"),true,"Quem está cadastrando. Deixe em \u201cadmin\u201d se for cadastro geral da plataforma.")
       +abotoes();
   }
   document.querySelectorAll("#admin-form input,#admin-form select").forEach(el=>{
@@ -126,10 +130,10 @@ async function salvarAdm(){
   }
   let obj, ok;
   if(abaAdm==="cursos"){
-    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:"admin"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:aval("a_agente")||"admin"};
     ok=obj.curso&&obj.area&&obj.municipio;
   }else{
-    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:"admin"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:aval("a_agente")||"admin"};
     ok=obj.cargo&&obj.area&&obj.municipio;
   }
   if(!ok){ alert("Preencha pelo menos Município, Área e o "+(abaAdm==="cursos"?"Curso":"Cargo")+"."); return; }
@@ -191,13 +195,13 @@ function renderListaAdm(){
   /* mostra APENAS os itens cadastrados pelo painel (origem=admin) */
   let arr;
   if(abaAdm==="cursos"){
-    arr = (cachePlanilha.cursos||[]).filter(c=>c._origem==="admin").map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
+    arr = (cachePlanilha.cursos||[]).filter(c=>c._agente||c._origem).map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||c._origem||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
   }else{
-    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._origem==="admin").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", _raw:v}));
+    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._agente||v._origem).map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||v._origem||"", _raw:v}));
   }
   if(!arr.length){ wrap.innerHTML='<p class="a_vazio">Nenhum '+(abaAdm==="cursos"?"curso":"vaga")+' cadastrado(a) na planilha ainda. Use o formulário acima para adicionar.</p>'; return; }
-  wrap.innerHTML='<table class="a_tabela"><thead><tr><th>'+(abaAdm==="cursos"?"Curso":"Cargo")+'</th><th>Área</th><th>Município</th><th>Situação</th><th></th></tr></thead><tbody>'
-    +arr.map((it,i)=>'<tr><td>'+esc((abaAdm==="cursos"?it.curso:it.cargo)||"")+'</td><td>'+esc(it.area||"")+'</td><td>'+esc(it.municipio||"")+'</td><td>'+badgeAdm(it)+'</td><td><button class="a_link del" data-del="'+i+'" type="button">Excluir</button></td></tr>').join('')
+  wrap.innerHTML='<table class="a_tabela"><thead><tr><th>'+(abaAdm==="cursos"?"Curso":"Cargo")+'</th><th>Área</th><th>Município</th><th>Agente</th><th>Situação</th><th></th></tr></thead><tbody>'
+    +arr.map((it,i)=>'<tr><td>'+esc((abaAdm==="cursos"?it.curso:it.cargo)||"")+'</td><td>'+esc(it.area||"")+'</td><td>'+esc(it.municipio||"")+'</td><td>'+esc(it.agente||"")+'</td><td>'+badgeAdm(it)+'</td><td><button class="a_link del" data-del="'+i+'" type="button">Excluir</button></td></tr>').join('')
     +'</tbody></table>';
   wrap.querySelectorAll("[data-del]").forEach(b=>b.addEventListener("click",async()=>{
     if(!confirm("Excluir este item da planilha? Esta ação é permanente.")) return;
