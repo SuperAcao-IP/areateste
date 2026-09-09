@@ -11,7 +11,10 @@
     +".a_campo .a_dica{display:block;font-weight:400;font-size:.78rem;line-height:1.35;color:#5c6b7a;margin:2px 0 4px}"
     +".a_campo.erro input,.a_campo.erro select{border-color:#d32f2f!important;background:#fff6f6}"
     +".a_aviso_erro{color:#b71c1c;background:#fff5f5;border:1px solid #f0c2c2;border-radius:8px;padding:9px 11px;margin:10px 0 0;font-size:.85rem;line-height:1.4}"
-    +".a_legenda_obrig{font-size:.8rem;color:#5c6b7a;margin:0 0 10px}";
+    +".a_legenda_obrig{font-size:.8rem;color:#5c6b7a;margin:0}"
+    +"#admin-form .a_legenda_obrig,#admin-form .a_botoes,#admin-form .a_aviso_erro{grid-column:1/-1;flex-basis:100%;width:100%}"
+    +"#admin-form .a_campo{display:flex;flex-direction:column;align-self:stretch}"
+    +"#admin-form .a_campo>input,#admin-form .a_campo>select{margin-top:auto}";
   document.head.appendChild(st);
 })();
 const MODAL_ADM=["Presencial","Online","Híbrido"];
@@ -88,7 +91,7 @@ function renderAdmin(){
       +acampo("Modalidade",aselect("a_mod",MODAL_ADM,it.modalidade),true)
       +acampo("Carga horária",ainp("a_carga",it.carga),true)
       +acampo("Link de inscrição ou endereço no mapa",ainp("a_link",it.link,"https://"),true,"Se o curso for presencial e não tiver inscrição online, cole aqui o endereço do Google Maps.")
-      +acampo("Inscrições a partir de",ainp("a_de",it.inscricoes_de,"","date"),false,"Opcional. Se preencher, o curso aparece no site com aviso e o link só libera nessa data.")
+      +acampo("Inscrições a partir de",ainp("a_de",it.inscricoes_de,"","date"))
       +acampo("Inscrições até",ainp("a_ate",it.inscricoes_ate,"","date"),true)
       +acampo("Status",aselect("a_status",["Aberto","Encerrado"],it.status||"Aberto"),true)
       +acampo("Agente",aselect("a_agente",AGENTES_ADM,it.agente||"admin"),true,"Quem está cadastrando. Deixe em \u201cadmin\u201d se for cadastro geral da plataforma.")
@@ -195,9 +198,9 @@ function renderListaAdm(){
   /* mostra APENAS os itens cadastrados pelo painel (origem=admin) */
   let arr;
   if(abaAdm==="cursos"){
-    arr = (cachePlanilha.cursos||[]).filter(c=>c._agente||c._origem).map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||c._origem||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
+    arr = (cachePlanilha.cursos||[]).filter(c=>c._origem==="admin").map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
   }else{
-    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._agente||v._origem).map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||v._origem||"", _raw:v}));
+    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._origem==="admin").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||"", _raw:v}));
   }
   if(!arr.length){ wrap.innerHTML='<p class="a_vazio">Nenhum '+(abaAdm==="cursos"?"curso":"vaga")+' cadastrado(a) na planilha ainda. Use o formulário acima para adicionar.</p>'; return; }
   wrap.innerHTML='<table class="a_tabela"><thead><tr><th>'+(abaAdm==="cursos"?"Curso":"Cargo")+'</th><th>Área</th><th>Município</th><th>Agente</th><th>Situação</th><th></th></tr></thead><tbody>'
