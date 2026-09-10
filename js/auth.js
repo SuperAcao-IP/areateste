@@ -62,6 +62,19 @@
     return false;
   }
 
+  /* Pega o APPS_SCRIPT_URL do js/config.js.
+     Nao da para ler como global.APPS_SCRIPT_URL: o config.js declara a
+     constante com "const", e const/let no topo de um script NAO viram
+     propriedade do window -- so "var" e funcao viram. Por isso o acesso
+     e feito pelo nome puro, dentro de um try. */
+  function urlDoConfig() {
+    try {
+      return (typeof APPS_SCRIPT_URL !== 'undefined') ? APPS_SCRIPT_URL : '';
+    } catch (e) {
+      return '';
+    }
+  }
+
   /* Marca na sessao que o e-mail ja foi registrado, para nao repetir
      a cada pagina aberta. */
   function marcarRegistrado() {
@@ -79,11 +92,15 @@
      Devolve true se conseguiu disparar o envio. */
   function registrarAcesso(email) {
     try {
-      var url = global.APPS_SCRIPT_URL || CONFIG.urlPlanilha;
+      var url = CONFIG.urlPlanilha || urlDoConfig();
       // Se a pagina atual nao carregou o config.js, o endereco ainda nao
       // existe aqui. Nao adianta insistir agora: a proxima pagina (que
       // carrega o config.js) tenta de novo, pela sessao.
-      if (!url || String(url).indexOf('COLE_A_URL') >= 0) return false;
+      if (!url || String(url).indexOf('COLE_A_URL') >= 0) {
+        console.warn('[auth] APPS_SCRIPT_URL nao encontrado nesta pagina; '
+          + 'o e-mail sera registrado na proxima que carregar o config.js.');
+        return false;
+      }
 
       var corpo = JSON.stringify({ acao: 'registrar_email', email: email });
 
