@@ -87,23 +87,19 @@
 
       var corpo = JSON.stringify({ acao: 'registrar_email', email: email });
 
-      // sendBeacon sobrevive ao redirecionamento que vem logo depois do
-      // login; um fetch comum seria cancelado no meio do caminho.
-      if (global.navigator && typeof global.navigator.sendBeacon === 'function') {
-        global.navigator.sendBeacon(
-          url, new Blob([corpo], { type: 'text/plain;charset=UTF-8' })
-        );
-        marcarRegistrado();
-        return true;
-      }
-
+      // fetch com keepalive: sobrevive ao redirecionamento que vem logo
+      // depois do login, igual ao sendBeacon, mas com resposta legivel no
+      // console -- o que ajuda quando algo da errado.
       global.fetch(url, {
         method: 'POST',
         keepalive: true,
         redirect: 'follow',
         headers: { 'Content-Type': 'text/plain' },
         body: corpo
-      })['catch'](function () {});
+      }).then(function (r) { return r.json(); })
+        .then(function (r) { console.log('[auth] e-mail registrado:', r); })
+        ['catch'](function (err) { console.warn('[auth] falhou o registro do e-mail:', err); });
+
       marcarRegistrado();
       return true;
     } catch (e) { return false; }
