@@ -62,12 +62,28 @@
     return false;
   }
 
+  /* Marca na sessao que o e-mail ja foi registrado, para nao repetir
+     a cada pagina aberta. */
+  function marcarRegistrado() {
+    try {
+      var bruto = store.getItem(CONFIG.chave);
+      if (!bruto) return;
+      var s = JSON.parse(bruto);
+      s.registrado = true;
+      store.setItem(CONFIG.chave, JSON.stringify(s));
+    } catch (e) { /* sem problema */ }
+  }
+
   /* Registra o e-mail na planilha. E best-effort: se falhar, o login
-     acontece do mesmo jeito e a pessoa nao ve erro nenhum. */
+     acontece do mesmo jeito e a pessoa nao ve erro nenhum.
+     Devolve true se conseguiu disparar o envio. */
   function registrarAcesso(email) {
     try {
       var url = global.APPS_SCRIPT_URL || CONFIG.urlPlanilha;
-      if (!url || String(url).indexOf('COLE_A_URL') >= 0) return;
+      // Se a pagina atual nao carregou o config.js, o endereco ainda nao
+      // existe aqui. Nao adianta insistir agora: a proxima pagina (que
+      // carrega o config.js) tenta de novo, pela sessao.
+      if (!url || String(url).indexOf('COLE_A_URL') >= 0) return false;
 
       var corpo = JSON.stringify({ acao: 'registrar_email', email: email });
 
@@ -77,7 +93,8 @@
         global.navigator.sendBeacon(
           url, new Blob([corpo], { type: 'text/plain;charset=UTF-8' })
         );
-        return;
+        marcarRegistrado();
+        return true;
       }
 
       global.fetch(url, {
@@ -87,7 +104,9 @@
         headers: { 'Content-Type': 'text/plain' },
         body: corpo
       })['catch'](function () {});
-    } catch (e) { /* nunca atrapalha o login */ }
+      marcarRegistrado();
+      return true;
+    } catch (e) { return false; }
   }
 
   function sessao() {
@@ -184,9 +203,18 @@
     montarBarra: montarBarra
   };
 
-  if (global.document.readyState === 'loading') {
-    global.document.addEventListener('DOMContentLoaded', montarBarra);
-  } else {
+  /* Roda em toda pagina: monta a barra e, se a sessao ainda nao foi
+     registrada na planilha, tenta agora. Assim o registro acontece mesmo
+     que a pagina de login nao tenha o config.js carregado. */
+  function aoCarregar() {
     montarBarra();
+    var s = sessao();
+    if (s && !s.registrado) registrarAcesso(s.email);
+  }
+
+  if (global.document.readyState === 'loading') {
+    global.document.addEventListener('DOMContentLoaded', aoCarregar);
+  } else {
+    aoCarregar();
   }
 })(window);
