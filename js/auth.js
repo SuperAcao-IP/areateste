@@ -16,6 +16,12 @@
     // Duração da sessão, em horas.
     horasDeSessao: 12,
 
+    // URL do Apps Script, usada para registrar o e-mail na aba "emails".
+    // Fica em branco de proposito: o valor vem do APPS_SCRIPT_URL do
+    // js/config.js. So preencha aqui se a pagina de login nao carregar
+    // o config.js.
+    urlPlanilha: '',
+
     paginaLogin: 'login.html',
     paginaInicial: 'index.html',
     chave: 'superacao.sessao'
@@ -56,6 +62,34 @@
     return false;
   }
 
+  /* Registra o e-mail na planilha. E best-effort: se falhar, o login
+     acontece do mesmo jeito e a pessoa nao ve erro nenhum. */
+  function registrarAcesso(email) {
+    try {
+      var url = global.APPS_SCRIPT_URL || CONFIG.urlPlanilha;
+      if (!url || String(url).indexOf('COLE_A_URL') >= 0) return;
+
+      var corpo = JSON.stringify({ acao: 'registrar_email', email: email });
+
+      // sendBeacon sobrevive ao redirecionamento que vem logo depois do
+      // login; um fetch comum seria cancelado no meio do caminho.
+      if (global.navigator && typeof global.navigator.sendBeacon === 'function') {
+        global.navigator.sendBeacon(
+          url, new Blob([corpo], { type: 'text/plain;charset=UTF-8' })
+        );
+        return;
+      }
+
+      global.fetch(url, {
+        method: 'POST',
+        keepalive: true,
+        redirect: 'follow',
+        headers: { 'Content-Type': 'text/plain' },
+        body: corpo
+      })['catch'](function () {});
+    } catch (e) { /* nunca atrapalha o login */ }
+  }
+
   function sessao() {
     try {
       var bruto = store.getItem(CONFIG.chave);
@@ -88,6 +122,8 @@
       criadaEm: agora,
       expiraEm: agora + CONFIG.horasDeSessao * 60 * 60 * 1000
     }));
+
+    registrarAcesso(e);
 
     return { ok: true, email: e };
   }
@@ -144,6 +180,7 @@
     sessao: sessao,
     usuario: usuario,
     dominioValido: dominioValido,
+    registrarAcesso: registrarAcesso,
     montarBarra: montarBarra
   };
 
