@@ -665,6 +665,30 @@ async function carregarPlanilhaEAtualizar(cidade, token){
    ===================================================================== */
 const cachePlanilhaVagas = { vagas: null };
 
+/* Le uma data da planilha aceitando DD/MM/AAAA e AAAA-MM-DD */
+function dataDaPlanilha(valor){
+  const s = (valor || "").toString().trim();
+  if(!s) return null;
+  const br = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(br){ const d = new Date(+br[3], +br[2]-1, +br[1]); return isNaN(d.getTime()) ? null : d; }
+  const iso = s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/);
+  if(iso){ const d = new Date(+iso[1], +iso[2]-1, +iso[3]); return isNaN(d.getTime()) ? null : d; }
+  const d = new Date(s);
+  return isNaN(d.getTime()) ? null : new Date(d.getFullYear(), d.getMonth(), d.getDate());
+}
+
+/* Ate quando a vaga vale.
+   Se quem cadastrou informou a validade, vale ela.
+   Se nao informou, vale dois meses depois da data de publicacao.
+   Sem validade e sem data, a vaga nao expira sozinha (linhas antigas). */
+function validadeDaVaga(v){
+  const informada = dataDaPlanilha(v._validade);
+  if(informada) return informada;
+  const publicada = dataDaPlanilha(v._data);
+  if(!publicada) return null;
+  return new Date(publicada.getFullYear(), publicada.getMonth() + 2, publicada.getDate());
+}
+
 function normalizarVagaPlanilha(row){
   return {
     cargo: row.cargo || "",
@@ -673,10 +697,13 @@ function normalizarVagaPlanilha(row){
     modalidade: row.modalidade || "",
     desc: row.descricao || "",
     link: row.link || "",
+    telefone: row.telefone || "",
     cidade: row.municipio || "",
     _area: row.area || "",
     _municipio: row.municipio || "",
     _status: row.status || "Aberto",
+    _data: row.data || "",
+    _validade: row.validade || "",
     _agente: row.agente || "",
     _origem: row.origem || "",
     _planilha: true
@@ -691,7 +718,8 @@ async function buscarVagasPlanilha(){
   const text = await resp.text();
   const rows = csvParaObjetos(text, "cargo");
   const vagas = rows.map(normalizarVagaPlanilha)
-    .filter(v => (v._status||"").toLowerCase() !== "encerrado");
+    .filter(v => (v._status||"").toLowerCase() !== "encerrado")
+    .filter(v => { const ate = validadeDaVaga(v); return !ate || ate >= hoje0(); });
   console.log("[Planilha Vagas] vagas válidas:", vagas.length, "| linhas no CSV:", rows.length);
   cachePlanilhaVagas.vagas = vagas;
   return vagas;
