@@ -42,7 +42,7 @@ function acampo(lbl,inner,obrig,dica){
 }
 /* campos que nao podem ficar em branco */
 const OBRIG_CURSOS=[["a_mun","Município"],["a_area","Área"],["a_curso","Curso"],["a_inst","Instituição"],["a_mod","Modalidade"],["a_carga","Carga horária"],["a_link","Link de inscrição ou endereço no mapa"],["a_ate","Inscrições até"],["a_status","Status"]];
-const OBRIG_VAGAS=[["a_mun","Município"],["a_area","Área"],["a_cargo","Cargo / vaga"],["a_empresa","Empresa"],["a_cidade","Cidade"],["a_tipo","Tipo de contrato"],["a_link","Link da vaga"],["a_val","Validade (até)"],["a_status","Status"]];
+const OBRIG_VAGAS=[["a_mun","Município"],["a_area","Área"],["a_cargo","Cargo / vaga"],["a_empresa","Empresa"],["a_cidade","Cidade"],["a_tipo","Tipo de contrato"],["a_link","Link da vaga"],["a_data","Data"],["a_status","Status"]];
 function limparErrosAdm(){
   document.querySelectorAll("#admin-form .a_campo.erro").forEach(el=>el.classList.remove("erro"));
   const v=document.getElementById("a_erro"); if(v) v.remove();
@@ -75,6 +75,19 @@ function validarObrigatorios(campos){
   return false;
 }
 function abotoes(){ return '<div class="a_botoes"><button id="a_salvar" class="btn-prim" type="button">'+(editIdx>=0?"Salvar edição":"Adicionar")+'</button>'+(editIdx>=0?'<button id="a_cancelar" class="btn-sec" type="button">Cancelar</button>':'')+'</div>'; }
+function hojeISO(){
+  const d=new Date();
+  return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0");
+}
+/* Vaga sem validade informada vale dois meses a partir da data */
+function validadeEfetiva(it){
+  if(it.validade) return it.validade;
+  if(!it.data) return "";
+  const d=new Date(it.data+"T00:00:00");
+  if(isNaN(d.getTime())) return "";
+  const f=new Date(d.getFullYear(), d.getMonth()+2, d.getDate());
+  return f.getFullYear()+"-"+String(f.getMonth()+1).padStart(2,"0")+"-"+String(f.getDate()).padStart(2,"0");
+}
 function aval(id){ const e=document.getElementById(id); return e?e.value.trim():""; }
 
 function renderAdmin(){
@@ -102,7 +115,8 @@ function renderAdmin(){
       +acampo("Cidade",ainp("a_cidade",it.cidade),true)
       +acampo("Tipo de contrato",aselect("a_tipo",CONTRATO_ADM,it.tipo),true)
       +acampo("Link da vaga",ainp("a_link",it.link,"https://"),true)
-      +acampo("Validade (até)",ainp("a_val",it.validade,"","date"),true)
+      +acampo("Data",ainp("a_data",it.data||hojeISO(),"","date"),true)
+      +acampo("Validade (até)",ainp("a_val",it.validade,"","date"))
       +acampo("Status",aselect("a_status",["Aberto","Encerrado"],it.status||"Aberto"),true)
       +abotoes();
   }
@@ -132,7 +146,7 @@ async function salvarAdm(){
     obj={municipio:aval("a_mun"),area:aval("a_area"),curso:aval("a_curso"),instituicao:aval("a_inst"),modalidade:aval("a_mod"),carga:aval("a_carga"),link:link,inscricoes_de:aval("a_de"),inscricoes_ate:aval("a_ate"),status:aval("a_status")||"Aberto",agente:"admin",origem:"painel"};
     ok=obj.curso&&obj.area&&obj.municipio;
   }else{
-    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,status:aval("a_status")||"Aberto",agente:"admin",origem:"painel"};
+    obj={municipio:aval("a_mun"),area:aval("a_area"),cargo:aval("a_cargo"),empresa:aval("a_empresa"),tipo_contrato:aval("a_tipo"),modalidade:aval("a_mod")||"",descricao:"",link:link,data:aval("a_data"),validade:aval("a_val"),status:aval("a_status")||"Aberto",agente:"admin",origem:"painel"};
     ok=obj.cargo&&obj.area&&obj.municipio;
   }
   if(!ok){ alert("Preencha pelo menos Município, Área e o "+(abaAdm==="cursos"?"Curso":"Cargo")+"."); return; }
@@ -180,7 +194,7 @@ async function salvarAdm(){
   }
 }
 function badgeAdm(it){
-  const ate=abaAdm==="cursos"?it.inscricoes_ate:it.validade;
+  const ate=abaAdm==="cursos"?it.inscricoes_ate:validadeEfetiva(it);
   if((it.status||"").toLowerCase()==="encerrado") return '<span class="badge enc">Encerrado</span>';
   if(abaAdm==="cursos" && it.inscricoes_de){
     const di=new Date(it.inscricoes_de+"T00:00:00");
@@ -196,7 +210,7 @@ function renderListaAdm(){
   if(abaAdm==="cursos"){
     arr = (cachePlanilha.cursos||[]).filter(c=>c._origem==="painel").map(c=>({curso:c.nome, area:c._area||"", municipio:c._municipio||"", status:c._status||"Aberto", agente:c._agente||"", inscricoes_de:c._de||"", inscricoes_ate:c._ate||"", _raw:c}));
   }else{
-    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._origem==="painel").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", agente:v._agente||"", _raw:v}));
+    arr = (cachePlanilhaVagas.vagas||[]).filter(v=>v._origem==="painel").map(v=>({cargo:v.cargo, area:v._area||"", municipio:v._municipio||v.cidade||"", status:v._status||"Aberto", data:v._data||"", validade:v._validade||"", agente:v._agente||"", _raw:v}));
   }
   if(!arr.length){ wrap.innerHTML='<p class="a_vazio">Nenhum '+(abaAdm==="cursos"?"curso":"vaga")+' cadastrado(a) na planilha ainda. Use o formulário acima para adicionar.</p>'; return; }
   wrap.innerHTML='<table class="a_tabela"><thead><tr><th>'+(abaAdm==="cursos"?"Curso":"Cargo")+'</th><th>Área</th><th>Município</th><th>Situação</th><th></th></tr></thead><tbody>'
