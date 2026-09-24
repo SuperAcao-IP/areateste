@@ -77,26 +77,103 @@ const PLANILHA_VAGAS_ATIVA = true;
 const PLANILHA_VAGAS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr5CRyAxIwluOeHE50A6TCG7RS3ua1AClEye3Q5zUEL-QOZ0PGzlijAe66nFKb_mYPS7Y8jkHqEaNu/pub?gid=934841184&single=true&output=csv";
 
 /* ---------- regras de conteudo ---------- */
-/* --- carga horaria minima: exclui cursos com menos de 10h --- */
-const CARGA_MINIMA_H = 10;
+/* --- carga horaria minima: exclui cursos com menos de 15h ---
+   Este valor vale para TODAS as fontes de cursos (Trampolim, Sebrae,
+   EVG, Fundacao Bradesco, planilha manual e dados.json). */
+const CARGA_MINIMA_H = 15;
 function cargaEmHoras(carga){
   if(carga==null) return null;
   const m = String(carga).match(/\d+(?:[.,]\d+)?/);   // pega o primeiro numero ("40h" -> 40, "1h30" -> 1)
   return m ? parseFloat(m[0].replace(",",".")) : null;
 }
-/* mantém o curso se tiver >= 10h OU se a carga for desconhecida (nao dá pra afirmar que é < 10h) */
+/* mantém o curso se tiver >= CARGA_MINIMA_H OU se a carga for desconhecida (nao dá pra afirmar que é menor) */
 function cursoAtingeCargaMinima(carga){
   const h = cargaEmHoras(carga);
   return h==null ? true : h >= CARGA_MINIMA_H;
 }
 
-/* === Cidades vizinhas: cursos compartilhados ===
-   Quando o usuario seleciona Santa Gertrudes, Cordeiropolis ou Araras,
-   os cursos presenciais de Rio Claro tambem aparecem (com badge). */
+/* === Cidades vizinhas: cursos e vagas compartilhados ===
+   Quem escolhe a cidade da esquerda ve tambem o que existe nas cidades
+   da direita, com uma tarja avisando que e de municipio vizinho.
+
+   A lista mistura dois tipos de vizinho:
+   - municipios do programa (aparecem tambem na lista de escolha)
+   - municipios de fora, como Rio Claro, Sorocaba e Vargem Grande
+     Paulista, que entram so como fonte de oferta e nunca aparecem
+     para o usuario escolher
+
+   A relacao vale em UM sentido so: escrever "Cotia" aqui faz Cotia
+   receber, nao fornecer. Para valer nos dois lados, escreva o par
+   tambem do outro lado.
+
+   Cada vizinha adicionada e uma consulta a mais ao Trampolim toda vez
+   que alguem escolhe a cidade. Por isso o limite de tres por cidade;
+   passando disso a pagina comeca a demorar para carregar. */
 const CIDADES_VIZINHAS = {
-  "Santa Gertrudes": ["Rio Claro"],
-  "Cordeirópolis":   ["Rio Claro"],
-  "Araras":          ["Rio Claro"]
+  /* --- regiao de Limeira e Rio Claro --- */
+  "Santa Gertrudes":        ["Rio Claro", "Limeira", "Piracicaba"],
+  "Cordeirópolis":          ["Rio Claro", "Limeira", "Araras"],
+  "Araras":                 ["Rio Claro", "Limeira", "Leme"],
+  "Iracemápolis":           ["Limeira", "Rio Claro", "Piracicaba"],
+  "Limeira":                ["Rio Claro", "Piracicaba", "Americana"],
+
+  /* --- regiao de Americana --- */
+  "Nova Odessa":            ["Americana", "Sumaré", "Santa Bárbara d'Oeste"],
+  "Santa Bárbara d'Oeste":  ["Americana", "Limeira", "Piracicaba"],
+  "Americana":              ["Santa Bárbara d'Oeste", "Nova Odessa", "Limeira"],
+
+  /* --- regiao de Campinas --- */
+  "Sumaré":                 ["Campinas", "Hortolândia", "Americana"],
+  "Paulínia":               ["Campinas", "Cosmópolis", "Sumaré"],
+  "Valinhos":               ["Campinas", "Vinhedo", "Itatiba"],
+  "Monte Mor":              ["Campinas", "Indaiatuba", "Capivari"],
+  "Holambra":               ["Jaguariúna", "Mogi Mirim", "Artur Nogueira"],
+  "Santo Antônio de Posse": ["Jaguariúna", "Amparo", "Mogi Mirim"],
+  "Pedreira":               ["Jaguariúna", "Amparo", "Campinas"],
+  "Jaguariúna":             ["Campinas", "Amparo", "Pedreira"],
+  "Mogi Mirim":             ["Mogi Guaçu", "Itapira", "Holambra"],
+
+  /* --- regiao de Jundiai --- */
+  "Várzea Paulista":        ["Jundiaí", "Campo Limpo Paulista", "Francisco Morato"],
+  "Louveira":               ["Jundiaí", "Vinhedo", "Itupeva"],
+  "Vinhedo":                ["Valinhos", "Jundiaí", "Louveira"],
+  "Jarinu":                 ["Jundiaí", "Atibaia", "Itatiba"],
+  "Itupeva":                ["Jundiaí", "Indaiatuba", "Louveira"],
+  "Itatiba":                ["Jundiaí", "Campinas", "Valinhos"],
+  "Cabreúva":               ["Jundiaí", "Itu", "Itupeva"],
+
+  /* --- regiao de Itu e Sorocaba --- */
+  "Itu":                    ["Salto", "Sorocaba", "Porto Feliz"],
+  "Indaiatuba":             ["Salto", "Campinas", "Itu"],
+  "Elias Fausto":           ["Indaiatuba", "Capivari", "Itu"],
+  "Mairinque":              ["São Roque", "Sorocaba", "Itu"],
+  "São Roque":              ["Mairinque", "Sorocaba", "Itu"],
+
+  /* --- Grande Sao Paulo: oeste --- */
+  "Cotia":                  ["Vargem Grande Paulista", "Carapicuíba", "Embu das Artes"],
+  "Carapicuíba":            ["Osasco", "Barueri", "Jandira"],
+  "Barueri":                ["Osasco", "Jandira", "Itapevi"],
+  "Santana de Parnaíba":    ["Barueri", "Osasco", "Pirapora do Bom Jesus"],
+  "Osasco":                 ["Barueri", "Carapicuíba"],
+  "Embu das Artes":         ["Taboão da Serra", "Cotia", "Itapecerica da Serra"],
+  "Taboão da Serra":        ["Embu das Artes", "Itapecerica da Serra", "Osasco"],
+
+  /* --- Grande Sao Paulo: norte --- */
+  "Caieiras":               ["Cajamar", "Franco da Rocha", "Mairiporã"],
+  "Cajamar":                ["Caieiras", "Santana de Parnaíba", "Franco da Rocha"],
+
+  /* --- Grande Sao Paulo: ABC --- */
+  "Diadema":                ["São Bernardo do Campo", "Santo André", "São Caetano do Sul"],
+  "Mauá":                   ["Santo André", "Ribeirão Pires", "São Bernardo do Campo"],
+  "Santo André":            ["São Bernardo do Campo", "São Caetano do Sul", "Mauá"],
+  "São Bernardo do Campo":  ["Santo André", "Diadema", "São Caetano do Sul"],
+
+  /* --- Grande Sao Paulo: leste --- */
+  "Itaquaquecetuba":        ["Guarulhos", "Suzano", "Poá"],
+  "Guarulhos":              ["Arujá", "Itaquaquecetuba"],
+
+  /* --- Baixada Santista --- */
+  "São Vicente":            ["Santos", "Praia Grande", "Cubatão"]
 };
 
 /* ---------- dados manuais (dados.json) e utilitarios base ---------- */
