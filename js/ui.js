@@ -55,7 +55,7 @@ function areasComConteudo(){ return todasAreas().filter(a=>{const c=DADOS_CIDADE
 
 async function selecionarCidade(cidade){
   const token = ++buscaToken;
-  cidadeAtual=cidade; areaAtual=null; montarChips();
+  cidadeAtual=cidade; areaAtual=null; buscaTermo=""; montarChips();
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML='<div class="vazio-inicial"><p>Carregando cursos e vagas de <b>'+cidade+'</b>...</p></div>';
   window.scrollTo({top:alvo.offsetTop-70,behavior:"smooth"});
@@ -80,6 +80,8 @@ function renderAreasGrade(cidade){
     if(btn.dataset.area===areaAtual) btn.setAttribute("aria-selected","true");
     btn.addEventListener("click",()=>selecionarArea(cidade,btn.dataset.area,btn));
   });
+  /* as fontes chegam em etapas; com busca aberta, refaz com o que ja veio */
+  if(typeof renderBusca === "function") renderBusca();
 }
 function renderCidade(cidade){
   const alvo=document.getElementById("painelCidade");
@@ -108,7 +110,13 @@ function renderCidade(cidade){
       <details class="secao-suspenso" id="secaoQualificacao" open>
         <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><div><h3>Escolha uma área de qualificação</h3><p>Cursos online do EVG, Fundação Bradesco, Trampolim SP, Sebrae SP e cadastros manuais da equipe.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
+          <div class="busca-cursos">
+            <svg class="busca-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+            <input type="search" id="buscaCursos" autocomplete="off" aria-label="Buscar curso por palavra-chave" placeholder="Buscar curso por palavra-chave — ex.: libras, excel, costura">
+            <button type="button" class="busca-limpar" id="buscaLimpar" aria-label="Limpar busca" hidden>&times;</button>
+          </div>
           <div class="areas-grade" id="areasGrade" role="tablist"></div>
+          <div id="resultadoBusca" hidden></div>
           <p class="dica-area" id="dicaArea">Selecione uma área acima para ver os cursos disponíveis.</p>
           <p class="dica-area" id="statusTrampolim" style="margin-top:.35rem"></p>
           <p class="dica-area" id="statusSebrae" style="margin-top:.35rem"></p>
@@ -152,7 +160,142 @@ function renderCidade(cidade){
     </div>`;
   renderAreasGrade(cidade);
   renderVagas();
+  ligarBusca();
   initMapa(cidade);
+}
+
+/* ============================================================
+   BUSCA DE CURSOS POR PALAVRA-CHAVE
+   ------------------------------------------------------------
+   Procura em TODAS as areas de uma vez (nome do curso,
+   instituicao, modalidade, descricao e nome da area). Ignora
+   acento e maiuscula, e exige que todas as palavras digitadas
+   aparecam -- "libras basico" so traz quem tem as duas.
+   ============================================================ */
+(function(){
+  if(document.getElementById("estilo-busca")) return;
+  const st=document.createElement("style");
+  st.id="estilo-busca";
+  st.textContent=
+     ".busca-cursos{position:relative;display:flex;align-items:center;margin:0 0 1.1rem}"
+    +".busca-cursos .busca-ico{position:absolute;left:14px;color:var(--texto-suave,#5a6473);pointer-events:none}"
+    +".busca-cursos input{width:100%;padding:12px 42px;font:inherit;color:var(--texto,#29303d);"
+      +"background:var(--branco,#fff);border:1px solid var(--linha-forte,#cdd6e6);border-radius:11px;"
+      +"transition:border-color .15s,box-shadow .15s}"
+    +".busca-cursos input::placeholder{color:var(--texto-suave,#5a6473);opacity:.85}"
+    +".busca-cursos input:focus{outline:none;border-color:var(--azul-vivo,#1f7ec4);box-shadow:0 0 0 3px rgba(31,126,196,.16)}"
+    +".busca-cursos input::-webkit-search-cancel-button,.busca-cursos input::-webkit-search-decoration"
+      +"{-webkit-appearance:none;appearance:none}"
+    +".busca-limpar{position:absolute;right:8px;width:28px;height:28px;display:flex;align-items:center;"
+      +"justify-content:center;font-size:1.35rem;line-height:1;color:var(--texto-suave,#5a6473);"
+      +"background:transparent;border:0;border-radius:50%;cursor:pointer}"
+    +".busca-limpar:hover{background:#eef2f8;color:var(--texto,#29303d)}"
+    +".tag-area-busca{display:inline-block;font-size:.7rem;font-weight:800;letter-spacing:.03em;"
+      +"text-transform:uppercase;color:var(--azul,#0D5A94);background:var(--azul-suave,#eaf0fb);"
+      +"border-radius:6px;padding:3px 8px;margin:0 0 9px}";
+  document.head.appendChild(st);
+})();
+
+let buscaTermo="", buscaTimer=null;
+
+/* junta os cursos de todas as areas, guardando de qual area cada um veio */
+function todosCursosDaCidade(){
+  const todos=[];
+  for(const id of Object.keys(DADOS_CIDADE)){
+    const c=DADOS_CIDADE[id];
+    if(!c || !c.cursos) continue;
+    const nomeArea=areaInfo(id).nome;
+    c.cursos.forEach(curso=>todos.push(Object.assign({},curso,{_areaNome:nomeArea})));
+  }
+  return todos;
+}
+
+/* Nota de relevancia do curso para o que foi digitado.
+   Zero = alguma palavra nao aparece em lugar nenhum, curso fica de fora.
+   Quanto mais a palavra ABRE o nome do curso, maior a nota -- assim
+   "ia" poe "IA no Azure" na frente de "tecnologIA" e "mIdiA". */
+function pontuarCurso(c,palavras){
+  const nome=normTxt(c.nome||"");
+  const resto=normTxt([c.inst,c.modalidade,c.desc,c._areaNome].filter(Boolean).join(" "));
+  let total=0;
+  for(const p of palavras){
+    const i=nome.indexOf(p);
+    if(i!==-1){
+      if(i===0) total+=100;                                  // abre o nome do curso
+      else if(/[^a-z0-9]/.test(nome.charAt(i-1))) total+=60; // abre uma palavra do nome
+      else total+=25;                                        // no meio de uma palavra
+      continue;
+    }
+    if(resto.indexOf(p)!==-1){ total+=8; continue; }         // so na instituicao/area
+    return 0;
+  }
+  return total;
+}
+
+function renderBusca(){
+  const wrap=document.getElementById("resultadoBusca");
+  if(!wrap) return;
+  const grade=document.getElementById("areasGrade");
+  const painel=document.getElementById("painelArea");
+  const dica=document.getElementById("dicaArea");
+  const limpar=document.getElementById("buscaLimpar");
+
+  const termo=normTxt(buscaTermo);
+  const ativo=termo.length>=2;          // 1 letra traria quase tudo
+  if(limpar) limpar.hidden=!buscaTermo;
+
+  /* com a busca aberta, a grade de areas e o painel saem da frente */
+  if(grade)  grade.style.display  = ativo ? "none" : "";
+  if(painel) painel.style.display = ativo ? "none" : "";
+  if(dica && ativo) dica.style.display="none";
+
+  if(!ativo){ wrap.hidden=true; wrap.innerHTML=""; return; }
+
+  const palavras=termo.split(/\s+/).filter(Boolean);
+  const achados=todosCursosDaCidade()
+    .map(c=>({c:c,nota:pontuarCurso(c,palavras)}))
+    .filter(x=>x.nota>0)
+    .sort((a,b)=>b.nota-a.nota || (a.c.nome||"").localeCompare(b.c.nome||"","pt-BR"))
+    .map(x=>x.c);
+  wrap.hidden=false;
+
+  if(!achados.length){
+    if(grade) grade.style.display="";   // devolve as areas para a pessoa ter por onde seguir
+    wrap.innerHTML='<div class="vazio-area">Nenhum curso com \u201c'+esc(buscaTermo)
+      +'\u201d nesta cidade. Tente outra palavra ou escolha uma área abaixo.</div>';
+    return;
+  }
+
+  const LIMITE=48;
+  const mostrar=achados.slice(0,LIMITE);
+  const aviso=achados.length>LIMITE
+    ? '<p class="dica-area" style="margin:.8rem 0 0;text-align:left">Mostrando os '+LIMITE
+      +' primeiros. Acrescente outra palavra para afinar a busca.</p>'
+    : "";
+  wrap.innerHTML=
+     '<div class="sub-cabec"><span class="tag cursos">Busca</span>'
+    +'<h4>Resultados para \u201c'+esc(buscaTermo)+'\u201d</h4>'
+    +'<span class="qtd">'+achados.length+' curso'+(achados.length!==1?"s":"")+'</span></div>'
+    +'<div class="lista">'+mostrar.map(cartaoCurso).join("")+'</div>'+aviso;
+}
+
+function ligarBusca(){
+  const campo=document.getElementById("buscaCursos");
+  const limpar=document.getElementById("buscaLimpar");
+  if(!campo) return;
+  campo.value=buscaTermo;
+  campo.addEventListener("input",()=>{
+    buscaTermo=campo.value;
+    clearTimeout(buscaTimer);
+    buscaTimer=setTimeout(renderBusca,120);
+  });
+  campo.addEventListener("keydown",e=>{
+    if(e.key==="Escape"){ buscaTermo=""; campo.value=""; renderBusca(); }
+  });
+  if(limpar) limpar.addEventListener("click",()=>{
+    buscaTermo=""; campo.value=""; campo.focus(); renderBusca();
+  });
+  renderBusca();
 }
 
 function initMapa(cidade){
@@ -305,10 +448,11 @@ function cartaoCurso(c){
   const seloAbertura = abreEm
     ? `<div class="selo-abertura"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#8a4b00" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M8 3v4M16 3v4M3 11h18"/></svg> Inscrições a partir de ${_dataCurta(abreEm)}</div>`
     : "";
+  const tagArea = c._areaNome ? '<div class="tag-area-busca">'+esc(c._areaNome)+'</div>' : "";
   const badgeVizinha = c._deOutraCidade
     ? `<div class="badge-outra-cidade"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg> Curso disponível em ${esc(c._deOutraCidade)} (município vizinho)</div>`
     : "";
-  return `<div class="curso">${seloAbertura}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
 }
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
