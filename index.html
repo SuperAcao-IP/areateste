@@ -22,9 +22,20 @@
 <link rel="stylesheet" href="css/estilo.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
+
+<!-- autenticacao: fica DENTRO do head e so roda depois que a pagina montou.
+     Se o auth.js nao carregar, a pagina abre mesmo assim. -->
+<script src="js/auth.js"></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    try {
+      if (window.Auth && typeof Auth.proteger === "function") Auth.proteger();
+    } catch (e) {
+      console.error("Falha ao executar Auth.proteger():", e);
+    }
+  });
+</script>
 </head>
-  <script src="js/auth.js"></script>
-  <script>Auth.proteger();</script>
 <body>
 
 <!-- barra de governo -->
@@ -178,7 +189,7 @@
 <script src="js/admin.js"></script>
 <script src="js/app.js"></script>
 <script src="js/analytics.js"></script>
-  <script src="js/aviso.js"></script>
+<script src="js/aviso.js"></script>
 
 </body>
 </html>
