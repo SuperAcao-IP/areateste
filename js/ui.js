@@ -29,12 +29,24 @@ async function montarDados(cidade){
     if(tipo==="cursos" && !cursoAtingeCargaMinima(obj.carga)) return;   // filtra cursos curtos
     (DADOS_CIDADE[id]=DADOS_CIDADE[id]||{cursos:[],oportunidades:[]})[tipo].push(obj);
   };
-  EVG.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+
+  /* Cada fonte de cursos online e opcional: se o arquivo de dados nao
+     carregar (404, nome errado), a lista vira vazia e a pagina continua
+     funcionando com as outras fontes, em vez de travar em "Carregando". */
+  const EVG_LISTA = (typeof EVG !== "undefined" && Array.isArray(EVG)) ? EVG : [];
+  const EV_LISTA  = (typeof EV  !== "undefined" && Array.isArray(EV))  ? EV  : [];
+  const AM_LISTA  = (typeof APRENDA_MAIS !== "undefined" && Array.isArray(APRENDA_MAIS)) ? APRENDA_MAIS : [];
+  if(!EVG_LISTA.length) console.warn("Lista EVG nao carregou (dados/cursos-evg.js)");
+  if(!EV_LISTA.length)  console.warn("Lista Bradesco nao carregou (dados/cursos-bradesco.js)");
+  if(!AM_LISTA.length)  console.warn("Lista Aprenda Mais nao carregou (dados/cursos-aprenda-mais.js)");
+
+  EVG_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:c.inst+" · EVG", modalidade:"Online", carga:c.carga, link:c.link}));
-  EV.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  EV_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual", modalidade:"Online", carga:c.carga, link:c.link}));
-  APRENDA_MAIS.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  AM_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Aprenda Mais · MEC (online, gratuito)", modalidade:"Online", carga:"40h", link:c.link}));
+
   /* cursos manuais (dados.json) */
   (DADOS.cursos||[]).forEach(c=>{
     const daCidade = ehDaCidade(c.municipio,cidade) || ehOnline(c.municipio);
@@ -61,7 +73,19 @@ async function selecionarCidade(cidade){
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML='<div class="vazio-inicial"><p>Carregando cursos e vagas de <b>'+cidade+'</b>...</p></div>';
   window.scrollTo({top:alvo.offsetTop-70,behavior:"smooth"});
-  await montarDados(cidade);
+
+  /* Se algo falhar ao montar os dados, a pessoa ve o erro em vez de
+     ficar presa na tela de "Carregando..." para sempre. */
+  try{
+    await montarDados(cidade);
+  }catch(e){
+    console.error("Erro ao montar os dados da cidade:",e);
+    if(token!==buscaToken) return;
+    alvo.innerHTML='<div class="vazio-inicial"><p>Não foi possível carregar os cursos de <b>'+cidade
+      +'</b>. Recarregue a página e tente de novo.</p></div>';
+    return;
+  }
+
   if(token!==buscaToken) return;          // o usuario ja clicou em outra cidade
   renderCidade(cidade);
   if(TRAMPOLIM_ATIVO) carregarTrampolimEAtualizar(cidade, token);
@@ -100,7 +124,7 @@ function renderCidade(cidade){
         <summary class="bloco-titulo mapa-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg></span><div><h3>Mapa de ${cidade}</h3><p>Pontos reais do seu My Maps: cursos (verde), empregadores (roxo) e serviços (rosa).</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="mapa-card">
           <div id="mapaP" style="width:100%;height:440px;background:#dfe6f1"></div>
-          <div class="mapa-legenda">>
+          <div class="mapa-legenda">
             <span style="display:inline-flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:50%;background:#7CB342;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Cursos</span>
             <span style="display:inline-flex;align-items:center;gap:.4rem;margin-left:1rem"><span style="width:11px;height:11px;border-radius:50%;background:#673AB7;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Empregadores</span>
             <span style="display:inline-flex;align-items:center;gap:.4rem;margin-left:1rem"><span style="width:11px;height:11px;border-radius:50%;background:#C2185B;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Serviços (CRAS, PAT, Sebrae Aqui)</span>
