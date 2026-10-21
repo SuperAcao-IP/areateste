@@ -153,6 +153,20 @@ O mapa de cada município tem três camadas que a pessoa liga e desliga (por pad
 
 **Coordenadas.** Quando só há endereço, o script semanal calcula a coordenada com o Nominatim (OpenStreetMap): rua + número, 1 consulta por segundo, resultado guardado em `dados/geocache.json` (cada endereço é consultado uma vez). Rodovias e resultados a mais de 12 km do município são recusados. O erro típico é de uns 350 m. O navegador nunca chama o Nominatim. A atribuição "© OpenStreetMap contributors" já aparece no mapa.
 
+### Serviços (CRAS, CREAS, PAT, Sebrae Aqui): três fontes, sem repetir o mesmo lugar
+A camada **Serviços** junta, nesta ordem de prioridade (quem vem primeiro vence e é completado pelos seguintes):
+1. **Aba `servicos` da planilha** (cadastro da equipe) — **desligada** até `PLANILHA_SERVICOS_CSV_URL` (js/config.js) receber o link CSV da aba.
+2. **Mapa de campo** (`dados/mapa-pontos.js`, grupo `cras`) — continua aparecendo; o tipo é deduzido do nome.
+3. **CRAS e CREAS oficiais** (`dados/servicos-oficiais.js`), dos microdados abertos do **Censo SUAS** (MDS).
+
+Mesmo lugar = mesmo município e mesmo tipo e (mesmo endereço, ou mesmo nome sem o tipo e a cidade, ou menos de 300 m de distância). Pontos de tipos diferentes nunca se fundem.
+
+**Aba `servicos`.** Colunas na primeira linha, em minúsculas: `municipio | tipo | nome | endereco | bairro | horario | telefone | status | lat | lon`. `tipo`: CRAS, CREAS, PAT, Sebrae Aqui ou outro. `status`: Ativo, ou Fechado/Encerrado para esconder. `lat`/`lon` opcionais: sem elas o script semanal calcula pelo endereço (mesmo cache das outras abas). Depois de criar e publicar a aba na web, cole o link CSV em `PLANILHA_SERVICOS_CSV_URL`.
+
+**Censo SUAS (CRAS/CREAS).** Gerado à mão uma vez por ano (o censo sai em ~agosto) com `node scripts/gerar-servicos-oficiais.js [ANO]`; **não** roda no workflow semanal. Ele baixa dois zips públicos de `aplicacoes.mds.gov.br/snas/defeso/censosuas/ANO/`, lê só o arquivo de dados gerais e não guarda e-mails nem dados de pessoal. Limitações: (a) o censo **não traz o nome da unidade**, então o rótulo é o endereço; (b) latitude/longitude vêm corrompidas e são reconstruídas, e coordenada a mais de 20 km do município é descartada (a unidade fica fora do mapa e o script lista); (c) é levantamento autodeclarado anual, não o CadSUAS em tempo real. **Termos:** dado aberto do MDS (Decreto 8.777/2016), sem restrição declarada a download automatizado e sem bloqueio do servidor; o site do MDS é CC BY-ND (atribuição, sem obras derivadas): citamos a fonte no pop-up ("Censo SUAS 2025 (MDS)") e usamos só dados do serviço. Os Leia-me do censo não foram lidos.
+
+**PAT e Sebrae Aqui: sem fonte automática.** O site do Governo de SP (Incapsula/Imperva) e o do Sebrae-SP (HTTP 429) bloqueiam acesso automatizado, e não foi possível ler os termos deles. Não contornamos. PAT e Sebrae Aqui devem entrar pela aba `servicos` (digitados a partir dos sites oficiais) ou por arquivo aberto/autorização, se obtidos.
+
 ### Senac: coleta automática DESLIGADA
 Os termos de uso do site do Senac-SP proíbem robôs e acesso automatizado e a cópia dos dados do portal sem consentimento. Por isso o script **não acessa mais o site do Senac** e nenhum curso coletado de lá fica no repositório. O código da coleta continua em `scripts/lib/coletores-mapa.js` e só roda se a chave `COLETAR_SENAC=1` (ou `--coletar-senac`) for ligada em `scripts/atualizar-mapa.js`: **só faça isso com autorização por escrito do Senac**. Para incluir ou corrigir uma unidade do Senac, edite o JSON de cadastro manual.
 

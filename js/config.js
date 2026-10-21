@@ -83,6 +83,14 @@ const PLANILHA_VAGAS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1
    cole aqui o link CSV dela (mesmo formato dos de cima, com o gid da aba). */
 const PLANILHA_PONTOS_CSV_URL = "";
 
+/* Aba "servicos" da mesma planilha: CRAS, CREAS, PAT, Sebrae Aqui e outros serviços de apoio cadastrados pela equipe
+   (somam-se aos do mapa de campo e aos das fontes oficiais, sem duplicar o mesmo lugar).
+   Colunas: municipio | tipo | nome | endereco | bairro | horario | telefone | status | lat | lon
+            (tipo: CRAS, CREAS, PAT, Sebrae Aqui ou outro; status: Ativo, ou Fechado/Encerrado para esconder; lat/lon opcionais).
+   Vazio = DESLIGADO (a camada usa só o mapa de campo e as fontes oficiais). Depois de criar a aba e publicá-la,
+   cole aqui o link CSV dela (com o gid da aba). */
+const PLANILHA_SERVICOS_CSV_URL = "";
+
 /* ---------- regras de conteudo ---------- */
 /* --- carga horaria minima: exclui cursos com menos de 15h ---
    Este valor vale para TODAS as fontes de cursos (Trampolim, Sebrae,

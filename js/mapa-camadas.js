@@ -68,6 +68,53 @@ function vincularCursoAUnidade(inst, municipio, unidades, unidadeTexto){
   return { motivo: "ambigua", candidatos: cand };
 }
 
+/* ---------- serviços de apoio (CRAS, CREAS, PAT, Sebrae Aqui) ---------- */
+function tipoDeServico(txt){
+  const n = _nm(txt);
+  if(/\bcreas\b|centro de referencia especializado/.test(n)) return "CREAS";
+  if(/\bcras\b|centro de referencia (de|da|e) assistencia social|centro de referencia assistencia/.test(n)) return "CRAS";
+  if(/\bpat\b|posto de atendimento ao trabalhador/.test(n)) return "PAT";
+  if(/sebrae/.test(n)) return "Sebrae Aqui";
+  return "Outro";
+}
+/* chave de nome para comparar: sem o tipo, sem palavras genéricas */
+function _chaveNomeServico(nome, cidade){
+  return _nm(nome).split(_nm(cidade || "\u0001")).join(" ").replace(/\b(cras|creas|pat|sebrae|aqui|oficial|posto|de|da|do|das|dos|e|atendimento|ao|trabalhador|centro|referencia|assistencia|social|especializado|unidade)\b/g, " ").replace(/[^a-z0-9]+/g, " ").trim();
+}
+/* endereço comparável: "R. das Flores, 123" = "Rua das Flores 123" */
+function _chaveEnderecoServico(endereco){
+  const e = separarEndereco(endereco);
+  const rua = _nm(e.rua).replace(/\b(r|rua)\b\.?/g, "rua").replace(/\b(av|avenida)\b\.?/g, "avenida").replace(/\b(pca|praca)\b\.?/g, "praca").replace(/\b(estr|estrada)\b\.?/g, "estrada")
+    .replace(/\b(dr|doutor)\b\.?/g, "doutor").replace(/\b(prof|professor|professora)\b\.?/g, "professor").replace(/[^a-z0-9]+/g, " ").trim();
+  return rua && e.numero ? rua + "|" + String(e.numero).replace(/\D/g, "") : "";
+}
+function _kmEntre(a, b){
+  const r = x => x * Math.PI / 180, dLat = r(b.lat - a.lat), dLon = r(b.lon - a.lon);
+  const h = Math.sin(dLat / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLon / 2) ** 2;
+  return 12742 * Math.asin(Math.sqrt(h));
+}
+var SERVICO_MESMO_LUGAR_KM = 0.3;      // mesmo tipo a menos de 300 m = o mesmo lugar
+/* mesmo lugar: mesmo município e tipo, e (mesma chave de endereço, ou nome igual, ou menos de 300 m um do outro) */
+function mesmoServico(a, b){
+  if(_nm(a.cidade) !== _nm(b.cidade) || a.tipo !== b.tipo) return false;
+  const ea = _chaveEnderecoServico(a.endereco), eb = _chaveEnderecoServico(b.endereco);
+  if(ea && ea === eb) return true;
+  const na = _chaveNomeServico(a.nome, a.cidade), nb = _chaveNomeServico(b.nome, b.cidade);
+  if(na && na === nb) return true;
+  return a.lat != null && b.lat != null && _kmEntre(a, b) < SERVICO_MESMO_LUGAR_KM;
+}
+/* junta listas em ORDEM DE PRIORIDADE (a primeira lista vence): quem já está na lista não é repetido;
+   o que a versão vencedora não tem (endereço, telefone, horário) é completado pela outra */
+function mesclarServicos(listas){
+  const saida = [];
+  listas.forEach(lista => (lista || []).forEach(s => {
+    const igual = saida.find(x => mesmoServico(x, s));
+    if(igual){ ["endereco", "bairro", "telefone", "horario"].forEach(k => { if(!igual[k] && s[k]) igual[k] = s[k]; }); return; }
+    saida.push(Object.assign({}, s));
+  }));
+  return saida;
+}
+
 const PONTOS_TIPOS = {
   telecentro: "Telecentro", biblioteca: "Biblioteca", acessa_sp: "Acessa SP", lan_house: "Lan house", outro: "Outro local"
 };
@@ -164,6 +211,44 @@ function _pontoDaLinha(r){
   };
 }
 
+var _servicosPlanilhaCache = null;
+async function _lerServicosPlanilha(){
+  if(_servicosPlanilhaCache) return _servicosPlanilhaCache;
+  if(typeof PLANILHA_SERVICOS_CSV_URL === "undefined" || !PLANILHA_SERVICOS_CSV_URL) return (_servicosPlanilhaCache = []);   // desligado
+  try{
+    const resp = await fetch(PLANILHA_SERVICOS_CSV_URL);
+    if(!resp.ok) throw new Error("HTTP " + resp.status);
+    const rows = csvParaObjetos(await resp.text(), "nome");
+    _servicosPlanilhaCache = rows.filter(r => !statusFechado(r.status) && !/inativ/i.test(r.status || ""));
+  }catch(e){
+    console.warn("[Serviços] aba não carregou:", e);
+    _servicosPlanilhaCache = [];
+  }
+  return _servicosPlanilhaCache;
+}
+function _servicoDaLinha(r){
+  const cidade = r.municipio || "";
+  let lat = numeroDecimal(r.lat), lon = numeroDecimal(r.lon);
+  if(lat == null || lon == null){
+    const g = (typeof PONTOS_GEOCODIFICADOS !== "undefined") ? PONTOS_GEOCODIFICADOS[chaveEnderecoPonto(r.endereco, cidade)] : null;
+    if(!g) return null;      // sem coordenada ainda: o script semanal calcula pelo endereço
+    lat = g.lat; lon = g.lon;
+  }
+  const t = _nm(r.tipo);
+  const tipo = /creas/.test(t) ? "CREAS" : /cras/.test(t) ? "CRAS" : /\bpat\b/.test(t) ? "PAT" : /sebrae/.test(t) ? "Sebrae Aqui" : (t ? "Outro" : tipoDeServico(r.nome));
+  return { id: "svc-planilha-" + _normalizarChave(r.nome + cidade), tipo, nome: r.nome, endereco: r.endereco || "", bairro: r.bairro || "", cidade, lat, lon,
+    horario: r.horario || "", telefone: r.telefone || "", fonte: "Cadastro da equipe" };
+}
+/* serviços de um município: planilha (vence) > mapa de campo (mapa-pontos.js) > fontes oficiais; sem repetir o mesmo lugar */
+async function servicosParaMapa(cidade){
+  const ok = new Set([_nm(cidade)]);
+  const campo = ((typeof MAPA !== "undefined" && MAPA[cidade] && MAPA[cidade].cras) || []).filter(p => p.lat != null && p.lon != null)
+    .map(p => ({ id: "svc-campo-" + _normalizarChave(p.n + cidade), tipo: tipoDeServico(p.n), nome: String(p.n).replace(/[\u200b\u200c\u200d]/g, "").trim(), endereco: "", bairro: "", cidade, lat: p.lat, lon: p.lon, horario: "", telefone: "", fonte: "Mapa de campo" }));
+  const oficiais = (typeof SERVICOS_OFICIAIS !== "undefined" ? SERVICOS_OFICIAIS : []).filter(s => ok.has(_nm(s.cidade)) && s.lat != null && s.lon != null);
+  const manuais = (await _lerServicosPlanilha()).filter(r => ok.has(_nm(r.municipio))).map(_servicoDaLinha).filter(Boolean);
+  return mesclarServicos([manuais, campo, oficiais]);
+}
+
 async function pontosComputadorParaMapa(cidade){
   const ok = new Set([_nm(cidade)]);   // pontos de computador: só do próprio município
   const estaticos = (typeof PONTOS_COMPUTADOR !== "undefined" ? PONTOS_COMPUTADOR : []).filter(p => ok.has(_nm(p.cidade)));
@@ -208,6 +293,14 @@ function _opcoesPopup(mapa){
 function _iconeEscola(n){
   return L.divIcon({ className: "pino-escola" + (n ? "" : " vazio"), html: "<span>" + (n || "·") + "</span>", iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -12] });
 }
+function _popupServico(s){
+  const linhas = [];
+  if(s.endereco) linhas.push(_escM([s.endereco, s.bairro].filter(Boolean).join(" – ")));
+  if(s.horario) linhas.push("Horário: " + _escM(s.horario));
+  if(s.telefone) linhas.push("Telefone: " + _escM(s.telefone));
+  return '<div class="pop-mapa"><b>' + _escM(s.nome) + '</b> <span class="selo selo-servico">' + _escM(s.tipo) + "</span>" + (linhas.length ? "<p>" + linhas.join("<br>") + "</p>" : "") +
+    (s.fonte && s.fonte !== "Mapa de campo" ? '<p class="pop-nota">Fonte: ' + _escM(s.fonte) + ". Confirme com o local antes de ir.</p>" : "") + "</div>";
+}
 function _iconeServico(){
   return L.divIcon({ className: "pino-servico", html: "<span>S</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
 }
@@ -248,12 +341,13 @@ async function _atualizarCamadasMapa(){
   const cidade = cidadeAtual, mapa = MAP;
   const unidades = unidadesParaMapa(cidade);
   const pontos = await pontosComputadorParaMapa(cidade);
+  const servicos = await servicosParaMapa(cidade);
   if(mapa !== MAP || cidade !== cidadeAtual) return;       // a pessoa trocou de cidade enquanto carregava
   ["servicos", "escolas", "computador"].forEach(k => { if(CAMADAS_MAPA[k] && mapa.hasLayer(CAMADAS_MAPA[k])) mapa.removeLayer(CAMADAS_MAPA[k]); });
   const gE = L.layerGroup(), gP = L.layerGroup(), gS = L.layerGroup(), limites = [];
-  const servicos = ((typeof MAPA !== "undefined" && MAPA[cidade] && MAPA[cidade].cras) || []).filter(p => p.lat != null && p.lon != null);
-  servicos.forEach(p => {
-    L.marker([p.lat, p.lon], { icon: _iconeServico(), title: p.n }).bindPopup('<div class="pop-mapa"><b>' + _escM(p.n) + '</b><br><span>Serviço de apoio (CRAS, PAT ou Sebrae Aqui)</span></div>', _opcoesPopup(mapa)).addTo(gS);
+  servicos.forEach(s => {
+    L.marker([s.lat, s.lon], { icon: _iconeServico(), title: s.nome }).bindPopup(_popupServico(s), _opcoesPopup(mapa)).addTo(gS);
+    limites.push([s.lat, s.lon]);
   });
   unidades.filter(u => u.lat != null && u.lon != null).forEach(u => {
     L.marker([u.lat, u.lon], { icon: _iconeEscola((u.cursos || []).length), title: u.nome }).bindPopup(_popupUnidade(u), _opcoesPopup(mapa)).addTo(gE);
