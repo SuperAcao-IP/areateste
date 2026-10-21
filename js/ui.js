@@ -33,9 +33,9 @@ async function montarDados(cidade){
   /* Cada fonte de cursos online e opcional: se o arquivo de dados nao
      carregar (404, nome errado), a lista vira vazia e a pagina continua
      funcionando com as outras fontes, em vez de travar em "Carregando". */
-  const EVG_LISTA = (typeof EVG !== "undefined" && Array.isArray(EVG)) ? EVG : [];
-  const EV_LISTA  = (typeof EV  !== "undefined" && Array.isArray(EV))  ? EV  : [];
-  const AM_LISTA  = (typeof APRENDA_MAIS !== "undefined" && Array.isArray(APRENDA_MAIS)) ? APRENDA_MAIS : [];
+  const EVG_LISTA = (typeof EVG !== "undefined" && Array.isArray(EVG)) ? catalogoPermitido(EVG) : [];
+  const EV_LISTA  = (typeof EV  !== "undefined" && Array.isArray(EV))  ? catalogoPermitido(EV)  : [];
+  const AM_LISTA  = (typeof APRENDA_MAIS !== "undefined" && Array.isArray(APRENDA_MAIS)) ? catalogoPermitido(APRENDA_MAIS) : [];
   if(!EVG_LISTA.length) console.warn("Lista EVG nao carregou (dados/cursos-evg.js)");
   if(!EV_LISTA.length)  console.warn("Lista Bradesco nao carregou (dados/cursos-bradesco.js)");
   if(!AM_LISTA.length)  console.warn("Lista Aprenda Mais nao carregou (dados/cursos-aprenda-mais.js)");
@@ -65,6 +65,11 @@ async function montarDados(cidade){
   });
 }
 function conteudoDaArea(id){ return DADOS_CIDADE[id]||{cursos:[],oportunidades:[]}; }
+/* maior carga primeiro; carga desconhecida vai para o fim; empate mantem a ordem original */
+function cargaOrdem(c){ const v=cargaEmHoras(c.carga); return v==null?-1:v; }
+function ordenarPorCarga(cursos){
+  return cursos.map((c,i)=>({c,i})).sort((a,b)=>cargaOrdem(b.c)-cargaOrdem(a.c)||a.i-b.i).map(x=>x.c);
+}
 function areasComConteudo(){ return todasAreas().filter(a=>{const c=DADOS_CIDADE[a.id]; return c&&(c.cursos.length||c.oportunidades.length);}); }
 
 async function selecionarCidade(cidade){
@@ -281,7 +286,7 @@ function renderBusca(){
   const achados=todosCursosDaCidade()
     .map(c=>({c:c,nota:pontuarCurso(c,palavras)}))
     .filter(x=>x.nota>0)
-    .sort((a,b)=>b.nota-a.nota || (a.c.nome||"").localeCompare(b.c.nome||"","pt-BR"))
+    .sort((a,b)=>cargaOrdem(b.c)-cargaOrdem(a.c) || b.nota-a.nota || (a.c.nome||"").localeCompare(b.c.nome||"","pt-BR"))   // maior carga primeiro; relevancia desempata
     .map(x=>x.c);
   wrap.hidden=false;
 
@@ -348,7 +353,7 @@ function selecionarArea(cidade,areaId,btn){
   document.querySelectorAll(".area-btn").forEach(x=>x.setAttribute("aria-selected",x===btn?"true":"false"));
   const dica=document.getElementById("dicaArea"); if(dica) dica.style.display="none";
   const area=areaInfo(areaId), c=conteudoDaArea(areaId);
-  const cursosHTML=c.cursos.length?`<div class="lista">${c.cursos.map(cartaoCurso).join("")}</div>`:`<div class="vazio-area">Sem cursos nesta área.</div>`;
+  const cursosHTML=c.cursos.length?`<div class="lista">${ordenarPorCarga(c.cursos).map(cartaoCurso).join("")}</div>`:`<div class="vazio-area">Sem cursos nesta área.</div>`;
   const painel=document.getElementById("painelArea");
   painel.innerHTML=`
     <div class="painel-cabec"><span class="ico">${area.icone}</span><div><h3>${area.nome}</h3><p>${area.descricao}</p></div></div>
@@ -478,7 +483,7 @@ function cartaoCurso(c){
   const badgeVizinha = c._deOutraCidade
     ? `<div class="badge-outra-cidade"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg> Curso disponível em ${esc(c._deOutraCidade)} (município vizinho)</div>`
     : "";
-  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}${cargaNaFaixaTolerada(c.carga)?" (15–19h)":""}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
 }
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";

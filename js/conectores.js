@@ -104,12 +104,20 @@ function turnoTrampolim(c){
   }
   return rotuloDe(c.shift||c.turno) || "";
 }
+/* No Trampolim, curso online com turno definido tem aula em horario marcado
+   (ao vivo). Online sem turno continua so "Online". */
+function modalidadeCursoTrampolim(c, turno){
+  const m = modalidadeTrampolim(c);
+  if(!turno) return m;
+  return m.split(" · ").map(p=>p.trim().toLowerCase()==="online" ? "Online ao vivo" : p).join(" · ");
+}
 function normalizarCursoTrampolim(c){
+  const turno = turnoTrampolim(c);
   return {
     nome: rotuloDe(c.name||c.title||c.nome||c.course_title||c.titulo) || "Curso",
     inst: instTrampolim(c),
-    modalidade: modalidadeTrampolim(c),
-    turno: turnoTrampolim(c),
+    modalidade: modalidadeCursoTrampolim(c, turno),
+    turno: turno,
     carga: cargaTrampolim(c),
     desc: rotuloDe(c.description||c.desc||c.summary||c.resumo),
     link: urlAbsolutaTrampolim(c.absolute_url||c.url||c.link||c.permalink||""),

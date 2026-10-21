@@ -91,6 +91,24 @@ function cursoAtingeCargaMinima(carga){
   const h = cargaEmHoras(carga);
   return h==null ? true : h >= CARGA_MINIMA_H;
 }
+/* 15h a 19h: aceito, mas abaixo das 20h ideais. A tela marca com "(15–19h)". */
+function cargaNaFaixaTolerada(carga){
+  const h = cargaEmHoras(carga);
+  return h!=null && h >= CARGA_MINIMA_H && h < 20;
+}
+
+/* --- filtro de publico: so catalogos fixos (EVG, Bradesco, Aprenda Mais) ---
+   true  = mostra apenas os cursos listados em dados/filtro-publico.js
+   false = mostra os catalogos inteiros (nada foi apagado) */
+const FILTRAR_PUBLICO_FAMILIAS = true;
+function catalogoPermitido(lista){
+  if(!FILTRAR_PUBLICO_FAMILIAS) return lista;
+  if(typeof CURSOS_PERMITIDOS === "undefined"){
+    console.warn("dados/filtro-publico.js nao carregou: catalogos sem filtro");
+    return lista;
+  }
+  return lista.filter(c=>CURSOS_PERMITIDOS.has((c.link||"").trim()));
+}
 
 /* === Cidades vizinhas: cursos e vagas compartilhados ===
    Quem escolhe a cidade da esquerda ve tambem o que existe nas cidades
