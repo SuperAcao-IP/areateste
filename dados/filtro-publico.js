@@ -1,125 +1,171 @@
-/* Filtro "publico: familias de baixa renda" - lista de cursos PERMITIDOS.
-   Criterios: acessivel sem ensino medio, util para renda ou vida cotidiana,
-   carga >= 15h (a regra de carga fica em config.js), sem repeticao.
-   Curso que nao esta aqui fica escondido, NAO apagado: os catalogos em dados/
-   continuam completos. Para desligar tudo: FILTRAR_PUBLICO_FAMILIAS = false em
-   js/config.js. Para liberar um curso: acrescente o link dele aqui.
-   Chave = link do curso. Catalogo novo raspado entra escondido ate ser revisado. */
-const CURSOS_PERMITIDOS = new Set([
-  /* EVG (1) */
-  "https://www.escolavirtual.gov.br/curso/11", // Introdução à Libras,
-  /* Fundacao Bradesco (2) */
-  "https://www.ev.org.br/cursos/comunicacao_escrita", // Comunicação Escrita: Ortografia, Gramática e Texto
-  "https://www.ev.org.br/cursos/excel-na-pratica", // Excel na Prática,
-  /* Aprenda Mais (110) */
-  "https://aprendamais.mec.gov.br/course/view.php?id=3453", // Primeiros Socorros: conceitos iniciais
-  "https://aprendamais.mec.gov.br/course/view.php?id=3463", // Promoção da Saúde Mental
-  "https://aprendamais.mec.gov.br/course/view.php?id=3464", // Proteção e Cuidados para Crianças
-  "https://aprendamais.mec.gov.br/course/view.php?id=3489", // Saúde da Criança e do Adolescente
-  "https://aprendamais.mec.gov.br/course/view.php?id=3490", // Saúde da Mulher e do Recém-nascido
-  "https://aprendamais.mec.gov.br/course/view.php?id=3491", // Saúde do Homem e do Idoso
-  "https://aprendamais.mec.gov.br/course/view.php?id=3493", // Saúde e Segurança no Trabalho
-  "https://aprendamais.mec.gov.br/course/view.php?id=3257", // Educação Financeira
-  "https://aprendamais.mec.gov.br/course/view.php?id=3307", // Fundamentos Básicos de Energia Fotovoltaica Residencial
-  "https://aprendamais.mec.gov.br/course/view.php?id=3203", // Comércio Eletrônico
-  "https://aprendamais.mec.gov.br/course/view.php?id=3206", // Comunicação e Atendimento ao Cliente
-  "https://aprendamais.mec.gov.br/course/view.php?id=3213", // Contabilidade Básica
-  "https://aprendamais.mec.gov.br/course/view.php?id=3227", // Cooperativismo: conceitos iniciais
-  "https://aprendamais.mec.gov.br/course/view.php?id=3237", // Desenvolvimento Pessoal e Interpessoal
-  "https://aprendamais.mec.gov.br/course/view.php?id=3252", // Economia Solidária
-  "https://aprendamais.mec.gov.br/course/view.php?id=3263", // Empreendedorismo
-  "https://aprendamais.mec.gov.br/course/view.php?id=3291", // Ética Profissional
-  "https://aprendamais.mec.gov.br/course/view.php?id=3299", // Finanças para Empreendedores
-  "https://aprendamais.mec.gov.br/course/view.php?id=3321", // Gestão de Estoques
-  "https://aprendamais.mec.gov.br/course/view.php?id=3328", // Gestão de Tempo e Organização
-  "https://aprendamais.mec.gov.br/course/view.php?id=3526", // Liderança e Trabalho em Equipe
-  "https://aprendamais.mec.gov.br/course/view.php?id=3384", // Logística
-  "https://aprendamais.mec.gov.br/course/view.php?id=3527", // Marketing de Vendas no Varejo
-  "https://aprendamais.mec.gov.br/course/view.php?id=3395", // Marketing Pessoal
-  "https://aprendamais.mec.gov.br/course/view.php?id=3406", // Microempreendedor Individual: da criação ao encerramento
-  "https://aprendamais.mec.gov.br/course/view.php?id=3408", // Movimentação e Armazenagem
-  "https://aprendamais.mec.gov.br/course/view.php?id=3418", // Operacionalização de Valores Monetários
-  "https://aprendamais.mec.gov.br/course/view.php?id=3431", // Planejamento Financeiro
-  "https://aprendamais.mec.gov.br/course/view.php?id=3456", // Processamento de Pedidos e Serviços ao Cliente
-  "https://aprendamais.mec.gov.br/course/view.php?id=3511", // Técnicas de Negociação
-  "https://aprendamais.mec.gov.br/course/view.php?id=3513", // Técnicas de Vendas e Relações de Consumo
-  "https://aprendamais.mec.gov.br/course/view.php?id=3273", // Espanhol 1
-  "https://aprendamais.mec.gov.br/course/view.php?id=3275", // Espanhol 2
-  "https://aprendamais.mec.gov.br/course/view.php?id=3276", // Espanhol 3
-  "https://aprendamais.mec.gov.br/course/view.php?id=3277", // Espanhol 4
-  "https://aprendamais.mec.gov.br/course/view.php?id=3350", // Inglês 1
-  "https://aprendamais.mec.gov.br/course/view.php?id=3355", // Inglês 2
-  "https://aprendamais.mec.gov.br/course/view.php?id=3356", // Inglês 3
-  "https://aprendamais.mec.gov.br/course/view.php?id=3357", // Inglês 4
-  "https://aprendamais.mec.gov.br/course/view.php?id=3437", // Português como Língua Adicional 1
-  "https://aprendamais.mec.gov.br/course/view.php?id=3441", // Português como Língua Adicional 2
-  "https://aprendamais.mec.gov.br/course/view.php?id=3442", // Português como Língua Adicional 3
-  "https://aprendamais.mec.gov.br/course/view.php?id=3443", // Português como Língua Adicional 4
-  "https://aprendamais.mec.gov.br/course/view.php?id=3449", // Português Instrumental
-  "https://aprendamais.mec.gov.br/course/view.php?id=3296", // Excel na Prática: aplicação de funções, organização e visualização de dados
-  "https://aprendamais.mec.gov.br/course/view.php?id=3390", // Manutenção de Computadores: hardware, software e evolução
-  "https://aprendamais.mec.gov.br/course/view.php?id=3398", // Materiais de Construção: aglomerantes e concretos
-  "https://aprendamais.mec.gov.br/course/view.php?id=3399", // Materiais de Construção: metais, madeiras e acabamentos
-  "https://aprendamais.mec.gov.br/course/view.php?id=3158", // Abate e Processamento de Carne e Frango
-  "https://aprendamais.mec.gov.br/course/view.php?id=3172", // Alimentação e Nutrição no Brasil
-  "https://aprendamais.mec.gov.br/course/view.php?id=3186", // Bem-estar e Ambiência das Aves
-  "https://aprendamais.mec.gov.br/course/view.php?id=3199", // Cardápios Saudáveis
-  "https://aprendamais.mec.gov.br/course/view.php?id=3208", // Confeitaria
-  "https://aprendamais.mec.gov.br/course/view.php?id=3210", // Conservação de alimentos: calor, concentração, desidratação e frio
-  "https://aprendamais.mec.gov.br/course/view.php?id=3211", // Conservação de alimentos: salga, defumação, aditivos e fermentação
-  "https://aprendamais.mec.gov.br/course/view.php?id=3340", // Higiene Agroindustrial
-  "https://aprendamais.mec.gov.br/course/view.php?id=3341", // Higiene e Controle de Qualidade de Alimentos
-  "https://aprendamais.mec.gov.br/course/view.php?id=3364", // Instalações Agroindustriais
-  "https://aprendamais.mec.gov.br/course/view.php?id=3420", // Organização e Operação de Cozinhas Escolares
-  "https://aprendamais.mec.gov.br/course/view.php?id=3421", // Panificação
-  "https://aprendamais.mec.gov.br/course/view.php?id=3454", // Processamento de Carnes e Derivados
-  "https://aprendamais.mec.gov.br/course/view.php?id=3455", // Processamento de Leite
-  "https://aprendamais.mec.gov.br/course/view.php?id=3459", // Produção e Industrialização de Alimentos
-  "https://aprendamais.mec.gov.br/course/view.php?id=3156", // A arte de falar em público
-  "https://aprendamais.mec.gov.br/course/view.php?id=3253", // Edição de Vídeos no Shotcut
-  "https://aprendamais.mec.gov.br/course/view.php?id=3168", // Agricultura e Desenvolvimento Rural Sustentável
-  "https://aprendamais.mec.gov.br/course/view.php?id=3169", // Agricultura Familiar
-  "https://aprendamais.mec.gov.br/course/view.php?id=3170", // Agroecologia
-  "https://aprendamais.mec.gov.br/course/view.php?id=3171", // Agroindustrialização de Frutas
-  "https://aprendamais.mec.gov.br/course/view.php?id=3180", // Associativismo e Cooperativismo
-  "https://aprendamais.mec.gov.br/course/view.php?id=3192", // Bovinocultura de Corte e Leite
-  "https://aprendamais.mec.gov.br/course/view.php?id=3194", // Cafeicultura Agroecológica
-  "https://aprendamais.mec.gov.br/course/view.php?id=3221", // Controle de Pragas e Doenças em Jardins
-  "https://aprendamais.mec.gov.br/course/view.php?id=3225", // Controle Orgânico de Pragas e Doenças
-  "https://aprendamais.mec.gov.br/course/view.php?id=3230", // Cunicultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3235", // Defensivos Agrícolas
-  "https://aprendamais.mec.gov.br/course/view.php?id=3248", // Doenças e Plantas Invasoras no Cafeeiro
-  "https://aprendamais.mec.gov.br/course/view.php?id=3255", // Educação Ambiental
-  "https://aprendamais.mec.gov.br/course/view.php?id=3535", // Empreendedorismo na Aquicultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3303", // Frutas e Hortaliças
-  "https://aprendamais.mec.gov.br/course/view.php?id=3304", // Fruticultura e Empreendedorismo
-  "https://aprendamais.mec.gov.br/course/view.php?id=3305", // Frutíferas de Clima Tropical e Subtropical
-  "https://aprendamais.mec.gov.br/course/view.php?id=3317", // Gestão Agroindustrial
-  "https://aprendamais.mec.gov.br/course/view.php?id=3347", // Horticultura Orgânica
-  "https://aprendamais.mec.gov.br/course/view.php?id=3348", // Implantação de Pomares
-  "https://aprendamais.mec.gov.br/course/view.php?id=3098", // Legislação e Regulamentação da Agricultura Orgânica
-  "https://aprendamais.mec.gov.br/course/view.php?id=3388", // Manejo de Pragas no Cafeeiro
-  "https://aprendamais.mec.gov.br/course/view.php?id=3389", // Manejo e Sanidade no Cultivo em Piscicultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3400", // Matérias-Primas de Origem Animal
-  "https://aprendamais.mec.gov.br/course/view.php?id=3417", // Olericultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3422", // Panorama da Aquicultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3424", // Pesca e Aquicultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3425", // Pesca e Recursos Pesqueiros
-  "https://aprendamais.mec.gov.br/course/view.php?id=3088", // Planejamento de Jardins
-  "https://aprendamais.mec.gov.br/course/view.php?id=3458", // Produção de Peixes e Sistemas de Criação
-  "https://aprendamais.mec.gov.br/course/view.php?id=3495", // Segurança Agrícola Rural
-  "https://aprendamais.mec.gov.br/course/view.php?id=3504", // Solos
-  "https://aprendamais.mec.gov.br/course/view.php?id=3505", // Suinocultura
-  "https://aprendamais.mec.gov.br/course/view.php?id=3515", // Tecnologia de Rações
-  "https://aprendamais.mec.gov.br/course/view.php?id=3521", // Viveiros e Propagação de Mudas
-  "https://aprendamais.mec.gov.br/course/view.php?id=3241", // Direito do Trabalho
-  "https://aprendamais.mec.gov.br/course/view.php?id=3267", // EPI e EPC
-  "https://aprendamais.mec.gov.br/course/view.php?id=3496", // Segurança do Trabalho: riscos ambientais e prevenção de acidentes
-  "https://aprendamais.mec.gov.br/course/view.php?id=3174", // Alimentos e Bebidas na Hotelaria
-  "https://aprendamais.mec.gov.br/course/view.php?id=3292", // Etiqueta Profissional
-  "https://aprendamais.mec.gov.br/course/view.php?id=3294", // Eventos: layout e decoração
-  "https://aprendamais.mec.gov.br/course/view.php?id=3339", // Governança em Hotelaria
-  "https://aprendamais.mec.gov.br/course/view.php?id=3372", // Lavanderia na Hotelaria
-  "https://aprendamais.mec.gov.br/course/view.php?id=3402", // Meios de Hospedagem
-  "https://aprendamais.mec.gov.br/course/view.php?id=3473", // Recepção e Reserva na Hotelaria
-].map(l=>l.trim()));
+/* Filtro de público: famílias de baixa renda. Lista dos cursos que APARECEM no site,
+   reconhecidos pelo título (normalizado), não pelo link — o link do Aprenda Mais muda a
+   cada turma. Os catálogos em dados/ guardam todos os cursos; o que não está aqui fica
+   escondido, não apagado.
+   Gerado por scripts/atualizar-catalogos.js a partir de dados/decisoes-catalogos.json:
+   para mudar uma decisão, edite o JSON (d = manter|ocultar, o = manual), não este arquivo.
+   A carga mínima de 15h é aplicada à parte, em js/config.js. Desliga tudo:
+   FILTRAR_PUBLICO_FAMILIAS = false em js/config.js. */
+const TITULOS_PERMITIDOS = {
+ aprendaMais: [
+  "a arte de falar em publico",
+  "abate e processamento de carne e frango",
+  "agricultura e desenvolvimento rural sustentavel",
+  "agricultura familiar",
+  "agroecologia",
+  "agroindustrializacao de frutas",
+  "alimentacao e nutricao no brasil",
+  "alimentos e bebidas na hotelaria",
+  "associativismo e cooperativismo",
+  "bem-estar e ambiencia das aves",
+  "bovinocultura de corte e leite",
+  "cafeicultura agroecologica",
+  "cardapios saudaveis",
+  "comercio eletronico",
+  "comunicacao e atendimento ao cliente",
+  "confeitaria",
+  "conservacao de alimentos: calor, concentracao, desidratacao e frio",
+  "conservacao de alimentos: salga, defumacao, aditivos e fermentacao",
+  "contabilidade basica",
+  "controle de pragas e doencas em jardins",
+  "controle organico de pragas e doencas",
+  "cooperativismo: conceitos iniciais",
+  "cunicultura",
+  "defensivos agricolas",
+  "desenvolvimento pessoal e interpessoal",
+  "direito do trabalho",
+  "doencas e plantas invasoras no cafeeiro",
+  "economia solidaria",
+  "edicao de videos no shotcut",
+  "educacao ambiental",
+  "educacao financeira",
+  "empreendedorismo",
+  "empreendedorismo na aquicultura",
+  "epi e epc",
+  "espanhol 1",
+  "espanhol 2",
+  "espanhol 3",
+  "espanhol 4",
+  "etica profissional",
+  "etiqueta profissional",
+  "eventos: layout e decoracao",
+  "excel na pratica: aplicacao de funcoes, organizacao e visualizacao de dados",
+  "financas para empreendedores",
+  "frutas e hortalicas",
+  "fruticultura e empreendedorismo",
+  "frutiferas de clima tropical e subtropical",
+  "fundamentos basicos de energia fotovoltaica residencial",
+  "gestao agroindustrial",
+  "gestao de estoques",
+  "gestao de tempo e organizacao",
+  "governanca em hotelaria",
+  "higiene agroindustrial",
+  "higiene e controle de qualidade de alimentos",
+  "horticultura organica",
+  "implantacao de pomares",
+  "ingles 1",
+  "ingles 2",
+  "ingles 3",
+  "ingles 4",
+  "instalacoes agroindustriais",
+  "lavanderia na hotelaria",
+  "legislacao e regulamentacao da agricultura organica",
+  "lideranca e trabalho em equipe",
+  "logistica",
+  "manejo de pragas no cafeeiro",
+  "manejo e sanidade no cultivo em piscicultura",
+  "manutencao de computadores: hardware, software e evolucao",
+  "marketing de vendas no varejo",
+  "marketing digital e redes sociais",
+  "marketing pessoal",
+  "materiais de construcao: aglomerantes e concretos",
+  "materiais de construcao: metais, madeiras e acabamentos",
+  "materias-primas de origem animal",
+  "meios de hospedagem",
+  "microempreendedor individual: da criacao ao encerramento",
+  "movimentacao e armazenagem",
+  "olericultura",
+  "operacionalizacao de valores monetarios",
+  "organizacao e operacao de cozinhas escolares",
+  "panificacao",
+  "panorama da aquicultura",
+  "pesca e aquicultura",
+  "pesca e recursos pesqueiros",
+  "planejamento de jardins",
+  "planejamento financeiro",
+  "portugues como lingua adicional 1",
+  "portugues como lingua adicional 2",
+  "portugues como lingua adicional 3",
+  "portugues como lingua adicional 4",
+  "portugues instrumental",
+  "primeiros socorros: conceitos iniciais",
+  "processamento de carnes e derivados",
+  "processamento de leite",
+  "processamento de pedidos e servicos ao cliente",
+  "producao de peixes e sistemas de criacao",
+  "producao e industrializacao de alimentos",
+  "promocao da saude mental",
+  "protecao e cuidados para criancas",
+  "recepcao e reserva na hotelaria",
+  "saude da crianca e do adolescente",
+  "saude da mulher e do recem-nascido",
+  "saude do homem e do idoso",
+  "saude e seguranca no trabalho",
+  "seguranca agricola rural",
+  "seguranca do trabalho: riscos ambientais e prevencao de acidentes",
+  "solos",
+  "suinocultura",
+  "tecnicas de negociacao",
+  "tecnicas de vendas e relacoes de consumo",
+  "tecnologia de racoes",
+  "viveiros e propagacao de mudas"
+ ],
+ bradesco: [
+  "atendimento ao publico",
+  "como conseguir um novo emprego",
+  "comunicacao escrita: ortografia, gramatica e texto",
+  "construindo minha protecao financeira",
+  "controle de impulso e manejo de raiva, vergonha e inveja",
+  "cultura digital",
+  "desenvolvimento profissional",
+  "empreendedorismo e inovacao",
+  "excel na pratica",
+  "fundamentos de ti: hardware e software",
+  "lingua portuguesa sem complicacoes",
+  "microsoft excel 2016 - basico",
+  "microsoft excel 2016 - intermediario",
+  "microsoft office 365 - conhecendo o onedrive",
+  "microsoft office 365 - conhecendo o onenote",
+  "microsoft office 365 - conhecendo o outlook",
+  "microsoft office 365 - conhecendo o planner",
+  "microsoft office 365 - conhecendo o teams",
+  "microsoft word 2016 - basico",
+  "microsoft word 2016 - intermediario",
+  "word na pratica"
+ ],
+ evg: [
+  "acessibilidade na comunicacao",
+  "boas praticas de manipulacao em servicos de alimentacao",
+  "como conseguir um novo emprego",
+  "comunicacao assertiva: oratoria, retorica e tecnicas de apresentacao",
+  "economia criativa, empreendedorismo e inovacao",
+  "educacao ambiental climatica e reducao de riscos de desastres",
+  "educacao financeira e cooperativismo",
+  "excel intermediario",
+  "fluencia empreendedores",
+  "fotografia e audiovisual para producao de janelas de libras",
+  "gestao de conflitos e negociacao",
+  "inteligencia emocional",
+  "introducao a libras",
+  "introducao ao excel",
+  "metodologia de elaboracao de plano de gerenciamento de residuos solidos",
+  "midias digitais e saude mental de criancas e adolescentes",
+  "nocoes basicas de alimentacao saudavel e consumo de hortalicas",
+  "nocoes sobre cooperativismo",
+  "portugues - interpretacao de texto e emprego de regras gramaticais",
+  "producao e edicao de video pelo celular",
+  "proposito e qualidade de vida: descobertas para o desenvolvimento pessoal",
+  "residuos solidos",
+  "seguranca em maquinas e equipamentos nr12 - fundamentos basicos"
+ ]
+};

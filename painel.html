@@ -1007,7 +1007,8 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         if(vistos[par[1]]) return;
         vistos[par[1]] = 1;
         var n = 0;
-        if(typeof catalogoPermitido === 'function') v = catalogoPermitido(v);   // filtro de público (famílias)
+        var fonteFiltro = {EVG:'evg', EV:'bradesco', APRENDA_MAIS:'aprendaMais'}[par[0]];
+        if(fonteFiltro && typeof catalogoPermitido === 'function') v = catalogoPermitido(v, fonteFiltro);   // filtro de público (famílias)
         v.forEach(function(c){
           var nome = c.nome || c.curso || c.name || c.titulo || '';
           if(!nome) return;

@@ -1,6 +1,8 @@
 /* =====================================================================
    APRENDA MAIS · MEC · cursos livres, gratuitos e 100% online
-   Raspado de aprendamais.mec.gov.br (407 cursos em 13 categorias).
+   Coletado de aprendamais.mec.gov.br · atualizado em 2026-10-21 (410 cursos, turma 2026B).
+   Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
+   O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
    Todos sao EaD, gratuitos, ~40h, com certificacao do MEC.
    ===================================================================== */
 const APRENDA_MAIS = [
@@ -88,6 +90,7 @@ const APRENDA_MAIS = [
  {titulo:"Ludicidade como Instrumento Pedagógico",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3387"},
  {titulo:"Mediação Pedagógica na Educação a Distância",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3401"},
  {titulo:"O Uso de Aplicativos Web na Construção de Materiais Educacionais na Educação a Distância",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3414"},
+ {titulo:"Pesquisa Científica",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=1633"},
  {titulo:"Planejamento de Disciplinas com Carga Horária de Educação a Distância",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3427"},
  {titulo:"Planejamento Educacional Individualizado na Educação Básica",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3529"},
  {titulo:"Projetos Educacionais e Interdisciplinares",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3462"},
@@ -161,6 +164,7 @@ const APRENDA_MAIS = [
  {titulo:"Logística em Serviços",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3385"},
  {titulo:"Logística Internacional e Aduaneira",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3386"},
  {titulo:"Marketing de Vendas no Varejo",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3527"},
+ {titulo:"Marketing Digital e Redes Sociais",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3392"},
  {titulo:"Marketing Empresarial e Pessoal",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3394"},
  {titulo:"Marketing Pessoal",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3395"},
  {titulo:"Marketing Público",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3396"},
@@ -289,6 +293,7 @@ const APRENDA_MAIS = [
  {titulo:"Higiene Agroindustrial",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3340"},
  {titulo:"Higiene e Controle de Qualidade de Alimentos",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3341"},
  {titulo:"Instalações Agroindustriais",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3364"},
+ {titulo:"Microbiologia Aplicada à Produção de Açúcar e Álcool",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3404"},
  {titulo:"Microbiologia de Alimentos",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3405"},
  {titulo:"Organização e Operação de Cozinhas Escolares",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3420"},
  {titulo:"Panificação",area:"Alimentação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3421"},

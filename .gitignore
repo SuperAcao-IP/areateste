@@ -1,3 +1,7 @@
 .DS_Store
 *.log
 .claude/
+
+# relatório da última atualização automática (a Action publica como issue)
+relatorio-atualizacao.md
+corpo-issue.md

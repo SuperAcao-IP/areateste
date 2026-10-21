@@ -99,15 +99,24 @@ function cargaNaFaixaTolerada(carga){
 
 /* --- filtro de publico: so catalogos fixos (EVG, Bradesco, Aprenda Mais) ---
    true  = mostra apenas os cursos listados em dados/filtro-publico.js
-   false = mostra os catalogos inteiros (nada foi apagado) */
+   false = mostra os catalogos inteiros (nada foi apagado)
+   O curso e reconhecido pelo TITULO, nao pelo link: o link do Aprenda Mais muda a cada turma.
+   normalizarTitulo() deve ficar igual a scripts/lib/util.js. */
 const FILTRAR_PUBLICO_FAMILIAS = true;
-function catalogoPermitido(lista){
+function normalizarTitulo(t){
+  return String(t==null?"":t).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
+    .replace(/\s+-\s+turma\s+\d{4}[ab]\s*$/i,"").replace(/\s+/g," ").trim();
+}
+const _PERMITIDOS_CACHE = {};
+/* fonte: "aprendaMais" | "bradesco" | "evg" */
+function catalogoPermitido(lista, fonte){
   if(!FILTRAR_PUBLICO_FAMILIAS) return lista;
-  if(typeof CURSOS_PERMITIDOS === "undefined"){
-    console.warn("dados/filtro-publico.js nao carregou: catalogos sem filtro");
+  if(typeof TITULOS_PERMITIDOS === "undefined" || !TITULOS_PERMITIDOS[fonte]){
+    console.warn("dados/filtro-publico.js nao carregou: catalogo "+fonte+" sem filtro");
     return lista;
   }
-  return lista.filter(c=>CURSOS_PERMITIDOS.has((c.link||"").trim()));
+  const ok = _PERMITIDOS_CACHE[fonte] || (_PERMITIDOS_CACHE[fonte] = new Set(TITULOS_PERMITIDOS[fonte]));
+  return lista.filter(c=>ok.has(normalizarTitulo(c.titulo)));
 }
 
 /* === Cidades vizinhas: cursos e vagas compartilhados ===

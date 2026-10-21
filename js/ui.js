@@ -33,9 +33,9 @@ async function montarDados(cidade){
   /* Cada fonte de cursos online e opcional: se o arquivo de dados nao
      carregar (404, nome errado), a lista vira vazia e a pagina continua
      funcionando com as outras fontes, em vez de travar em "Carregando". */
-  const EVG_LISTA = (typeof EVG !== "undefined" && Array.isArray(EVG)) ? catalogoPermitido(EVG) : [];
-  const EV_LISTA  = (typeof EV  !== "undefined" && Array.isArray(EV))  ? catalogoPermitido(EV)  : [];
-  const AM_LISTA  = (typeof APRENDA_MAIS !== "undefined" && Array.isArray(APRENDA_MAIS)) ? catalogoPermitido(APRENDA_MAIS) : [];
+  const EVG_LISTA = (typeof EVG !== "undefined" && Array.isArray(EVG)) ? catalogoPermitido(EVG,"evg") : [];
+  const EV_LISTA  = (typeof EV  !== "undefined" && Array.isArray(EV))  ? catalogoPermitido(EV,"bradesco")  : [];
+  const AM_LISTA  = (typeof APRENDA_MAIS !== "undefined" && Array.isArray(APRENDA_MAIS)) ? catalogoPermitido(APRENDA_MAIS,"aprendaMais") : [];
   if(!EVG_LISTA.length) console.warn("Lista EVG nao carregou (dados/cursos-evg.js)");
   if(!EV_LISTA.length)  console.warn("Lista Bradesco nao carregou (dados/cursos-bradesco.js)");
   if(!AM_LISTA.length)  console.warn("Lista Aprenda Mais nao carregou (dados/cursos-aprenda-mais.js)");
