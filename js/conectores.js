@@ -541,6 +541,10 @@ async function carregarSebraeEAtualizar(cidade, token){
    - Cursos cadastrados manualmente pela equipe numa planilha do Google.
    - Colunas: municipio | curso | instituicao | modalidade | carga |
               link | area | inscricoes_de | inscricoes_ate | status | agente
+   - Também aceita o cabeçalho que a equipe usa hoje: (coluna A sem título) = município,
+     NOME, Insituição (com o erro de digitação), Modalidade, Carga horária, Link,
+     (coluna G sem título) = área, data de abertura, validade, status. Datas em DD/MM/AAAA ou AAAA-MM-DD.
+     Coluna K (quem cadastrou) é ignorada. Se nenhuma linha for reconhecida, o console avisa.
    - "inscricoes_de" (opcional): data em que as inscricoes abrem.
      O curso aparece no site desde ja, com selo e o botao travado
      ate a data chegar. Em branco = ja esta aberto.
@@ -570,10 +574,22 @@ function parseCSV(text){
   if(campo||campos.length){ campos.push(campo); linhas.push(campos); }
   return linhas;
 }
-function csvParaObjetos(text, campoObrigatorio){
+/* config (opcional) deixa a leitura tolerante ao cabeçalho que a equipe usa na planilha:
+     apelidos: { "nome": "curso" }  -> a coluna "NOME" vale como "curso" (só se "curso" não existir)
+     posicoes: { 0: "municipio" }   -> coluna SEM cabeçalho nessa posição vale como "municipio"
+   Cabeçalho com os nomes oficiais continua funcionando igual. */
+function csvParaObjetos(text, campoObrigatorio, config){
   const linhas=parseCSV(text);
   if(!linhas.length) return [];
   const header=linhas[0].map(h=>h.trim().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/\s+/g,"_"));
+  if(config){
+    const oficiais=new Set(Object.values(config.apelidos||{}).concat(Object.values(config.posicoes||{})));
+    const jaTem=new Set(header);
+    header.forEach((h,i)=>{
+      const alvo = h==="" ? (config.posicoes||{})[i] : (config.apelidos||{})[h];
+      if(alvo && oficiais.has(alvo) && !jaTem.has(alvo)){ header[i]=alvo; jaTem.add(alvo); }
+    });
+  }
   const chave = campoObrigatorio || header[1] || header[0];  // default: 2a coluna (geralmente "curso" ou "escola")
   return linhas.slice(1).map(cols=>{
     const obj={};
@@ -600,20 +616,38 @@ function normalizarCursoPlanilha(row){
   };
 }
 
+/* Cabeçalho atual da aba "cursos" (coluna A e G sem título): [município] NOME | Insituição |
+   Modalidade | Carga horária | Link | [área] | data de abertura | validade | status | [quem cadastrou].
+   A 3ª coluna tem erro de digitação ("Insituição"). A coluna K (pessoa) é ignorada de propósito. */
+const PLANILHA_CURSOS_CONFIG = {
+  apelidos: { nome:"curso", insituicao:"instituicao", carga_horaria:"carga", data_de_abertura:"inscricoes_de", validade:"inscricoes_ate", cidade:"municipio" },
+  posicoes: { 0:"municipio", 6:"area" }
+};
+
+/* data "DD/MM/AAAA" ou "AAAA-MM-DD" como dia LOCAL (new Date("2026-12-31") seria UTC e viraria o dia anterior) */
+function dataLocalPlanilha(s){
+  s=(s||"").trim(); if(!s) return null;
+  let m=s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/), d=null;
+  if(m) d=new Date(+m[3],+m[2]-1,+m[1]);
+  else if((m=s.match(/^(\d{4})-(\d{1,2})-(\d{1,2})/))) d=new Date(+m[1],+m[2]-1,+m[3]);
+  else { const t=new Date(s); if(!isNaN(t.getTime())) d=new Date(t.getFullYear(),t.getMonth(),t.getDate()); }
+  return d && !isNaN(d.getTime()) ? d : null;
+}
+
 async function buscarCursosPlanilha(){
   if(cachePlanilha.cursos) return cachePlanilha.cursos;
   console.log("[Planilha] buscando CSV:", PLANILHA_CSV_URL);
   const resp = await fetch(PLANILHA_CSV_URL);
   if(!resp.ok) throw new Error("HTTP "+resp.status);
   const text = await resp.text();
-  const rows = csvParaObjetos(text, "curso");
+  const rows = csvParaObjetos(text, "curso", PLANILHA_CURSOS_CONFIG);
+  if(!rows.length && text.trim().split("\n").length>1)
+    console.warn("[Planilha] nenhuma linha reconhecida: confira o cabeçalho da aba (precisa de uma coluna 'curso' ou 'NOME'). Cabeçalho lido:", text.split("\n")[0].slice(0,200));
   const cursos = rows.map(normalizarCursoPlanilha)
     .filter(c => (c._status||"").toLowerCase() !== "encerrado")       // exclui encerrados
-    .filter(c => {                                                     // exclui expirados
-      if(!c._ate) return true;
-      const partes = c._ate.split("/");                                // DD/MM/YYYY
-      if(partes.length===3){ const d=new Date(partes[2],partes[1]-1,partes[0]); return isNaN(d.getTime())||d>=hoje0(); }
-      const d=new Date(c._ate); return isNaN(d.getTime())||d>=hoje0();
+    .filter(c => {                                                     // exclui expirados (validade < hoje)
+      const d = dataLocalPlanilha(c._ate);
+      return !d || d>=hoje0();
     })
     .filter(c => cursoAtingeCargaMinima(c.carga));                     // filtro de 10h
   console.log("[Planilha] cursos válidos (10h+, abertos):", cursos.length, "| linhas no CSV:", rows.length);

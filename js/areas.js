@@ -69,7 +69,7 @@ function areaDoCurso(nome){
 
 /* registro das areas que chegam do Trampolim (chave = nome normalizado) */
 const AREAS_DINAMICAS = new Map();
-function normTxt(s){ return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase(); }
+function normTxt(s){ return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[\u00b4\u0060\u2019\u2018]/g,"'").trim().toLowerCase(); }
 function todasAreas(){ return AREAS.concat([...AREAS_DINAMICAS.values()]).concat([OUTROS]); }
 
 function areaInfo(id){ return todasAreas().find(a=>a.id===id) || OUTROS; }
