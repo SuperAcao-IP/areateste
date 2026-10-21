@@ -201,7 +201,7 @@ async function main(){
       .filter(x => /presencial/i.test(x.modalidade || "") && x.municipio && !site.statusFechado(x.status));
     vinculos = { total: rows.length, ok: 0, ambiguos: new Map(), semUnidade: new Map(), outras: new Map() };
     for(const x of rows){
-      const v = site.vincularCursoAUnidade(x.instituicao, x.municipio, unidades);
+      const v = site.vincularCursoAUnidade(x.instituicao, x.municipio, unidades, x.unidade);
       if(v.unidade){ vinculos.ok++; continue; }
       const k = `${x.instituicao} | ${x.municipio}`;
       const alvo = v.motivo === "ambigua" ? vinculos.ambiguos : v.motivo === "sem_unidade_na_cidade" ? vinculos.semUnidade : vinculos.outras;
@@ -267,7 +267,7 @@ function escrever(rel, res, semCoord, vinc, unidades, bibl){
       [...mapa.entries()].sort((a, b) => b[1].n - a[1].n).forEach(([k, v]) => L.push(`- ${k}: ${v.n} curso${v.n > 1 ? "s" : ""}${comCand && v.candidatos.length ? " — unidades possíveis: " + v.candidatos.join(" / ") : ""}`));
       L.push("");
     };
-    tab("Para a equipe preencher as colunas \"unidade\" e \"endereço\" (mais de uma unidade na cidade)", vinc.ambiguos, true);
+    tab("Para a equipe preencher a coluna \"unidade\" da aba cursos (mais de uma unidade na cidade)", vinc.ambiguos, true);
     tab("Instituição da planilha sem unidade na cidade (conferir o município ou o nome da instituição)", vinc.semUnidade, false);
     tab("Instituições sem lista de unidades (precisam de endereço na planilha para virar ponto)", vinc.outras, false);
   }

@@ -52,15 +52,17 @@ function instituicaoDeUnidade(inst){
   if(/senac/.test(n)) return "Senac";
   return null;
 }
-function vincularCursoAUnidade(inst, municipio, unidades){
+function vincularCursoAUnidade(inst, municipio, unidades, unidadeTexto){
   const chave = instituicaoDeUnidade(inst);
   if(!chave) return { motivo: "instituicao_sem_unidade" };
   const cand = (unidades || []).filter(u => u.inst === chave && _nm(u.cidade) === _nm(municipio));
   if(cand.length === 1) return { unidade: cand[0] };
   if(cand.length === 0) return { motivo: "sem_unidade_na_cidade" };
-  const detalhe = _nm(inst).replace(/sena[ic]/g, " ").replace(/[-–·:]/g, " ").replace(/\s+/g, " ").trim();
-  if(detalhe){
-    const achou = cand.filter(u => _nm(u.nome).includes(detalhe));
+  /* desempate: a coluna "unidade" da planilha (ex.: "Dutra") ou o resto do texto da instituição ("SENAC - Faccini") */
+  const limpo = x => _nm(x).replace(/sena[ic]/g, " ").replace(/[-–·:]/g, " ").replace(/\s+/g, " ").trim();
+  for(const detalhe of [limpo(unidadeTexto || ""), limpo(inst)]){
+    if(!detalhe) continue;
+    const achou = cand.filter(u => _nm(u.nome + " " + (u.endereco || "")).includes(detalhe));
     if(achou.length === 1) return { unidade: achou[0] };
   }
   return { motivo: "ambigua", candidatos: cand };
@@ -133,7 +135,7 @@ function unidadesParaMapa(cidade){
   // cursos da planilha (Senai/Senac) -> unidade, só quando a unidade é única ou o texto desempata
   const todasUnidades = (typeof UNIDADES !== "undefined" ? UNIDADES : []);
   todosCursos.filter(c => c._planilha && /presencial/i.test(c.modalidade || "") && c._municipio).forEach(c => {
-    const r = vincularCursoAUnidade(c._inst || c.inst, c._municipio, todasUnidades);
+    const r = vincularCursoAUnidade(c._inst || c.inst, c._municipio, todasUnidades, c._unidade);
     if(!r.unidade) return;
     const u = base.find(x => x.id === r.unidade.id);
     if(!u) return;

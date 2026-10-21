@@ -630,6 +630,7 @@ function normalizarCursoPlanilha(row){
     _municipio: row.municipio || "",
     _de: row.inscricoes_de || "",
     _agente: row.agente || "",
+    _unidade: row.unidade || "",        // opcional: desempata a unidade quando há mais de uma na cidade
     _ate: row.inscricoes_ate || "",
     _status: row.status || "Aberto",
     _origem: row.origem || "",
