@@ -17,17 +17,11 @@ const fs = require("fs");
 const path = require("path");
 const { normalizarTitulo, buscar, emLotes } = require("./lib/util");
 const { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFMG, coletarMundi } = require("./lib/coletores");
-const { classificar, perfil } = require("./lib/regras");
+const { classificar, perfil, decidir } = require("./lib/regras");
 
 const RAIZ = path.join(__dirname, "..");
 const DADOS = path.join(RAIZ, "dados");
 const CARGA_MINIMA_H = 15;          // igual a CARGA_MINIMA_H em js/config.js
-/* Perfil (Público-alvo e Requisitos que o Aprenda Mais declara em course/info.php):
-   false = só informa no relatório quais cursos visíveis seriam ocultados (nada muda no site);
-   true  = oculta o curso visível que cair nos grupos a (público só de profissionais, professores ou
-           servidores), b (exige escolaridade) ou c (exige conhecimento prévio), salvo se a decisão
-           dele tiver `"perfilOk": true` (a equipe aprovou mesmo assim). */
-const PERFIL_APLICAR = false;
 const QUEDA_MAXIMA = 0.30;          // coleta com mais de 30% a menos que a anterior é tratada como falha
 const LIMITE_LISTA = 60;            // itens por seção no relatório (o resto vira "e mais N")
 
@@ -146,10 +140,6 @@ function calcularVisiveis(listas, decisoes){
     for(const c of listas[cat.chave] || []){
       const n = normalizarTitulo(c.titulo), e = decisoes[cat.chave][n];
       if(!e || e.d !== "manter" || !cargaOk(c.carga || cat.cargaPadrao)) continue;
-      if(PERFIL_APLICAR && cat.chave === "aprendaMais" && !e.perfilOk){
-        const p = perfil(e.pa, e.rq);
-        if(p.a.length || p.b.length || p.c.length) continue;
-      }
       if(e.o === "auto" && acima.has(n)){ repetidos[cat.chave].push({ titulo: c.titulo }); continue; }
       V.add(n);
     }
@@ -238,9 +228,9 @@ function escreverRelatorio(r){
     if(c.reavaliados && c.reavaliados.length)
       L.push(`### Decisões automáticas que mudaram por causa de ajuste nas regras (${c.reavaliados.length})\n\n${lista(c.reavaliados, x => `${x.titulo}: ${x.de} → ${x.para} (${x.motivo})`)}`);
     if(c.perfil){
-      const rot = { a: "(a) Público-alvo só de profissionais, professores ou servidores (ou exige ser/atuar na área)", b: "(b) Exige escolaridade (ensino médio, superior, técnico)", c: "(c) Exige conhecimento prévio", b2: "(b2) Sinal mais fraco: público-alvo é só de estudantes de ensino médio/superior" };
-      L.push(`### Perfil declarado pelo curso: visíveis que ${PERFIL_APLICAR ? "foram ocultados" : "seriam ocultados (regra NÃO aplicada)"}\n`);
-      for(const g of ["a", "b", "c", "b2"]){
+      const rot = { a: "(a) Público-alvo só de profissionais, professores ou servidores (ou exige ser/atuar na área)", b: "(b) Exige escolaridade (ensino médio, superior, técnico)", c: "(c) Exige conhecimento prévio" };
+      L.push(`### Perfil declarado: cursos visíveis por DECISÃO MANUAL que apontam para ocultar (a regra só altera decisões automáticas)\n`);
+      for(const g of ["a", "b", "c"]){
         L.push(`**${rot[g]}: ${c.perfil[g].length}**\n`);
         L.push(lista(c.perfil[g], x => `${x.titulo} — ${x.motivos.join("; ")}`));
       }
@@ -370,7 +360,7 @@ async function main(){
     info.reavaliados = [];
     for(const e of Object.values(decisoes[cat.chave])){
       if(e.o !== "auto") continue;
-      const r = classificar(e.t);
+      const r = decidir(e.t, e.pa, e.rq);
       if(r.d !== e.d) info.reavaliados.push({ titulo: e.t, de: e.d, para: r.d, motivo: r.m });
       e.d = r.d; e.m = r.m;
     }
@@ -380,8 +370,9 @@ async function main(){
     for(const c of col.cursos){
       const n = norm(c.titulo);
       if(dec[n]) continue;
-      const r = classificar(c.titulo);
+      const r = decidir(c.titulo, c.publico, c.requisitos);
       dec[n] = { t: c.titulo, d: r.d, o: "auto", m: r.m, desde: HOJE };
+      if(c.publico !== undefined){ dec[n].pa = c.publico; dec[n].rq = c.requisitos; }
     }
   }
   /* o que aparece DEPOIS (inclui a remoção de repetidos entre fontes) */

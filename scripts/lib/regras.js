@@ -150,4 +150,22 @@ function perfil(publico, requisitos){
   return saida;
 }
 
-module.exports = { classificar, perfil, OCULTAR, MANTER };
+/* Decisão AUTOMÁTICA = regras de título (classificar) + perfil que o próprio curso declara
+   (Público-alvo e Requisitos, hoje só no Aprenda Mais, lidos de course/info.php).
+   Só os sinais fortes ocultam: (a) público só de profissionais, professores ou servidores (ou exige
+   ser/atuar na área), (b) exige escolaridade, (c) exige conhecimento prévio. Sinais fracos
+   ("estudantes do ensino médio/superior") e público de uma área (alimentos, construção civil...)
+   NÃO ocultam. Vale só para decisões automáticas: quem chama só usa isto em decisões "auto";
+   decisão manual nunca é sobreposta. */
+function decidir(titulo, publico, requisitos){
+  const r = classificar(titulo);
+  if(r.d === "manter" && (publico || requisitos)){
+    const p = perfil(publico, requisitos);
+    if(p.a.length) return { d: "ocultar", m: "perfil declarado: público-alvo profissional (" + p.a[0] + ")" };
+    if(p.b.length) return { d: "ocultar", m: "perfil declarado: exige escolaridade (" + p.b[0] + ")" };
+    if(p.c.length) return { d: "ocultar", m: "perfil declarado: exige conhecimento prévio (" + p.c[0] + ")" };
+  }
+  return r;
+}
+
+module.exports = { classificar, perfil, decidir, OCULTAR, MANTER };

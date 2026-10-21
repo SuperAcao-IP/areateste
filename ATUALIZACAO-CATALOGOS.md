@@ -68,6 +68,15 @@ Os mesmos do filtro de público, nesta ordem:
 5. se repete um curso já visível em outro catálogo → oculta;
 6. **sem regra que case → oculta** (na dúvida, não aparece).
 
+**Perfil declarado pelo curso (só Aprenda Mais).** O resumo de cada curso (`course/info.php`) traz
+Público-alvo e Requisitos. Para decisões **automáticas** (cursos novos), o curso é ocultado se
+declarar: (a) público só de profissionais, professores ou servidores, ou exigir ser/atuar na área;
+(b) exigência de escolaridade (ensino médio, superior, graduação, técnico); (c) exigência de
+conhecimento prévio (informática, HTML, ter feito outro curso, noções de...). Sinais fracos
+("estudantes do ensino médio/superior") e público de uma área (alimentos, construção civil) **não**
+ocultam. Decisão **manual** nunca é sobreposta; a issue lista os cursos visíveis por decisão
+manual que o perfil apontaria para ocultar.
+
 A **carga mínima de 15h** não entra nas regras: é aplicada à parte, no site
 (`js/config.js`). Um curso de 15 a 19h aparece com a etiqueta "(15–19h)". No Aprenda Mais a carga
 real de cada curso vem de `course/info.php` (uma requisição por curso; a maioria tem 20h ou 30h,
