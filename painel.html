@@ -442,7 +442,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <script src="dados/cursos-evg.js"></script>
 <script src="dados/cursos-bradesco.js"></script>
 <script src="dados/cursos-aprenda-mais.js"></script>
-<script src="dados/cursos-ifrs.js"></script>
 <script src="dados/cursos-ifmg.js"></script>
 <script src="dados/cursos-mundi.js"></script>
 <script src="dados/filtro-publico.js"></script>
@@ -1000,7 +999,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         ['cursosBradesco','Fundação Bradesco'], ['CURSOS_ONLINE_BRADESCO','Fundação Bradesco'],
         ['EVG','Escola Virtual de Governo'], ['EV','Fundação Bradesco'],
         ['APRENDA_MAIS','Aprenda Mais · MEC'],
-        ['IFRS','Moodle IFRS'], ['IFMG','+IFMG'], ['MUNDI','Mundi · IFSul']
+        ['IFMG','+IFMG'], ['MUNDI','Mundi · IFSul']
       ];
       var vistos = {};
       CANDIDATOS.forEach(function(par){
@@ -1011,7 +1010,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         if(vistos[par[1]]) return;
         vistos[par[1]] = 1;
         var n = 0;
-        var fonteFiltro = {EVG:'evg', EV:'bradesco', APRENDA_MAIS:'aprendaMais', IFRS:'ifrs', IFMG:'ifmg', MUNDI:'mundi'}[par[0]];
+        var fonteFiltro = {EVG:'evg', EV:'bradesco', APRENDA_MAIS:'aprendaMais', IFMG:'ifmg', MUNDI:'mundi'}[par[0]];
         if(fonteFiltro && typeof catalogoPermitido === 'function') v = catalogoPermitido(v, fonteFiltro);   // filtro de público (famílias)
         v.forEach(function(c){
           var nome = c.nome || c.curso || c.name || c.titulo || '';

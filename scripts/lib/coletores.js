@@ -16,9 +16,7 @@ const AM_AREAS = {   // categoria do portal -> área usada no site
   "producao alimenticia": "Alimentação",
   "recursos naturais": "Meio Ambiente e Agro",
   "turismo, hospitalidade e lazer": "Turismo e Hotelaria",
-  // nomes equivalentes nos Moodles do IFRS e do IFMG
-  "informatica": "Tecnologia da Informação",
-  "turismo e hospitalidade": "Turismo e Hotelaria",
+  // nomes das categorias do +IFMG
   "desenvolvimento de sistemas e ti": "Tecnologia da Informação",
   "saude": "Saúde e Cuidados",
   "meio ambiente": "Meio Ambiente e Agro"
@@ -133,50 +131,6 @@ async function coletarBradesco(){
    Só metadados públicos (título, carga horária, link), sem login: o conteúdo dos cursos
    fica na plataforma de origem, o portal apenas aponta para ela. */
 const cargaH = texto => { const m = String(texto || "").match(/\d+(?:[.,]\d+)?/); return m ? m[0].replace(",", ".") + "h" : ""; };
-const turmaDe = completo => {
-  const t = completo.match(/^(.*?)\s+-\s+Turmas?\s+(\d{4})([AB])\s*$/i);
-  return t ? { titulo: t[1].trim(), turma: t[2] + t[3].toUpperCase() } : { titulo: completo, turma: "" };
-};
-
-/* Moodle do IFRS: mesma plataforma do Aprenda Mais. A carga só aparece em course/info.php. */
-const IFRS_BASE = "https://moodle.ifrs.edu.br";
-async function coletarIFRS(){
-  const indice = await buscar(IFRS_BASE + "/course/index.php");
-  if(indice.status !== 200) throw new Error("índice do Moodle IFRS respondeu HTTP " + indice.status);
-  const nomes = {};
-  for(const m of indice.texto.matchAll(/course\/index\.php\?categoryid=(\d+)">([^<]+)/g)) if(!nomes[m[1]]) nomes[m[1]] = decodificarHtml(m[2]);
-  // fora: turmas antigas, acesso restrito (parcerias) e preparatório de ingresso
-  const ids = Object.keys(nomes).filter(id => !/turmas anteriores|acesso restrito|pre-ifrs/.test(semAcento(nomes[id])));
-  if(!ids.length) throw new Error("nenhuma categoria encontrada no Moodle IFRS");
-
-  const brutos = [], vistos = new Set();
-  const paginas = await emLotes(ids, 3, async id => {
-    const r = await buscar(IFRS_BASE + "/course/index.php?categoryid=" + id + "&perpage=500");
-    if(r.status !== 200) throw new Error("categoria " + id + " do IFRS respondeu HTTP " + r.status);
-    return { id, texto: r.texto };
-  });
-  for(const { id, texto } of paginas){
-    const area = AM_AREAS[semAcento(nomes[id])] || "Outros";
-    for(const m of texto.matchAll(/coursename"><a class="[^"]*" href="[^"]*?course\/view\.php\?id=(\d+)">([^<]+)<\/a>/g)){
-      if(vistos.has(m[1])) continue;
-      vistos.add(m[1]);
-      const { titulo, turma } = turmaDe(decodificarHtml(m[2]));
-      brutos.push({ id: m[1], titulo, turma, area });
-    }
-  }
-  brutos.sort((a, b) => b.turma.localeCompare(a.turma));   // turma mais nova primeiro (vale a primeira de cada título)
-  const cursos = await emLotes(brutos, 4, async c => {
-    let carga = "";
-    try{
-      const r = await buscar(IFRS_BASE + "/course/info.php?id=" + c.id, { tentativas: 2 });
-      const t = decodificarHtml(r.texto.replace(/<[^>]*>/g, " "));
-      carga = cargaH((t.match(/Carga hor[aá]ria:\s*([^\n]*?)(?=\s+Prazo|\s+Pr[eé]|$)/i) || [])[1]);
-    }catch(_){ /* sem carga: segue como desconhecida */ }
-    await espera(60);
-    return { titulo: c.titulo, carga, area: c.area, link: IFRS_BASE + "/course/view.php?id=" + c.id };
-  });
-  return { cursos, detalhe: cursos.length + " cursos em " + ids.length + " categorias" };
-}
 
 /* +IFMG: Moodle com busca que devolve todos os cursos numa página. Carga, "gratuito" e
    "certificado" ficam em course/info.php. Curso que diz explicitamente "Gratuito: não" ou
@@ -228,4 +182,4 @@ async function coletarMundi(){
   return { cursos, detalhe: cursos.length + " cursos" };
 }
 
-module.exports = { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFRS, coletarIFMG, coletarMundi };
+module.exports = { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFMG, coletarMundi };

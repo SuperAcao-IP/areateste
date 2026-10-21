@@ -40,7 +40,6 @@ async function montarDados(cidade){
   if(!EV_LISTA.length)  console.warn("Lista Bradesco nao carregou (dados/cursos-bradesco.js)");
   if(!AM_LISTA.length)  console.warn("Lista Aprenda Mais nao carregou (dados/cursos-aprenda-mais.js)");
   /* Institutos Federais: fontes opcionais, mesmo filtro por titulo */
-  const IFRS_LISTA  = (typeof IFRS  !== "undefined" && Array.isArray(IFRS))  ? catalogoPermitido(IFRS,"ifrs")   : [];
   const IFMG_LISTA  = (typeof IFMG  !== "undefined" && Array.isArray(IFMG))  ? catalogoPermitido(IFMG,"ifmg")   : [];
   const MUNDI_LISTA = (typeof MUNDI !== "undefined" && Array.isArray(MUNDI)) ? catalogoPermitido(MUNDI,"mundi") : [];
 
@@ -50,8 +49,6 @@ async function montarDados(cidade){
     {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual", modalidade:"Online", carga:c.carga, link:c.link}));
   AM_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Aprenda Mais · MEC (online, gratuito)", modalidade:"Online", carga:"40h", link:c.link}));
-  IFRS_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
-    {nome:c.titulo, inst:"Instituto Federal do Rio Grande do Sul · Moodle (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
   IFMG_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Instituto Federal de Minas Gerais · +IFMG (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
   MUNDI_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",

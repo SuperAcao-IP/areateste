@@ -30,7 +30,7 @@ const OCULTAR = [
     /^(curso )?tecnico\b/],
 
   ["preparatório (ENEM, vestibular, concurso, ingresso)",
-    /\benem\b|pre-ifmg|pre-ifrs|vestibular|\bconcursos?\b|preparatorio/],
+    /\benem\b|pre-ifmg|vestibular|\bconcursos?\b|preparatorio/],
   ["contexto institucional / serviço público",
     /\b(receita federal|sistema prisional|penitenciari\w*|custodiad\w*|egress\w*|imigrantes?|migracoes|migratori\w*|refugiad\w*|cidadaos?|codigos? de obras|edificac\w*|licenciamento|indicadores de desempenho|transformacao digital|plano de governo|governos?|federal|federais|estadual|estaduais|suas|sisp|siafi|nacionais?|no ambito|reservas? particulares|rppn|drones?|lei n\w*|lei \d+|decreto|portaria|constituicao|direitos humanos|conselhos?|cooperativas? de credito|terceirizad\w*|institucion\w*|armas de fogo|investigac\w*|criminais?|penais?|penal|fiscal|fiscais|tributari\w*|aduan\w*|saneamento|vigilancia sanitaria|patologias em estruturas|obras|urban\w*|museus?|autarquias?|ministerio|secretaria|prefeituras?|municipios?|sistema s|uso publico|espacos? publicos?)\b/],
   ["voltado a servidor / gestão pública",

@@ -120,9 +120,6 @@ const TITULOS_PERMITIDOS = {
   "tecnologia de racoes",
   "viveiros e propagacao de mudas"
  ],
- ifrs: [
-
- ],
  ifmg: [
   "auxiliar de escritorio/administrativo: ferramentas e competencias basicas",
   "comunicacao e marketing pessoal: autopromocao profissional e processos eletivos",

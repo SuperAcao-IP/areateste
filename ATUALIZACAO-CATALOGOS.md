@@ -1,7 +1,7 @@
 # Atualização dos catálogos fixos (automática)
 
-Catálogos, **na ordem de prioridade para repetidos**: **Aprenda Mais** (MEC), **Moodle IFRS**,
-**+IFMG**, **Mundi** (IFSul), **Bradesco** (Escola Virtual da Fundação Bradesco) e **EVG**
+Catálogos, **na ordem de prioridade para repetidos**: **Aprenda Mais** (MEC), **+IFMG**,
+**Mundi** (IFSul), **Bradesco** (Escola Virtual da Fundação Bradesco) e **EVG**
 (Escola Virtual de Governo). Arquivos em `dados/`.
 
 Um curso que aparece em mais de uma fonte fica **uma vez só**, na de maior prioridade
@@ -22,12 +22,10 @@ abre uma **issue** com o resumo.
    - *EVG:* percorre `escolavirtual.gov.br/catalogo?page=N` até acabar (título, instituição,
      carga horária e link).
    - *Bradesco:* percorre `ev.org.br/cursos?pagina=N` até acabar (título, carga e link).
-   - *Moodle IFRS:* lê as categorias de `moodle.ifrs.edu.br` (fora "Turmas anteriores",
-     acesso restrito e Pré-IFRS) e busca a carga em `course/info.php` de cada curso.
    - *+IFMG:* três buscas (`a`, `e`, `o`) em `mais.ifmg.edu.br/maisifmg` com `perpage=500`, uma
      união que evita perder curso; carga, "gratuito" e "certificado" em `course/info.php`.
    - *Mundi:* uma página HTML estática (`mundi.ifsul.edu.br/portal/`) com todos os cursos e a duração.
-   Das três últimas só entram título, carga e link; o conteúdo fica na plataforma de origem.
+   Das duas últimas só entram título, carga e link; o conteúdo fica na plataforma de origem.
 2. **Confere se a coleta é confiável, fonte por fonte.** Se uma fonte falhar, vier vazia, vier
    com mais de 30% a menos que a anterior, ou perder mais de 40% dos cursos que aparecem no
    site, **só ela** é recusada: mantém a versão anterior (no ar e nos arquivos) e as outras
@@ -90,7 +88,6 @@ node scripts/atualizar-catalogos.js --simular      # faz tudo, não grava; só e
 node scripts/atualizar-catalogos.js                # grava os arquivos de dados
 node scripts/atualizar-catalogos.js --sem-links    # pula a conferência de links (mais rápido)
 node scripts/atualizar-catalogos.js --ignorar evg  # só teste local: não coleta a EVG e mantém os dados dela
-node scripts/atualizar-catalogos.js --ligar ifrs   # só teste local: liga o Moodle IFRS, que está desligado
 ```
 
 Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 páginas).
@@ -113,13 +110,8 @@ Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 p�
 - **Uma fonte fora do ar não bloqueia as outras**: ela mantém a versão anterior e a issue
   avisa. Aconteceu de verdade: o site da EVG ficou "Em manutenção" e as demais foram
   atualizadas. A próxima execução semanal tenta a EVG de novo.
-- **Moodle IFRS está DESLIGADO** (`ligada: false` em `scripts/atualizar-catalogos.js`) até haver
-  autorização do IFRS: não é coletado e não aparece no site. O código está pronto. Para ligar,
-  troque para `ligada: true`; para testar antes, rode com `--ligar ifrs`.
 - **Termos de uso e robots.txt (conferidos em 2026-10-21):** +IFMG e Mundi não têm robots.txt
-  nem termos públicos que tratem de coleta. O Moodle IFRS não tem robots.txt, mas seus
-  "Termos e Condições de Uso" (item 6.2) vedam "copiar, redistribuir ou derivar o conteúdo" da
-  plataforma sem autorização expressa. O portal só lê título, carga e link da listagem pública
-  e aponta para o curso (não copia conteúdo), mas vale pedir autorização ao IFRS.
+  nem termos públicos que tratem de coleta. O portal só lê título, carga e link da listagem
+  pública e aponta para o curso (não copia conteúdo).
 - Pelo GitHub, agendamentos de repositórios sem atividade por 60 dias são pausados; as
   próprias atualizações automáticas contam como atividade quando há mudança.

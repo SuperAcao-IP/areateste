@@ -16,7 +16,7 @@
 const fs = require("fs");
 const path = require("path");
 const { normalizarTitulo, buscar, emLotes } = require("./lib/util");
-const { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFRS, coletarIFMG, coletarMundi } = require("./lib/coletores");
+const { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFMG, coletarMundi } = require("./lib/coletores");
 const { classificar } = require("./lib/regras");
 
 const RAIZ = path.join(__dirname, "..");
@@ -32,11 +32,6 @@ const SEM_LINKS = args.includes("--sem-links");
    anteriores deles. A Action nunca usa esta opção: lá, falha em qualquer fonte impede tudo. */
 const iIgn = args.indexOf("--ignorar");
 const IGNORAR = new Set(iIgn >= 0 ? String(args[iIgn + 1] || "").split(",").map(s => s.trim()).filter(Boolean) : []);
-/* Fontes com `ligada: false` em CATALOGOS não são coletadas nem aparecem no site.
-   --ligar ifrs: só para teste local (a Action não usa). */
-const iLig = args.indexOf("--ligar");
-const LIGAR = new Set(iLig >= 0 ? String(args[iLig + 1] || "").split(",").map(s => s.trim()).filter(Boolean) : []);
-const ligada = cat => cat.ligada !== false || LIGAR.has(cat.chave);
 const iRel = args.indexOf("--relatorio");
 const ARQ_RELATORIO = path.resolve(iRel >= 0 ? args[iRel + 1] : path.join(RAIZ, "relatorio-atualizacao.md"));
 const HOJE = new Date().toISOString().slice(0, 10);
@@ -51,11 +46,6 @@ const HOJE = new Date().toISOString().slice(0, 10);
 const CATALOGOS = [
   { chave: "aprendaMais", nome: "Aprenda Mais (MEC)", arquivo: "cursos-aprenda-mais.js", constante: "APRENDA_MAIS",
     coletar: prev => coletarAprendaMais({ minimoEsperado: prev.length }), cargaPadrao: "40h", campos: ["titulo", "area", "link"] },
-  /* DESLIGADO até haver autorização do IFRS: os "Termos e Condições de Uso" do Moodle IFRS
-     (item 6.2) vedam copiar/redistribuir o conteúdo da plataforma sem autorização expressa.
-     O código está pronto: para ligar, troque para `ligada: true` (ou teste com --ligar ifrs). */
-  { chave: "ifrs", nome: "Moodle IFRS", arquivo: "cursos-ifrs.js", constante: "IFRS", ligada: false,
-    coletar: () => coletarIFRS(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
   { chave: "ifmg", nome: "+IFMG", arquivo: "cursos-ifmg.js", constante: "IFMG",
     coletar: () => coletarIFMG(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
   { chave: "mundi", nome: "Mundi (IFSul)", arquivo: "cursos-mundi.js", constante: "MUNDI",
@@ -79,12 +69,6 @@ const CABECALHO = {
    Coletado de ev.org.br · atualizado em ${HOJE} (${info}).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js. */`,
-  ifrs: (info) => `/* Moodle do IFRS · cursos livres (MOOC) gratuitos e abertos, 100% online.
-   Coletado de moodle.ifrs.edu.br · atualizado em ${HOJE} (${info}).
-   Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
-   Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
-   Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
-   completa coletada e as decisões estão em dados/decisoes-catalogos.json. */`,
   ifmg: (info) => `/* +IFMG · cursos online EaD gratuitos do Instituto Federal de Minas Gerais.
    Coletado de mais.ifmg.edu.br · atualizado em ${HOJE} (${info}).
    Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
@@ -217,7 +201,6 @@ function escreverRelatorio(r){
     : "**Nenhum arquivo precisou mudar.**\n");
   L.push("| Catálogo | Coletados | Antes | Entraram | Saíram | Visíveis antes → depois |\n|---|---|---|---|---|---|");
   for(const c of r.catalogos){
-    if(c.desligado){ L.push(`| ${c.nome} | desligada (aguarda autorização) | – | – | – | não aparece no site |`); continue; }
     if(c.falhou && c.mantido){ L.push(`| ${c.nome} | **falhou** | ${c.antes} | – | – | versão anterior mantida (${c.visiveisAntes} visíveis) |`); continue; }
     if(c.falhou){ L.push(`| ${c.nome} | falhou | ${c.antes} | – | – | mantido |`); continue; }
     if(c.mantido){ L.push(`| ${c.nome} | ignorada nesta execução | ${c.antes} | – | – | versão anterior mantida |`); continue; }
@@ -226,7 +209,7 @@ function escreverRelatorio(r){
   }
   L.push("");
   for(const c of r.catalogos){
-    if(c.falhou || c.mantido || c.desligado || !c.entraram) continue;
+    if(c.falhou || c.mantido || !c.entraram) continue;
     L.push(`## ${c.nome}\n`);
     const novosVisiveis = c.entraram.filter(e => e.visivel);
     const novosOcultos = c.entraram.filter(e => !e.visivel);
@@ -240,7 +223,7 @@ function escreverRelatorio(r){
           .map(([m, t]) => `- ${m}: **${t.length}**` + (t.length <= 3 ? ` (${t.join("; ")})` : ` (ex.: ${t.slice(0, 3).join("; ")})`)).join("\n") + "\n"
       : "_nenhum_\n");
     if(c.repetidosEntreFontes && c.repetidosEntreFontes.length)
-      L.push(`### Escondidos por repetição em fonte de prioridade maior (${c.repetidosEntreFontes.length})\n\nVale uma versão só: Aprenda Mais, Moodle IFRS, +IFMG, Mundi, Bradesco, EVG, nessa ordem.\n\n${lista(c.repetidosEntreFontes, r => r.titulo)}`);
+      L.push(`### Escondidos por repetição em fonte de prioridade maior (${c.repetidosEntreFontes.length})\n\nVale uma versão só: Aprenda Mais, +IFMG, Mundi, Bradesco, EVG, nessa ordem.\n\n${lista(c.repetidosEntreFontes, r => r.titulo)}`);
     if(c.reavaliados && c.reavaliados.length)
       L.push(`### Decisões automáticas que mudaram por causa de ajuste nas regras (${c.reavaliados.length})\n\n${lista(c.reavaliados, x => `${x.titulo}: ${x.de} → ${x.para} (${x.motivo})`)}`);
     L.push(`### Saíram do catálogo (${c.sairam.length})\n`);
@@ -253,7 +236,7 @@ function escreverRelatorio(r){
       : "_conferência de links pulada_\n");
     else L.push(`${c.links.conferidos} links de cursos visíveis conferidos; **${c.links.quebrados.length} quebrado(s)**.\n\n` + lista(c.links.quebrados, q => `${q.titulo} — ${q.link} (${q.motivo})`));
   }
-  const auto = r.catalogos.flatMap(c => c.falhou || c.mantido || c.desligado || !c.entraram ? [] : c.entraram.map(e => ({ ...e, catalogo: c.nome })));
+  const auto = r.catalogos.flatMap(c => c.falhou || c.mantido || !c.entraram ? [] : c.entraram.map(e => ({ ...e, catalogo: c.nome })));
   L.push(`---\n_${auto.length} curso(s) novo(s) classificado(s) automaticamente pelas regras de \`scripts/lib/regras.js\`. Para discordar de uma decisão, edite \`dados/decisoes-catalogos.json\` (\`d\` e \`o: "manual"\`) e a próxima execução respeita._\n`);
   fs.writeFileSync(ARQ_RELATORIO, L.join("\n"), "utf8");
 }
@@ -282,12 +265,6 @@ async function main(){
       coletas[cat.chave] = { cursos: atual.cursos, detalhe, atual };
       info.coletados = atual.cursos.length; info.detalhe = detalhe; info.mantido = true;
     };
-    if(!ligada(cat)){
-      coletas[cat.chave] = { cursos: [], detalhe: "desligada", atual: { cursos: [] } };
-      info.antes = 0; info.coletados = 0; info.detalhe = "desligada (flag)"; info.desligado = true;
-      console.log(`${cat.nome}: desligada (flag), não coleta`);
-      continue;
-    }
     if(IGNORAR.has(cat.chave)){
       manterAnterior("ignorado nesta execução (--ignorar)"); info.ignorado = true;
       console.log(`${cat.nome}: ignorado (--ignorar), mantém os dados anteriores`);
@@ -420,7 +397,7 @@ async function main(){
   for(const cat of CATALOGOS){
     const info = resultado.catalogos.find(c => c.chave === cat.chave);
     info.links = null;
-    if(SEM_LINKS || !cat.checarLinks || info.mantido || info.desligado) continue;
+    if(SEM_LINKS || !cat.checarLinks || info.mantido) continue;
     const alvo = info.col.cursos.filter(c => visiveis[cat.chave].has(norm(c.titulo)));
     console.log(`Conferindo ${alvo.length} links de ${cat.nome}…`);
     const quebrados = [];
@@ -448,7 +425,6 @@ async function main(){
       : col.cursos;
     const infoCat = resultado.catalogos.find(c => c.chave === cat.chave);
     if(infoCat.mantido) continue;   // fonte que falhou ou foi ignorada: o arquivo fica como está
-    if(infoCat.desligado){ gravarSeMudou(cat.arquivo, gerarCatalogo(cat, [], "desligada: aguarda liberação"), resultado.mudancas); continue; }
     const infoTxt = (cat.soVisiveis ? `${paraArquivo.length} cursos visíveis de ${col.cursos.length} coletados` : `${col.cursos.length} cursos`)
       + (cat.chave === "aprendaMais" ? ", " + col.detalhe : "");
     gravarSeMudou(cat.arquivo, gerarCatalogo(cat, paraArquivo, infoTxt), resultado.mudancas);
