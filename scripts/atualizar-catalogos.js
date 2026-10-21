@@ -39,7 +39,8 @@ const CATALOGOS = [
   { chave: "bradesco", nome: "Fundação Bradesco", arquivo: "cursos-bradesco.js", constante: "EV",
     coletar: () => coletarBradesco(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"] },
   { chave: "evg", nome: "Escola Virtual de Governo (EVG)", arquivo: "cursos-evg.js", constante: "EVG",
-    coletar: () => coletarEVG(), cargaPadrao: "", campos: ["titulo", "inst", "carga", "area", "link"] }
+    coletar: () => coletarEVG(), cargaPadrao: "", campos: ["titulo", "inst", "carga", "area", "link"],
+    soVisiveis: true }   // o catálogo é enorme (~900); o arquivo guarda só o que aparece no site
 ];
 
 const CABECALHO = {
@@ -57,7 +58,8 @@ const CABECALHO = {
   evg: (info) => `/* Escola Virtual de Governo (EVG) · cursos online gratuitos.
    Coletado de escolavirtual.gov.br · atualizado em ${HOJE} (${info}).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
-   O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
+   Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
+   completa coletada e as decisões estão em dados/decisoes-catalogos.json.
    Arquivo .js (nao .json) porque o codigo usa a constante de forma sincrona na inicializacao. */`
 };
 
@@ -80,6 +82,15 @@ function lerDecisoes(){
   const base = fs.existsSync(arq) ? JSON.parse(fs.readFileSync(arq, "utf8")) : { versao: 1 };
   for(const c of CATALOGOS) base[c.chave] = base[c.chave] || {};
   return base;
+}
+
+/* Lista da coleta anterior. Vem das decisões (ativo = estava no site de origem na última
+   coleta), porque o arquivo de dados pode guardar só os cursos visíveis (EVG). Na primeira
+   execução depois dessa mudança ainda não existe o campo "ativo": usa o arquivo atual. */
+function anterioresDe(cat, dec, atual){
+  const entradas = Object.values(dec);
+  if(!entradas.some(e => "ativo" in e)) return atual.cursos;
+  return entradas.filter(e => e.ativo === true).map(e => ({ titulo: e.t, area: e.ar || "Outros", carga: e.c || "", link: "" }));
 }
 
 /* ---------- carga horária (mesma regra do site) ---------- */
@@ -189,6 +200,7 @@ async function main(){
   /* 1-2. coleta e conferência */
   for(const cat of CATALOGOS){
     const atual = lerCatalogoAtual(cat);
+    atual.cursos = anterioresDe(cat, decisoes[cat.chave], atual);
     const info = { nome: cat.nome, chave: cat.chave, antes: atual.cursos.length, falhou: false };
     resultado.catalogos.push(info);
     try{
@@ -253,6 +265,14 @@ async function main(){
       if(dec[n].d === "manter" && !cargaOk(c.carga)) info.cargaBaixa.push({ titulo: c.titulo, carga: c.carga });
     }
     info.visiveisDepois = col.cursos.filter(c => dec[norm(c.titulo)].d === "manter" && cargaOk(c.carga)).length;
+    /* registra o que estava no site de origem nesta coleta (base da comparação da próxima) */
+    const presentes = new Set();
+    for(const c of col.cursos){
+      const e = dec[norm(c.titulo)];
+      e.ativo = true; e.c = c.carga || ""; e.ar = c.area || "Outros";
+      presentes.add(norm(c.titulo));
+    }
+    for(const [n, e] of Object.entries(dec)) if(!presentes.has(n)) e.ativo = false;
     info.col = col;
   }
 
@@ -296,8 +316,12 @@ async function main(){
   for(const cat of CATALOGOS){
     const col = coletas[cat.chave];
     permitidos[cat.chave] = [...new Set(col.cursos.filter(c => decisoes[cat.chave][norm(c.titulo)].d === "manter").map(c => norm(c.titulo)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
-    const infoTxt = `${col.cursos.length} cursos` + (cat.chave === "aprendaMais" ? ", " + col.detalhe : "");
-    gravarSeMudou(cat.arquivo, gerarCatalogo(cat, col.cursos, infoTxt), resultado.mudancas);
+    const paraArquivo = cat.soVisiveis
+      ? col.cursos.filter(c => decisoes[cat.chave][norm(c.titulo)].d === "manter" && cargaOk(c.carga))
+      : col.cursos;
+    const infoTxt = (cat.soVisiveis ? `${paraArquivo.length} cursos visíveis de ${col.cursos.length} coletados` : `${col.cursos.length} cursos`)
+      + (cat.chave === "aprendaMais" ? ", " + col.detalhe : "");
+    gravarSeMudou(cat.arquivo, gerarCatalogo(cat, paraArquivo, infoTxt), resultado.mudancas);
   }
   gravarSeMudou("filtro-publico.js", gerarFiltro(permitidos), resultado.mudancas);
   gravarSeMudou("decisoes-catalogos.json", JSON.stringify(decisoes, null, 1) + "\n", resultado.mudancas);

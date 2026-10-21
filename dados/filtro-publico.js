@@ -153,7 +153,6 @@ const TITULOS_PERMITIDOS = {
   "educacao financeira e cooperativismo",
   "excel intermediario",
   "fluencia empreendedores",
-  "fotografia e audiovisual para producao de janelas de libras",
   "gestao de conflitos e negociacao",
   "inteligencia emocional",
   "introducao a libras",
