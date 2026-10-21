@@ -45,7 +45,7 @@ const HOJE = new Date().toISOString().slice(0, 10);
    para o login, então o link só vale como "está na listagem pública"). */
 const CATALOGOS = [
   { chave: "aprendaMais", nome: "Aprenda Mais (MEC)", arquivo: "cursos-aprenda-mais.js", constante: "APRENDA_MAIS",
-    coletar: prev => coletarAprendaMais({ minimoEsperado: prev.length }), cargaPadrao: "40h", campos: ["titulo", "area", "link"] },
+    coletar: prev => coletarAprendaMais({ minimoEsperado: prev.length }), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"] },
   { chave: "ifmg", nome: "+IFMG", arquivo: "cursos-ifmg.js", constante: "IFMG",
     coletar: () => coletarIFMG(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
   { chave: "mundi", nome: "Mundi (IFSul)", arquivo: "cursos-mundi.js", constante: "MUNDI",
@@ -63,7 +63,8 @@ const CABECALHO = {
    Coletado de aprendamais.mec.gov.br · atualizado em ${HOJE} (${info}).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
-   Todos sao EaD, gratuitos, ~40h, com certificacao do MEC.
+   Todos sao EaD, gratuitos e com certificacao do MEC. A carga horaria real de cada curso
+   vem de course/info.php (a maioria tem 20h ou 30h; so uma parte tem 40h).
    ===================================================================== */`,
   bradesco: (info) => `/* Escola Virtual · Fundação Bradesco · cursos livres, gratuitos e 100% online
    Coletado de ev.org.br · atualizado em ${HOJE} (${info}).

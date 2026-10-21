@@ -18,7 +18,8 @@ abre uma **issue** com o resumo.
 1. **Coleta** os três sites (`scripts/lib/coletores.js`), sem login.
    - *Aprenda Mais:* lê as categorias de topo do portal, que guardam a **turma vigente**
      (as antigas ficam em "Turmas anteriores"). A turma é descoberta a cada vez pelo
-     "- Turma 2026B" no título; cada turma tem links novos.
+     "- Turma 2026B" no título; cada turma tem links novos. A carga horária real sai de
+     `course/info.php` de cada curso.
    - *EVG:* percorre `escolavirtual.gov.br/catalogo?page=N` até acabar (título, instituição,
      carga horária e link).
    - *Bradesco:* percorre `ev.org.br/cursos?pagina=N` até acabar (título, carga e link).
@@ -68,8 +69,10 @@ Os mesmos do filtro de público, nesta ordem:
 6. **sem regra que case → oculta** (na dúvida, não aparece).
 
 A **carga mínima de 15h** não entra nas regras: é aplicada à parte, no site
-(`js/config.js`). Um curso de 15 a 19h aparece com a etiqueta "(15–19h)". O Aprenda Mais não
-informa a carga publicamente; o site assume 40h.
+(`js/config.js`). Um curso de 15 a 19h aparece com a etiqueta "(15–19h)". No Aprenda Mais a carga
+real de cada curso vem de `course/info.php` (uma requisição por curso; a maioria tem 20h ou 30h,
+só uma parte tem 40h). Se não for possível ler a carga de mais de 10% dos cursos, a fonte é
+tratada como falha e mantém a versão anterior.
 
 `node scripts/validar-regras.js` mostra o quanto as regras concordam com as decisões já
 tomadas à mão. Atenção: as regras foram ajustadas em cima dessas mesmas decisões, então o

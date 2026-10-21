@@ -48,7 +48,7 @@ async function montarDados(cidade){
   EV_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual", modalidade:"Online", carga:c.carga, link:c.link}));
   AM_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
-    {nome:c.titulo, inst:"Aprenda Mais · MEC (online, gratuito)", modalidade:"Online", carga:"40h", link:c.link}));
+    {nome:c.titulo, inst:"Aprenda Mais · MEC (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
   IFMG_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Instituto Federal de Minas Gerais · +IFMG (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
   MUNDI_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",

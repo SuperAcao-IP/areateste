@@ -8,7 +8,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "altas habilidades / superdotacao: conceitos": {
@@ -17,7 +17,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "biologia": {
@@ -35,7 +35,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "epidemiologia": {
@@ -53,7 +53,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "gerenciamento de residuos": {
@@ -62,7 +62,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "60h",
    "ar": "Saúde e Cuidados"
   },
   "gestao de pessoas em saude": {
@@ -71,7 +71,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "higiene no trabalho: agentes biologicos e fisicos": {
@@ -80,7 +80,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "higiene no trabalho: iluminacao, som e agentes quimicos": {
@@ -89,7 +89,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "indicadores na saude": {
@@ -98,7 +98,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "microbiologia": {
@@ -107,7 +107,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "o agente comunitario de saude no planejamento, programacao e avaliacao em saude": {
@@ -116,7 +116,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "",
    "ar": "Saúde e Cuidados"
   },
   "o agente comunitario de saude: a promocao e a educacao em saude": {
@@ -125,7 +125,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "organizacao e funcionamento do sus": {
@@ -134,7 +134,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "planejamento em saude coletiva": {
@@ -143,7 +143,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "praticas em saude e seguranca do trabalho": {
@@ -152,7 +152,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "primeiros socorros para profissionais de saude": {
@@ -170,7 +170,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "promocao da saude mental": {
@@ -179,7 +179,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "protecao e cuidados para criancas": {
@@ -188,7 +188,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "psicologia aplicada a reabilitacao": {
@@ -206,7 +206,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "saude da crianca e do adolescente": {
@@ -215,7 +215,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "saude da mulher e do recem-nascido": {
@@ -224,7 +224,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "saude do homem e do idoso": {
@@ -233,7 +233,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "saude e seguranca ambiental": {
@@ -242,7 +242,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "",
    "ar": "Saúde e Cuidados"
   },
   "saude e seguranca no trabalho": {
@@ -251,7 +251,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "saude ocupacional": {
@@ -260,7 +260,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "sustentabilidade ambiental, social e economica": {
@@ -269,7 +269,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "tecnicas e dinamicas de trabalho em grupo": {
@@ -278,7 +278,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "toxicologia": {
@@ -287,7 +287,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Saúde e Cuidados"
   },
   "vigilancia em saude": {
@@ -296,7 +296,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Saúde e Cuidados"
   },
   "calculo tecnico": {
@@ -305,7 +305,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao financeira": {
@@ -314,7 +314,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "estatistica: conceitos e representacoes": {
@@ -323,7 +323,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "estatistica: medidas de posicao e dispersao": {
@@ -332,7 +332,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "fundamentos basicos de energia fotovoltaica residencial": {
@@ -341,7 +341,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "movimentos na fisica i": {
@@ -350,7 +350,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "movimentos na fisica ii": {
@@ -359,7 +359,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "quimica": {
@@ -377,7 +377,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao cooperativista": {
@@ -386,7 +386,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "era vargas": {
@@ -395,7 +395,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "filosofia i": {
@@ -422,7 +422,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "geografia i": {
@@ -431,7 +431,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "6h",
    "ar": "Outros"
   },
   "geografia ii": {
@@ -476,7 +476,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "abordagens pedagogicas modernas na educacao a distancia": {
@@ -485,7 +485,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "administracao de materiais": {
@@ -494,7 +494,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "aprendizagem significativa": {
@@ -503,7 +503,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "audiovisual na escola": {
@@ -512,7 +512,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "60h",
    "ar": "Outros"
   },
   "avaliacao na educacao a distancia": {
@@ -521,7 +521,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "biblioteca escolar": {
@@ -530,7 +530,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "capacitacao para autores de cursos para a aprenda mais": {
@@ -539,7 +539,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "como usar o laboratorio de informatica nas aulas? ensino infantil e fundamental - anos iniciais": {
@@ -548,7 +548,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "comunicacao cientifica": {
@@ -557,7 +557,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "contabilidade na escola": {
@@ -566,7 +566,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "25h",
    "ar": "Outros"
   },
   "cursos online abertos e massivos: teoria e pratica": {
@@ -575,7 +575,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "cursos regulares presenciais com carga horaria a distancia": {
@@ -584,7 +584,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao a distancia": {
@@ -593,7 +593,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao fisica e lazer": {
@@ -602,7 +602,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao fisica: qualidade de vida": {
@@ -611,7 +611,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "educacao, sociedade e trabalho": {
@@ -620,7 +620,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "educadores e educandos: tempos historicos": {
@@ -629,7 +629,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ensino inclusivo no espaco escolar": {
@@ -638,7 +638,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "equipamentos e materiais didaticos": {
@@ -656,7 +656,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "funcionarios de escolas: cidadaos, educadores, profissionais e gestores": {
@@ -665,7 +665,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "gestao democratica nos sistemas e na escola": {
@@ -674,7 +674,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "gestao em educacao escolar": {
@@ -683,7 +683,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "higiene na escola": {
@@ -692,7 +692,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "institutos federais: ensino, pesquisa e extensao": {
@@ -701,7 +701,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "jogos, brinquedos e brincadeiras": {
@@ -710,7 +710,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "laboratorios da escola": {
@@ -719,7 +719,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "legislacao escolar": {
@@ -728,7 +728,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "ludicidade como instrumento pedagogico": {
@@ -737,7 +737,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "mediacao pedagogica na educacao a distancia": {
@@ -746,7 +746,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "o uso de aplicativos web na construcao de materiais educacionais na educacao a distancia": {
@@ -755,7 +755,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "planejamento de disciplinas com carga horaria de educacao a distancia": {
@@ -764,7 +764,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "planejamento educacional individualizado na educacao basica": {
@@ -773,7 +773,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "projetos educacionais e interdisciplinares": {
@@ -782,7 +782,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "psicologia da aprendizagem": {
@@ -800,7 +800,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "redacao de textos empresariais e oficiais": {
@@ -809,7 +809,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "relacoes interpessoais: abordagem psicologica": {
@@ -818,7 +818,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "repositorios de materiais didaticos digitais e direitos de uso na educacao a distancia": {
@@ -827,7 +827,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "seguranca na sociedade e nas escolas": {
@@ -836,7 +836,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "sexualidade e genero na educacao infantil": {
@@ -845,7 +845,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "tecnicas de construcao aplicadas a escola": {
@@ -863,7 +863,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "trabalho escolar e teorias administrativas": {
@@ -872,7 +872,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "administracao estrategica (extra agosto)": {
@@ -917,7 +917,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "administracao publica municipal": {
@@ -926,7 +926,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "administracao: fundamentos": {
@@ -944,7 +944,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "captacao de recursos": {
@@ -953,7 +953,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "70h",
    "ar": "Administração e Gestão"
   },
   "comercio eletronico": {
@@ -962,7 +962,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "comunicacao e atendimento ao cliente": {
@@ -971,7 +971,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "constituicao e desenvolvimento de cooperativas": {
@@ -980,7 +980,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "contabilidade basica": {
@@ -989,7 +989,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "contabilidade comercial": {
@@ -998,7 +998,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "contabilidade de custos": {
@@ -1007,7 +1007,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "contabilidade empresarial": {
@@ -1016,7 +1016,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "contabilidade publica": {
@@ -1034,7 +1034,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "controle de transportes e distribuicao": {
@@ -1043,7 +1043,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "controle interno e externo": {
@@ -1052,7 +1052,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "convenios": {
@@ -1061,7 +1061,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "cooperativismo: conceitos iniciais": {
@@ -1070,7 +1070,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "cooperativismo: gestao e implementacao": {
@@ -1079,7 +1079,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "custos e orcamento": {
@@ -1088,7 +1088,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "custos logisticos": {
@@ -1106,7 +1106,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "50h",
    "ar": "Administração e Gestão"
   },
   "economia solidaria": {
@@ -1115,7 +1115,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "elaboracao e analise de projetos": {
@@ -1124,7 +1124,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "empreendedorismo": {
@@ -1142,7 +1142,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "estrutura e analise de balanco": {
@@ -1151,7 +1151,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "etica empresarial": {
@@ -1160,7 +1160,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "4h",
    "ar": "Administração e Gestão"
   },
   "etica no servico publico": {
@@ -1178,7 +1178,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "financas para empreendedores": {
@@ -1187,7 +1187,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "financas publicas": {
@@ -1196,7 +1196,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "fundamentos e ferramentas da qualidade": {
@@ -1214,7 +1214,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao de documentos e arquivistica": {
@@ -1223,7 +1223,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "gestao de estoques": {
@@ -1232,7 +1232,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "gestao de marketing": {
@@ -1241,7 +1241,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao de pessoas: conceitos e processos": {
@@ -1250,7 +1250,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao de recursos nas empresas": {
@@ -1259,7 +1259,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao de tempo e organizacao": {
@@ -1268,7 +1268,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao estrategica de cooperativas": {
@@ -1277,7 +1277,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "gestao financeira": {
@@ -1295,7 +1295,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "gestao participativa": {
@@ -1304,7 +1304,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "gestao tributaria": {
@@ -1313,7 +1313,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "governanca cooperativa": {
@@ -1322,7 +1322,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "legislacao aplicada a logistica": {
@@ -1340,7 +1340,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "legislacao fisco tributaria": {
@@ -1349,7 +1349,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "lei de responsabilidade fiscal": {
@@ -1358,7 +1358,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "licitacoes": {
@@ -1376,7 +1376,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "logistica": {
@@ -1385,7 +1385,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "logistica em servicos": {
@@ -1412,7 +1412,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "marketing empresarial e pessoal": {
@@ -1421,7 +1421,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "marketing pessoal": {
@@ -1430,7 +1430,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "2h",
    "ar": "Administração e Gestão"
   },
   "marketing publico": {
@@ -1439,7 +1439,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "microempreendedor individual: da criacao ao encerramento": {
@@ -1466,7 +1466,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "orcamento empresarial": {
@@ -1475,7 +1475,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "orcamento publico": {
@@ -1484,7 +1484,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "planejamento e gestao governamental": {
@@ -1493,7 +1493,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "planejamento financeiro": {
@@ -1502,7 +1502,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "prestacao de contas": {
@@ -1511,7 +1511,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "processamento de pedidos e servicos ao cliente": {
@@ -1520,7 +1520,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "processos produtivos": {
@@ -1529,7 +1529,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "projetos: elaboracao e gestao": {
@@ -1538,7 +1538,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "60h",
    "ar": "Administração e Gestão"
   },
   "psicologia das relacoes humanas": {
@@ -1565,7 +1565,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "recursos humanos": {
@@ -1574,7 +1574,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "recursos humanos na administracao publica": {
@@ -1592,7 +1592,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "responsabilidade social": {
@@ -1601,7 +1601,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "responsabilidade social e ambiental": {
@@ -1610,7 +1610,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "roteirizacao internacional": {
@@ -1619,7 +1619,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "rotinas trabalhistas": {
@@ -1628,7 +1628,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "supply chain": {
@@ -1637,7 +1637,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Administração e Gestão"
   },
   "tecnicas de negociacao": {
@@ -1646,7 +1646,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "tecnicas de vendas e relacoes de consumo": {
@@ -1655,7 +1655,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "2h",
    "ar": "Administração e Gestão"
   },
   "transporte e distribuicao": {
@@ -1664,7 +1664,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "a poesia de augusto dos anjos": {
@@ -1682,7 +1682,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 1": {
@@ -1691,7 +1691,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 2": {
@@ -1700,7 +1700,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 3": {
@@ -1709,7 +1709,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 4": {
@@ -1718,7 +1718,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 5": {
@@ -1727,7 +1727,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 6": {
@@ -1736,7 +1736,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 7": {
@@ -1745,7 +1745,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 8": {
@@ -1754,7 +1754,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 9": {
@@ -1763,7 +1763,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol 10": {
@@ -1772,7 +1772,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "espanhol para eventos": {
@@ -1781,7 +1781,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "estrategias de leitura em lingua inglesa para a area de meio ambiente": {
@@ -1790,7 +1790,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "ingles 1 (extra agosto)": {
@@ -1799,7 +1799,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 1": {
@@ -1808,7 +1808,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 2": {
@@ -1817,7 +1817,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 3": {
@@ -1826,7 +1826,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 4": {
@@ -1835,7 +1835,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 5": {
@@ -1844,7 +1844,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 6": {
@@ -1853,7 +1853,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 7": {
@@ -1862,7 +1862,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 8": {
@@ -1871,7 +1871,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 9": {
@@ -1880,7 +1880,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 10": {
@@ -1889,7 +1889,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 11": {
@@ -1898,7 +1898,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 12": {
@@ -1907,7 +1907,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles 13": {
@@ -1916,7 +1916,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "ingles aplicado a eventos": {
@@ -1925,7 +1925,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "literatura": {
@@ -1943,7 +1943,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 2": {
@@ -1952,7 +1952,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 3": {
@@ -1961,7 +1961,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 4": {
@@ -1970,7 +1970,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 5": {
@@ -1979,7 +1979,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 6": {
@@ -1988,7 +1988,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 7": {
@@ -1997,7 +1997,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 8": {
@@ -2006,7 +2006,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 9": {
@@ -2015,7 +2015,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 10": {
@@ -2024,7 +2024,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 11": {
@@ -2033,7 +2033,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues como lingua adicional 12": {
@@ -2042,7 +2042,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "portugues instrumental": {
@@ -2051,7 +2051,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "analise e projeto de software": {
@@ -2060,7 +2060,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "automacao de sistemas": {
@@ -2069,7 +2069,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "banco de dados 1: fundamentos": {
@@ -2078,7 +2078,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "comunicacao empresarial": {
@@ -2087,7 +2087,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "criando trabalhos academicos com ferramentas digitais": {
@@ -2096,7 +2096,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "desenvolvimento backend com php: poo e integracao com mysql": {
@@ -2105,7 +2105,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "desenvolvimento backend com php: poo e integracao com banco de dados": {
@@ -2114,7 +2114,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "estrutura de dados": {
@@ -2123,7 +2123,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "excel na pratica: aplicacao de funcoes, organizacao e visualizacao de dados": {
@@ -2132,7 +2132,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "gestao de projetos de software com pmbok: guia essencial para iniciantes": {
@@ -2150,7 +2150,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "html5: fundamentos para construcao de paginas web modernas": {
@@ -2186,7 +2186,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "manutencao de computadores: hardware, software e evolucao": {
@@ -2195,7 +2195,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "manutencao de computadores: simuladores, sistemas operacionais e montagem": {
@@ -2204,7 +2204,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "moodle para educadores - percurso formativo": {
@@ -2231,7 +2231,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "programacao com python: do objeto ao banco de dados": {
@@ -2240,7 +2240,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "projeto de sistemas web": {
@@ -2249,7 +2249,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "python fundamental 1": {
@@ -2258,7 +2258,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "python fundamental 2": {
@@ -2267,7 +2267,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "react: construindo single page applications dinamicas": {
@@ -2294,7 +2294,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "redes de computadores ii": {
@@ -2303,7 +2303,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Tecnologia da Informação"
   },
   "scrum: gerenciando projetos de software com agilidade": {
@@ -2321,7 +2321,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "softwares de seguranca da informacao": {
@@ -2330,7 +2330,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "web design": {
@@ -2339,7 +2339,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Tecnologia da Informação"
   },
   "windows server 2016: instalacao e administracao": {
@@ -2357,7 +2357,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Construção e Manutenção"
   },
   "introducao ao controle tecnologico aplicado a usinas de concreto": {
@@ -2366,7 +2366,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Construção e Manutenção"
   },
   "materiais de construcao: aglomerantes e concretos": {
@@ -2375,7 +2375,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Construção e Manutenção"
   },
   "materiais de construcao: metais, madeiras e acabamentos": {
@@ -2384,7 +2384,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Construção e Manutenção"
   },
   "abate e processamento de carne e frango": {
@@ -2393,7 +2393,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "alimentacao e nutricao no brasil": {
@@ -2402,7 +2402,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "alimentacao saudavel e sustentavel na escola": {
@@ -2411,7 +2411,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "analises fisico-quimicas dos alimentos": {
@@ -2420,7 +2420,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "bebidas: conceitos e tipos": {
@@ -2429,7 +2429,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "bem-estar e ambiencia das aves": {
@@ -2438,7 +2438,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "bioquimica dos alimentos: amostragem, extracao e caracterizacao enzimatica": {
@@ -2447,7 +2447,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "bioquimica dos alimentos: composicao e metabolismo": {
@@ -2456,7 +2456,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "cardapios saudaveis": {
@@ -2465,7 +2465,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "cervejas: tipos, caracteristicas e harmonizacao": {
@@ -2474,7 +2474,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "35h",
    "ar": "Alimentação"
   },
   "confeitaria": {
@@ -2483,7 +2483,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "conservacao de alimentos: calor, concentracao, desidratacao e frio": {
@@ -2492,7 +2492,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "conservacao de alimentos: salga, defumacao, aditivos e fermentacao": {
@@ -2501,7 +2501,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "destilados: tipos, caracteristicas e harmonizacao": {
@@ -2510,7 +2510,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "educacao alimentar e nutricional nas escolas": {
@@ -2519,7 +2519,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "gastronomia: eventos": {
@@ -2528,7 +2528,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "25h",
    "ar": "Alimentação"
   },
   "gastronomia: historia": {
@@ -2537,7 +2537,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "higiene agroindustrial": {
@@ -2546,7 +2546,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "higiene e controle de qualidade de alimentos": {
@@ -2555,7 +2555,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "50h",
    "ar": "Alimentação"
   },
   "instalacoes agroindustriais": {
@@ -2564,7 +2564,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "microbiologia de alimentos": {
@@ -2573,7 +2573,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "",
    "ar": "Alimentação"
   },
   "organizacao e operacao de cozinhas escolares": {
@@ -2582,7 +2582,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "panificacao": {
@@ -2591,7 +2591,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "politicas de alimentacao escolar": {
@@ -2600,7 +2600,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "processamento de carnes e derivados": {
@@ -2618,7 +2618,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Alimentação"
   },
   "producao e industrializacao de alimentos": {
@@ -2627,7 +2627,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   },
   "tecnicas de preparo de coqueteis e bebidas": {
@@ -2645,7 +2645,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "artes visuais": {
@@ -2654,7 +2654,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "cerimonial: conceitos, precedencia e simbolos": {
@@ -2663,7 +2663,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "cerimonial: tipos, etiqueta e profissional": {
@@ -2672,7 +2672,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "edicao de videos no shotcut": {
@@ -2681,7 +2681,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "interculturalidade": {
@@ -2690,7 +2690,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "50h",
    "ar": "Outros"
   },
   "oficinas culturais": {
@@ -2708,7 +2708,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "relacoes publicas: comunicacao e planejamento": {
@@ -2717,7 +2717,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "tecnicas de publicidade e propaganda": {
@@ -2726,7 +2726,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "agricultura e desenvolvimento rural sustentavel": {
@@ -2744,7 +2744,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "agroecologia": {
@@ -2753,7 +2753,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "agroindustrializacao de frutas": {
@@ -2762,7 +2762,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "anatomia e fisiologia das aves domesticas": {
@@ -2771,7 +2771,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "associativismo e cooperativismo": {
@@ -2780,7 +2780,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "biomas brasileiros": {
@@ -2789,7 +2789,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "bovinocultura de corte e leite": {
@@ -2798,7 +2798,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "cafeicultura agroecologica": {
@@ -2807,7 +2807,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "cartografia ambiental": {
@@ -2816,7 +2816,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "conservacao ambiental": {
@@ -2825,7 +2825,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "6h",
    "ar": "Meio Ambiente e Agro"
   },
   "controle de pragas e doencas em jardins": {
@@ -2843,7 +2843,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "cunicultura": {
@@ -2852,7 +2852,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "defensivos agricolas": {
@@ -2861,7 +2861,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "diagnostico e controle de impactos ambientais": {
@@ -2870,7 +2870,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "doencas e plantas invasoras no cafeeiro": {
@@ -2879,7 +2879,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "ecologia": {
@@ -2888,7 +2888,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "ecologia de peixes e ambientes tropicais": {
@@ -2897,7 +2897,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "educacao ambiental": {
@@ -2915,7 +2915,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "energia solar: fundamentos, viabilidade e projeto basico de sistemas fotovoltaicos": {
@@ -2933,7 +2933,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "extensao pesqueira": {
@@ -2942,7 +2942,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "fisiologia pos-colheita em fruticultura": {
@@ -2951,7 +2951,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "fisiologia vegetal": {
@@ -2960,7 +2960,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "frutas e hortalicas": {
@@ -2978,7 +2978,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "frutiferas de clima tropical e subtropical": {
@@ -2987,7 +2987,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "geologia ambiental": {
@@ -2996,7 +2996,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "gerenciamento de recursos hidricos": {
@@ -3005,7 +3005,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "gestao agroindustrial": {
@@ -3014,7 +3014,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "gestao ambiental de cidades": {
@@ -3023,7 +3023,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "gestao de residuos em canaviais": {
@@ -3032,7 +3032,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "horticultura organica": {
@@ -3041,7 +3041,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "implantacao de pomares": {
@@ -3050,7 +3050,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "legislacao e regulamentacao da agricultura organica": {
@@ -3059,7 +3059,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "legislacao, sustentabilidade e conservacao das florestas": {
@@ -3068,7 +3068,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "limnologia aplicada a pesca": {
@@ -3077,7 +3077,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "manejo de pragas no cafeeiro": {
@@ -3086,7 +3086,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "manejo e sanidade no cultivo em piscicultura": {
@@ -3095,7 +3095,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "materias-primas de origem animal": {
@@ -3104,7 +3104,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "oceanografia e meteorologia pesqueira": {
@@ -3113,7 +3113,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "olericultura": {
@@ -3122,7 +3122,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "panorama da aquicultura": {
@@ -3131,7 +3131,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "percepcao ambiental": {
@@ -3140,7 +3140,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "2h",
    "ar": "Meio Ambiente e Agro"
   },
   "pesca e aquicultura": {
@@ -3149,7 +3149,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "pesca e recursos pesqueiros": {
@@ -3158,7 +3158,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "planejamento ambiental": {
@@ -3176,7 +3176,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "politicas publicas ambientais": {
@@ -3194,7 +3194,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "producao de peixes e sistemas de criacao": {
@@ -3203,7 +3203,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "qualidade da agua": {
@@ -3212,7 +3212,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "quimica ambiental": {
@@ -3221,7 +3221,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "recursos naturais e florestais": {
@@ -3230,7 +3230,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "seguranca agricola rural": {
@@ -3239,7 +3239,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "sistemas de gestao ambiental": {
@@ -3248,7 +3248,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "solos": {
@@ -3257,7 +3257,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "suinocultura": {
@@ -3266,7 +3266,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "sustentabilidade e urbanismo": {
@@ -3284,7 +3284,7 @@
    "o": "manual",
    "m": "agro específico",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "topicos especiais em meio ambiente": {
@@ -3293,7 +3293,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "viveiros e propagacao de mudas": {
@@ -3302,7 +3302,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Meio Ambiente e Agro"
   },
   "zootecnia": {
@@ -3311,7 +3311,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Meio Ambiente e Agro"
   },
   "contrato e legislacao aplicada a eventos": {
@@ -3320,7 +3320,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "controle de riscos e sinistros": {
@@ -3329,7 +3329,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "direito administrativo": {
@@ -3347,7 +3347,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "direito do trabalho": {
@@ -3365,7 +3365,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "direito do trabalho: responsabilidade civil e criminal": {
@@ -3374,7 +3374,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "direito e legislacao ambiental": {
@@ -3383,7 +3383,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "direito empresarial": {
@@ -3392,7 +3392,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "direito publico": {
@@ -3401,7 +3401,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "direito: nocoes": {
@@ -3410,7 +3410,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "epi e epc": {
@@ -3419,7 +3419,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "legislacao cooperativista": {
@@ -3428,7 +3428,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "riscos nas organizacoes: analises e falhas": {
@@ -3437,7 +3437,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "seguranca do trabalho: riscos ambientais e prevencao de acidentes": {
@@ -3446,7 +3446,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "seguranca na eletrotecnica": {
@@ -3455,7 +3455,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Outros"
   },
   "agenciamento turistico e hospitalidade": {
@@ -3464,7 +3464,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "alimentos e bebidas na hotelaria": {
@@ -3473,7 +3473,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "captacao de eventos": {
@@ -3482,7 +3482,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "etiqueta profissional": {
@@ -3491,7 +3491,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "eventos: conceitos": {
@@ -3500,7 +3500,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "eventos: layout e decoracao": {
@@ -3509,7 +3509,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "25h",
    "ar": "Turismo e Hotelaria"
   },
   "eventos: tipos": {
@@ -3518,7 +3518,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "gestao empresarial para eventos": {
@@ -3527,7 +3527,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "gestao financeira para eventos": {
@@ -3536,7 +3536,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Turismo e Hotelaria"
   },
   "gestao hoteleira": {
@@ -3545,7 +3545,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "governanca em hotelaria": {
@@ -3554,7 +3554,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "historia e mercado de agencias de viagem e turismo": {
@@ -3563,7 +3563,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "lavanderia na hotelaria": {
@@ -3572,7 +3572,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "lazer na hotelaria": {
@@ -3581,7 +3581,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "legislacao turistica": {
@@ -3590,7 +3590,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "marketing em eventos": {
@@ -3599,7 +3599,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Turismo e Hotelaria"
   },
   "marketing turistico": {
@@ -3608,7 +3608,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "meios de hospedagem": {
@@ -3617,7 +3617,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "planejamento e organizacao do turismo": {
@@ -3626,7 +3626,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "planejamento, organizacao e execucao de eventos": {
@@ -3635,7 +3635,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "30h",
    "ar": "Turismo e Hotelaria"
   },
   "recepcao e reserva na hotelaria": {
@@ -3644,7 +3644,7 @@
    "o": "manual",
    "m": "decisão da equipe: mantido",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "roteiros turisticos": {
@@ -3653,7 +3653,7 @@
    "o": "manual",
    "m": "decisão da equipe: ocultado",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Turismo e Hotelaria"
   },
   "seguranca e operacionalidade de evento": {
@@ -3672,7 +3672,7 @@
    "m": "matéria de ensino médio / acadêmica",
    "desde": "2026-10-21",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Outros"
   },
   "marketing digital e redes sociais": {
@@ -3682,7 +3682,7 @@
    "m": "renda e negócio próprio",
    "desde": "2026-10-21",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Administração e Gestão"
   },
   "microbiologia aplicada a producao de acucar e alcool": {
@@ -3692,7 +3692,7 @@
    "m": "laboratório / pesquisa / saúde pública",
    "desde": "2026-10-21",
    "ativo": true,
-   "c": "40h",
+   "c": "20h",
    "ar": "Alimentação"
   }
  },

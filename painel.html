@@ -1017,7 +1017,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           if(!nome) return;
           addCurso({
             municipio:'Online', curso:nome, inst:c.inst || c.instituicao || par[1],
-            modalidade:c.modalidade || 'Online', carga:c.carga || c.carga_horaria || (par[0]==='APRENDA_MAIS' ? '40h' : ''),
+            modalidade:c.modalidade || 'Online', carga:c.carga || c.carga_horaria || '',
             area:nomeArea(areaDoCurso(nome, c._area || c.area)),
             fonte:par[1], link:c.link || c.url || '', ate:c.inscricoes_ate || ''
           });

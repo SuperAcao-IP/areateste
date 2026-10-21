@@ -59,7 +59,6 @@ const TITULOS_PERMITIDOS = {
   "manutencao de computadores: hardware, software e evolucao",
   "marketing de vendas no varejo",
   "marketing digital e redes sociais",
-  "marketing pessoal",
   "materiais de construcao: aglomerantes e concretos",
   "materiais de construcao: metais, madeiras e acabamentos",
   "meios de hospedagem",
@@ -90,7 +89,6 @@ const TITULOS_PERMITIDOS = {
   "seguranca do trabalho: riscos ambientais e prevencao de acidentes",
   "solos",
   "tecnicas de negociacao",
-  "tecnicas de vendas e relacoes de consumo",
   "viveiros e propagacao de mudas"
  ],
  ifmg: [

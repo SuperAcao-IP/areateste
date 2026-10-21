@@ -68,8 +68,27 @@ async function coletarAprendaMais({ minimoEsperado = 0 } = {}){
   for(const c of brutos){
     if(c.turma !== vigente || vistos.has(c.link)) continue;
     vistos.add(c.link);
-    cursos.push({ titulo: c.titulo, area: c.area, link: c.link });
+    cursos.push({ titulo: c.titulo, carga: "", area: c.area, link: c.link });
   }
+
+  /* Carga horária REAL de cada curso: course/info.php (abre sem login). A listagem só traz o
+     resumo inline para os primeiros cursos de cada categoria; os demais vêm "colapsados". */
+  await emLotes(cursos, 4, async c => {
+    try{
+      const id = (c.link.match(/id=(\d+)/) || [])[1];
+      const r = await buscar(AM_BASE + "/course/info.php?id=" + id, { tentativas: 3 });
+      if(r.status === 200){
+        const t = decodificarHtml(r.texto.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]*>/g, " "));
+        const m = t.match(/Carga hor[aá]ria:\s*(\d+(?:[.,]\d+)?)/i);
+        if(m) c.carga = m[1].replace(",", ".") + "h";
+      }
+    }catch(_){ /* fica sem carga; a conferência abaixo decide se isso é grave */ }
+    await espera(50);
+  });
+  const semCarga = cursos.filter(c => !c.carga).length;
+  if(semCarga > cursos.length * 0.1)
+    throw new Error("não foi possível ler a carga horária de " + semCarga + " dos " + cursos.length + " cursos (course/info.php)");
+
   return { cursos, detalhe: "turma " + vigente + (turmas[0] !== vigente ? " (a " + turmas[0] + " ainda está incompleta)" : "") };
 }
 
