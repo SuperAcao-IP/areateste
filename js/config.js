@@ -76,6 +76,13 @@ const PLANILHA_VAGAS_ATIVA = true;
    olhe a URL — o número após "#gid=" é o valor (ex: gid=123456789). */
 const PLANILHA_VAGAS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr5CRyAxIwluOeHE50A6TCG7RS3ua1AClEye3Q5zUEL-QOZ0PGzlijAe66nFKb_mYPS7Y8jkHqEaNu/pub?gid=934841184&single=true&output=csv";
 
+/* Aba "pontos_digitais" da mesma planilha: lugares com computador/internet cadastrados pela equipe.
+   Colunas: municipio | tipo | nome | endereco | bairro | recursos | horario | gratuito | telefone |
+            observacao | status | verificado_em | lat | lon      (lat/lon opcionais).
+   Vazio = camada só com as bibliotecas do cadastro estadual. Depois de criar a aba e publicá-la,
+   cole aqui o link CSV dela (mesmo formato dos de cima, com o gid da aba). */
+const PLANILHA_PONTOS_CSV_URL = "";
+
 /* ---------- regras de conteudo ---------- */
 /* --- carga horaria minima: exclui cursos com menos de 15h ---
    Este valor vale para TODAS as fontes de cursos (Trampolim, Sebrae,

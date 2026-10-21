@@ -1,0 +1,113 @@
+{
+ "_leia": "Cadastro MANUAL das unidades do Senac-SP (só nome e endereço, sem cursos). A coleta automática do site do Senac está desligada porque os termos de uso do site proíbem acesso automatizado; ver COLETAR_SENAC em scripts/atualizar-mapa.js. A coordenada é calculada pelo endereço (OpenStreetMap). Para incluir ou corrigir uma unidade, edite esta lista.",
+ "unidades": [
+  {
+   "id": "senac-manual-130",
+   "nome": "Senac Guarulhos Celestino",
+   "endereco": "Rua Padre Celestino, 108 – Centro",
+   "cidade": "Guarulhos"
+  },
+  {
+   "id": "senac-manual-37",
+   "nome": "Senac Guarulhos Faccini",
+   "endereco": "Rua Luiz Faccini, 132 – Centro",
+   "cidade": "Guarulhos"
+  },
+  {
+   "id": "senac-manual-39",
+   "nome": "Senac Osasco",
+   "endereco": "Rua Dante Batiston, 248 – Centro",
+   "cidade": "Osasco"
+  },
+  {
+   "id": "senac-manual-59",
+   "nome": "Senac Santos",
+   "endereco": "Av. Conselheiro Nébias, 309 – Vila Mathias",
+   "cidade": "Santos"
+  },
+  {
+   "id": "senac-manual-32",
+   "nome": "Senac Santo André",
+   "endereco": "Avenida Ramiro Colleoni, 110 – Centro",
+   "cidade": "Santo André"
+  },
+  {
+   "id": "senac-manual-133",
+   "nome": "Senac São Bernardo do Campo",
+   "endereco": "Av. Senador Vergueiro, 400 – Centro",
+   "cidade": "São Bernardo do Campo"
+  },
+  {
+   "id": "senac-manual-131",
+   "nome": "Senac Taboão da Serra",
+   "endereco": "Rua Salvador Branco de Andrade, 182 – Jardim São Miguel",
+   "cidade": "Taboão da Serra"
+  },
+  {
+   "id": "senac-manual-125",
+   "nome": "Senac Americana",
+   "endereco": "Rua Dr. Angelino Sanches, 800 – Vila Gallo",
+   "cidade": "Americana"
+  },
+  {
+   "id": "senac-manual-53",
+   "nome": "Senac Campinas",
+   "endereco": "Rua Sacramento, 490 – Centro",
+   "cidade": "Campinas"
+  },
+  {
+   "id": "senac-manual-84",
+   "nome": "Senac Itapira",
+   "endereco": "Praça Bernardino de Campos, 150 – Centro",
+   "cidade": "Itapira"
+  },
+  {
+   "id": "senac-manual-124",
+   "nome": "Senac Itu",
+   "endereco": "Rua Maestro José Victório, 137 – Centro",
+   "cidade": "Itu"
+  },
+  {
+   "id": "senac-manual-69",
+   "nome": "Senac Jundiaí",
+   "endereco": "Rua Vicente Magaglio, 50 – Jardim Paulista",
+   "cidade": "Jundiaí"
+  },
+  {
+   "id": "senac-manual-70",
+   "nome": "Senac Limeira",
+   "endereco": "Rua Quadros Sobrinho, 1 – Centro",
+   "cidade": "Limeira"
+  },
+  {
+   "id": "senac-manual-89",
+   "nome": "Senac Mogi Guaçu",
+   "endereco": "Rua Adelino Damião, 55 – Jardim Paulista",
+   "cidade": "Mogi Guaçu"
+  },
+  {
+   "id": "senac-manual-73",
+   "nome": "Senac Piracicaba",
+   "endereco": "Rua Santa Cruz, 1148 – Bairro Alto",
+   "cidade": "Piracicaba"
+  },
+  {
+   "id": "senac-manual-75",
+   "nome": "Senac Rio Claro",
+   "endereco": "Av. Dois, 720 – Centro",
+   "cidade": "Rio Claro"
+  },
+  {
+   "id": "senac-manual-145",
+   "nome": "Senac Salto",
+   "endereco": "Avenida Dra. Sonia Maria Bulle Lopes, 1245 – Jardim Buru",
+   "cidade": "Salto"
+  },
+  {
+   "id": "senac-manual-62",
+   "nome": "Senac Sorocaba",
+   "endereco": "Av. Cel. Nogueira Padilha, 2392 – Vila Hortência",
+   "cidade": "Sorocaba"
+  }
+ ]
+}

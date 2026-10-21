@@ -111,6 +111,25 @@ function modalidadeCursoTrampolim(c, turno){
   if(!turno) return m;
   return m.split(" · ").map(p=>p.trim().toLowerCase()==="online" ? "Online ao vivo" : p).join(" · ");
 }
+/* endereços do curso (um por turma/unidade, às vezes repetidos). Cursos online trazem endereço sem rua e
+   um ponto falso (-21.2922,-50.3428): ficam de fora, assim como endereço sem coordenada. */
+function enderecosTrampolim(c){
+  const vistos = new Set(), saida = [];
+  (Array.isArray(c.address) ? c.address : []).forEach(a => {
+    const g = a && a.geopoint;
+    const lat = g && Number(g.lat), lon = g && Number(g.lon);
+    if(!a || !String(a.street || "").trim() || !isFinite(lat) || !isFinite(lon)) return;
+    if(Math.abs(lat + 21.2922) < 0.001 && Math.abs(lon + 50.3428) < 0.001) return;
+    const num = String(a.number || "").trim();
+    const k = lat.toFixed(5) + "," + lon.toFixed(5);
+    if(vistos.has(k)) return;
+    vistos.add(k);
+    saida.push({ lat, lon, cidade: String(a.city || "").trim(),
+      texto: String(a.street).trim() + (num && num !== "0" ? ", " + num : "") + (a.neighborhood ? " – " + String(a.neighborhood).trim() : "") });
+  });
+  return saida;
+}
+
 function normalizarCursoTrampolim(c){
   const turno = turnoTrampolim(c);
   return {
@@ -122,6 +141,7 @@ function normalizarCursoTrampolim(c){
     desc: rotuloDe(c.description||c.desc||c.summary||c.resumo),
     link: urlAbsolutaTrampolim(c.absolute_url||c.url||c.link||c.permalink||""),
     _rotulos: rotulosArea(c),
+    _enderecos: enderecosTrampolim(c),
     _trampolim: true
   };
 }
@@ -602,6 +622,7 @@ function normalizarCursoPlanilha(row){
   return {
     nome: row.curso || "",
     inst: row.instituicao || "",
+    _inst: row.instituicao || "",       // instituição como a equipe escreveu (o texto da tela ganha " · município")
     modalidade: row.modalidade || "",
     carga: row.carga || "",
     link: row.link || "",

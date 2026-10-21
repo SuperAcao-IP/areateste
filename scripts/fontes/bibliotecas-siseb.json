@@ -1,0 +1,1123 @@
+{
+ "_leia_me": [
+  "Bibliotecas dos 47 municípios que declaram, no questionário anual do Cadastro de Bibliotecas Paulistas (SisEB, siseb.sp.gov.br),",
+  "'computador para frequentadores' e/ou 'Wi-Fi para usuários'. Levantamento de 2026-10-21 (respostas de 2019 a 2025; 'ano' = ano da resposta).",
+  "Computador e Wi-Fi vieram do texto dos PDFs do questionário por extração automática, SEM conferência manual: confirme por telefone antes de divulgar como certo.",
+  "Telefones, e-mails e nomes de respondentes foram removidos de propósito (dados pessoais). Para atualizar, refaça o levantamento no SisEB (ver ATUALIZACAO-CATALOGOS.md, seção Mapa).",
+  "O script semanal (scripts/atualizar-mapa.js) só geocodifica os endereços deste arquivo; ele não consulta o SisEB."
+ ],
+ "coletado_em": "2026-10-21",
+ "fonte": "Cadastro Estadual de Bibliotecas (SisEB)",
+ "bibliotecas": [
+  {
+   "municipio": "Americana",
+   "nome": "BPM Professora Jandyra Basseto Pântano",
+   "endereco": "PRAÇA Comendador Müller, 172",
+   "bairro": "Centro",
+   "cep": "13465-289",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Araras",
+   "nome": "BPM Martinico Prado",
+   "endereco": "Praça, R. Dr. Narciso Gomes, 0",
+   "bairro": "Centro",
+   "cep": "13600-695",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Biblioteca Sala Verde da Secretaria do Meio Ambiente",
+   "endereco": "Av. Dr. Dib Sauaia Neto, 1600",
+   "bairro": "Alphaville",
+   "cep": "06401-160",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "BPM Benedito Franco",
+   "endereco": "Av. Itu, 300",
+   "bairro": "Jardim Paulista",
+   "cep": "06447-020",
+   "computador": true,
+   "wifi": false,
+   "ano": 2020
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "BPM Eny Cordeiro",
+   "endereco": "Av. Ricardo Peagno , 78",
+   "bairro": "Jardim Belval",
+   "cep": "06422-105",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "BPM Eny Cordeiro",
+   "endereco": "Av. Ricardo Peagno, 78",
+   "bairro": "Jardim Belval",
+   "cep": "06422-105",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "BPM Jair Honório Domingos",
+   "endereco": "Estrada dos Pinheiros, 185",
+   "bairro": "Parque Viana",
+   "cep": "06449-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Boa Vista - Biblioteca Max Zendron",
+   "endereco": "Rua Rio Grande do Sul, 234",
+   "bairro": "Vila Boa Vista",
+   "cep": "06411-060",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Jardim Maria Helena (antiga Biblioteca Oswaldo Eleotério)",
+   "endereco": "Rua Praia de Copacabana, 101",
+   "bairro": "Jardim Maria Helena",
+   "cep": "06445-060",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Jardim Paulista (Benedito Franco)",
+   "endereco": "Av. Itú, 300",
+   "bairro": "Jardim Paulista",
+   "cep": "06447-020",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Jardim Pindorama (Salomão Cruz)",
+   "endereco": "Av. Cachoeira, 74",
+   "bairro": "Vila Pindorama",
+   "cep": "06413-900",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Jardim Silveira - Biblioteca João Galdino de Oliveira",
+   "endereco": "Rua Luíza Barbosa Bueno, 46",
+   "bairro": "Jardim Silveira",
+   "cep": "06434-100",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Jardim Silveira (João Galdino de Oliveira)",
+   "endereco": "Av. Luiza Barbosa Silveira Bueno, 46",
+   "bairro": "Jardim Silveira",
+   "cep": "06440-060",
+   "computador": true,
+   "wifi": false,
+   "ano": 2021
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Parque dos Camargos",
+   "endereco": "Rua Glória, 630",
+   "bairro": "Parque dos Camargos",
+   "cep": "06436-140",
+   "computador": true,
+   "wifi": false,
+   "ano": 2019
+  },
+  {
+   "municipio": "Barueri",
+   "nome": "Estação Cultural Parque dos Camargos - Biblioteca Cora Coralina",
+   "endereco": "Rua Glória, 630",
+   "bairro": "Parque dos Camargos",
+   "cep": "06436-140",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Cabreúva",
+   "nome": "BPM Professor Basilides Godoy",
+   "endereco": "Av. Marciano Xavier de Oliveira, 364",
+   "bairro": "Centro",
+   "cep": "13315-045",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Caieiras",
+   "nome": "BPM Engenheiro Mário Meneguini",
+   "endereco": "Rua Argentina , 400",
+   "bairro": "Centro",
+   "cep": "07700-000",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Cajamar",
+   "nome": "BPM Veneranda Freitas Pinto",
+   "endereco": "Avenida Antônio Cândido Machado, 197",
+   "bairro": "Jordanésia",
+   "cep": "07776-415",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Biblioteca do NAED Norte",
+   "endereco": "Rua Bernardo José Sampaio, 300",
+   "bairro": "Botafogo",
+   "cep": "13020-450",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Biblioteca Vila Esperança",
+   "endereco": "Rua Demerval da S. Pereira, 0",
+   "bairro": "Vila Esperança",
+   "cep": "13082-624",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Biblioteca Vila Esperança",
+   "endereco": "Rua Demerval da S. Pereira, 0",
+   "bairro": "Vila Esperança",
+   "cep": "13082-624",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "BPM Guilherme de Almeida",
+   "endereco": "Rua Sete de /setembro, 63",
+   "bairro": "Sousas",
+   "cep": "13106-022",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "BPM Professor Ernesto Manoel Zink",
+   "endereco": "Avenida Benjamin Constant, 1633, 1633",
+   "bairro": "Centro",
+   "cep": "13010-142",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Estreloteca (Biblioteca Comunitária - CCCEED)",
+   "endereco": "Av. Lafayete Arruda Camargo, 767",
+   "bairro": "Parque São Quirino",
+   "cep": "13088-540",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Profª Maria José Turatti",
+   "endereco": "Avenida Doutor Professor Emilio Coelho, s/nº, 0",
+   "bairro": "Village Campinas",
+   "cep": "13085-702",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Campinas",
+   "nome": "Sala de Leitura Clélia Santana",
+   "endereco": "Praça Mal. Floriano Peixoto, 0",
+   "bairro": "Centro",
+   "cep": "13013-120",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Carapicuíba",
+   "nome": "BPM Castro Alves",
+   "endereco": "Avenida Brasil, 24",
+   "bairro": "Cohab II",
+   "cep": "06325-000",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Cordeirópolis",
+   "nome": "BPM Professora Aita Bentivegna Dias",
+   "endereco": "Rua: Saldanha Marinho, 311",
+   "bairro": "Centro",
+   "cep": "13490-017",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Cotia",
+   "nome": "Bartira",
+   "endereco": "Estrada dos Galdinos, 503",
+   "bairro": "Barbacena",
+   "cep": "06710-400",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Cotia",
+   "nome": "BPM Batista Cepelos",
+   "endereco": "Av. Professor Manoel José Pedroso, 1147",
+   "bairro": "Vila Monte Serrat",
+   "cep": "06717-100",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "Biblioteca da Fábrica de Cultura de Diadema",
+   "endereco": "Rua Vereador Gustavo Sonnewend Netto, 135",
+   "bairro": "Centro - Diadema",
+   "cep": "09920-710",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "Biblioteca da Fábrica de Cultura de Diadema",
+   "endereco": "Rua Vereador Gustavo Sonnewend Netto, 135",
+   "bairro": "Centro",
+   "cep": "09920-710",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM CEU das Artes",
+   "endereco": "Rua Afonso Monteiro da Cruz, 254, 257",
+   "bairro": "Inamar",
+   "cep": "09910-660",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM Eldorado",
+   "endereco": "Av. Frei Ambrósio de Oliveira Luz, 55",
+   "bairro": "Eldorado",
+   "cep": "09972-061",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM Interativa de Inclusão Nogueira",
+   "endereco": "Rua Bernardo Lobo - , 263",
+   "bairro": "Vila Nogueira",
+   "cep": "09942-210",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM Olíria de Campos Barros",
+   "endereco": "Rua Graciosa, 300",
+   "bairro": "Centro",
+   "cep": "09910-660",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM Paineiras",
+   "endereco": "Rua Eduardo de Matos, 159, , 159",
+   "bairro": "Campanário",
+   "cep": "09931-300",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "BPM Santa Luzia",
+   "endereco": "Rua Martins Fontes, 110",
+   "bairro": "Taboão",
+   "cep": "09940-400",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "Sala de Leitura Carolina Maria de Jesus",
+   "endereco": "Rua 24 de Maio, 38",
+   "bairro": "Jardim Canhema",
+   "cep": "09941-510",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Diadema",
+   "nome": "Sala de Leitura Luiz Ruffato",
+   "endereco": "Rua Barão de Uruguaiana, 87",
+   "bairro": "Jardim Ruyce",
+   "cep": "09961-650",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Embu das Artes",
+   "nome": "BPM Jardim Santo Eduardo",
+   "endereco": "Rua Iva, 100",
+   "bairro": "Jardim Santo Eduardo",
+   "cep": "06823-160",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Embu das Artes",
+   "nome": "BPM Moacyr de Faria Jordão",
+   "endereco": "Rua N.Sra. do Rosário, 245",
+   "bairro": "Jardim Arabutã - Centro",
+   "cep": "06803-430",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Biblioteca Adamastor",
+   "endereco": "Av. Monteiro Lobato, 734",
+   "bairro": "Macedo",
+   "cep": "07112-000",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Biblioteca Adamastor",
+   "endereco": "A. Monteiro Lobato, 734",
+   "bairro": "Macedo",
+   "cep": "07112-000",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "BIBLIOTECA ADAMASTOR",
+   "endereco": "Av. Monteiro Lobato, 734",
+   "bairro": "Macedo, Guarulhos",
+   "cep": "07112-000",
+   "computador": true,
+   "wifi": false,
+   "ano": 2022
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Biblioteca Comunitária Picadeiro de Leitura",
+   "endereco": "Rua Quinze de Janeiro , 449",
+   "bairro": "Cidade Seródio",
+   "cep": "07150-020",
+   "computador": true,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Biblioteca José Mignella",
+   "endereco": "Rua Joaquim Miranda, 471",
+   "bairro": "Vila Augusta",
+   "cep": "07023-051",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "BPM Centro de Incentivo à Leitura Luis de Camões",
+   "endereco": "Rua josé maria de oliveira moraes, 94",
+   "bairro": "Gopoúva",
+   "cep": "07091-210",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "BPM Monteiro Lobato",
+   "endereco": "Rua João Gonçalves, 439",
+   "bairro": "Centro",
+   "cep": "07010-010",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Centro de Incentivo à Leitura CEU Bambi",
+   "endereco": "Rua Benedito Thieso, 00",
+   "bairro": "Pq. Residencial Bambi",
+   "cep": "07159-810",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Centro de Incentivo à Leitura CEU Ponte Alta",
+   "endereco": "Av. Florestan Fernandes, 00",
+   "bairro": "Jd. Ponte Alta I",
+   "cep": "07179-000",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Centro Municipal de Incentivo à Leitura Fernando Pessoa",
+   "endereco": "Praça Estrela , 260",
+   "bairro": "Cidade",
+   "cep": "07162-450",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "Centro Municipal de Incentivo à Leitura Fernando Pessoa",
+   "endereco": "Praça Estrela, n° 260, 260",
+   "bairro": "Cidade Soberana",
+   "cep": "07162-450",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "CIL CEU Pimentas",
+   "endereco": "Estr. do Caminho Velho, 351",
+   "bairro": "Pimentas",
+   "cep": "07252-312",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Guarulhos",
+   "nome": "CIL São Domingos",
+   "endereco": "Estrada do Elenco, 922",
+   "bairro": "Jardim D. Meri",
+   "cep": "07142-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Holambra",
+   "nome": "BPM José Maria Homem de Montes",
+   "endereco": "Rua Solidagos, 42",
+   "bairro": "Morada das Flores",
+   "cep": "13825-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Indaiatuba",
+   "nome": "BPM Rui Barbosa",
+   "endereco": "R. DAS PRIMEVERAS, 450",
+   "bairro": "Jardim Pompéia",
+   "cep": "13345-020",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Iracemápolis",
+   "nome": "BPM Maria Dezzone Pacheco Fernandes",
+   "endereco": "Rua Pedro Chinelatto, 438",
+   "bairro": "centro",
+   "cep": "13495-041",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Itaquaquecetuba",
+   "nome": "BPM Professor Aroldo de Azevedo",
+   "endereco": "AVENIDA JOÃO FERNANDES DA SILVA, 53",
+   "bairro": "Vila Virginia",
+   "cep": "08576-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Itatiba",
+   "nome": "BPM Francisco da Silveira Leme",
+   "endereco": "Campos salles, 380",
+   "bairro": "Centro",
+   "cep": "13250-360",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Itu",
+   "nome": "BPM Professor Olavo Valente de Almeida",
+   "endereco": "Rua Floriano Peixoto , 1492",
+   "bairro": "Centro",
+   "cep": "13300-055",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Itupeva",
+   "nome": "BPM Itupeva",
+   "endereco": "Praça São Paulo , 02",
+   "bairro": "Centro",
+   "cep": "13295-000",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Jarinu",
+   "nome": "BPM José Angelo Malerba",
+   "endereco": "Av. Dr. Antenor Soares Gandra, 116",
+   "bairro": "Centro",
+   "cep": "13240-045",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Jundiaí",
+   "nome": "Biblioteca Cidadã do Grupo Sol da Cidadania",
+   "endereco": "Alameda das Palmeiras, 120",
+   "bairro": "Vila Alvorada",
+   "cep": "13211-270",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Jundiaí",
+   "nome": "BPM Professor Nelson Foot",
+   "endereco": "Av. Dr. Cavalcanti, 396",
+   "bairro": "Centro",
+   "cep": "13201-003",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Limeira",
+   "nome": "BPM Infantil Professora Cecília Quadros",
+   "endereco": "Rua José Botelho Veloso -, 00",
+   "bairro": "Vila São João",
+   "cep": "13480-729",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Limeira",
+   "nome": "BPM Pedagógica",
+   "endereco": "Rua João Kuhl Filho, sem número, 000",
+   "bairro": "Vila São João",
+   "cep": "13480-731",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Limeira",
+   "nome": "BPM Professor João de Sousa Ferraz",
+   "endereco": "Rua Dr. José Botelho Veloso , 00",
+   "bairro": "Vila São João",
+   "cep": "13480-729",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Mairinque",
+   "nome": "BPM Geraldo Mayela de Oliveira",
+   "endereco": "Av. Mitsuke, 959",
+   "bairro": "Jardim Cruzeiro",
+   "cep": "18120-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Mauá",
+   "nome": "BC Centro Cultural Dona Leonor",
+   "endereco": "Rua da Liberdade, 363",
+   "bairro": "Vila Magini",
+   "cep": "09390-195",
+   "computador": false,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Mauá",
+   "nome": "BC Mundo dos Livros",
+   "endereco": "Rua Eça de Queirós, 371",
+   "bairro": "Jardim Miranda",
+   "cep": "09320-270",
+   "computador": true,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "Mauá",
+   "nome": "BPM Cecília Meireles",
+   "endereco": "Av Rio Branco, 183",
+   "bairro": "Fausto Morelli - Centro, Mauá",
+   "cep": "09310-110",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Mogi Mirim",
+   "nome": "Biblioteca Guilherme de Almeida",
+   "endereco": "Rua Caiapó, 5",
+   "bairro": "Centro",
+   "cep": "13800-100",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Mogi Mirim",
+   "nome": "Guilherme de Almeida",
+   "endereco": "Praça Barão do Rio Branco., 5",
+   "bairro": "Centro",
+   "cep": "13800-132",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Mogi Mirim",
+   "nome": "Sala de Leitura - Fundação CASA Mogi Mirim",
+   "endereco": "Rodovia Wilson Finardi KM 7 + 817m, 0",
+   "bairro": "Vatinga",
+   "cep": "13800-970",
+   "computador": true,
+   "wifi": false,
+   "ano": 2024
+  },
+  {
+   "municipio": "Monte Mor",
+   "nome": "BPM José Maluf",
+   "endereco": "Rua Roberto Gonçalves Teixeira, 203",
+   "bairro": "Centro",
+   "cep": "13190-057",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Osasco",
+   "nome": "Biblioteca da Fábrica de Cultura 4.0 Osasco",
+   "endereco": "R. Santa Rita, 0",
+   "bairro": "Rochdale",
+   "cep": "02675-031",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Osasco",
+   "nome": "BPM Heitor Sinegaglia (Ramal Zona Sul)",
+   "endereco": "Praça Sabanta, 98",
+   "bairro": "Conceição",
+   "cep": "06140-210",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Osasco",
+   "nome": "BPM Monteiro Lobato",
+   "endereco": "Avenida Marechal Rondon, 260",
+   "bairro": "Centro",
+   "cep": "06093-010",
+   "computador": true,
+   "wifi": false,
+   "ano": 2021
+  },
+  {
+   "municipio": "Osasco",
+   "nome": "CEU 1 de Maio",
+   "endereco": "Rua Nelson Mandela, 1313",
+   "bairro": "Jardim Primeiro de Maio",
+   "cep": "06147-001",
+   "computador": true,
+   "wifi": false,
+   "ano": 2020
+  },
+  {
+   "municipio": "Pedreira",
+   "nome": "BPM João Luiz Alvarenga",
+   "endereco": "Rua Duque de Caxias, 231",
+   "bairro": "Centro",
+   "cep": "13920-041",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santa Bárbara d'Oeste",
+   "nome": "BPM Maria Aparecida de Almeida Nogueira",
+   "endereco": "Rua Campos Salles, 72",
+   "bairro": "Vila Breda",
+   "cep": "43450-219",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santa Bárbara d'Oeste",
+   "nome": "BPM Neide Crócomo",
+   "endereco": "Rua Argeu Egidio dos Santos, 100",
+   "bairro": "Planalto do Sol II",
+   "cep": "13453-842",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santa Bárbara d'Oeste",
+   "nome": "BPM Professor Léo Sallum",
+   "endereco": "Rua do Algodão, 1450",
+   "bairro": "Cidade Nova",
+   "cep": "13454-175",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santa Gertrudes",
+   "nome": "BPM Professora Isolda de Souza G. Mamede",
+   "endereco": "Rua 01 , 790",
+   "bairro": "centro",
+   "cep": "13510-023",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santana de Parnaíba",
+   "nome": "Biblioteca Estação Cidadania",
+   "endereco": "Rua Soldado Paulo Sérgio Romão, 14",
+   "bairro": "Parque Santana II",
+   "cep": "06515-006",
+   "computador": false,
+   "wifi": true,
+   "ano": 2024
+  },
+  {
+   "municipio": "Santana de Parnaíba",
+   "nome": "BPM Antônio Branco",
+   "endereco": "Rua André Fernandes , 105",
+   "bairro": "Centro",
+   "cep": "06501-050",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santana de Parnaíba",
+   "nome": "BPM Cecília Meireles",
+   "endereco": "ESTRADA TENENTE MARQUES, 4.805",
+   "bairro": "Fazendinha",
+   "cep": "06530-001",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santo André",
+   "nome": "Biblioteca CEU Jardim Ana Maria",
+   "endereco": "Praca Venancio Neto, 1",
+   "bairro": "jd Ana Maria",
+   "cep": "09260-260",
+   "computador": true,
+   "wifi": false,
+   "ano": 2021
+  },
+  {
+   "municipio": "Santo André",
+   "nome": "Biblioteca Comunitária Parque Andreense",
+   "endereco": "Rua Pitágoras, , 70",
+   "bairro": "Sitio Taquaral",
+   "cep": "09161-080",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santo André",
+   "nome": "BPM do Museu Doutor Octaviano Armando Gaiarsa",
+   "endereco": "",
+   "bairro": "",
+   "cep": "",
+   "computador": true,
+   "wifi": false,
+   "ano": 2019
+  },
+  {
+   "municipio": "Santo André",
+   "nome": "BPM Nair Lacerda",
+   "endereco": "Praça IV Centenário, 3",
+   "bairro": "Centro",
+   "cep": "09015-080",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santo André",
+   "nome": "EUCALIPTOS",
+   "endereco": "Rua do Eucaliptos, 42",
+   "bairro": "Vila Cata Preta",
+   "cep": "09030-017",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Santo Antônio de Posse",
+   "nome": "BPM Professora Renata Lucon",
+   "endereco": "Praça Coronel David Baptista, 56",
+   "bairro": "Centro",
+   "cep": "13830-116",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "Bibliotech da Fábrica da Cultura 4.0 São Bernardo do Campo",
+   "endereco": "Av. Armando Ítalo Setti, 80",
+   "bairro": "Baeta Neves",
+   "cep": "09760-281",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "Bibliotech Fábricas de Cultura 4.0 São Bernardo do Campo",
+   "endereco": "Av. Armando Ítalo Setti, 80",
+   "bairro": "Baeta Neves",
+   "cep": "09760-281",
+   "computador": true,
+   "wifi": false,
+   "ano": 2022
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Arte Ilva Aceto Maranesi",
+   "endereco": "Rua Kara, 135",
+   "bairro": "Jardim do Mar",
+   "cep": "09750-300",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Érico Veríssimo",
+   "endereco": "Rua Francisco Alves, 460",
+   "bairro": "Pauliceia",
+   "cep": "09692-000",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Guimarães Rosa",
+   "endereco": "Avenida João Firmino, 900",
+   "bairro": "Assunção",
+   "cep": "09830-110",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Machado de Assis",
+   "endereco": "Av. Araguaia, 284",
+   "bairro": "Riacho Grande",
+   "cep": "09830-110",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Manuel Bandeira",
+   "endereco": "Rua Bauru, 21",
+   "bairro": "Baeta Neves",
+   "cep": "09751-440",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Bernardo do Campo",
+   "nome": "BPM Monteiro Lobato",
+   "endereco": "Rua Doutor Fláquer, 26",
+   "bairro": "Centro",
+   "cep": "09710-180",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Roque",
+   "nome": "BPM Professor Arthur Riedel",
+   "endereco": "Av. Aracaí, 250",
+   "bairro": "Centro",
+   "cep": "18130-235",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "São Roque",
+   "nome": "Sala/Ambiente de Leitura",
+   "endereco": "Avenida Fernando de Noronha, 340",
+   "bairro": "Jardim MArgarida",
+   "cep": "06730-000",
+   "computador": true,
+   "wifi": true,
+   "ano": 2023
+  },
+  {
+   "municipio": "São Vicente",
+   "nome": "Biblioteca da Estação Cidadania Cultura",
+   "endereco": "R. Nivaldo Leite da Silva, 95",
+   "bairro": "Humaitá",
+   "cep": "11349-110",
+   "computador": true,
+   "wifi": false,
+   "ano": 2024
+  },
+  {
+   "municipio": "Sumaré",
+   "nome": "BPM Infantil Myrella Rossi Mobilon",
+   "endereco": "Av. Rebouças, 3321",
+   "bairro": "Jardim Carlos Basso",
+   "cep": "13171-097",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Taboão da Serra",
+   "nome": "BPM Castro Alves",
+   "endereco": "Praça Nicola Vivilechio, 73",
+   "bairro": "Jardim Bom Tempo",
+   "cep": "06763-490",
+   "computador": true,
+   "wifi": false,
+   "ano": 2025
+  },
+  {
+   "municipio": "Valinhos",
+   "nome": "BPM Doutor Mário Corrêa Lousada",
+   "endereco": "Rua José Milani, 127",
+   "bairro": "Vila Bissoto",
+   "cep": "13270-200",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Várzea Paulista",
+   "nome": "Biblioteca Comunitária Expressão Brasil",
+   "endereco": "Rua José Rabello Portella, 312",
+   "bairro": "Jardim Maria de Fátima",
+   "cep": "13220-540",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Várzea Paulista",
+   "nome": "BPM Professora Zulmar Zuleika Turcato Maraccini",
+   "endereco": "AVENIDA IPIRANGA, 151",
+   "bairro": "CENTRO",
+   "cep": "13220-210",
+   "computador": true,
+   "wifi": true,
+   "ano": 2025
+  },
+  {
+   "municipio": "Vinhedo",
+   "nome": "BPM de Vinhedo",
+   "endereco": "Rua Monteiro de Barros, 101",
+   "bairro": "Centro",
+   "cep": "13280-081",
+   "computador": false,
+   "wifi": true,
+   "ano": 2025
+  }
+ ]
+}

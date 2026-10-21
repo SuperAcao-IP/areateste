@@ -1,0 +1,1082 @@
+{
+ "a. monteiro lobato, 734, guarulhos": {
+  "lat": -23.469524,
+  "lon": -46.520675,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "alameda das palmeiras, 120, jundiai": {
+  "lat": -23.186155,
+  "lon": -46.910476,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "alameda wagih salles nemer, 124, barueri": {
+  "lat": -23.509925,
+  "lon": -46.865906,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av rio branco, 183, maua": {
+  "lat": -23.669785,
+  "lon": -46.458934,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. adherbal da costa moreira, 456, campo limpo paulista": {
+  "lat": -23.206494,
+  "lon": -46.783742,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. alfred jurzykowski, 562, sao bernardo do campo": {
+  "lat": -23.66472,
+  "lon": -46.581674,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. aracai, 250, sao roque": {
+  "lat": -23.531919,
+  "lon": -47.132271,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. araguaia, 284, sao bernardo do campo": {
+  "lat": -23.777445,
+  "lon": -46.531131,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. armando italo setti, 80, sao bernardo do campo": {
+  "lat": -23.697796,
+  "lon": -46.550308,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. brasil, 2801, americana": {
+  "lat": -22.752779,
+  "lon": -47.349614,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. cachoeira, 74, barueri": {
+  "lat": -23.492649,
+  "lon": -46.87982,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. carmela dutra, 380, guarulhos": {
+  "lat": -23.433622,
+  "lon": -46.432336,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. cel. nogueira padilha, 2392, sorocaba": {
+  "lat": -23.513752,
+  "lon": -47.432043,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. conselheiro nebias, 309, santos": {
+  "lat": -23.947496,
+  "lon": -46.32189,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. da saudade, 125, campinas": {
+  "lat": -22.920818,
+  "lon": -47.052177,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dois, 720, rio claro": {
+  "lat": -22.284419,
+  "lon": -47.551508,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dr. antenor soares gandra, 116, jarinu": {
+  "lat": -23.104245,
+  "lon": -46.73471,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dr. cavalcanti, 396, jundiai": {
+  "lat": -23.194844,
+  "lon": -46.877017,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dr. dib sauaia neto, 1600, barueri": {
+  "lat": -23.484788,
+  "lon": -46.873787,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dr. jose maria whitaker, 735, mairinque": {
+  "lat": -23.549425,
+  "lon": -47.19197,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. dr. renato de andrade maia, 601, guarulhos": {
+  "lat": -23.456964,
+  "lon": -46.527803,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. engenheiro roberto mange, 710, paulinia": {
+  "lat": -22.744671,
+  "lon": -47.168344,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. florestan fernandes, 00, guarulhos": {
+  "lat": -23.411134,
+  "lon": -46.410485,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. frei ambrosio de oliveira luz, 55, diadema": {
+  "lat": -23.722326,
+  "lon": -46.618558,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. goias, 139, itu": {
+  "lat": -23.258526,
+  "lon": -47.293802,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. ignacio zurita neto, 1025, araras": {
+  "lat": -22.356882,
+  "lon": -47.366071,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. itavuvu, 6515, sorocaba": {
+  "lat": -23.429758,
+  "lon": -47.48396,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. itu, 300, barueri": {
+  "lat": -23.541164,
+  "lon": -46.881653,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. lafayete arruda camargo, 767, campinas": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "av. luiza barbosa silveira bueno, 46, barueri": {
+  "lat": -23.528875,
+  "lon": -46.890717,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. marciano xavier de oliveira, 364, cabreuva": {
+  "lat": -23.310417,
+  "lon": -47.12996,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. marechal castelo branco, 1000, piracicaba": {
+  "lat": -22.692422,
+  "lon": -47.647841,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. mitsuke, 959, mairinque": {
+  "lat": -23.543463,
+  "lon": -47.190403,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. monteiro lobato, 734, guarulhos": {
+  "lat": -23.462042,
+  "lon": -46.499082,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. pereira barreto, 456, sao bernardo do campo": {
+  "lat": -23.694343,
+  "lon": -46.54913,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. professor manoel jose pedroso, 1147, cotia": {
+  "lat": -23.605621,
+  "lon": -46.91421,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. quarenta e seis, 661, rio claro": {
+  "lat": -22.391269,
+  "lon": -47.567244,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. reboucas, 3321, sumare": {
+  "lat": -22.808208,
+  "lon": -47.282797,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. reboucas, 3965, sumare": {
+  "lat": -22.819903,
+  "lon": -47.273805,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. ricardo peagno, 78, barueri": {
+  "lat": -23.513709,
+  "lon": -46.892773,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. santos dumont, 300, santo andre": {
+  "lat": -23.66655,
+  "lon": -46.51853,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. senador feijo, 421, santos": {
+  "lat": -23.944673,
+  "lon": -46.326083,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "av. senador vergueiro, 400, sao bernardo do campo": {
+  "lat": -23.691064,
+  "lon": -46.551853,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida antonio candido machado, 197, cajamar": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "avenida benjamin constant, 1633, campinas": {
+  "lat": -22.90088,
+  "lon": -47.056702,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida brasil, 24, carapicuiba": {
+  "lat": -23.529077,
+  "lon": -46.831238,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida doutor professor emilio coelho, s/nº, 0, campinas": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "avenida dra. sonia maria bulle lopes, 1245, salto": {
+  "lat": -23.14539,
+  "lon": -47.325255,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida fernando de noronha, 340, sao roque": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "avenida ipiranga, 151, varzea paulista": {
+  "lat": -23.210461,
+  "lon": -46.833343,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida joao fernandes da silva, 53, itaquaquecetuba": {
+  "lat": -23.495734,
+  "lon": -46.356989,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida joao firmino, 900, sao bernardo do campo": {
+  "lat": -23.721266,
+  "lon": -46.566575,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida marechal rondon, 260, osasco": {
+  "lat": -23.531102,
+  "lon": -46.780643,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "avenida ramiro colleoni, 110, santo andre": {
+  "lat": -23.661109,
+  "lon": -46.530546,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "campos salles, 380, itatiba": {
+  "lat": -23.004554,
+  "lon": -46.837604,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estr. do caminho velho, 351, guarulhos": {
+  "lat": -23.441179,
+  "lon": -46.401477,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estrada do elenco, 922, guarulhos": {
+  "lat": -23.413781,
+  "lon": -46.493056,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estrada dos galdinos, 503, cotia": {
+  "lat": -23.604227,
+  "lon": -46.828174,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estrada dos pinheiros, 185, barueri": {
+  "lat": -23.538162,
+  "lon": -46.86535,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estrada tenente marques, 4.805, santana de parnaiba": {
+  "lat": -23.414121,
+  "lon": -46.892675,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "estrada tenente marques, 6508, santana de parnaiba": {
+  "lat": -23.414121,
+  "lon": -46.892675,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca barao do rio branco., 5, mogi mirim": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "praca bernardino de campos, 150, itapira": {
+  "lat": -22.43663,
+  "lon": -46.821273,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca comendador muller, 172, americana": {
+  "lat": -22.740218,
+  "lon": -47.330992,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca coronel david baptista, 56, santo antonio de posse": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "praca da biblia, 1, cubatao": {
+  "lat": -23.882127,
+  "lon": -46.422203,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca estrela, 260, guarulhos": {
+  "lat": -23.472751,
+  "lon": -46.477267,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca estrela, n° 260, 260, guarulhos": {
+  "lat": -23.472751,
+  "lon": -46.477267,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca iv centenario, 3, santo andre": {
+  "lat": -23.657967,
+  "lon": -46.532449,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca mal. floriano peixoto, 0, campinas": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "praca nicola vivilechio, 73, taboao da serra": {
+  "lat": -23.609047,
+  "lon": -46.756169,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca prof. antonio de queiroz, 72, limeira": {
+  "lat": -22.571076,
+  "lon": -47.403955,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca roberto mange, 30, sorocaba": {
+  "lat": -23.486393,
+  "lon": -47.449208,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca sabanta, 98, osasco": {
+  "lat": -23.577984,
+  "lon": -46.80001,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca sao paulo, 02, itupeva": {
+  "lat": -23.151967,
+  "lon": -47.057649,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca venancio neto, 1, santo andre": {
+  "lat": -23.629659,
+  "lon": -46.490702,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "praca, r. dr. narciso gomes, 0, araras": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "r. das primeveras, 450, indaiatuba": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "r. nivaldo leite da silva, 95, sao vicente": {
+  "lat": -23.95179,
+  "lon": -46.450457,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "r. santa rita, 0, osasco": {
+  "lat": -23.565615,
+  "lon": -46.798381,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rodovia wilson finardi km 7 + 817m, 0, mogi mirim": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua 01, 790, santa gertrudes": {
+  "lat": -22.461071,
+  "lon": -47.522972,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua 24 de maio, 38, diadema": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua adelino damiao, 55, mogi guacu": {
+  "lat": -22.363525,
+  "lon": -46.932898,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua afonso monteiro da cruz, 254, diadema": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua alfredo massaretti, 191, itatiba": {
+  "lat": -22.999874,
+  "lon": -46.835282,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua andre fernandes, 105, santana de parnaiba": {
+  "lat": -23.445539,
+  "lon": -46.915278,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua anesia venturini zani, 62, jaguariuna": {
+  "lat": -22.703068,
+  "lon": -46.993997,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua argentina, 400, caieiras": {
+  "lat": -23.365523,
+  "lon": -46.746395,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua argeu egidio dos santos, 100, santa barbara d'oeste": {
+  "lat": -22.727806,
+  "lon": -47.388619,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua ari barroso, 305, osasco": {
+  "lat": -23.5257,
+  "lon": -46.772576,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua artur fernandes querido, 55, valinhos": {
+  "lat": -22.978733,
+  "lon": -47.010213,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua barao de uruguaiana, 87, diadema": {
+  "lat": -23.709475,
+  "lon": -46.602761,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua bauru, 21, sao bernardo do campo": {
+  "lat": -23.69314,
+  "lon": -46.539384,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua benedito thieso, 00, guarulhos": {
+  "lat": -23.383933,
+  "lon": -46.401034,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua bernardo jose sampaio, 300, campinas": {
+  "lat": -22.89772,
+  "lon": -47.066933,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua bernardo lobo -, 263, diadema": {
+  "lat": -23.685008,
+  "lon": -46.595446,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua boa vista, 825, sao caetano do sul": {
+  "lat": -23.64257,
+  "lon": -46.561778,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua caiapo, 5, mogi mirim": {
+  "lat": -22.430752,
+  "lon": -46.953931,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua cambe, 140, mogi guacu": {
+  "lat": -22.343232,
+  "lon": -46.951521,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua campos salles, 72, santa barbara d'oeste": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua da liberdade, 363, maua": {
+  "lat": -23.658003,
+  "lon": -46.452269,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua dante batiston, 248, osasco": {
+  "lat": -23.532284,
+  "lon": -46.777863,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua demerval da s. pereira, 0, campinas": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua direita, 955, cotia": {
+  "lat": -23.591266,
+  "lon": -46.846138,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua do algodao, 1450, santa barbara d'oeste": {
+  "lat": -22.73652,
+  "lon": -47.377363,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua do eucaliptos, 42, santo andre": {
+  "lat": -23.718258,
+  "lon": -46.508145,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua dom pedro ii, 1474, piracicaba": {
+  "lat": -22.731178,
+  "lon": -47.644059,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua doutor flaquer, 26, sao bernardo do campo": {
+  "lat": -23.709859,
+  "lon": -46.55286,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua dr. angelino sanches, 800, americana": {
+  "lat": -22.754887,
+  "lon": -47.335569,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua dr. jose botelho veloso, 00, limeira": {
+  "lat": -22.564508,
+  "lon": -47.412878,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua duque de caxias, 231, pedreira": {
+  "lat": -22.742167,
+  "lon": -46.896468,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua eca de queiros, 371, maua": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua eduardo de matos, 159, diadema": {
+  "lat": -23.66738,
+  "lon": -46.617312,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua elton silva, 905, jandira": {
+  "lat": -23.529087,
+  "lon": -46.897651,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua eng. roberto mange, 95, jundiai": {
+  "lat": -23.195115,
+  "lon": -46.893961,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua floriano peixoto, 1492, itu": {
+  "lat": -23.267343,
+  "lon": -47.295025,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua francisco alves, 460, sao bernardo do campo": {
+  "lat": -23.668923,
+  "lon": -46.584737,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua gloria, 630, barueri": {
+  "lat": -23.535872,
+  "lon": -46.885105,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua graciosa, 300, diadema": {
+  "lat": -23.690535,
+  "lon": -46.624822,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua guatemala, 19, diadema": {
+  "lat": -23.679815,
+  "lon": -46.610672,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua ignacio garcia, 321, suzano": {
+  "lat": -23.556953,
+  "lon": -46.313621,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua iva, 100, embu das artes": {
+  "lat": -23.670065,
+  "lon": -46.799048,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua joao goncalves, 439, guarulhos": {
+  "lat": -23.4669,
+  "lon": -46.529155,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua joao kuhl filho, sem numero, 000, limeira": {
+  "lat": -22.56375,
+  "lon": -47.409094,
+  "confianca": "media",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua joaquim miranda, 471, guarulhos": {
+  "lat": -23.48023,
+  "lon": -46.545759,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua jose botelho veloso -, 00, limeira": {
+  "lat": -22.564439,
+  "lon": -47.413684,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua jose maria de oliveira moraes, 94, guarulhos": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua jose milani, 127, valinhos": {
+  "lat": -22.971686,
+  "lon": -46.997011,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua jose rabello portella, 312, varzea paulista": {
+  "lat": -23.218827,
+  "lon": -46.846947,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua kara, 135, sao bernardo do campo": {
+  "lat": -23.687047,
+  "lon": -46.557013,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua luiz faccini, 132, guarulhos": {
+  "lat": -23.467761,
+  "lon": -46.527318,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua luiz lacava, 202, maua": {
+  "lat": -23.668232,
+  "lon": -46.458445,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua luiza barbosa bueno, 46, barueri": {
+  "lat": -23.528646,
+  "lon": -46.890103,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua maestro jose victorio, 137, itu": {
+  "lat": -23.262819,
+  "lon": -47.29578,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua martins fontes, 110, diadema": {
+  "lat": -23.664843,
+  "lon": -46.601957,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua monteiro de barros, 101, vinhedo": {
+  "lat": -23.028017,
+  "lon": -46.973346,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua n.sra. do rosario, 245, embu das artes": {
+  "lat": -23.649867,
+  "lon": -46.851394,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua nelson mandela, 1313, osasco": {
+  "lat": -23.578592,
+  "lon": -46.806924,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua niteroi, 180, sao caetano do sul": {
+  "lat": -23.615074,
+  "lon": -46.568716,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua padre celestino, 108, guarulhos": {
+  "lat": -23.470588,
+  "lon": -46.526948,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua pastor cicero canuto de lima, 71, campinas": {
+  "lat": -22.914513,
+  "lon": -47.068164,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua pedro chinelatto, 438, iracemapolis": {
+  "lat": -22.579083,
+  "lon": -47.520153,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua pitagoras,, 70, santo andre": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua praia de copacabana, 101, barueri": {
+  "lat": -23.528702,
+  "lon": -46.863042,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua quadros sobrinho, 1, limeira": {
+  "lat": -22.567408,
+  "lon": -47.398682,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua quinze de janeiro, 449, guarulhos": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua rio grande do sul, 234, barueri": {
+  "lat": -23.501653,
+  "lon": -46.871546,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua roberto goncalves teixeira, 203, monte mor": {
+  "lat": -22.948562,
+  "lon": -47.315914,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua sacramento, 490, campinas": {
+  "lat": -22.899022,
+  "lon": -47.061102,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua salvador branco de andrade, 182, taboao da serra": {
+  "lat": -23.612068,
+  "lon": -46.772503,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua santa cruz, 1148, piracicaba": {
+  "lat": -22.733881,
+  "lon": -47.648397,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua senai, 129, indaiatuba": {
+  "lat": -23.143814,
+  "lon": -47.218388,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua sete de /setembro, 63, campinas": {
+  "lat": -22.913826,
+  "lon": -47.061437,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua soldado paulo sergio romao, 14, santana de parnaiba": {
+  "lat": -23.472455,
+  "lon": -46.898386,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua solidagos, 42, holambra": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua vereador gustavo sonnewend netto, 135, diadema": {
+  "falhou": true,
+  "em": "2026-10-21",
+  "v": 2
+ },
+ "rua vereador sergio leopoldino alves, 500, santa barbara d'oeste": {
+  "lat": -22.755621,
+  "lon": -47.383328,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua vicente magaglio, 50, jundiai": {
+  "lat": -23.197695,
+  "lon": -46.895334,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ },
+ "rua: saldanha marinho, 311, cordeiropolis": {
+  "lat": -22.481359,
+  "lon": -47.457695,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-10-21"
+ }
+}

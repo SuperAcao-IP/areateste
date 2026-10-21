@@ -127,3 +127,62 @@ Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 p�
   pública e aponta para o curso (não copia conteúdo).
 - Pelo GitHub, agendamentos de repositórios sem atividade por 60 dias são pausados; as
   próprias atualizações automáticas contam como atividade quando há mudança.
+
+---
+
+## Mapa: camadas (cursos presenciais e computador/internet)
+
+O mapa de cada município ganhou duas camadas que a pessoa liga e desliga (por padrão as duas vêm ligadas):
+
+1. **Cursos presenciais (escolas):** quadrados laranja com o número de cursos. Ao clicar: endereço, lista de cursos (com link, quando o curso vem da planilha ou do Trampolim).
+2. **Computador e internet:** círculos verdes ("Tem computador") e azuis ("Só Wi-Fi"), com os dois selos explicados abaixo do mapa.
+
+### De onde vêm os pontos
+| Camada | Fonte | Como atualiza |
+|---|---|---|
+| Escolas | **Senac-SP**: cadastro manual das 18 unidades (nome e endereço, sem cursos) em `scripts/fontes/unidades-senac-cadastro.json`; a coordenada é calculada pelo endereço. Os cursos do Senac vêm da planilha. | coordenada semanal (workflow **Atualizar mapa**) |
+| Escolas | **Senai-SP**: páginas de unidade (endereço; coordenadas calculadas) | semanal |
+| Escolas | **Trampolim**: cursos presenciais trazem endereço e coordenada; viram "locais de curso" | ao vivo, ao escolher a cidade |
+| Escolas | **Planilha, aba cursos**: cursos presenciais do Senai/Senac entram na lista da unidade | ao vivo |
+| Computador | **Bibliotecas** que declaram computador para o público ou Wi-Fi (cadastro estadual SisEB) | levantamento anual à mão + geocodificação semanal |
+| Computador | **Aba pontos_digitais** da planilha (telecentros, lan houses, Acessa SP, outros) | ao vivo |
+
+**Planilha → unidade (sem chute).** O curso da planilha entra na unidade só quando a instituição é Senai ou Senac e há **uma única** unidade dessa instituição na cidade, ou quando o texto desempata ("SENAC - Faccini"). Com mais de uma unidade e nada que desempate, o curso **não vai para o mapa** (continua na lista normal). O relatório semanal lista esses casos para a equipe preencher "unidade" e "endereço".
+
+**Coordenadas.** Quando só há endereço, o script semanal calcula a coordenada com o Nominatim (OpenStreetMap): rua + número, 1 consulta por segundo, resultado guardado em `dados/geocache.json` (cada endereço é consultado uma vez). Rodovias e resultados a mais de 12 km do município são recusados. O erro típico é de uns 350 m. O navegador nunca chama o Nominatim. A atribuição "© OpenStreetMap contributors" já aparece no mapa.
+
+### Senac: coleta automática DESLIGADA
+Os termos de uso do site do Senac-SP proíbem robôs e acesso automatizado e a cópia dos dados do portal sem consentimento. Por isso o script **não acessa mais o site do Senac** e nenhum curso coletado de lá fica no repositório. O código da coleta continua em `scripts/lib/coletores-mapa.js` e só roda se a chave `COLETAR_SENAC=1` (ou `--coletar-senac`) for ligada em `scripts/atualizar-mapa.js`: **só faça isso com autorização por escrito do Senac**. Para incluir ou corrigir uma unidade do Senac, edite o JSON de cadastro manual.
+
+### Aba nova da planilha: `pontos_digitais`
+Criar uma aba chamada exatamente **pontos_digitais**, com estas colunas na primeira linha (nesta ordem, em minúsculas):
+
+| Coluna | O que escrever |
+|---|---|
+| municipio | um dos 47 municípios, escrito como no portal |
+| tipo | telecentro, biblioteca, acessa_sp, lan_house ou outro |
+| nome | nome do lugar |
+| endereco | rua e número (ex.: "Rua das Flores, 123") |
+| bairro | bairro |
+| recursos | computador, wifi ou "computador e wifi" (vazio = computador) |
+| horario | ex.: "seg a sex, 9h às 17h" |
+| gratuito | sim, não ou "pago por hora" |
+| telefone | telefone **do local** |
+| observacao | qualquer informação útil |
+| status | Ativo, ou Fechado/Encerrado para esconder |
+| verificado_em | data da última conferência (DD/MM/AAAA) |
+| lat | latitude (opcional), ex.: -23,5432 |
+| lon | longitude (opcional), ex.: -46,7654 |
+
+- Com **lat e lon** preenchidas, o ponto aparece **na hora**. Para pegar a coordenada: no Google Maps, clique com o botão direito no local e clique nos números que aparecem.
+- Sem lat/lon, o script semanal calcula pelo endereço (aparece em até uma semana).
+- Não coloque dados de pessoas (nome de quem cadastrou, e-mail).
+- Depois de criar a aba: **Arquivo > Compartilhar > Publicar na web**, publique também essa aba, copie o link CSV dela e coloque em `PLANILHA_PONTOS_CSV_URL` (js/config.js). Enquanto estiver vazio, a camada mostra só as bibliotecas.
+
+### Bibliotecas: como atualizar
+O arquivo `scripts/fontes/bibliotecas-siseb.json` é um levantamento do cadastro estadual (respostas de 2019 a 2025). Computador e Wi-Fi saíram do texto dos PDFs dos questionários, por extração automática **sem conferência manual**: confirme por telefone antes de divulgar como certo. O levantamento **não é automático**; vale refazê-lo uma vez por ano. Os dados pessoais (telefones, e-mails) foram removidos de propósito.
+
+### Se algo der errado
+- Cada fonte é isolada: se uma falhar, mantém a versão anterior só dela e a issue ("Mapa AAAA-MM-DD: … FALHOU: <fonte>") avisa.
+- (Só se a coleta do Senac for religada com autorização) O Senac já bloqueou um IP por excesso de consultas: o script faz 1 por segundo e para no primeiro erro 403, mantendo a versão anterior.
+- Para desligar uma camada para todos: apague os pontos de `dados/unidades.js` ou de `dados/pontos-computador.js` (deixe a lista vazia).
