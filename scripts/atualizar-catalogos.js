@@ -175,6 +175,7 @@ function escreverRelatorio(r){
       : "_nenhum_\n");
     L.push(`### Saíram do catálogo (${c.sairam.length})\n`);
     L.push(lista(c.sairam, s => `${s.titulo}${s.eraVisivel ? " ⚠️ estava visível no site" : ""}`));
+    if(c.repetidos && c.repetidos.length) L.push(`### Repetidos descartados (${c.repetidos.length})\n\nMesmo título de outro curso do catálogo; ficou só o primeiro.\n\n${lista(c.repetidos, r => `${r.titulo} — ${r.link}`)}`);
     if(c.cargaBaixa.length) L.push(`### Mantidos pela equipe, mas ocultos por carga abaixo de 15h (${c.cargaBaixa.length})\n\n${lista(c.cargaBaixa, x => `${x.titulo} · ${x.carga}`)}`);
     L.push(`### Links\n`);
     if(c.links === null) L.push(c.chave === "aprendaMais"
@@ -207,6 +208,22 @@ async function main(){
       console.log(`Coletando ${cat.nome}…`);
       const col = await cat.coletar(atual.cursos);
       if(!col.cursos.length) throw new Error("a coleta voltou vazia");
+      /* um curso por título dentro de cada catálogo (o site reconhece o curso pelo título):
+         vale o primeiro coletado, a não ser que o repetido tenha o título com acentos e o
+         primeiro não ("Inteligência" x "Inteligencia"); os descartados viram aviso no relatório */
+      const comAcento = t => /[^\x00-\x7f]/.test(t);
+      const posicao = new Map(), unicos = [];
+      info.repetidos = [];
+      for(const c of col.cursos){
+        const n = normalizarTitulo(c.titulo);
+        if(!posicao.has(n)){ posicao.set(n, unicos.length); unicos.push(c); continue; }
+        const i = posicao.get(n);
+        if(comAcento(c.titulo) && !comAcento(unicos[i].titulo)){
+          info.repetidos.push({ titulo: unicos[i].titulo, link: unicos[i].link });
+          unicos[i] = c;
+        }else info.repetidos.push({ titulo: c.titulo, link: c.link });
+      }
+      col.cursos = unicos;
       if(atual.cursos.length >= 20 && col.cursos.length < atual.cursos.length * (1 - QUEDA_MAXIMA))
         throw new Error(`a coleta trouxe ${col.cursos.length} cursos contra ${atual.cursos.length} do catálogo anterior (queda de mais de ${QUEDA_MAXIMA * 100}%)`);
       coletas[cat.chave] = { ...col, atual };

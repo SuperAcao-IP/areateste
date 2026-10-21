@@ -1,5 +1,5 @@
 /* Escola Virtual de Governo (EVG) · cursos online gratuitos.
-   Coletado de escolavirtual.gov.br · atualizado em 2026-10-21 (14 cursos visíveis de 915 coletados).
+   Coletado de escolavirtual.gov.br · atualizado em 2026-10-21 (13 cursos visíveis de 914 coletados).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
    completa coletada e as decisões estão em dados/decisoes-catalogos.json.
@@ -15,8 +15,7 @@ const EVG = [
  {titulo:"Introdução ao Excel",inst:"Secretaria Especial da Receita Federal do Brasil",carga:"25h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/459"},
  {titulo:"Português - Interpretação de Texto e Emprego de Regras Gramaticais",inst:"Secretaria Especial da Receita Federal do Brasil",carga:"40h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/477"},
  {titulo:"Acessibilidade na Comunicação",inst:"Ministério dos Direitos Humanos e Cidadania",carga:"30h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/615"},
- {titulo:"Inteligencia Emocional",inst:"Secretaria Especial da Receita Federal do Brasil",carga:"50h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/627"},
- {titulo:"Gestão de Conflitos e Negociação",inst:"Ministério da Fazenda",carga:"20h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/372"},
  {titulo:"Inteligência Emocional",inst:"Secretaria Especial da Receita Federal do Brasil",carga:"50h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/318"},
+ {titulo:"Gestão de Conflitos e Negociação",inst:"Ministério da Fazenda",carga:"20h",area:"Outros",link:"https://www.escolavirtual.gov.br/curso/372"},
  {titulo:"Introdução à Libras",inst:"Ministério dos Direitos Humanos e Cidadania",carga:"60h",area:"Saúde e Cuidados",link:"https://www.escolavirtual.gov.br/curso/11"}
 ];

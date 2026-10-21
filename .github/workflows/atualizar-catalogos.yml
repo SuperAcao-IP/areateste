@@ -2,7 +2,8 @@ name: Atualizar catálogos
 
 # Toda segunda-feira, 06h em Brasília (09h UTC), ou na hora pelo botão "Run workflow".
 # Coleta Aprenda Mais, EVG e Bradesco, aplica o filtro de público, confere links,
-# publica na main sozinho e abre uma issue com o resumo. Se a coleta falhar ou vier
+# publica na main sozinho e abre uma issue com o resumo (só quando há mudança ou falha;
+# semana sem novidade não gera issue). Se a coleta falhar ou vier
 # vazia, não publica nada: o catálogo anterior continua no ar.
 on:
   schedule:
@@ -49,8 +50,9 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
 
+      # só abre issue quando houve mudança publicada ou falha
       - name: Abrir issue com o resumo
-        if: ${{ always() }}
+        if: ${{ always() && (steps.coleta.outcome != 'success' || steps.coleta.outputs.publicar == 'true') }}
         run: |
           if [ "${{ steps.coleta.outcome }}" = "success" ]; then
             if [ "${{ steps.coleta.outputs.publicar }}" = "true" ]; then SITUACAO="publicado"; else SITUACAO="sem mudanças"; fi

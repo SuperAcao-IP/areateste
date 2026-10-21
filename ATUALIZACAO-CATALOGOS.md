@@ -5,7 +5,8 @@ Catálogos: **Aprenda Mais** (MEC), **EVG** (Escola Virtual de Governo) e **Brad
 
 Uma GitHub Action roda **toda segunda-feira** (06h em Brasília) e também a qualquer hora
 pelo botão *Actions → Atualizar catálogos → Run workflow*. Ninguém precisa aprovar nada:
-ela coleta, filtra, confere os links, publica na `main` e abre uma **issue** com o resumo.
+ela coleta, filtra, confere os links, publica na `main` e, quando algo mudou ou falhou,
+abre uma **issue** com o resumo.
 
 ## O que acontece em cada execução
 
@@ -30,8 +31,12 @@ ela coleta, filtra, confere os links, publica na `main` e abre uma **issue** com
    turma vigente, então estão no ar por construção. Link quebrado só é **reportado**.
 5. **Grava** `dados/cursos-*.js`, `dados/filtro-publico.js` e `dados/decisoes-catalogos.json`
    (só se algo mudou) e faz commit na `main`.
-6. **Abre uma issue** com o resumo: o que entrou (e o que apareceu no site), o que saiu,
-   links quebrados e o motivo de cada decisão automática.
+6. **Abre uma issue** com o resumo, **só quando houve mudança ou falha** (semana sem
+   novidade não gera issue): o que entrou (e o que apareceu no site), o que saiu, links
+   quebrados, repetidos descartados e o motivo de cada decisão automática.
+
+Dentro de cada catálogo vale **um curso por título** (o primeiro coletado): o site
+reconhece o curso pelo título, e dois cursos com o mesmo nome apareceriam repetidos.
 
 ## Critérios das regras (curso novo)
 
