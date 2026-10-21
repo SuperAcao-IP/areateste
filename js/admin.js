@@ -195,7 +195,7 @@ async function salvarAdm(){
 }
 function badgeAdm(it){
   const ate=abaAdm==="cursos"?it.inscricoes_ate:validadeEfetiva(it);
-  if((it.status||"").toLowerCase()==="encerrado") return '<span class="badge enc">Encerrado</span>';
+  if(typeof statusFechado==="function" ? statusFechado(it.status) : (it.status||"").toLowerCase()==="encerrado") return '<span class="badge enc">Encerrado</span>';
   if(abaAdm==="cursos" && it.inscricoes_de){
     const di=new Date(it.inscricoes_de+"T00:00:00");
     if(!isNaN(di.getTime()) && di>hoje0()) return '<span class="badge exp">Aguardando abertura</span>';

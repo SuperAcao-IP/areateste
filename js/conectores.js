@@ -644,7 +644,7 @@ async function buscarCursosPlanilha(){
   if(!rows.length && text.trim().split("\n").length>1)
     console.warn("[Planilha] nenhuma linha reconhecida: confira o cabeçalho da aba (precisa de uma coluna 'curso' ou 'NOME'). Cabeçalho lido:", text.split("\n")[0].slice(0,200));
   const cursos = rows.map(normalizarCursoPlanilha)
-    .filter(c => (c._status||"").toLowerCase() !== "encerrado")       // exclui encerrados
+    .filter(c => !statusFechado(c._status))                            // exclui encerrados/fechados
     .filter(c => {                                                     // exclui expirados (validade < hoje)
       const d = dataLocalPlanilha(c._ate);
       return !d || d>=hoje0();
@@ -760,7 +760,7 @@ async function buscarVagasPlanilha(){
   const text = await resp.text();
   const rows = csvParaObjetos(text, "cargo");
   const vagas = rows.map(normalizarVagaPlanilha)
-    .filter(v => (v._status||"").toLowerCase() !== "encerrado")
+    .filter(v => !statusFechado(v._status))
     .filter(v => { const ate = validadeDaVaga(v); return !ate || ate >= hoje0(); });
   console.log("[Planilha Vagas] vagas válidas:", vagas.length, "| linhas no CSV:", rows.length);
   cachePlanilhaVagas.vagas = vagas;

@@ -214,6 +214,8 @@ async function carregarDados(){
 function ehDaCidade(v,cidade){ return (v||"").trim().toLowerCase()===cidade.toLowerCase(); }
 function ehOnline(v){ return (v||"").trim().toLowerCase().startsWith("online"); }
 function hoje0(){ const d=new Date(); d.setHours(0,0,0,0); return d; }
-function aberto(status,ate){ if((status||"").toLowerCase()==="encerrado") return false; if(ate){ const d=new Date(ate); if(!isNaN(d.getTime()) && d<hoje0()) return false; } return true; }
+/* status "Encerrado" ou "Fechado" (a equipe usa os dois) = não aparece */
+function statusFechado(status){ return /^\s*(encerrad|fechad)/i.test(status||""); }
+function aberto(status,ate){ if(statusFechado(status)) return false; if(ate){ const d=new Date(ate); if(!isNaN(d.getTime()) && d<hoje0()) return false; } return true; }
 function matchArea(nome){ const norm=s=>(s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim().toLowerCase(); const n=norm(nome); const a=AREAS.find(a=>norm(a.nome)===n); return a?a.id:classificar(nome); }
 function urlValida(u){ u=(u||"").trim(); if(!/^https?:\/\//i.test(u)) return false; try{ new URL(u); return true; }catch(e){ return false; } }
