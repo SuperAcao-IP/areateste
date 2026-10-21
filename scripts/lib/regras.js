@@ -116,4 +116,38 @@ function classificar(titulo){
   return { d: "ocultar", m: "sem regra de manter (fora do perfil por padrão)" };
 }
 
-module.exports = { classificar, OCULTAR, MANTER };
+/* ---------- Perfil: Público-alvo e Requisitos que o próprio curso declara ----------
+   Só o Aprenda Mais publica esses campos (course/info.php). Devolve, por grupo, o trecho
+   que disparou a regra (vazio = grupo não se aplica):
+     a  público-alvo só de profissionais/professores/servidores, ou requisito de ser/atuar na área
+     b  requisito de escolaridade (ensino médio, superior, graduação, técnico, ...)
+     b2 sinal mais fraco: público-alvo é só estudante de ensino médio/superior (não é requisito)
+     c  requisito de conhecimento prévio (informática, HTML, outro curso, noções de...)
+   "Ensino fundamental completo" NÃO conta: é compatível com o público do programa. */
+const PERFIL_PROF  = /\b(profissionais?|professor(es)?|docentes?|servidor(es)?|gestor(es)?|desenvolvedor(es)?|tecnic[oa]s?|educador(es)?|pedagog\w*|enfermeir\w*|medic[oa]s?|agentes?|analistas?|engenheir\w*|administrador(es)?|contador(es)?|empresari\w*|supervisor(es)?|coordenador(es)?|trabalhador(es)?|operador(es)?)\b/;
+const PERFIL_GERAL = /\b(estudantes?|alunos?|interessad[oa]s?|qualquer|em geral|comunidade|refugiad\w*|imigrant\w*|brasileiros|pessoas|jovens|adultos|todos|cidad\w*|empreendedor\w*|famil\w*)\b/;
+const PERFIL_GERAL_SEM_ESTUDANTE = /\b(interessad[oa]s?|qualquer|em geral|comunidade|refugiad\w*|imigrant\w*|brasileiros|pessoas|jovens|adultos|todos|cidad\w*|empreendedor\w*|famil\w*|profissionais?)\b/;
+const REQ_SER_DA_AREA = /\bser (estudante|profissional|servidor|professor|trabalhador|da area|atuante|tecnico|aluno)\b|\bprofissionais? (da|do|de) (area|setor)\b|\bserem?\b.*\b(da area|atuante)\b|\batua(r|ndo)? (na|no|em)\b/;
+const REQ_ESCOLARIDADE = /\b(ensino medio( completo| incompleto)?|ensino superior( completo| incompleto)?|graduacao|graduad\w*|licenciatura|curso tecnico|curso superior|superior (completo|incompleto)|nivel superior|pos-graduacao|mestrado)\b/;
+const REQ_PREVIO = /\bconhecimentos?( basicos?)? (em|de|do|da|sobre)\b|\bnocoes( basicas)? (de|em|do|da)\b|\bter (realizado|cursado|concluido|feito)\b|\bsaber (manusear|usar|programar|operar)\b|\bexperiencia\b|\bdominio (de|em)\b|\bpre-?requisito|\blogica de programacao\b|\binstalacao do\b/;
+
+function perfil(publico, requisitos){
+  const semAc = s => String(s || "").normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/\s+/g, " ").trim();
+  const pa = semAc(publico), rq = semAc(requisitos);
+  // mostra a cláusula do texto ORIGINAL (com acentos) que casou com a regra
+  const trecho = (original, re) => String(original || "").split(/[,;]/).map(x => x.trim()).find(x => re.test(semAc(x))) || "";
+  const saida = { a: [], b: [], b2: [], c: [] };
+  if(pa && PERFIL_PROF.test(pa) && !PERFIL_GERAL.test(pa)) saida.a.push("público-alvo: " + publico.trim());
+  if(rq && REQ_SER_DA_AREA.test(rq)){
+    const cl = trecho(requisitos, REQ_SER_DA_AREA);
+    // "profissionais da área X ou interessados..." aceita qualquer interessado: não restringe
+    if(cl && !/interessad|qualquer/.test(semAc(cl))) saida.a.push("requisito: " + cl);
+  }
+  if(rq && REQ_ESCOLARIDADE.test(rq)) saida.b.push("requisito: " + trecho(requisitos, REQ_ESCOLARIDADE));
+  if(pa && /\b(ensino medio|ensino superior|educacao superior|graduacao)\b/.test(pa) && !PERFIL_GERAL_SEM_ESTUDANTE.test(pa))
+    saida.b2.push("público-alvo: " + publico.trim());
+  if(rq && REQ_PREVIO.test(rq)) saida.c.push("requisito: " + trecho(requisitos, REQ_PREVIO));
+  return saida;
+}
+
+module.exports = { classificar, perfil, OCULTAR, MANTER };

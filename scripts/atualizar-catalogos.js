@@ -17,11 +17,17 @@ const fs = require("fs");
 const path = require("path");
 const { normalizarTitulo, buscar, emLotes } = require("./lib/util");
 const { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFMG, coletarMundi } = require("./lib/coletores");
-const { classificar } = require("./lib/regras");
+const { classificar, perfil } = require("./lib/regras");
 
 const RAIZ = path.join(__dirname, "..");
 const DADOS = path.join(RAIZ, "dados");
 const CARGA_MINIMA_H = 15;          // igual a CARGA_MINIMA_H em js/config.js
+/* Perfil (Público-alvo e Requisitos que o Aprenda Mais declara em course/info.php):
+   false = só informa no relatório quais cursos visíveis seriam ocultados (nada muda no site);
+   true  = oculta o curso visível que cair nos grupos a (público só de profissionais, professores ou
+           servidores), b (exige escolaridade) ou c (exige conhecimento prévio), salvo se a decisão
+           dele tiver `"perfilOk": true` (a equipe aprovou mesmo assim). */
+const PERFIL_APLICAR = false;
 const QUEDA_MAXIMA = 0.30;          // coleta com mais de 30% a menos que a anterior é tratada como falha
 const LIMITE_LISTA = 60;            // itens por seção no relatório (o resto vira "e mais N")
 
@@ -140,6 +146,10 @@ function calcularVisiveis(listas, decisoes){
     for(const c of listas[cat.chave] || []){
       const n = normalizarTitulo(c.titulo), e = decisoes[cat.chave][n];
       if(!e || e.d !== "manter" || !cargaOk(c.carga || cat.cargaPadrao)) continue;
+      if(PERFIL_APLICAR && cat.chave === "aprendaMais" && !e.perfilOk){
+        const p = perfil(e.pa, e.rq);
+        if(p.a.length || p.b.length || p.c.length) continue;
+      }
       if(e.o === "auto" && acima.has(n)){ repetidos[cat.chave].push({ titulo: c.titulo }); continue; }
       V.add(n);
     }
@@ -227,6 +237,14 @@ function escreverRelatorio(r){
       L.push(`### Escondidos por repetição em fonte de prioridade maior (${c.repetidosEntreFontes.length})\n\nVale uma versão só: Aprenda Mais, +IFMG, Mundi, Bradesco, EVG, nessa ordem.\n\n${lista(c.repetidosEntreFontes, r => r.titulo)}`);
     if(c.reavaliados && c.reavaliados.length)
       L.push(`### Decisões automáticas que mudaram por causa de ajuste nas regras (${c.reavaliados.length})\n\n${lista(c.reavaliados, x => `${x.titulo}: ${x.de} → ${x.para} (${x.motivo})`)}`);
+    if(c.perfil){
+      const rot = { a: "(a) Público-alvo só de profissionais, professores ou servidores (ou exige ser/atuar na área)", b: "(b) Exige escolaridade (ensino médio, superior, técnico)", c: "(c) Exige conhecimento prévio", b2: "(b2) Sinal mais fraco: público-alvo é só de estudantes de ensino médio/superior" };
+      L.push(`### Perfil declarado pelo curso: visíveis que ${PERFIL_APLICAR ? "foram ocultados" : "seriam ocultados (regra NÃO aplicada)"}\n`);
+      for(const g of ["a", "b", "c", "b2"]){
+        L.push(`**${rot[g]}: ${c.perfil[g].length}**\n`);
+        L.push(lista(c.perfil[g], x => `${x.titulo} — ${x.motivos.join("; ")}`));
+      }
+    }
     L.push(`### Saíram do catálogo (${c.sairam.length})\n`);
     L.push(lista(c.sairam, s => `${s.titulo}${s.eraVisivel ? " ⚠️ estava visível no site" : ""}`));
     if(c.repetidos && c.repetidos.length) L.push(`### Repetidos descartados (${c.repetidos.length})\n\nMesmo título de outro curso do catálogo; ficou só o primeiro.\n\n${lista(c.repetidos, r => `${r.titulo} — ${r.link}`)}`);
@@ -337,6 +355,14 @@ async function main(){
   /* o que aparecia no site ANTES desta execução (decisões ainda sem os cursos novos) */
   const antes = calcularVisiveis(Object.fromEntries(CATALOGOS.map(c => [c.chave, coletas[c.chave].atual.cursos])), decisoes);
 
+  /* público-alvo e requisitos declarados pelo curso (só o Aprenda Mais): guardados nas decisões */
+  for(const cat of CATALOGOS){
+    for(const c of coletas[cat.chave].cursos){
+      if(c.publico === undefined) continue;
+      const e = decisoes[cat.chave][norm(c.titulo)];
+      if(e){ e.pa = c.publico; e.rq = c.requisitos; }
+    }
+  }
   /* decisões automáticas valem pela regra de hoje: se scripts/lib/regras.js mudou, os cursos
      já coletados são reavaliados (as manuais, o: "manual", nunca são refeitas) */
   for(const cat of CATALOGOS){
@@ -393,6 +419,21 @@ async function main(){
     info.col = col;
   }
   const visiveis = depois.visiveis;
+
+  /* perfil dos cursos VISÍVEIS do Aprenda Mais (o que o próprio curso declara) */
+  {
+    const am = coletas.aprendaMais, infoAm = resultado.catalogos.find(c => c.chave === "aprendaMais");
+    if(am && !infoAm.mantido){
+      const grupos = { a: [], b: [], b2: [], c: [] };
+      for(const c of am.cursos){
+        const base = depois.visiveis.aprendaMais.has(norm(c.titulo));
+        if(!base) continue;
+        const p = perfil(c.publico, c.requisitos);
+        for(const g of Object.keys(grupos)) if(p[g].length) grupos[g].push({ titulo: c.titulo, motivos: p[g] });
+      }
+      infoAm.perfil = grupos;
+    }
+  }
 
   /* 4. links dos cursos visíveis (EVG e Bradesco) */
   for(const cat of CATALOGOS){

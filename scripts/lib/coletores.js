@@ -24,6 +24,26 @@ const AM_AREAS = {   // categoria do portal -> área usada no site
 };
 const semAcento = s => s.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().trim();
 
+/* O resumo do curso (info.php) é uma sequência "Rótulo: valor". Corta o valor de cada rótulo no
+   começo do próximo (o espaço antes dos dois pontos varia: "Módulos : 04"). */
+const AM_ROTULOS = ["Conclusão do curso", "Carga horária", "Prazo mínimo para obtenção do certificado", "Público-alvo", "Requisitos", "Módulos", "Metodologia", "Instituição", "Nível", "Idioma", "Informações"];
+function lerResumoAM(texto){
+  const i = texto.indexOf("Conclusão do curso");
+  const t = i >= 0 ? texto.slice(i) : texto;
+  const achados = [];
+  for(const r of AM_ROTULOS){
+    const m = t.match(new RegExp(r + "\\s*:"));
+    if(m) achados.push({ r, ini: m.index, fimRotulo: m.index + m[0].length });
+  }
+  achados.sort((a, b) => a.ini - b.ini);
+  const saida = {};
+  achados.forEach((a, k) => {
+    const fim = k + 1 < achados.length ? achados[k + 1].ini : Math.min(t.length, a.fimRotulo + 400);
+    saida[a.r] = t.slice(a.fimRotulo, fim).trim().slice(0, 400);
+  });
+  return saida;
+}
+
 async function coletarAprendaMais({ minimoEsperado = 0 } = {}){
   const indice = await buscar(AM_BASE + "/course/index.php");
   if(indice.status !== 200) throw new Error("índice do Aprenda Mais respondeu HTTP " + indice.status);
@@ -81,6 +101,8 @@ async function coletarAprendaMais({ minimoEsperado = 0 } = {}){
         const t = decodificarHtml(r.texto.replace(/<script[\s\S]*?<\/script>/gi, " ").replace(/<style[\s\S]*?<\/style>/gi, " ").replace(/<[^>]*>/g, " "));
         const m = t.match(/Carga hor[aá]ria:\s*(\d+(?:[.,]\d+)?)/i);
         if(m) c.carga = m[1].replace(",", ".") + "h";
+        const resumo = lerResumoAM(t);
+        c.publico = resumo["Público-alvo"] || ""; c.requisitos = resumo["Requisitos"] || "";
       }
     }catch(_){ /* fica sem carga; a conferência abaixo decide se isso é grave */ }
     await espera(50);

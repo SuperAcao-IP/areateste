@@ -9,7 +9,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da educação e da saúde",
+   "rq": "ser estudante ou profissional na área da educação ou saúde, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "altas habilidades / superdotacao: conceitos": {
    "t": "Altas Habilidades / Superdotação: conceitos",
@@ -18,7 +20,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "biologia": {
    "t": "Biologia",
@@ -27,7 +31,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "doencas emergentes e reemergentes na saude coletiva": {
    "t": "Doenças Emergentes e Reemergentes na Saúde Coletiva",
@@ -36,7 +42,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "epidemiologia": {
    "t": "Epidemiologia",
@@ -45,7 +53,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "fundamentos e diretrizes do sus": {
    "t": "Fundamentos e Diretrizes do SUS",
@@ -54,7 +64,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da área da saúde ou interessados no tema",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gerenciamento de residuos": {
    "t": "Gerenciamento de Resíduos",
@@ -63,7 +75,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "60h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes da área de meio ambiente",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de pessoas em saude": {
    "t": "Gestão de Pessoas em Saúde",
@@ -72,7 +86,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais que trabalham na área de gestão de pessoas em saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "higiene no trabalho: agentes biologicos e fisicos": {
    "t": "Higiene no Trabalho: agentes biológicos e físicos",
@@ -81,7 +97,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "higiene no trabalho: iluminacao, som e agentes quimicos": {
    "t": "Higiene no Trabalho: iluminação, som e agentes químicos",
@@ -90,7 +108,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "indicadores na saude": {
    "t": "Indicadores na Saúde",
@@ -99,7 +119,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da área da saúde e demais interessados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "microbiologia": {
    "t": "Microbiologia",
@@ -108,7 +130,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "o agente comunitario de saude no planejamento, programacao e avaliacao em saude": {
    "t": "O Agente Comunitário de Saúde no Planejamento, Programação e Avaliação em Saúde",
@@ -117,7 +141,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "o agente comunitario de saude: a promocao e a educacao em saude": {
    "t": "O Agente Comunitário de Saúde: a promoção e a educação em saúde",
@@ -126,7 +152,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da educação e da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "organizacao e funcionamento do sus": {
    "t": "Organização e Funcionamento do SUS",
@@ -135,7 +163,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "pessoas da área da saúde ou interessadas em conhecer mais sobre este tema",
+   "rq": "ser da área da saúde ou interessada neste tema, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento em saude coletiva": {
    "t": "Planejamento em Saúde Coletiva",
@@ -144,7 +174,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "gestores da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "praticas em saude e seguranca do trabalho": {
    "t": "Práticas em Saúde e Segurança do Trabalho",
@@ -153,7 +185,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "primeiros socorros para profissionais de saude": {
    "t": "Primeiros Socorros para Profissionais de Saúde",
@@ -162,7 +196,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "primeiros socorros: conceitos iniciais": {
    "t": "Primeiros Socorros: conceitos iniciais",
@@ -171,7 +207,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "promocao da saude mental": {
    "t": "Promoção da Saúde Mental",
@@ -180,7 +218,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "protecao e cuidados para criancas": {
    "t": "Proteção e Cuidados para Crianças",
@@ -189,7 +229,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "psicologia aplicada a reabilitacao": {
    "t": "Psicologia Aplicada à Reabilitação",
@@ -198,7 +240,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes do ensino superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude coletiva": {
    "t": "Saúde Coletiva",
@@ -207,7 +251,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes ou profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude da crianca e do adolescente": {
    "t": "Saúde da Criança e do Adolescente",
@@ -216,7 +262,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude da mulher e do recem-nascido": {
    "t": "Saúde da Mulher e do Recém-nascido",
@@ -225,7 +273,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes, profissionais e demais interessados da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude do homem e do idoso": {
    "t": "Saúde do Homem e do Idoso",
@@ -234,7 +284,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "cuidadores, profissionais da saúde e homens e interessados em autocuidado e prevenção de doenças",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude e seguranca ambiental": {
    "t": "Saúde e Segurança Ambiental",
@@ -243,7 +295,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude e seguranca no trabalho": {
    "t": "Saúde e Segurança no Trabalho",
@@ -252,7 +306,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área de gestão e serviço público",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "saude ocupacional": {
    "t": "Saúde Ocupacional",
@@ -261,7 +317,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais de saúde",
+   "rq": "ser estudante ou profissional na área da educação ou saúde, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sustentabilidade ambiental, social e economica": {
    "t": "Sustentabilidade Ambiental, Social e Econômica",
@@ -270,7 +328,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes do ensino médio e/ou pessoas que se interessam por sustentabilidade",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas e dinamicas de trabalho em grupo": {
    "t": "Técnicas e Dinâmicas de Trabalho em Grupo",
@@ -279,7 +339,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "estudantes e profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "toxicologia": {
    "t": "Toxicologia",
@@ -288,7 +350,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da área da saúde",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "vigilancia em saude": {
    "t": "Vigilância em Saúde",
@@ -297,7 +361,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Saúde e Cuidados"
+   "ar": "Saúde e Cuidados",
+   "pa": "profissionais da saúde e demais interessados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "calculo tecnico": {
    "t": "Cálculo Técnico",
@@ -306,7 +372,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área de ciências exatas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao financeira": {
    "t": "Educação Financeira",
@@ -315,7 +383,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes de qualquer área do conhecimento.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "estatistica: conceitos e representacoes": {
    "t": "Estatística: conceitos e representações",
@@ -324,7 +394,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "estatistica: medidas de posicao e dispersao": {
    "t": "Estatística: medidas de posição e dispersão",
@@ -333,7 +405,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes da educação superior",
+   "rq": "ter realizado o curso “Estatística: conceitos e representações”, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "fundamentos basicos de energia fotovoltaica residencial": {
    "t": "Fundamentos Básicos de Energia Fotovoltaica Residencial",
@@ -342,7 +416,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "movimentos na fisica i": {
    "t": "Movimentos na Física I",
@@ -351,7 +427,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área de ciências exatas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "movimentos na fisica ii": {
    "t": "Movimentos na Física II",
@@ -360,7 +438,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área de ciências exatas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "quimica": {
    "t": "Química",
@@ -369,7 +449,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "topografia": {
    "t": "Topografia",
@@ -378,7 +460,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao cooperativista": {
    "t": "Educação Cooperativista",
@@ -387,7 +471,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área de administração e gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "era vargas": {
    "t": "Era Vargas",
@@ -396,7 +482,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de ensino médio e de nível superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "filosofia i": {
    "t": "Filosofia I",
@@ -405,7 +493,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "filosofia ii": {
    "t": "Filosofia II",
@@ -414,7 +504,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "geografia e geopolitica na atualidade": {
    "t": "Geografia e Geopolítica na Atualidade",
@@ -423,7 +515,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "geografia i": {
    "t": "Geografia I",
@@ -432,7 +526,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "6h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "geografia ii": {
    "t": "Geografia II",
@@ -441,7 +537,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "historia do brasil": {
    "t": "História do Brasil",
@@ -450,7 +548,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "historia geral": {
    "t": "História Geral",
@@ -459,7 +559,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sociologia": {
    "t": "Sociologia",
@@ -468,7 +570,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sociologia ii": {
    "t": "Sociologia II",
@@ -477,7 +581,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "abordagens pedagogicas modernas na educacao a distancia": {
    "t": "Abordagens Pedagógicas Modernas na Educação a Distância",
@@ -486,7 +592,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao de materiais": {
    "t": "Administração de Materiais",
@@ -495,7 +603,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que trabalham em escolas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "aprendizagem significativa": {
    "t": "Aprendizagem Significativa",
@@ -504,7 +614,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de licenciatura e profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "audiovisual na escola": {
    "t": "Audiovisual na Escola",
@@ -513,7 +625,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "60h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e técnicos em audiovisuais",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "avaliacao na educacao a distancia": {
    "t": "Avaliação na Educação a Distância",
@@ -522,7 +636,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "biblioteca escolar": {
    "t": "Biblioteca Escolar",
@@ -531,7 +647,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que atuam nas bibliotecas escolares",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "capacitacao para autores de cursos para a aprenda mais": {
    "t": "Capacitação para Autores de Cursos para a Aprenda Mais",
@@ -540,7 +658,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "servidores do quadro ativo permanente da RFEPCT (Docentes ou Técnicos Administrativos em Educação)",
+   "rq": "ser servidor do quadro ativo permanente da RFEPCT (Docentes ou Técnicos Administrativos em Educação), ter ensino superior completo, compreensão de leitura e escuta em língua portuguesa, possuir computador com recursos de áudio e vídeo, possuir e saber manusear o leitor de arquivos PDF, saber utilizar o YouTube"
   },
   "como usar o laboratorio de informatica nas aulas? ensino infantil e fundamental - anos iniciais": {
    "t": "Como Usar o Laboratório de Informática nas aulas? Ensino Infantil e Fundamental - Anos Iniciais",
@@ -549,7 +669,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores do ensino infantil e fundamental",
+   "rq": "ser professor atuante em escola com laboratório de informática, compreensão de leitura e escuta em língua portuguesa, possuir computador com recursos de áudio e vídeo, saber manusear o leitor de arquivos PDF"
   },
   "comunicacao cientifica": {
    "t": "Comunicação Científica",
@@ -558,7 +680,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade na escola": {
    "t": "Contabilidade na Escola",
@@ -567,7 +691,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "25h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes da área de educação, professores e gestores escolares",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cursos online abertos e massivos: teoria e pratica": {
    "t": "Cursos Online Abertos e Massivos: teoria e prática",
@@ -576,7 +702,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais atuantes em Educação a Distância",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cursos regulares presenciais com carga horaria a distancia": {
    "t": "Cursos Regulares Presenciais com Carga Horária a Distância",
@@ -585,7 +713,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores e técnicos administrativos envolvidos em cursos regulares; profissionais atuantes em Educação a Distância",
+   "rq": "ensino superior completo, conhecimento básico em informática e internet, compreensão de leitura e escuta em língua portuguesa"
   },
   "educacao a distancia": {
    "t": "Educação a Distância",
@@ -594,7 +724,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao fisica e lazer": {
    "t": "Educação Física e Lazer",
@@ -603,7 +735,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores, estudantes e profissionais da área de Educação Física",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao fisica: qualidade de vida": {
    "t": "Educação Física: qualidade de vida",
@@ -612,7 +746,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao, sociedade e trabalho": {
    "t": "Educação, Sociedade e Trabalho",
@@ -621,7 +757,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes ou profissionais na área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educadores e educandos: tempos historicos": {
    "t": "Educadores e Educandos: Tempos Históricos",
@@ -630,7 +768,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores em geral, estudantes de licenciatura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ensino inclusivo no espaco escolar": {
    "t": "Ensino Inclusivo no Espaço Escolar",
@@ -639,7 +779,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "equipamentos e materiais didaticos": {
    "t": "Equipamentos e Materiais Didáticos",
@@ -648,7 +790,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores, pedagogos e profissionais que atuam em escolas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espaco educativo": {
    "t": "Espaço Educativo",
@@ -657,7 +801,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que atuam na manutenção e conservação das escolas; comunidade escolar em geral",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "funcionarios de escolas: cidadaos, educadores, profissionais e gestores": {
    "t": "Funcionários de Escolas: Cidadãos, Educadores, Profissionais e Gestores",
@@ -666,7 +812,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que atuam em escolas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao democratica nos sistemas e na escola": {
    "t": "Gestão Democrática nos Sistemas e na Escola",
@@ -675,7 +823,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes da área de educação, professores e gestores escolares",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao em educacao escolar": {
    "t": "Gestão em Educação Escolar",
@@ -684,7 +834,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "funcionários e professores de instituição de ensino",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "higiene na escola": {
    "t": "Higiene na Escola",
@@ -693,7 +845,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que trabalham em escolas e demais interessados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "institutos federais: ensino, pesquisa e extensao": {
    "t": "Institutos Federais: Ensino, Pesquisa e Extensão",
@@ -702,7 +856,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes de qualquer área do conhecimento.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "jogos, brinquedos e brincadeiras": {
    "t": "Jogos, Brinquedos e Brincadeiras",
@@ -711,7 +867,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores da rede básica de ensino e estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "laboratorios da escola": {
    "t": "Laboratórios da Escola",
@@ -720,7 +878,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que trabalham em laboratórios de escolas",
+   "rq": "ser profissional que trabalha em laboratório escolar, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao escolar": {
    "t": "Legislação Escolar",
@@ -729,7 +889,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais da área de gestão escolar e estudantes de licenciaturas ou Pedagogia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ludicidade como instrumento pedagogico": {
    "t": "Ludicidade como Instrumento Pedagógico",
@@ -738,7 +900,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes ou profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "mediacao pedagogica na educacao a distancia": {
    "t": "Mediação Pedagógica na Educação a Distância",
@@ -747,7 +911,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de licenciaturas ou professores formados",
+   "rq": "ser estudante de licenciatura ou ser professor, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "o uso de aplicativos web na construcao de materiais educacionais na educacao a distancia": {
    "t": "O Uso de Aplicativos Web na Construção de Materiais Educacionais na Educação a Distância",
@@ -756,7 +922,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "professores e/ou criadores de materiais didáticos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento de disciplinas com carga horaria de educacao a distancia": {
    "t": "Planejamento de Disciplinas com Carga Horária de Educação a Distância",
@@ -765,7 +933,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento educacional individualizado na educacao basica": {
    "t": "Planejamento Educacional Individualizado na Educação Básica",
@@ -774,7 +944,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "projetos educacionais e interdisciplinares": {
    "t": "Projetos Educacionais e Interdisciplinares",
@@ -783,7 +955,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "psicologia da aprendizagem": {
    "t": "Psicologia da Aprendizagem",
@@ -792,7 +966,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de licenciatura, profissionais da área da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "qualidade de cursos em educacao a distancia": {
    "t": "Qualidade de Cursos em Educação a Distância",
@@ -801,7 +977,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "docentes e designers educacionais",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "redacao de textos empresariais e oficiais": {
    "t": "Redação de Textos Empresariais e Oficiais",
@@ -810,7 +988,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área de administração e interessados no assunto",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "relacoes interpessoais: abordagem psicologica": {
    "t": "Relações Interpessoais: abordagem psicológica",
@@ -819,7 +999,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "e studantes ou profissionais da área de saúde e/ou educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "repositorios de materiais didaticos digitais e direitos de uso na educacao a distancia": {
    "t": "Repositórios de Materiais Didáticos Digitais e Direitos de Uso na Educação a Distância",
@@ -828,7 +1010,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "seguranca na sociedade e nas escolas": {
    "t": "Segurança na Sociedade e nas Escolas",
@@ -837,7 +1021,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "pessoas que atuam em escolas e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sexualidade e genero na educacao infantil": {
    "t": "Sexualidade e Gênero na Educação Infantil",
@@ -846,7 +1032,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais da educação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de construcao aplicadas a escola": {
    "t": "Técnicas de Construção Aplicadas à Escola",
@@ -855,7 +1043,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "dirigentes escolares e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de escrita para educacao a distancia": {
    "t": "Técnicas de Escrita para Educação a Distância",
@@ -864,7 +1054,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "trabalho escolar e teorias administrativas": {
    "t": "Trabalho Escolar e Teorias Administrativas",
@@ -873,7 +1065,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao estrategica (extra agosto)": {
    "t": "Administração Estratégica (extra Agosto)",
@@ -882,7 +1076,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de Administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao estrategica": {
    "t": "Administração Estratégica",
@@ -891,7 +1087,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de Administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao financeira (extra setembro)": {
    "t": "Administração Financeira (extra Setembro)",
@@ -900,7 +1098,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao financeira": {
    "t": "Administração Financeira",
@@ -909,7 +1109,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao publica": {
    "t": "Administração Pública",
@@ -918,7 +1120,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da área de gestão e serviço público",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao publica municipal": {
    "t": "Administração Pública Municipal",
@@ -927,7 +1131,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "s ervidores públicos municipais",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "administracao: fundamentos": {
    "t": "Administração: fundamentos",
@@ -936,7 +1142,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cadeia de suprimentos": {
    "t": "Cadeia de Suprimentos",
@@ -945,7 +1153,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Logística",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "captacao de recursos": {
    "t": "Captação de Recursos",
@@ -954,7 +1164,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "70h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "e studantes ou profissionais da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "comercio eletronico": {
    "t": "Comércio Eletrônico",
@@ -963,7 +1175,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "comunicacao e atendimento ao cliente": {
    "t": "Comunicação e Atendimento ao Cliente",
@@ -972,7 +1186,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "constituicao e desenvolvimento de cooperativas": {
    "t": "Constituição e Desenvolvimento de Cooperativas",
@@ -981,7 +1197,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade basica": {
    "t": "Contabilidade Básica",
@@ -990,7 +1208,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes de contabilidade",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade comercial": {
    "t": "Contabilidade Comercial",
@@ -999,7 +1219,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "e studantes ou profissionais da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade de custos": {
    "t": "Contabilidade de Custos",
@@ -1008,7 +1230,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área de gestão ou administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade empresarial": {
    "t": "Contabilidade Empresarial",
@@ -1017,7 +1241,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área da administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contabilidade publica": {
    "t": "Contabilidade Pública",
@@ -1026,7 +1252,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "servidores públicos e estudantes da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contratos": {
    "t": "Contratos",
@@ -1035,7 +1263,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "controle de transportes e distribuicao": {
    "t": "Controle de Transportes e Distribuição",
@@ -1044,7 +1274,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "controle interno e externo": {
    "t": "Controle Interno e Externo",
@@ -1053,7 +1285,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "convenios": {
    "t": "Convênios",
@@ -1062,7 +1296,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior e profissionais de área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cooperativismo: conceitos iniciais": {
    "t": "Cooperativismo: conceitos iniciais",
@@ -1071,7 +1307,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e demais interessados da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cooperativismo: gestao e implementacao": {
    "t": "Cooperativismo: gestão e implementação",
@@ -1080,7 +1318,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da área de gestão e cooperativados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "custos e orcamento": {
    "t": "Custos e Orçamento",
@@ -1089,7 +1329,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais das áreas de contabilidade e administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "custos logisticos": {
    "t": "Custos Logísticos",
@@ -1098,7 +1340,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "desenvolvimento pessoal e interpessoal": {
    "t": "Desenvolvimento Pessoal e Interpessoal",
@@ -1107,7 +1351,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "50h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais de todas as áreas e pessoas interessadas no assunto",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "economia solidaria": {
    "t": "Economia Solidária",
@@ -1116,7 +1362,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes, profissionais e demais interessados da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "elaboracao e analise de projetos": {
    "t": "Elaboração e Análise de Projetos",
@@ -1125,7 +1373,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "empreendedorismo": {
    "t": "Empreendedorismo",
@@ -1134,7 +1384,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "escrita fiscal": {
    "t": "Escrita Fiscal",
@@ -1143,7 +1395,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de administração e contábeis",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "estrutura e analise de balanco": {
    "t": "Estrutura e Análise de Balanço",
@@ -1152,7 +1406,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de administração",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "etica empresarial": {
    "t": "Ética Empresarial",
@@ -1161,7 +1417,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "4h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "etica no servico publico": {
    "t": "Ética no Serviço Público",
@@ -1170,7 +1428,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio e educação superior, servidores públicos e privados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "etica profissional": {
    "t": "Ética Profissional",
@@ -1179,7 +1439,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do curso superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "financas para empreendedores": {
    "t": "Finanças para Empreendedores",
@@ -1188,7 +1450,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "financas publicas": {
    "t": "Finanças Públicas",
@@ -1197,7 +1461,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "servidores públicos e estudantes da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "fundamentos e ferramentas da qualidade": {
    "t": "Fundamentos e Ferramentas da Qualidade",
@@ -1206,7 +1472,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "empresários ou interessados em ferramentas de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao da qualidade na administracao publica": {
    "t": "Gestão da Qualidade na Administração Pública",
@@ -1215,7 +1483,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais da área de gestão e negócios",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de documentos e arquivistica": {
    "t": "Gestão de Documentos e Arquivística",
@@ -1224,7 +1494,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "e studantes ou profissionais da área de biblioteconomia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de estoques": {
    "t": "Gestão de Estoques",
@@ -1233,7 +1505,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área de gestão ou administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de marketing": {
    "t": "Gestão de Marketing",
@@ -1242,7 +1516,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio e superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de pessoas: conceitos e processos": {
    "t": "Gestão de Pessoas: conceitos e processos",
@@ -1251,7 +1527,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área de gestão de pessoas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de recursos nas empresas": {
    "t": "Gestão de Recursos nas Empresas",
@@ -1260,7 +1538,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de administração e gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de tempo e organizacao": {
    "t": "Gestão de Tempo e Organização",
@@ -1269,7 +1549,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao estrategica de cooperativas": {
    "t": "Gestão Estratégica de Cooperativas",
@@ -1278,7 +1560,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da área e profissionais que atuam em organizações",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao financeira": {
    "t": "Gestão Financeira",
@@ -1287,7 +1571,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de graduação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao financeira em cooperativas": {
    "t": "Gestão Financeira em Cooperativas",
@@ -1296,7 +1582,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais que atuam em organizações",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao participativa": {
    "t": "Gestão Participativa",
@@ -1305,7 +1593,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais da área de gestão e negócios",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao tributaria": {
    "t": "Gestão Tributária",
@@ -1314,7 +1604,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "governanca cooperativa": {
    "t": "Governança Cooperativa",
@@ -1323,7 +1615,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área ou interessados na temática",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao aplicada a logistica": {
    "t": "Legislação Aplicada à Logística",
@@ -1332,7 +1626,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes das áreas do Direito e da Logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao empresarial basica": {
    "t": "Legislação Empresarial Básica",
@@ -1341,7 +1637,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "empreendedores, profissionais e estudantes da área do Direito e estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao fisco tributaria": {
    "t": "Legislação Fisco Tributária",
@@ -1350,7 +1648,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de administração e contábeis",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "lei de responsabilidade fiscal": {
    "t": "Lei de Responsabilidade Fiscal",
@@ -1359,7 +1659,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área de fiscalização",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "licitacoes": {
    "t": "Licitações",
@@ -1368,7 +1670,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de administração e contabilidade",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "lideranca e trabalho em equipe": {
    "t": "Liderança e Trabalho em Equipe",
@@ -1377,7 +1681,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "logistica": {
    "t": "Logística",
@@ -1386,7 +1692,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "logistica em servicos": {
    "t": "Logística em Serviços",
@@ -1395,7 +1703,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "logistica internacional e aduaneira": {
    "t": "Logística Internacional e Aduaneira",
@@ -1404,7 +1714,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais de Logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing de vendas no varejo": {
    "t": "Marketing de Vendas no Varejo",
@@ -1413,7 +1725,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais de Administração e/ou Marketing",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing empresarial e pessoal": {
    "t": "Marketing Empresarial e Pessoal",
@@ -1422,7 +1736,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Marketing",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing pessoal": {
    "t": "Marketing Pessoal",
@@ -1431,7 +1747,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "2h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de Marketing e Administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing publico": {
    "t": "Marketing Público",
@@ -1440,7 +1758,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "servidores públicos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "microempreendedor individual: da criacao ao encerramento": {
    "t": "Microempreendedor Individual: da criação ao encerramento",
@@ -1449,7 +1769,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "movimentacao e armazenagem": {
    "t": "Movimentação e Armazenagem",
@@ -1458,7 +1780,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área da logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "operacionalizacao de valores monetarios": {
    "t": "Operacionalização de Valores Monetários",
@@ -1467,7 +1791,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "orcamento empresarial": {
    "t": "Orçamento Empresarial",
@@ -1476,7 +1802,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área da administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "orcamento publico": {
    "t": "Orçamento Público",
@@ -1485,7 +1813,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da área de gestão e serviço público",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento e gestao governamental": {
    "t": "Planejamento e Gestão Governamental",
@@ -1494,7 +1824,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "servidores públicos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento financeiro": {
    "t": "Planejamento Financeiro",
@@ -1503,7 +1835,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior e profissionais da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "prestacao de contas": {
    "t": "Prestação de Contas",
@@ -1512,7 +1846,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "processamento de pedidos e servicos ao cliente": {
    "t": "Processamento de Pedidos e Serviços ao Cliente",
@@ -1521,7 +1857,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio ou superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "processos produtivos": {
    "t": "Processos Produtivos",
@@ -1530,7 +1868,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e/ou profissionais da área de engenharia de produção",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "projetos: elaboracao e gestao": {
    "t": "Projetos: elaboração e gestão",
@@ -1539,7 +1879,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "60h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da educação superior e profissionais da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "psicologia das relacoes humanas": {
    "t": "Psicologia das Relações Humanas",
@@ -1548,7 +1890,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Psicologia e Relações Humanas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "psicologia do trabalho": {
    "t": "Psicologia do Trabalho",
@@ -1557,7 +1901,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes da área de gestão, recursos humanos ou psicologia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "qualidade e produtividade": {
    "t": "Qualidade e Produtividade",
@@ -1566,7 +1912,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais que precisam aprender fundamentos e ferramentas práticas de gestão da qualidade para aplicar em processos e rotinas de trabalho (indústria, serviços, logística, laboratório e áreas administrativas)",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "recursos humanos": {
    "t": "Recursos Humanos",
@@ -1575,7 +1923,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Administração e Gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "recursos humanos na administracao publica": {
    "t": "Recursos Humanos na Administração Pública",
@@ -1584,7 +1934,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de recursos humanos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "resolucao de conflitos e negociacao": {
    "t": "Resolução de Conflitos e Negociação",
@@ -1593,7 +1945,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais em qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "responsabilidade social": {
    "t": "Responsabilidade Social",
@@ -1602,7 +1956,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de administração e gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "responsabilidade social e ambiental": {
    "t": "Responsabilidade Social e Ambiental",
@@ -1611,7 +1967,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais das áreas de Gestão, Administração, Meio Ambiente, Comércio, Marketing Estratégico e interessados no assunto.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "roteirizacao internacional": {
    "t": "Roteirização Internacional",
@@ -1620,7 +1978,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área de Administração e Logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "rotinas trabalhistas": {
    "t": "Rotinas Trabalhistas",
@@ -1629,7 +1989,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais de todas as áreas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "supply chain": {
    "t": "Supply Chain",
@@ -1638,7 +2000,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes de logística",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de negociacao": {
    "t": "Técnicas de Negociação",
@@ -1647,7 +2011,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "administradores, vendedores, negociantes e demais interessados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de vendas e relacoes de consumo": {
    "t": "Técnicas de Vendas e Relações de Consumo",
@@ -1656,7 +2022,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "2h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes do ensino médio",
+   "rq": "ser estudante ou trabalhador da área de vendas, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "transporte e distribuicao": {
    "t": "Transporte e Distribuição",
@@ -1665,7 +2033,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "profissionais e estudantes da área de Logística e Transportes",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "a poesia de augusto dos anjos": {
    "t": "A Poesia de Augusto dos Anjos",
@@ -1674,7 +2044,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de médio, superior e leitores interessados em literatura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 1 (extra setembro)": {
    "t": "Espanhol 1 (extra Setembro)",
@@ -1683,7 +2055,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 1": {
    "t": "Espanhol 1",
@@ -1692,7 +2066,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 2": {
    "t": "Espanhol 2",
@@ -1701,7 +2077,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 3": {
    "t": "Espanhol 3",
@@ -1710,7 +2088,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 4": {
    "t": "Espanhol 4",
@@ -1719,7 +2099,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 5": {
    "t": "Espanhol 5",
@@ -1728,7 +2110,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 6": {
    "t": "Espanhol 6",
@@ -1737,7 +2121,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 7": {
    "t": "Espanhol 7",
@@ -1746,7 +2132,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 8": {
    "t": "Espanhol 8",
@@ -1755,7 +2143,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 9": {
    "t": "Espanhol 9",
@@ -1764,7 +2154,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "espanhol 10": {
    "t": "Espanhol 10",
@@ -1773,7 +2165,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura e escuta em língua portuguesa e possuir computador com recursos de áudio e vídeo"
   },
   "espanhol para eventos": {
    "t": "Espanhol para Eventos",
@@ -1782,7 +2176,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e espanhola e possuir equipamento com recursos de áudio e vídeo"
   },
   "estrategias de leitura em lingua inglesa para a area de meio ambiente": {
    "t": "Estratégias de Leitura em Língua Inglesa para a Área de Meio Ambiente",
@@ -1791,7 +2187,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "interessados em leitura e pessoas da área do meio ambiente",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 1 (extra agosto)": {
    "t": "Inglês 1 (extra Agosto)",
@@ -1800,7 +2198,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 1": {
    "t": "Inglês 1",
@@ -1809,7 +2209,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 2": {
    "t": "Inglês 2",
@@ -1818,7 +2220,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 3": {
    "t": "Inglês 3",
@@ -1827,7 +2231,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 4": {
    "t": "Inglês 4",
@@ -1836,7 +2242,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 5": {
    "t": "Inglês 5",
@@ -1845,7 +2253,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 6": {
    "t": "Inglês 6",
@@ -1854,7 +2264,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 7": {
    "t": "Inglês 7",
@@ -1863,7 +2275,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 8": {
    "t": "Inglês 8",
@@ -1872,7 +2286,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir computador com recursos de áudio e vídeo"
   },
   "ingles 9": {
    "t": "Inglês 9",
@@ -1881,7 +2297,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 10": {
    "t": "Inglês 10",
@@ -1890,7 +2308,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir computador com recursos de áudio e vídeo"
   },
   "ingles 11": {
    "t": "Inglês 11",
@@ -1899,7 +2319,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 12": {
    "t": "Inglês 12",
@@ -1908,7 +2330,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles 13": {
    "t": "Inglês 13",
@@ -1917,7 +2341,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio e da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ingles aplicado a eventos": {
    "t": "Inglês Aplicado a Eventos",
@@ -1926,7 +2352,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e inglesa; possuir equipamento com recursos de áudio e vídeo"
   },
   "literatura": {
    "t": "Literatura",
@@ -1935,7 +2363,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 1": {
    "t": "Português como Língua Adicional 1",
@@ -1944,7 +2374,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura e escuta em língua portuguesa e possuir computador com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 2": {
    "t": "Português como Língua Adicional 2",
@@ -1953,7 +2385,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 3": {
    "t": "Português como Língua Adicional 3",
@@ -1962,7 +2396,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 4": {
    "t": "Português como Língua Adicional 4",
@@ -1971,7 +2407,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 5": {
    "t": "Português como Língua Adicional 5",
@@ -1980,7 +2418,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 6": {
    "t": "Português como Língua Adicional 6",
@@ -1989,7 +2429,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 7": {
    "t": "Português como Língua Adicional 7",
@@ -1998,7 +2440,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 8": {
    "t": "Português como Língua Adicional 8",
@@ -2007,7 +2451,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 9": {
    "t": "Português como Língua Adicional 9",
@@ -2016,7 +2462,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 10": {
    "t": "Português como Língua Adicional 10",
@@ -2025,7 +2473,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 11": {
    "t": "Português como Língua Adicional 11",
@@ -2034,7 +2484,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues como lingua adicional 12": {
    "t": "Português como Língua Adicional 12",
@@ -2043,7 +2495,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "refugiados, imigrantes, brasileiros que desejam aprimorar seus conhecimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "portugues instrumental": {
    "t": "Português Instrumental",
@@ -2052,7 +2506,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes da educação superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "analise e projeto de software": {
    "t": "Análise e Projeto de Software",
@@ -2061,7 +2517,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais e estudantes da área de desenvolvimento de software.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "automacao de sistemas": {
    "t": "Automação de Sistemas",
@@ -2070,7 +2528,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes de cursos técnicos relacionados a automação ou cursos superiores de engenharia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "banco de dados 1: fundamentos": {
    "t": "Banco de Dados 1: fundamentos",
@@ -2079,7 +2539,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais de Tecnologia da Informação",
+   "rq": "conhecimento em lógica de programação, computador, instalação do MySQL"
   },
   "comunicacao empresarial": {
    "t": "Comunicação Empresarial",
@@ -2088,7 +2550,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área empresarial",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "criando trabalhos academicos com ferramentas digitais": {
    "t": "Criando Trabalhos Acadêmicos com Ferramentas Digitais",
@@ -2097,7 +2561,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "desenvolvimento backend com php: poo e integracao com mysql": {
    "t": "Desenvolvimento Backend com PHP: POO e Integração com MySQL",
@@ -2106,7 +2572,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais que atuam na área da tecnologia",
+   "rq": "conhecimentos em HTML, compreensão de leitura em língua portuguesa"
   },
   "desenvolvimento backend com php: poo e integracao com banco de dados": {
    "t": "Desenvolvimento Backend com PHP: POO e Integração com Banco de Dados",
@@ -2115,7 +2583,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais que atuam na área da tecnologia",
+   "rq": "conhecimentos em HTML, compreensão de leitura em língua portuguesa"
   },
   "estrutura de dados": {
    "t": "Estrutura de Dados",
@@ -2124,7 +2594,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área de Tecnologia da Informação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "excel na pratica: aplicacao de funcoes, organizacao e visualizacao de dados": {
    "t": "Excel na Prática: aplicação de funções, organização e visualização de dados",
@@ -2133,7 +2605,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e interessados na ferramenta Excel",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de projetos de software com pmbok: guia essencial para iniciantes": {
    "t": "Gestão de Projetos de Software com PMBOK: Guia Essencial para Iniciantes",
@@ -2142,7 +2616,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais que atuam na área de desenvolvimento de software",
+   "rq": "compreensão de leitura em língua portuguesa, conhecimento em informática e internet"
   },
   "fundamentos de governanca e gestao de servicos (itil)": {
    "t": "Fundamentos de Governança e Gestão de Serviços (ITIL)",
@@ -2151,7 +2627,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais e estudantes de TI",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "html5: fundamentos para construcao de paginas web modernas": {
    "t": "HTML5: Fundamentos para Construção de Páginas Web Modernas",
@@ -2160,7 +2638,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "iniciantes em desenvolvimento web e estudantes de design",
+   "rq": "ser estudante de curso técnico ou graduação, compreensão de leitura em língua portuguesa, conhecimento básico em informática e internet"
   },
   "inteligencia artificial i - conhecendo as redes neurais artificiais": {
    "t": "Inteligência Artificial I - Conhecendo as redes neurais artificiais",
@@ -2169,7 +2649,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "inteligencia artificial ii - aprofundando o estudo das redes neurais artificiais": {
    "t": "Inteligência Artificial II - Aprofundando o estudo das redes neurais artificiais",
@@ -2178,7 +2660,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais da áera de tecnologia da informação (TI) e/ou interessados nessa área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "localizacao de dispositivos moveis em redes sem fio": {
    "t": "Localização de Dispositivos Móveis em Redes Sem Fio",
@@ -2187,7 +2671,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área interessados em localização em redes sem fio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "manutencao de computadores: hardware, software e evolucao": {
    "t": "Manutenção de Computadores: hardware, software e evolução",
@@ -2196,7 +2682,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais da área da TI ou interessados em manutenção de computadores",
+   "rq": "profissionais da área da TI ou interessados em manutenção de computadores, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "manutencao de computadores: simuladores, sistemas operacionais e montagem": {
    "t": "Manutenção de Computadores: simuladores, sistemas operacionais e montagem",
@@ -2205,7 +2693,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais da área da TI ou interessados em manutenção de computadores",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "moodle para educadores - percurso formativo": {
    "t": "Moodle para Educadores - Percurso Formativo",
@@ -2214,7 +2704,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "docentes e profissionais que atuam na Educação a Distância",
+   "rq": "ensino superior incompleto, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "node.js: introducao ao desenvolvimento de apis modernas": {
    "t": "Node.js: Introdução ao Desenvolvimento de APIs Modernas",
@@ -2223,7 +2715,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "desenvolvedores de software, tanto iniciantes quanto intermediários, que possuem conhecimentos básicos em JavaScript",
+   "rq": "compreensão de leitura em língua portuguesa, conhecimento em informática e internet"
   },
   "php para iniciantes: fundamentos praticos para o desenvolvimento web": {
    "t": "PHP para Iniciantes: Fundamentos Práticos para o Desenvolvimento Web",
@@ -2232,7 +2726,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais que atuam na área da tecnologia",
+   "rq": "conhecimentos básicos em HTML e compreensão de leitura em língua portuguesa"
   },
   "programacao com python: do objeto ao banco de dados": {
    "t": "Programação com Python: do Objeto ao Banco de Dados",
@@ -2241,7 +2737,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área de tecnologia que desejam aprofundar seus conhecimentos em programação Python",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "projeto de sistemas web": {
    "t": "Projeto de Sistemas Web",
@@ -2250,7 +2748,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes da área de desenvolvimento de sistemas web",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "python fundamental 1": {
    "t": "Python Fundamental 1",
@@ -2259,7 +2759,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "python fundamental 2": {
    "t": "Python Fundamental 2",
@@ -2268,7 +2770,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais ou estudantes de computação",
+   "rq": "ser profissional ou estudante de computação, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "react: construindo single page applications dinamicas": {
    "t": "React: Construindo Single Page Applications Dinâmicas",
@@ -2277,7 +2781,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "desenvolvedores web e mobile",
+   "rq": "compreensão de leitura em língua portuguesa, conhecimento em informática e internet"
   },
   "react native: criacao de aplicativos moveis modernos": {
    "t": "React Native: Criação de Aplicativos Móveis Modernos",
@@ -2286,7 +2792,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "desenvolvedores web e mobile",
+   "rq": "compreensão de leitura em língua portuguesa, conhecimento em informática e internet"
   },
   "redes de computadores": {
    "t": "Redes de Computadores",
@@ -2295,7 +2803,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais e estudantes de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "redes de computadores ii": {
    "t": "Redes de Computadores II",
@@ -2304,7 +2814,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "scrum: gerenciando projetos de software com agilidade": {
    "t": "SCRUM: Gerenciando Projetos de Software com Agilidade",
@@ -2313,7 +2825,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais que atuam na área de desenvolvimento de software",
+   "rq": "compreensão de leitura em língua portuguesa, conhecimento em informática e internet"
   },
   "sistemas operacionais": {
    "t": "Sistemas Operacionais",
@@ -2322,7 +2836,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "softwares de seguranca da informacao": {
    "t": "Softwares de Segurança da Informação",
@@ -2331,7 +2847,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "web design": {
    "t": "Web Design",
@@ -2340,7 +2858,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "windows server 2016: instalacao e administracao": {
    "t": "Windows Server 2016: Instalação e Administração",
@@ -2349,7 +2869,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Tecnologia da Informação"
+   "ar": "Tecnologia da Informação",
+   "pa": "profissionais da área da TI ou interessados em conhecer sobre Windows",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "desenho arquitetonico": {
    "t": "Desenho Arquitetônico",
@@ -2358,7 +2880,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Construção e Manutenção"
+   "ar": "Construção e Manutenção",
+   "pa": "estudantes da área da construção civil",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "introducao ao controle tecnologico aplicado a usinas de concreto": {
    "t": "Introdução ao Controle Tecnológico Aplicado à Usinas de Concreto",
@@ -2367,7 +2891,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Construção e Manutenção"
+   "ar": "Construção e Manutenção",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "materiais de construcao: aglomerantes e concretos": {
    "t": "Materiais de Construção: aglomerantes e concretos",
@@ -2376,7 +2902,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Construção e Manutenção"
+   "ar": "Construção e Manutenção",
+   "pa": "estudantes da área da construção civil",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "materiais de construcao: metais, madeiras e acabamentos": {
    "t": "Materiais de Construção: metais, madeiras e acabamentos",
@@ -2385,7 +2913,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Construção e Manutenção"
+   "ar": "Construção e Manutenção",
+   "pa": "estudantes da área da construção civil",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "abate e processamento de carne e frango": {
    "t": "Abate e Processamento de Carne e Frango",
@@ -2394,7 +2924,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "alimentacao e nutricao no brasil": {
    "t": "Alimentação e Nutrição no Brasil",
@@ -2403,7 +2935,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais de saúde e nutrição",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "alimentacao saudavel e sustentavel na escola": {
    "t": "Alimentação Saudável e Sustentável na Escola",
@@ -2412,7 +2946,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "merendeiras, cozinheiras, auxiliares de cozinha e nutricionistas atuantes na escola",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "analises fisico-quimicas dos alimentos": {
    "t": "Análises Físico-Químicas dos Alimentos",
@@ -2421,7 +2957,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes da área de Alimentação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "bebidas: conceitos e tipos": {
    "t": "Bebidas: conceitos e tipos",
@@ -2430,7 +2968,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes da área de alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "bem-estar e ambiencia das aves": {
    "t": "Bem-estar e Ambiência das Aves",
@@ -2439,7 +2979,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "bioquimica dos alimentos: amostragem, extracao e caracterizacao enzimatica": {
    "t": "Bioquímica dos Alimentos: amostragem, extração e caracterização enzimática",
@@ -2448,7 +2990,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "profissionais e estudantes da área de bioquímica e ciência e tecnologia dos alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "bioquimica dos alimentos: composicao e metabolismo": {
    "t": "Bioquímica dos Alimentos: composição e metabolismo",
@@ -2457,7 +3001,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "profissionais e estudantes da área de bioquímica e ciência e tecnologia dos alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cardapios saudaveis": {
    "t": "Cardápios Saudáveis",
@@ -2466,7 +3012,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes de profissionais da área da alimentação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cervejas: tipos, caracteristicas e harmonizacao": {
    "t": "Cervejas: tipos, características e harmonização",
@@ -2475,7 +3023,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "35h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e interessados em produção, estilos e harmonização de cervejas.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "confeitaria": {
    "t": "Confeitaria",
@@ -2484,7 +3034,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes da área de Gastronomia ou Alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "conservacao de alimentos: calor, concentracao, desidratacao e frio": {
    "t": "Conservação de alimentos: calor, concentração, desidratação e frio",
@@ -2493,7 +3045,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais da área de alimentos e produção agrícola",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "conservacao de alimentos: salga, defumacao, aditivos e fermentacao": {
    "t": "Conservação de alimentos: salga, defumação, aditivos e fermentação",
@@ -2502,7 +3056,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais da área de alimentos e produção agrícola",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "destilados: tipos, caracteristicas e harmonizacao": {
    "t": "Destilados: tipos, características e harmonização",
@@ -2511,7 +3067,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "bartenders e interessados em bebidas destiladas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao alimentar e nutricional nas escolas": {
    "t": "Educação Alimentar e Nutricional nas Escolas",
@@ -2520,7 +3078,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais da área de alimentação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gastronomia: eventos": {
    "t": "Gastronomia: eventos",
@@ -2529,7 +3089,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "25h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes de gastronomia, hospitalidade, turismo e lazer",
+   "rq": "ter realizado o curso “Gastronomia: história”, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gastronomia: historia": {
    "t": "Gastronomia: história",
@@ -2538,7 +3100,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes de gastronomia, hospitalidade, turismo e lazer",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "higiene agroindustrial": {
    "t": "Higiene Agroindustrial",
@@ -2547,7 +3111,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "higiene e controle de qualidade de alimentos": {
    "t": "Higiene e Controle de Qualidade de Alimentos",
@@ -2556,7 +3122,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "50h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes de gastronomia, hospitalidade, turismo e lazer",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "instalacoes agroindustriais": {
    "t": "Instalações Agroindustriais",
@@ -2565,7 +3133,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "microbiologia de alimentos": {
    "t": "Microbiologia de Alimentos",
@@ -2574,7 +3144,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais da área de Alimentos e Microbiologia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "organizacao e operacao de cozinhas escolares": {
    "t": "Organização e Operação de Cozinhas Escolares",
@@ -2583,7 +3155,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "merendeiras, nutricionistas, estudantes da área de nutrição",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "panificacao": {
    "t": "Panificação",
@@ -2592,7 +3166,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes da área de gastronomia e alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "politicas de alimentacao escolar": {
    "t": "Políticas de Alimentação Escolar",
@@ -2601,7 +3177,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "merendeiras, nutricionistas, estudantes da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "processamento de carnes e derivados": {
    "t": "Processamento de Carnes e Derivados",
@@ -2610,7 +3188,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "40h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "profissionais da área da gastronomia e/ou frigoríficos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "processamento de leite": {
    "t": "Processamento de Leite",
@@ -2619,7 +3199,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "profissionais que atuam com produtos lácteos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "producao e industrializacao de alimentos": {
    "t": "Produção e Industrialização de Alimentos",
@@ -2628,7 +3210,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "profissionais e estudantes da área de alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de preparo de coqueteis e bebidas": {
    "t": "Técnicas de Preparo de Coquetéis e Bebidas",
@@ -2637,7 +3221,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "interessados em aprender ou aperfeiçoar técnicas de preparo de coquetéis e bebidas para fins profissionais ou pessoais",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "a arte de falar em publico": {
    "t": "A arte de falar em público",
@@ -2646,7 +3232,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "artes visuais": {
    "t": "Artes Visuais",
@@ -2655,7 +3243,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do Ensino Médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cerimonial: conceitos, precedencia e simbolos": {
    "t": "Cerimonial: conceitos, precedência e símbolos",
@@ -2664,7 +3254,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes que atuam com eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cerimonial: tipos, etiqueta e profissional": {
    "t": "Cerimonial: tipos, etiqueta e profissional",
@@ -2673,7 +3265,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes que atuam com eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "edicao de videos no shotcut": {
    "t": "Edição de Vídeos no Shotcut",
@@ -2682,7 +3276,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de audiovisual, professores e demais interessados",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "interculturalidade": {
    "t": "Interculturalidade",
@@ -2691,7 +3287,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "50h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "conhecimento básico em informática e internet, compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "oficinas culturais": {
    "t": "Oficinas Culturais",
@@ -2700,7 +3298,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais que atuem em escolas e demais interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "politicas culturais": {
    "t": "Políticas Culturais",
@@ -2709,7 +3309,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais da área da cultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "relacoes publicas: comunicacao e planejamento": {
    "t": "Relações Públicas: comunicação e planejamento",
@@ -2718,7 +3320,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnicas de publicidade e propaganda": {
    "t": "Técnicas de Publicidade e Propaganda",
@@ -2727,7 +3331,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área de publicidade e propaganda",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "agricultura e desenvolvimento rural sustentavel": {
    "t": "Agricultura e Desenvolvimento Rural Sustentável",
@@ -2736,7 +3342,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes da área das ciências agrárias",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "agricultura familiar": {
    "t": "Agricultura Familiar",
@@ -2745,7 +3353,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais que trabalham na agricultura familiar e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "agroecologia": {
    "t": "Agroecologia",
@@ -2754,7 +3364,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de cursos técnico agrícola e agronomia",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "agroindustrializacao de frutas": {
    "t": "Agroindustrialização de Frutas",
@@ -2763,7 +3375,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área de Alimentos e de Fruticultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "anatomia e fisiologia das aves domesticas": {
    "t": "Anatomia e Fisiologia das Aves Domésticas",
@@ -2772,7 +3386,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "associativismo e cooperativismo": {
    "t": "Associativismo e Cooperativismo",
@@ -2781,7 +3397,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes, profissionais e interessados pela área de associativismo e cooperativismo",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "biomas brasileiros": {
    "t": "Biomas Brasileiros",
@@ -2790,7 +3408,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "gestores e profissionais florestais e interessados na temática",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "bovinocultura de corte e leite": {
    "t": "Bovinocultura de Corte e Leite",
@@ -2799,7 +3419,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cafeicultura agroecologica": {
    "t": "Cafeicultura Agroecológica",
@@ -2808,7 +3430,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais e estudantes da área",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "cartografia ambiental": {
    "t": "Cartografia Ambiental",
@@ -2817,7 +3441,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "conservacao ambiental": {
    "t": "Conservação Ambiental",
@@ -2826,7 +3452,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "6h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área das ciências da natureza e da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "controle de pragas e doencas em jardins": {
    "t": "Controle de Pragas e Doenças em Jardins",
@@ -2835,7 +3463,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "pessoas interessadas em jardinagem ou agricultores",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "controle organico de pragas e doencas": {
    "t": "Controle Orgânico de Pragas e Doenças",
@@ -2844,7 +3474,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "cunicultura": {
    "t": "Cunicultura",
@@ -2853,7 +3485,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "defensivos agricolas": {
    "t": "Defensivos Agrícolas",
@@ -2862,7 +3496,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "diagnostico e controle de impactos ambientais": {
    "t": "Diagnóstico e Controle de Impactos Ambientais",
@@ -2871,7 +3507,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "interessados em aprofundar o conhecimento técnico deste tema",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "doencas e plantas invasoras no cafeeiro": {
    "t": "Doenças e Plantas Invasoras no Cafeeiro",
@@ -2880,7 +3518,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ecologia": {
    "t": "Ecologia",
@@ -2889,7 +3529,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "ecologia de peixes e ambientes tropicais": {
    "t": "Ecologia de Peixes e Ambientes Tropicais",
@@ -2898,7 +3540,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "educacao ambiental": {
    "t": "Educação Ambiental",
@@ -2907,7 +3551,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "empreendedorismo na aquicultura": {
    "t": "Empreendedorismo na Aquicultura",
@@ -2916,7 +3562,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "energia solar: fundamentos, viabilidade e projeto basico de sistemas fotovoltaicos": {
    "t": "Energia Solar: Fundamentos, Viabilidade e Projeto Básico de Sistemas Fotovoltaicos",
@@ -2925,7 +3573,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais técnicos que desejam atuar na área de geração de energias renováveis, além de empreendedores, investidores e interessados em geral.",
+   "rq": "noções básicas de matemática, física e eletricidade, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo."
   },
   "energias renovaveis: termodinamica e tipos": {
    "t": "Energias Renováveis: termodinâmica e tipos",
@@ -2934,7 +3584,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "extensao pesqueira": {
    "t": "Extensão Pesqueira",
@@ -2943,7 +3595,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais e estudantes da área",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "fisiologia pos-colheita em fruticultura": {
    "t": "Fisiologia Pós-Colheita em Fruticultura",
@@ -2952,7 +3606,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área de Alimentos e de Fruticultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "fisiologia vegetal": {
    "t": "Fisiologia Vegetal",
@@ -2961,7 +3617,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "frutas e hortalicas": {
    "t": "Frutas e Hortaliças",
@@ -2970,7 +3628,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área de alimentos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "fruticultura e empreendedorismo": {
    "t": "Fruticultura e Empreendedorismo",
@@ -2979,7 +3639,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área de fruticultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "frutiferas de clima tropical e subtropical": {
    "t": "Frutíferas de Clima Tropical e Subtropical",
@@ -2988,7 +3650,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais da área de cultivo de frutíferas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "geologia ambiental": {
    "t": "Geologia Ambiental",
@@ -2997,7 +3661,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de graduação da área da geografia, geologia e meio ambiente",
+   "rq": "ensino médio completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gerenciamento de recursos hidricos": {
    "t": "Gerenciamento de Recursos Hídricos",
@@ -3006,7 +3672,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao agroindustrial": {
    "t": "Gestão Agroindustrial",
@@ -3015,7 +3683,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio e superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao ambiental de cidades": {
    "t": "Gestão Ambiental de Cidades",
@@ -3024,7 +3694,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais e estudantes da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao de residuos em canaviais": {
    "t": "Gestão de Resíduos em Canaviais",
@@ -3033,7 +3705,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais interessados na área de gestão de resíduos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "horticultura organica": {
    "t": "Horticultura Orgânica",
@@ -3042,7 +3716,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "pessoas interessadas na área de horticultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "implantacao de pomares": {
    "t": "Implantação de Pomares",
@@ -3051,7 +3727,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de agronomia, agricultores e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao e regulamentacao da agricultura organica": {
    "t": "Legislação e Regulamentação da Agricultura Orgânica",
@@ -3060,7 +3738,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "empresários ou interessados em Agricultura Orgânica",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao, sustentabilidade e conservacao das florestas": {
    "t": "Legislação, Sustentabilidade e Conservação das Florestas",
@@ -3069,7 +3749,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "gestores e profissionais florestais e interessados na temática",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "limnologia aplicada a pesca": {
    "t": "Limnologia Aplicada à Pesca",
@@ -3078,7 +3760,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "manejo de pragas no cafeeiro": {
    "t": "Manejo de Pragas no Cafeeiro",
@@ -3087,7 +3771,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento.",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "manejo e sanidade no cultivo em piscicultura": {
    "t": "Manejo e Sanidade no Cultivo em Piscicultura",
@@ -3096,7 +3782,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "materias-primas de origem animal": {
    "t": "Matérias-Primas de Origem Animal",
@@ -3105,7 +3793,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio e superior",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "oceanografia e meteorologia pesqueira": {
    "t": "Oceanografia e Meteorologia Pesqueira",
@@ -3114,7 +3804,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "olericultura": {
    "t": "Olericultura",
@@ -3123,7 +3815,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes da área das ciências agrárias",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "panorama da aquicultura": {
    "t": "Panorama da Aquicultura",
@@ -3132,7 +3826,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "aquicultores",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "percepcao ambiental": {
    "t": "Percepção Ambiental",
@@ -3141,7 +3837,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "2h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de cursos da área ambiental",
+   "rq": "ser estudante de cursos da área ambiental, compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "pesca e aquicultura": {
    "t": "Pesca e Aquicultura",
@@ -3150,7 +3848,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "pescadores e tecnólogos em aquicultura",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "pesca e recursos pesqueiros": {
    "t": "Pesca e Recursos Pesqueiros",
@@ -3159,7 +3859,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento ambiental": {
    "t": "Planejamento Ambiental",
@@ -3168,7 +3870,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais de meio ambiente",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento de jardins": {
    "t": "Planejamento de Jardins",
@@ -3177,7 +3881,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "politicas publicas ambientais": {
    "t": "Políticas Públicas Ambientais",
@@ -3186,7 +3892,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de cursos relacionados a temática ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "poluicao ambiental: fundamentos, impactos e estrategias de controle": {
    "t": "Poluição Ambiental: fundamentos, impactos e estratégias de controle",
@@ -3195,7 +3903,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "producao de peixes e sistemas de criacao": {
    "t": "Produção de Peixes e Sistemas de Criação",
@@ -3204,7 +3914,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "qualidade da agua": {
    "t": "Qualidade da Água",
@@ -3213,7 +3925,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "quimica ambiental": {
    "t": "Química Ambiental",
@@ -3222,7 +3936,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais e estudantes do meio ambiente",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "recursos naturais e florestais": {
    "t": "Recursos Naturais e Florestais",
@@ -3231,7 +3947,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "seguranca agricola rural": {
    "t": "Segurança Agrícola Rural",
@@ -3240,7 +3958,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área agrícola",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sistemas de gestao ambiental": {
    "t": "Sistemas de Gestão Ambiental",
@@ -3249,7 +3969,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "solos": {
    "t": "Solos",
@@ -3258,7 +3980,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes e profissionais de Agropecuária, Horticultura e áreas afins",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "suinocultura": {
    "t": "Suinocultura",
@@ -3267,7 +3991,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de cursos ligados a produção pecuária, suinocultores",
+   "rq": "ser estudante ou profissional na área da saúde, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "sustentabilidade e urbanismo": {
    "t": "Sustentabilidade e Urbanismo",
@@ -3276,7 +4002,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio e técnico",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "tecnologia de racoes": {
    "t": "Tecnologia de Rações",
@@ -3285,7 +4013,9 @@
    "m": "agro específico",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "profissionais atuantes no setor agroindustrial, particularmente no segmento de tecnologia de rações",
+   "rq": "ser profissional atuante no setor agroindustrial, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "topicos especiais em meio ambiente": {
    "t": "Tópicos Especiais em Meio Ambiente",
@@ -3294,7 +4024,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "viveiros e propagacao de mudas": {
    "t": "Viveiros e Propagação de Mudas",
@@ -3303,7 +4035,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "agricultores, profissionais que trabalham com viveiros e propagação de mudas e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "zootecnia": {
    "t": "Zootecnia",
@@ -3312,7 +4046,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Meio Ambiente e Agro"
+   "ar": "Meio Ambiente e Agro",
+   "pa": "estudantes de Agropecuária, Zootecnia e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "contrato e legislacao aplicada a eventos": {
    "t": "Contrato e Legislação Aplicada a Eventos",
@@ -3321,7 +4057,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área de eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "controle de riscos e sinistros": {
    "t": "Controle de Riscos e Sinistros",
@@ -3330,7 +4068,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito administrativo": {
    "t": "Direito Administrativo",
@@ -3339,7 +4079,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "ingressantes e pessoas interessadas em ingressar no serviço público",
+   "rq": "ensino médio completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito autoral, crimes ciberneticos e tributos aplicados a eventos": {
    "t": "Direito Autoral, Crimes Cibernéticos e Tributos Aplicados a Eventos",
@@ -3348,7 +4090,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área de eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito do trabalho": {
    "t": "Direito do Trabalho",
@@ -3357,7 +4101,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "40h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes ou profissionais do Direito",
+   "rq": "ser estudante ou profissional do Direito, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito do trabalho, tributario e empresarial": {
    "t": "Direito do Trabalho, Tributário e Empresarial",
@@ -3366,7 +4112,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais e estudantes da área do direito",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito do trabalho: responsabilidade civil e criminal": {
    "t": "Direito do Trabalho: responsabilidade civil e criminal",
@@ -3375,7 +4123,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "profissionais das relações pessoais e laborais",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito e legislacao ambiental": {
    "t": "Direito e Legislação Ambiental",
@@ -3384,7 +4134,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área ambiental",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito empresarial": {
    "t": "Direito Empresarial",
@@ -3393,7 +4145,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de Direito",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito publico": {
    "t": "Direito Público",
@@ -3402,7 +4156,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "advogados e estudantes de direito",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "direito: nocoes": {
    "t": "Direito: noções",
@@ -3411,7 +4167,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "ingressantes e pessoas interessadas em ingressar no serviço público",
+   "rq": "ensino médio completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "epi e epc": {
    "t": "EPI e EPC",
@@ -3420,7 +4178,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais de qualquer área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao cooperativista": {
    "t": "Legislação Cooperativista",
@@ -3429,7 +4189,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área ou interessados na temática",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "riscos nas organizacoes: analises e falhas": {
    "t": "Riscos nas Organizações: análises e falhas",
@@ -3438,7 +4200,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "seguranca do trabalho: riscos ambientais e prevencao de acidentes": {
    "t": "Segurança do Trabalho: riscos ambientais e prevenção de acidentes",
@@ -3447,7 +4211,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes do ensino médio",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "seguranca na eletrotecnica": {
    "t": "Segurança na Eletrotécnica",
@@ -3456,7 +4222,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "agenciamento turistico e hospitalidade": {
    "t": "Agenciamento Turístico e Hospitalidade",
@@ -3465,7 +4233,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "alimentos e bebidas na hotelaria": {
    "t": "Alimentos e Bebidas na Hotelaria",
@@ -3474,7 +4244,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais que trabalham em serviços de alimentos e bebidas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "captacao de eventos": {
    "t": "Captação de Eventos",
@@ -3483,7 +4255,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais e estudantes que atuam com eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "etiqueta profissional": {
    "t": "Etiqueta Profissional",
@@ -3492,7 +4266,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais do turismo e interessados na área",
+   "rq": "compreensão de leitura e escrita em língua portuguesa"
   },
   "eventos: conceitos": {
    "t": "Eventos: conceitos",
@@ -3501,7 +4277,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes nas áreas de eventos, hospitalidade e lazer",
+   "rq": "ensino fundamental completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "eventos: layout e decoracao": {
    "t": "Eventos: layout e decoração",
@@ -3510,7 +4288,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "25h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais e estudantes da área de eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "eventos: tipos": {
    "t": "Eventos: tipos",
@@ -3519,7 +4299,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes nas áreas de eventos, hospitalidade e lazer",
+   "rq": "ter realizado o curso “Eventos: conceitos”, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao empresarial para eventos": {
    "t": "Gestão Empresarial para Eventos",
@@ -3528,7 +4310,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes nas áreas de eventos, hospitalidade e lazer",
+   "rq": "ensino fundamental completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao financeira para eventos": {
    "t": "Gestão Financeira para Eventos",
@@ -3537,7 +4321,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais e estudante da área de gestão",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "gestao hoteleira": {
    "t": "Gestão Hoteleira",
@@ -3546,7 +4332,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "governanca em hotelaria": {
    "t": "Governança em Hotelaria",
@@ -3555,7 +4343,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais da área de hotelaria",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "historia e mercado de agencias de viagem e turismo": {
    "t": "História e Mercado de Agências de Viagem e Turismo",
@@ -3564,7 +4354,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "lavanderia na hotelaria": {
    "t": "Lavanderia na Hotelaria",
@@ -3573,7 +4365,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais da hotelaria e interessados em empreender na área",
+   "rq": "compreensão de leitura e escrita em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "lazer na hotelaria": {
    "t": "Lazer na Hotelaria",
@@ -3582,7 +4376,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes ou profissionais da área do turismo e hospitalidade",
+   "rq": "ser estudante da área do turismo e hospitalidade, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "legislacao turistica": {
    "t": "Legislação Turística",
@@ -3591,7 +4387,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais da área do turismo e interessados na área",
+   "rq": "ser estudante ou profissional na área de turismo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing em eventos": {
    "t": "Marketing em Eventos",
@@ -3600,7 +4398,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes nas áreas de eventos, hospitalidade e lazer",
+   "rq": "ensino fundamental completo, compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing turistico": {
    "t": "Marketing Turístico",
@@ -3609,7 +4409,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais da área do marketing ou turismo",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "meios de hospedagem": {
    "t": "Meios de Hospedagem",
@@ -3618,7 +4420,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento e organizacao do turismo": {
    "t": "Planejamento e Organização do Turismo",
@@ -3627,7 +4431,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais de Administração e/ou Marketing",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "planejamento, organizacao e execucao de eventos": {
    "t": "Planejamento, Organização e Execução de Eventos",
@@ -3636,7 +4442,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "30h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "estudantes e profissionais da área de eventos",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "recepcao e reserva na hotelaria": {
    "t": "Recepção e Reserva na Hotelaria",
@@ -3645,7 +4453,9 @@
    "m": "decisão da equipe: mantido",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "recepcionistas, profissionais da hotelaria e demais interessados",
+   "rq": "compreensão de leitura e escrita em língua portuguesa"
   },
   "roteiros turisticos": {
    "t": "Roteiros Turísticos",
@@ -3654,7 +4464,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "20h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais e estudantes da área do turismo",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "seguranca e operacionalidade de evento": {
    "t": "Segurança e Operacionalidade de Evento",
@@ -3663,7 +4475,9 @@
    "m": "decisão da equipe: ocultado",
    "ativo": true,
    "c": "40h",
-   "ar": "Turismo e Hotelaria"
+   "ar": "Turismo e Hotelaria",
+   "pa": "profissionais e estudantes da área de eventos",
+   "rq": "compreensão de leitura em língua portuguesa, possuir equipamento com recursos de áudio e vídeo"
   },
   "pesquisa cientifica": {
    "t": "Pesquisa Científica",
@@ -3673,7 +4487,9 @@
    "desde": "2026-10-21",
    "ativo": true,
    "c": "20h",
-   "ar": "Outros"
+   "ar": "Outros",
+   "pa": "estudantes de graduação ou pós-graduação",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "marketing digital e redes sociais": {
    "t": "Marketing Digital e Redes Sociais",
@@ -3683,7 +4499,9 @@
    "desde": "2026-10-21",
    "ativo": true,
    "c": "20h",
-   "ar": "Administração e Gestão"
+   "ar": "Administração e Gestão",
+   "pa": "estudantes e profissionais da área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   },
   "microbiologia aplicada a producao de acucar e alcool": {
    "t": "Microbiologia Aplicada à Produção de Açúcar e Álcool",
@@ -3693,7 +4511,9 @@
    "desde": "2026-10-21",
    "ativo": true,
    "c": "20h",
-   "ar": "Alimentação"
+   "ar": "Alimentação",
+   "pa": "estudantes e profissionais de qualquer área do conhecimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
   }
  },
  "evg": {
