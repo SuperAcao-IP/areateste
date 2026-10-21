@@ -2389,9 +2389,9 @@
   },
   "abate e processamento de carne e frango": {
    "t": "Abate e Processamento de Carne e Frango",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
@@ -2434,9 +2434,9 @@
   },
   "bem-estar e ambiencia das aves": {
    "t": "Bem-estar e Ambiência das Aves",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
@@ -2542,9 +2542,9 @@
   },
   "higiene agroindustrial": {
    "t": "Higiene Agroindustrial",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
@@ -2560,9 +2560,9 @@
   },
   "instalacoes agroindustriais": {
    "t": "Instalações Agroindustriais",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
@@ -2605,18 +2605,18 @@
   },
   "processamento de carnes e derivados": {
    "t": "Processamento de Carnes e Derivados",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
   },
   "processamento de leite": {
    "t": "Processamento de Leite",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Alimentação"
@@ -2758,9 +2758,9 @@
   },
   "agroindustrializacao de frutas": {
    "t": "Agroindustrialização de Frutas",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -2794,18 +2794,18 @@
   },
   "bovinocultura de corte e leite": {
    "t": "Bovinocultura de Corte e Leite",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "cafeicultura agroecologica": {
    "t": "Cafeicultura Agroecológica",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -2848,18 +2848,18 @@
   },
   "cunicultura": {
    "t": "Cunicultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "defensivos agricolas": {
    "t": "Defensivos Agrícolas",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -2875,9 +2875,9 @@
   },
   "doencas e plantas invasoras no cafeeiro": {
    "t": "Doenças e Plantas Invasoras no Cafeeiro",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -2911,9 +2911,9 @@
   },
   "empreendedorismo na aquicultura": {
    "t": "Empreendedorismo na Aquicultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -2974,18 +2974,18 @@
   },
   "fruticultura e empreendedorismo": {
    "t": "Fruticultura e Empreendedorismo",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "frutiferas de clima tropical e subtropical": {
    "t": "Frutíferas de Clima Tropical e Subtropical",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3010,9 +3010,9 @@
   },
   "gestao agroindustrial": {
    "t": "Gestão Agroindustrial",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3046,18 +3046,18 @@
   },
   "implantacao de pomares": {
    "t": "Implantação de Pomares",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "legislacao e regulamentacao da agricultura organica": {
    "t": "Legislação e Regulamentação da Agricultura Orgânica",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3082,27 +3082,27 @@
   },
   "manejo de pragas no cafeeiro": {
    "t": "Manejo de Pragas no Cafeeiro",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "manejo e sanidade no cultivo em piscicultura": {
    "t": "Manejo e Sanidade no Cultivo em Piscicultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "materias-primas de origem animal": {
    "t": "Matérias-Primas de Origem Animal",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3127,9 +3127,9 @@
   },
   "panorama da aquicultura": {
    "t": "Panorama da Aquicultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3145,18 +3145,18 @@
   },
   "pesca e aquicultura": {
    "t": "Pesca e Aquicultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
   },
   "pesca e recursos pesqueiros": {
    "t": "Pesca e Recursos Pesqueiros",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3199,9 +3199,9 @@
   },
   "producao de peixes e sistemas de criacao": {
    "t": "Produção de Peixes e Sistemas de Criação",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3262,9 +3262,9 @@
   },
   "suinocultura": {
    "t": "Suinocultura",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -3280,9 +3280,9 @@
   },
   "tecnologia de racoes": {
    "t": "Tecnologia de Rações",
-   "d": "manter",
+   "d": "ocultar",
    "o": "manual",
-   "m": "decisão da equipe: mantido",
+   "m": "agro específico",
    "ativo": true,
    "c": "40h",
    "ar": "Meio Ambiente e Agro"
@@ -15669,9 +15669,9 @@
   },
   "gestao ambiental na agropecuaria": {
    "t": "Gestão Ambiental na Agropecuária",
-   "d": "manter",
-   "o": "auto",
-   "m": "agricultura e produção rural familiar",
+   "d": "ocultar",
+   "o": "manual",
+   "m": "agro específico",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "40h",
@@ -16539,9 +16539,9 @@
   },
   "fundamentos da agroecologia": {
    "t": "Fundamentos da Agroecologia",
-   "d": "manter",
-   "o": "auto",
-   "m": "agricultura e produção rural familiar",
+   "d": "ocultar",
+   "o": "manual",
+   "m": "agro específico",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "40h",
