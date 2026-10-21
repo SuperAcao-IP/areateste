@@ -121,40 +121,7 @@ const TITULOS_PERMITIDOS = {
   "viveiros e propagacao de mudas"
  ],
  ifrs: [
-  "agente de gestao de residuos solidos",
-  "agente de recepcao e reservas em meios de hospedagem",
-  "almoxarife",
-  "assistente administrativo",
-  "assistente de contabilidade",
-  "assistente de logistica",
-  "assistente de producao cultural",
-  "assistente de recursos humanos",
-  "assistente de servicos em comercio exterior",
-  "assistente de tesouraria",
-  "assistente financeiro",
-  "atendimento, comunicacao e praticas administrativas",
-  "auxiliar de agroecologia",
-  "bolos caseiros: tecnicas essenciais",
-  "camareira em meios de hospedagem",
-  "condutor de turismo de pesca",
-  "cuidador de idoso",
-  "cuidador infantil",
-  "cuidados na infancia: conceitos iniciais",
-  "cultura digital e educacao midiatica",
-  "exercitando a paternidade: cuidado e autocuidado",
-  "financas pessoais",
-  "libras: compreensao basica",
-  "lingua portuguesa e cultura brasileira para estrangeiros basico",
-  "lingua portuguesa e cultura brasileira para estrangeiros intermediario",
-  "logistica operacional e gestao de estoques",
-  "logistica, estoques e distribuicao",
-  "maquiagem: produtos",
-  "microempreendedor individual",
-  "operacoes de hotelaria e atendimento",
-  "organizacao de estacao de trabalho e mise en place",
-  "planilhas google: planilha eletronica",
-  "trilha para o empreendedorismo: organizando a sua ideia para criar um negocio",
-  "zelador"
+
  ],
  ifmg: [
   "auxiliar de escritorio/administrativo: ferramentas e competencias basicas",
@@ -197,8 +164,7 @@ const TITULOS_PERMITIDOS = {
   "reciclagem e organizacao da limpeza publica",
   "redes sociais e informacao na internet",
   "seguranca no trabalho e eletricidade basica",
-  "tecnicas de armazenagem de mercadorias",
-  "tratamento e disposicao de residuos solidos"
+  "tecnicas de armazenagem de mercadorias"
  ],
  bradesco: [
   "comunicacao escrita: ortografia, gramatica e texto",

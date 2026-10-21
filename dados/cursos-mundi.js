@@ -1,5 +1,5 @@
 /* Mundi · cursos online gratuitos (MOOC) do IFSul.
-   Coletado de mundi.ifsul.edu.br · atualizado em 2026-10-21 (26 cursos visíveis de 152 coletados).
+   Coletado de mundi.ifsul.edu.br · atualizado em 2026-10-21 (25 cursos visíveis de 152 coletados).
    Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
@@ -24,7 +24,6 @@ const MUNDI = [
  {titulo:"Libras III",carga:"40h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/libras-III.php"},
  {titulo:"Aposentadoria e empreendedorismo",carga:"20h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/aposentadoria-e-empreendedorismo.php"},
  {titulo:"Planejamento financeiro na aposentadoria",carga:"20h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/planejamento-financeiro-na-aposentadoria.php"},
- {titulo:"Tratamento e Disposição de Resíduos Sólidos",carga:"40h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/tratamento-e-disposicao-de-residuos-solidos.php"},
  {titulo:"Segurança no Trabalho e Eletricidade Básica",carga:"40h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/seguranca-no-trabalho-e-eletricidade-basica.php"},
  {titulo:"Manutenção de Computadores",carga:"60h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/manutencao-de-computadores.php"},
  {titulo:"Planilhas Eletrônicas",carga:"40h",area:"Outros",link:"https://mundi.ifsul.edu.br/portal/planilhas-eletronicas.php"},

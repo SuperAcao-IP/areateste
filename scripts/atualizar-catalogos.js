@@ -32,6 +32,11 @@ const SEM_LINKS = args.includes("--sem-links");
    anteriores deles. A Action nunca usa esta opção: lá, falha em qualquer fonte impede tudo. */
 const iIgn = args.indexOf("--ignorar");
 const IGNORAR = new Set(iIgn >= 0 ? String(args[iIgn + 1] || "").split(",").map(s => s.trim()).filter(Boolean) : []);
+/* Fontes com `ligada: false` em CATALOGOS não são coletadas nem aparecem no site.
+   --ligar ifrs: só para teste local (a Action não usa). */
+const iLig = args.indexOf("--ligar");
+const LIGAR = new Set(iLig >= 0 ? String(args[iLig + 1] || "").split(",").map(s => s.trim()).filter(Boolean) : []);
+const ligada = cat => cat.ligada !== false || LIGAR.has(cat.chave);
 const iRel = args.indexOf("--relatorio");
 const ARQ_RELATORIO = path.resolve(iRel >= 0 ? args[iRel + 1] : path.join(RAIZ, "relatorio-atualizacao.md"));
 const HOJE = new Date().toISOString().slice(0, 10);
@@ -46,7 +51,10 @@ const HOJE = new Date().toISOString().slice(0, 10);
 const CATALOGOS = [
   { chave: "aprendaMais", nome: "Aprenda Mais (MEC)", arquivo: "cursos-aprenda-mais.js", constante: "APRENDA_MAIS",
     coletar: prev => coletarAprendaMais({ minimoEsperado: prev.length }), cargaPadrao: "40h", campos: ["titulo", "area", "link"] },
-  { chave: "ifrs", nome: "Moodle IFRS", arquivo: "cursos-ifrs.js", constante: "IFRS",
+  /* DESLIGADO até haver autorização do IFRS: os "Termos e Condições de Uso" do Moodle IFRS
+     (item 6.2) vedam copiar/redistribuir o conteúdo da plataforma sem autorização expressa.
+     O código está pronto: para ligar, troque para `ligada: true` (ou teste com --ligar ifrs). */
+  { chave: "ifrs", nome: "Moodle IFRS", arquivo: "cursos-ifrs.js", constante: "IFRS", ligada: false,
     coletar: () => coletarIFRS(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
   { chave: "ifmg", nome: "+IFMG", arquivo: "cursos-ifmg.js", constante: "IFMG",
     coletar: () => coletarIFMG(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
@@ -198,7 +206,9 @@ function escreverRelatorio(r){
   const L = [];
   L.push(`# Atualização dos catálogos · ${HOJE}${SIMULAR ? " (simulação)" : ""}\n`);
   if(r.falhas.length){
-    L.push("## ⛔ A coleta falhou. Nada foi publicado; o catálogo anterior continua no ar.\n");
+    L.push(r.parcial
+      ? `## ⚠️ ${r.falhas.length === 1 ? "Uma fonte falhou" : r.falhas.length + " fontes falharam"}: ${r.falhas.map(f => f.nome).join(", ")}\n\n${r.falhas.length === 1 ? "A versão anterior dela continua no ar" : "A versão anterior de cada uma continua no ar"}; as outras fontes foram atualizadas normalmente.\n`
+      : "## ⛔ A coleta falhou. Nada foi publicado; o catálogo anterior continua no ar.\n");
     r.falhas.forEach(f => L.push(`- **${f.nome}**: ${f.motivo}`));
     L.push("");
   }
@@ -207,13 +217,16 @@ function escreverRelatorio(r){
     : "**Nenhum arquivo precisou mudar.**\n");
   L.push("| Catálogo | Coletados | Antes | Entraram | Saíram | Visíveis antes → depois |\n|---|---|---|---|---|---|");
   for(const c of r.catalogos){
+    if(c.desligado){ L.push(`| ${c.nome} | desligada (aguarda autorização) | – | – | – | não aparece no site |`); continue; }
+    if(c.falhou && c.mantido){ L.push(`| ${c.nome} | **falhou** | ${c.antes} | – | – | versão anterior mantida (${c.visiveisAntes} visíveis) |`); continue; }
     if(c.falhou){ L.push(`| ${c.nome} | falhou | ${c.antes} | – | – | mantido |`); continue; }
+    if(c.mantido){ L.push(`| ${c.nome} | ignorada nesta execução | ${c.antes} | – | – | versão anterior mantida |`); continue; }
     if(!c.entraram){ L.push(`| ${c.nome} | ${c.coletados} | ${c.antes} | – | – | mantido (outra coleta falhou) |`); continue; }
     L.push(`| ${c.nome} | ${c.coletados} (${c.detalhe}) | ${c.antes} | ${c.entraram.length} | ${c.sairam.length} | ${c.visiveisAntes} → ${c.visiveisDepois} |`);
   }
   L.push("");
   for(const c of r.catalogos){
-    if(c.falhou || !c.entraram) continue;
+    if(c.falhou || c.mantido || c.desligado || !c.entraram) continue;
     L.push(`## ${c.nome}\n`);
     const novosVisiveis = c.entraram.filter(e => e.visivel);
     const novosOcultos = c.entraram.filter(e => !e.visivel);
@@ -240,7 +253,7 @@ function escreverRelatorio(r){
       : "_conferência de links pulada_\n");
     else L.push(`${c.links.conferidos} links de cursos visíveis conferidos; **${c.links.quebrados.length} quebrado(s)**.\n\n` + lista(c.links.quebrados, q => `${q.titulo} — ${q.link} (${q.motivo})`));
   }
-  const auto = r.catalogos.flatMap(c => c.falhou || !c.entraram ? [] : c.entraram.map(e => ({ ...e, catalogo: c.nome })));
+  const auto = r.catalogos.flatMap(c => c.falhou || c.mantido || c.desligado || !c.entraram ? [] : c.entraram.map(e => ({ ...e, catalogo: c.nome })));
   L.push(`---\n_${auto.length} curso(s) novo(s) classificado(s) automaticamente pelas regras de \`scripts/lib/regras.js\`. Para discordar de uma decisão, edite \`dados/decisoes-catalogos.json\` (\`d\` e \`o: "manual"\`) e a próxima execução respeita._\n`);
   fs.writeFileSync(ARQ_RELATORIO, L.join("\n"), "utf8");
 }
@@ -255,15 +268,28 @@ async function main(){
   const resultado = { catalogos: [], falhas: [], mudancas: [] };
   const coletas = {};
 
-  /* 1-2. coleta e conferência */
+  /* 1-2. coleta e conferência, FONTE POR FONTE.
+     Uma fonte que falha (erro, vazia, muito menor que a anterior, ou que perdeu boa parte dos
+     cursos que aparecem no site) NÃO derruba as outras: ela mantém a versão anterior e é
+     avisada no relatório. Só se NENHUMA fonte for coletada a execução inteira falha. */
+  let coletadas = 0;
   for(const cat of CATALOGOS){
     const atual = lerCatalogoAtual(cat);
     atual.cursos = anterioresDe(cat, decisoes[cat.chave], atual);
-    const info = { nome: cat.nome, chave: cat.chave, antes: atual.cursos.length, falhou: false };
+    const info = { nome: cat.nome, chave: cat.chave, antes: atual.cursos.length, falhou: false, repetidos: [] };
     resultado.catalogos.push(info);
+    const manterAnterior = detalhe => {
+      coletas[cat.chave] = { cursos: atual.cursos, detalhe, atual };
+      info.coletados = atual.cursos.length; info.detalhe = detalhe; info.mantido = true;
+    };
+    if(!ligada(cat)){
+      coletas[cat.chave] = { cursos: [], detalhe: "desligada", atual: { cursos: [] } };
+      info.antes = 0; info.coletados = 0; info.detalhe = "desligada (flag)"; info.desligado = true;
+      console.log(`${cat.nome}: desligada (flag), não coleta`);
+      continue;
+    }
     if(IGNORAR.has(cat.chave)){
-      coletas[cat.chave] = { cursos: atual.cursos, detalhe: "ignorado nesta execução (--ignorar)", atual };
-      info.coletados = atual.cursos.length; info.detalhe = "ignorado nesta execução (--ignorar)"; info.ignorado = true; info.repetidos = [];
+      manterAnterior("ignorado nesta execução (--ignorar)"); info.ignorado = true;
       console.log(`${cat.nome}: ignorado (--ignorar), mantém os dados anteriores`);
       continue;
     }
@@ -276,7 +302,6 @@ async function main(){
          primeiro não ("Inteligência" x "Inteligencia"); os descartados viram aviso no relatório */
       const comAcento = t => /[^\x00-\x7f]/.test(t);
       const posicao = new Map(), unicos = [];
-      info.repetidos = [];
       for(const c of col.cursos){
         const n = normalizarTitulo(c.titulo);
         if(!posicao.has(n)){ posicao.set(n, unicos.length); unicos.push(c); continue; }
@@ -289,21 +314,36 @@ async function main(){
       col.cursos = unicos;
       if(atual.cursos.length >= 20 && col.cursos.length < atual.cursos.length * (1 - QUEDA_MAXIMA))
         throw new Error(`a coleta trouxe ${col.cursos.length} cursos contra ${atual.cursos.length} do catálogo anterior (queda de mais de ${QUEDA_MAXIMA * 100}%)`);
+      /* continuidade: se boa parte dos cursos que aparecem no site sumiu da coleta (ex.: títulos
+         renomeados em massa), é sinal de problema na coleta e não de mudança real */
+      const aparecia = atual.cursos.filter(c => {
+        const e = decisoes[cat.chave][normalizarTitulo(c.titulo)];
+        return e && e.d === "manter" && cargaOk(c.carga || cat.cargaPadrao);
+      });
+      if(aparecia.length >= 10){
+        const agora = new Set(col.cursos.map(c => normalizarTitulo(c.titulo)));
+        const ficaram = aparecia.filter(c => agora.has(normalizarTitulo(c.titulo))).length;
+        if(ficaram < aparecia.length * 0.6)
+          throw new Error(`só ${ficaram} dos ${aparecia.length} cursos que aparecem no site continuam na coleta (menos de 60%)`);
+      }
       coletas[cat.chave] = { ...col, atual };
       info.coletados = col.cursos.length; info.detalhe = col.detalhe;
+      coletadas++;
       console.log(`  ${col.cursos.length} cursos · ${col.detalhe}`);
     }catch(e){
-      info.falhou = true;
+      info.falhou = true; info.motivoFalha = e.message; info.repetidos = [];
       resultado.falhas.push({ nome: cat.nome, motivo: e.message });
-      console.error(`  FALHOU: ${e.message}`);
+      manterAnterior("falhou: mantida a versão anterior");
+      console.error(`  FALHOU: ${e.message}\n  → ${cat.nome} mantém a versão anterior; as outras fontes seguem`);
     }
   }
-  if(resultado.falhas.length){
+  if(!coletadas){
     escreverRelatorio(resultado);
-    saidaAction("publicar", "false"); saidaAction("falhou", "true");
-    console.error(`\nColeta não confiável: nada foi alterado. Relatório: ${ARQ_RELATORIO}`);
+    saidaAction("publicar", "false"); saidaAction("falhou", "true"); saidaAction("parcial", "false");
+    console.error(`\nNenhuma fonte foi coletada: nada foi alterado. Relatório: ${ARQ_RELATORIO}`);
     process.exit(1);
   }
+  resultado.parcial = resultado.falhas.length > 0;
 
   /* 3. decisões: herdar as existentes, classificar as novas */
   const norm = normalizarTitulo;
@@ -380,7 +420,7 @@ async function main(){
   for(const cat of CATALOGOS){
     const info = resultado.catalogos.find(c => c.chave === cat.chave);
     info.links = null;
-    if(SEM_LINKS || !cat.checarLinks || info.ignorado) continue;
+    if(SEM_LINKS || !cat.checarLinks || info.mantido || info.desligado) continue;
     const alvo = info.col.cursos.filter(c => visiveis[cat.chave].has(norm(c.titulo)));
     console.log(`Conferindo ${alvo.length} links de ${cat.nome}…`);
     const quebrados = [];
@@ -398,19 +438,6 @@ async function main(){
     info.links = { conferidos: alvo.length, quebrados };
   }
 
-  /* proteção extra: se o que aparece no site despencar (ex.: títulos renomeados em massa
-     no Aprenda Mais), é sinal de problema na coleta, não de mudança real. */
-  const visAntes = resultado.catalogos.reduce((a, c) => a + c.visiveisAntes, 0);
-  const visDepois = resultado.catalogos.reduce((a, c) => a + c.visiveisDepois, 0);
-  if(visAntes >= 20 && visDepois < visAntes * 0.6){
-    resultado.falhas.push({ nome: "Cursos visíveis", motivo: `os cursos que aparecem no site cairiam de ${visAntes} para ${visDepois} (mais de 40% a menos)` });
-    resultado.catalogos.forEach(c => delete c.col);
-    escreverRelatorio(resultado);
-    saidaAction("publicar", "false"); saidaAction("falhou", "true");
-    console.error(`\nQueda brusca de cursos visíveis (${visAntes} -> ${visDepois}): nada foi alterado. Relatório: ${ARQ_RELATORIO}`);
-    process.exit(1);
-  }
-
   /* 5. gravação */
   const permitidos = {};
   for(const cat of CATALOGOS){
@@ -419,7 +446,9 @@ async function main(){
     const paraArquivo = cat.soVisiveis
       ? col.cursos.filter(c => visiveis[cat.chave].has(norm(c.titulo)))
       : col.cursos;
-    if(IGNORAR.has(cat.chave)) continue;   // arquivo do catálogo ignorado fica como está
+    const infoCat = resultado.catalogos.find(c => c.chave === cat.chave);
+    if(infoCat.mantido) continue;   // fonte que falhou ou foi ignorada: o arquivo fica como está
+    if(infoCat.desligado){ gravarSeMudou(cat.arquivo, gerarCatalogo(cat, [], "desligada: aguarda liberação"), resultado.mudancas); continue; }
     const infoTxt = (cat.soVisiveis ? `${paraArquivo.length} cursos visíveis de ${col.cursos.length} coletados` : `${col.cursos.length} cursos`)
       + (cat.chave === "aprendaMais" ? ", " + col.detalhe : "");
     gravarSeMudou(cat.arquivo, gerarCatalogo(cat, paraArquivo, infoTxt), resultado.mudancas);
@@ -430,12 +459,13 @@ async function main(){
   resultado.catalogos.forEach(c => delete c.col);
   escreverRelatorio(resultado);
   saidaAction("publicar", resultado.mudancas.length ? "true" : "false"); saidaAction("falhou", "false");
+  saidaAction("parcial", resultado.parcial ? "true" : "false"); saidaAction("fontes_com_falha", resultado.falhas.map(f => f.nome).join(", "));
   console.log(`\n${resultado.mudancas.length ? "Alterados: " + resultado.mudancas.join(", ") : "Nenhuma mudança."}${SIMULAR ? " (simulação: nada gravado)" : ""}\nRelatório: ${ARQ_RELATORIO}`);
 }
 
 main().catch(e => {
   console.error("Erro inesperado:", e);
   try{ escreverRelatorio({ catalogos: [], falhas: [{ nome: "Script", motivo: e.message }], mudancas: [] }); }catch(_){}
-  saidaAction("publicar", "false"); saidaAction("falhou", "true");
+  saidaAction("publicar", "false"); saidaAction("falhou", "true"); saidaAction("parcial", "false");
   process.exit(1);
 });

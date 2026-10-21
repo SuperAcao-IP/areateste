@@ -50,12 +50,18 @@ jobs:
           git pull --rebase origin main
           git push origin HEAD:main
 
-      # só abre issue quando houve mudança publicada ou falha
+      # só abre issue quando houve mudança publicada, falha de alguma fonte ou falha geral
       - name: Abrir issue com o resumo
-        if: ${{ always() && (steps.coleta.outcome != 'success' || steps.coleta.outputs.publicar == 'true') }}
+        if: ${{ always() && (steps.coleta.outcome != 'success' || steps.coleta.outputs.publicar == 'true' || steps.coleta.outputs.parcial == 'true') }}
+        env:
+          RESULTADO: ${{ steps.coleta.outcome }}
+          PUBLICAR: ${{ steps.coleta.outputs.publicar }}
+          PARCIAL: ${{ steps.coleta.outputs.parcial }}
+          FONTES_COM_FALHA: ${{ steps.coleta.outputs.fontes_com_falha }}
         run: |
-          if [ "${{ steps.coleta.outcome }}" = "success" ]; then
-            if [ "${{ steps.coleta.outputs.publicar }}" = "true" ]; then SITUACAO="publicado"; else SITUACAO="sem mudanças"; fi
+          if [ "$RESULTADO" = "success" ]; then
+            if [ "$PUBLICAR" = "true" ]; then SITUACAO="publicado"; else SITUACAO="sem mudanças"; fi
+            if [ "$PARCIAL" = "true" ]; then SITUACAO="$SITUACAO, mas FALHOU: $FONTES_COM_FALHA (versão anterior mantida)"; fi
           else
             SITUACAO="FALHOU, nada foi publicado"
           fi

@@ -28,10 +28,12 @@ abre uma **issue** com o resumo.
      união que evita perder curso; carga, "gratuito" e "certificado" em `course/info.php`.
    - *Mundi:* uma página HTML estática (`mundi.ifsul.edu.br/portal/`) com todos os cursos e a duração.
    Das três últimas só entram título, carga e link; o conteúdo fica na plataforma de origem.
-2. **Confere se a coleta é confiável.** Se qualquer coleta falhar, vier vazia, vier com mais
-   de 30% a menos que a anterior, ou se os cursos visíveis no site caírem mais de 40%, **nada
-   é gravado nem publicado** e o catálogo anterior continua no ar. A issue avisa e a
-   execução fica vermelha (o GitHub manda e-mail de falha).
+2. **Confere se a coleta é confiável, fonte por fonte.** Se uma fonte falhar, vier vazia, vier
+   com mais de 30% a menos que a anterior, ou perder mais de 40% dos cursos que aparecem no
+   site, **só ela** é recusada: mantém a versão anterior (no ar e nos arquivos) e as outras
+   fontes são atualizadas normalmente. A issue daquela execução avisa qual fonte falhou
+   (título "…, mas FALHOU: <fonte>"). Só se **nenhuma** fonte for coletada a execução inteira
+   falha: nada é publicado e ela fica vermelha (o GitHub manda e-mail de falha).
 3. **Filtra por regra.** O curso é reconhecido pelo **título**, não pelo link
    (`dados/decisoes-catalogos.json`):
    - título que já tem decisão: **herda** a decisão (as que a equipe tomou à mão são `o: "manual"`);
@@ -88,6 +90,7 @@ node scripts/atualizar-catalogos.js --simular      # faz tudo, não grava; só e
 node scripts/atualizar-catalogos.js                # grava os arquivos de dados
 node scripts/atualizar-catalogos.js --sem-links    # pula a conferência de links (mais rápido)
 node scripts/atualizar-catalogos.js --ignorar evg  # só teste local: não coleta a EVG e mantém os dados dela
+node scripts/atualizar-catalogos.js --ligar ifrs   # só teste local: liga o Moodle IFRS, que está desligado
 ```
 
 Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 páginas).
@@ -107,9 +110,12 @@ Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 p�
   issue avisa.
 - A classificação automática é por título. Curso com título enganoso pode passar; por isso
   cada issue lista o que entrou no site.
-- **Uma fonte fora do ar bloqueia a atualização de todas** (é a trava: coleta incompleta não
-  publica). Aconteceu de verdade: o site da EVG ficou "Em manutenção" e o script recusou a
-  rodada. A issue de falha avisa; a próxima execução semanal tenta de novo.
+- **Uma fonte fora do ar não bloqueia as outras**: ela mantém a versão anterior e a issue
+  avisa. Aconteceu de verdade: o site da EVG ficou "Em manutenção" e as demais foram
+  atualizadas. A próxima execução semanal tenta a EVG de novo.
+- **Moodle IFRS está DESLIGADO** (`ligada: false` em `scripts/atualizar-catalogos.js`) até haver
+  autorização do IFRS: não é coletado e não aparece no site. O código está pronto. Para ligar,
+  troque para `ligada: true`; para testar antes, rode com `--ligar ifrs`.
 - **Termos de uso e robots.txt (conferidos em 2026-10-21):** +IFMG e Mundi não têm robots.txt
   nem termos públicos que tratem de coleta. O Moodle IFRS não tem robots.txt, mas seus
   "Termos e Condições de Uso" (item 6.2) vedam "copiar, redistribuir ou derivar o conteúdo" da
