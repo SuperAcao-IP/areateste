@@ -79,17 +79,17 @@ const PLANILHA_VAGAS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1
 /* Aba "pontos_digitais" da mesma planilha: lugares com computador/internet cadastrados pela equipe.
    Colunas: municipio | tipo | nome | endereco | bairro | recursos | horario | gratuito | telefone |
             observacao | status | verificado_em | lat | lon      (lat/lon opcionais).
-   Vazio = camada só com as bibliotecas do cadastro estadual. Depois de criar a aba e publicá-la,
-   cole aqui o link CSV dela (mesmo formato dos de cima, com o gid da aba). */
-const PLANILHA_PONTOS_CSV_URL = "";
+   Vazio = camada só com as bibliotecas do cadastro estadual. Aba criada e publicada (gid 2024706523);
+   se criar outra aba, cole aqui o link CSV dela (mesmo formato dos de cima, com o gid da aba). */
+const PLANILHA_PONTOS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr5CRyAxIwluOeHE50A6TCG7RS3ua1AClEye3Q5zUEL-QOZ0PGzlijAe66nFKb_mYPS7Y8jkHqEaNu/pub?gid=2024706523&single=true&output=csv";
 
 /* Aba "servicos" da mesma planilha: CRAS, CREAS, PAT, Sebrae Aqui e outros serviços de apoio cadastrados pela equipe
    (somam-se aos do mapa de campo e aos das fontes oficiais, sem duplicar o mesmo lugar).
    Colunas: municipio | tipo | nome | endereco | bairro | horario | telefone | status | lat | lon
             (tipo: CRAS, CREAS, PAT, Sebrae Aqui ou outro; status: Ativo, ou Fechado/Encerrado para esconder; lat/lon opcionais).
-   Vazio = DESLIGADO (a camada usa só o mapa de campo e as fontes oficiais). Depois de criar a aba e publicá-la,
-   cole aqui o link CSV dela (com o gid da aba). */
-const PLANILHA_SERVICOS_CSV_URL = "";
+   Vazio = DESLIGADO (a camada usa só o mapa de campo e as fontes oficiais). Ligado (gid 676188309); se a aba mudar,
+   troque aqui o link CSV dela (com o gid da aba). */
+const PLANILHA_SERVICOS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr5CRyAxIwluOeHE50A6TCG7RS3ua1AClEye3Q5zUEL-QOZ0PGzlijAe66nFKb_mYPS7Y8jkHqEaNu/pub?gid=676188309&single=true&output=csv";
 
 /* ---------- regras de conteudo ---------- */
 /* --- carga horaria minima: exclui cursos com menos de 15h ---
