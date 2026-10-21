@@ -132,7 +132,9 @@ Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 p�
 
 ## Mapa: camadas (cursos presenciais e computador/internet)
 
-O mapa de cada município ganhou duas camadas que a pessoa liga e desliga (por padrão as duas vêm ligadas):
+O mapa de cada município tem três camadas que a pessoa liga e desliga (por padrão vêm todas ligadas). Os pontos antigos de **cursos** e **empregadores** deixaram de aparecer no mapa, mas continuam em `dados/mapa-pontos.js`.
+
+0. **Serviços (CRAS, PAT, Sebrae Aqui):** círculos rosa "S", vindos de `dados/mapa-pontos.js` (grupo `cras`).
 
 1. **Cursos presenciais (escolas):** quadrados laranja com o número de cursos. Ao clicar: endereço, lista de cursos (com link, quando o curso vem da planilha ou do Trampolim).
 2. **Computador e internet:** círculos verdes ("Tem computador") e azuis ("Só Wi-Fi"), com os dois selos explicados abaixo do mapa.

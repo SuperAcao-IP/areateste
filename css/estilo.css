@@ -169,18 +169,21 @@
   .camada-opcao{ display:inline-flex; align-items:center; gap:.45rem; cursor:pointer; }
   .camada-opcao input{ width:18px; height:18px; accent-color:#0C326F; }
   .camada-opcao small{ color:var(--texto-suave); }
-  .camada-selos{ display:inline-flex; gap:.4rem; margin-left:auto; }
+  .camada-selos{ display:inline-flex; flex-wrap:wrap; gap:.4rem; margin-left:auto; }
   .camada-amostra{ display:inline-flex; align-items:center; justify-content:center; width:22px; height:22px; font-size:.7rem; font-weight:700; color:#fff; border:2px solid #fff; box-shadow:0 0 0 1px #aaa; }
   .camada-amostra.escola{ background:#E65100; border-radius:5px; }
   .camada-amostra.pc{ background:#00897B; border-radius:50%; }
-  .pino-escola span, .pino-pc span{ display:flex; align-items:center; justify-content:center; width:100%; height:100%; color:#fff; font-weight:700; font-size:.78rem; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.45); }
+  .camada-amostra.servico{ background:#C2185B; border-radius:50%; }
+  .pino-escola span, .pino-pc span, .pino-servico span{ display:flex; align-items:center; justify-content:center; width:100%; height:100%; color:#fff; font-weight:700; font-size:.78rem; border:2px solid #fff; box-shadow:0 1px 4px rgba(0,0,0,.45); }
   .pino-escola span{ background:#E65100; border-radius:6px; }
   .pino-escola.vazio span{ background:#F4A261; }
   .pino-pc.pc span{ background:#00897B; border-radius:50%; }
+  .pino-servico span{ background:#C2185B; border-radius:50%; }
   .pino-pc.wifi span{ background:#1565C0; border-radius:50%; font-size:.7rem; }
-  .selo{ display:inline-block; padding:.08rem .5rem; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; vertical-align:middle; }
+  .selo{ white-space:nowrap; display:inline-block; padding:.08rem .5rem; border-radius:999px; font-size:.72rem; font-weight:700; color:#fff; vertical-align:middle; }
   .selo-pc{ background:#00897B; }
   .selo-wifi{ background:#1565C0; }
+  .selo-servico{ background:#C2185B; }
   .pop-mapa{ font-size:.85rem; line-height:1.35; overflow-wrap:anywhere; }
   .leaflet-popup-content{ margin:12px 14px; }
   @media (max-width:520px){

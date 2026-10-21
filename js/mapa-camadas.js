@@ -88,25 +88,11 @@ function recursosDePonto(txt){
 }
 
 /* ---------- camadas no mapa (navegador) ---------- */
-/* pontos de curso do mapa de campo (dados/mapa-pontos.js), guardados por initMapa em ui.js */
-var mapaPontosAntigos = [];
-var CAMADAS_ESTADO = { escolas: true, computador: true };   // a escolha da pessoa vale ao trocar de cidade
-var CAMADAS_MAPA = { cidade: null, escolas: null, computador: null };
+var CAMADAS_ESTADO = { servicos: true, escolas: true, computador: true };   // a escolha da pessoa vale ao trocar de cidade
+var CAMADAS_MAPA = { cidade: null, servicos: null, escolas: null, computador: null };
 var _pontosPlanilhaCache = null;
 
 function _escM(s){ return (typeof esc === "function") ? esc(s) : String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
-function _distKm(a, b){
-  const r = x => x * Math.PI / 180, dLat = r(b.lat - a.lat), dLon = r(b.lon - a.lon);
-  const h = Math.sin(dLat / 2) ** 2 + Math.cos(r(a.lat)) * Math.cos(r(b.lat)) * Math.sin(dLon / 2) ** 2;
-  return 12742 * Math.asin(Math.sqrt(h));
-}
-/* ponto antigo "Senac X"/"SENAI X" a menos de 400 m de uma unidade da mesma instituição = o mesmo lugar */
-function _marcarPontosAntigosRepetidos(unidades){
-  (mapaPontosAntigos || []).forEach(o => {
-    const n = _nm(o.p.n);
-    o.repetido = unidades.some(u => u.lat != null && /sena[ic]/.test(n) && n.indexOf(_nm(u.inst)) >= 0 && _distKm(o.p, u) < 0.4);
-  });
-}
 function _cidadesDoMapa(cidade){
   const lista = [cidade].concat((typeof CIDADES_VIZINHAS !== "undefined" && CIDADES_VIZINHAS[cidade]) || []);
   return new Set(lista.map(_nm));
@@ -222,6 +208,9 @@ function _opcoesPopup(mapa){
 function _iconeEscola(n){
   return L.divIcon({ className: "pino-escola" + (n ? "" : " vazio"), html: "<span>" + (n || "·") + "</span>", iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -12] });
 }
+function _iconeServico(){
+  return L.divIcon({ className: "pino-servico", html: "<span>S</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
+}
 function _iconePonto(p){
   return L.divIcon({ className: "pino-pc " + (p.computador ? "pc" : "wifi"), html: "<span>" + (p.computador ? "PC" : "Wi") + "</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
 }
@@ -229,11 +218,12 @@ function _iconePonto(p){
 function _montarControleCamadas(){
   let el = document.getElementById("mapaCamadas");
   if(!el) return;
-  const n = { escolas: CAMADAS_MAPA.nEscolas || 0, computador: CAMADAS_MAPA.nPontos || 0 };
+  const n = { servicos: CAMADAS_MAPA.nServicos || 0, escolas: CAMADAS_MAPA.nEscolas || 0, computador: CAMADAS_MAPA.nPontos || 0 };
   el.innerHTML =
+    '<label class="camada-opcao"><input type="checkbox" data-camada="servicos"' + (CAMADAS_ESTADO.servicos ? " checked" : "") + '> <span class="camada-amostra servico">S</span> Serviços <small>' + n.servicos + "</small></label>" +
     '<label class="camada-opcao"><input type="checkbox" data-camada="escolas"' + (CAMADAS_ESTADO.escolas ? " checked" : "") + '> <span class="camada-amostra escola">1</span> Cursos presenciais (escolas) <small>' + n.escolas + "</small></label>" +
     '<label class="camada-opcao"><input type="checkbox" data-camada="computador"' + (CAMADAS_ESTADO.computador ? " checked" : "") + '> <span class="camada-amostra pc">PC</span> Computador e internet <small>' + n.computador + "</small></label>" +
-    '<span class="camada-selos"><span class="selo selo-pc">Tem computador</span> <span class="selo selo-wifi">Só Wi-Fi</span></span>';
+    '<span class="camada-selos"><span class="selo selo-pc">Tem computador</span> <span class="selo selo-wifi">Só Wi-Fi</span> <span class="selo selo-servico">CRAS, PAT, Sebrae Aqui</span></span>';
   el.querySelectorAll("input[data-camada]").forEach(inp => inp.addEventListener("change", () => {
     CAMADAS_ESTADO[inp.dataset.camada] = inp.checked;
     _aplicarVisibilidade();
@@ -241,12 +231,7 @@ function _montarControleCamadas(){
 }
 function _aplicarVisibilidade(){
   if(!MAP) return;
-  // enquanto a camada de escolas está ligada, o ponto antigo repetido sai (evita dois marcadores no mesmo lugar)
-  (mapaPontosAntigos || []).forEach(o => {
-    if(!o.repetido) return;
-    if(CAMADAS_ESTADO.escolas){ if(MAP.hasLayer(o.m)) MAP.removeLayer(o.m); } else if(!MAP.hasLayer(o.m)) o.m.addTo(MAP);
-  });
-  ["escolas", "computador"].forEach(k => {
+  ["servicos", "escolas", "computador"].forEach(k => {
     const g = CAMADAS_MAPA[k];
     if(!g) return;
     if(CAMADAS_ESTADO[k]){ if(!MAP.hasLayer(g)) g.addTo(MAP); } else if(MAP.hasLayer(g)) MAP.removeLayer(g);
@@ -264,8 +249,12 @@ async function _atualizarCamadasMapa(){
   const unidades = unidadesParaMapa(cidade);
   const pontos = await pontosComputadorParaMapa(cidade);
   if(mapa !== MAP || cidade !== cidadeAtual) return;       // a pessoa trocou de cidade enquanto carregava
-  ["escolas", "computador"].forEach(k => { if(CAMADAS_MAPA[k] && mapa.hasLayer(CAMADAS_MAPA[k])) mapa.removeLayer(CAMADAS_MAPA[k]); });
-  const gE = L.layerGroup(), gP = L.layerGroup(), limites = [];
+  ["servicos", "escolas", "computador"].forEach(k => { if(CAMADAS_MAPA[k] && mapa.hasLayer(CAMADAS_MAPA[k])) mapa.removeLayer(CAMADAS_MAPA[k]); });
+  const gE = L.layerGroup(), gP = L.layerGroup(), gS = L.layerGroup(), limites = [];
+  const servicos = ((typeof MAPA !== "undefined" && MAPA[cidade] && MAPA[cidade].cras) || []).filter(p => p.lat != null && p.lon != null);
+  servicos.forEach(p => {
+    L.marker([p.lat, p.lon], { icon: _iconeServico(), title: p.n }).bindPopup('<div class="pop-mapa"><b>' + _escM(p.n) + '</b><br><span>Serviço de apoio (CRAS, PAT ou Sebrae Aqui)</span></div>', _opcoesPopup(mapa)).addTo(gS);
+  });
   unidades.filter(u => u.lat != null && u.lon != null).forEach(u => {
     L.marker([u.lat, u.lon], { icon: _iconeEscola((u.cursos || []).length), title: u.nome }).bindPopup(_popupUnidade(u), _opcoesPopup(mapa)).addTo(gE);
     limites.push([u.lat, u.lon]);
@@ -274,8 +263,7 @@ async function _atualizarCamadasMapa(){
     L.marker([p.lat, p.lon], { icon: _iconePonto(p), title: p.nome }).bindPopup(_popupPonto(p), _opcoesPopup(mapa)).addTo(gP);
     limites.push([p.lat, p.lon]);
   });
-  CAMADAS_MAPA = { cidade, escolas: gE, computador: gP, nEscolas: unidades.length, nPontos: pontos.length };
-  _marcarPontosAntigosRepetidos(unidades.filter(u => u.lat != null && u.lon != null));
+  CAMADAS_MAPA = { cidade, servicos: gS, escolas: gE, computador: gP, nServicos: servicos.length, nEscolas: unidades.length, nPontos: pontos.length };
   _montarControleCamadas();
   _aplicarVisibilidade();
   // enquadra UMA vez por mapa (na primeira vez que há pontos novos); depois não mexe no zoom da pessoa

@@ -135,15 +135,10 @@ function renderCidade(cidade){
     </div>
     <div class="bloco">
       <details class="mapa-suspenso" id="mapaSuspenso" open>
-        <summary class="bloco-titulo mapa-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg></span><div><h3>Mapa de ${cidade}</h3><p>Pontos reais do seu My Maps: cursos (verde), empregadores (roxo) e serviços (rosa). Abaixo do mapa, ligue as camadas de escolas e de lugares com computador.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary class="bloco-titulo mapa-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18 3 21V6l6-3 6 3 6-3v15l-6 3-6-3Z"/><path d="M9 3v15M15 6v15"/></svg></span><div><h3>Mapa de ${cidade}</h3><p>Serviços de apoio (CRAS, PAT, Sebrae Aqui), escolas com cursos presenciais e lugares com computador ou internet. Ligue e desligue as camadas abaixo do mapa.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="mapa-card">
           <div id="mapaP" style="width:100%;height:440px;background:#dfe6f1"></div>
           <div id="mapaCamadas" class="mapa-camadas" aria-label="Camadas do mapa"></div>
-          <div class="mapa-legenda">
-            <span style="display:inline-flex;align-items:center;gap:.4rem"><span style="width:11px;height:11px;border-radius:50%;background:#7CB342;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Cursos</span>
-            <span style="display:inline-flex;align-items:center;gap:.4rem;margin-left:1rem"><span style="width:11px;height:11px;border-radius:50%;background:#673AB7;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Empregadores</span>
-            <span style="display:inline-flex;align-items:center;gap:.4rem;margin-left:1rem"><span style="width:11px;height:11px;border-radius:50%;background:#C2185B;border:2px solid #fff;box-shadow:0 0 0 1px #ccc"></span> Serviços (CRAS, PAT, Sebrae Aqui)</span>
-          </div>
         </div>
       </details>
     </div>
@@ -348,12 +343,9 @@ function initMapa(cidade){
     MAP.getPane("tilePane").style.filter="grayscale(1) contrast(.92) brightness(1.06)";
     const b=[];
     mapaBoundsBase=b;
-    mapaPontosAntigos=[];
-    ["curso","empregador","cras"].forEach(tp=>(d[tp]||[]).forEach(p=>{
-      const mk=L.circleMarker([p.lat,p.lon],{radius:8,color:"#fff",weight:2,fillColor:COR[tp],fillOpacity:1}).bindPopup("<b>"+p.n+"</b>").addTo(MAP);
-      if(tp==="curso") mapaPontosAntigos.push({m:mk,p:p});     // a camada de escolas esconde os que ela repete
-      b.push([p.lat,p.lon]);
-    }));
+    // "curso" e "empregador" continuam em dados/mapa-pontos.js, mas não são mais mostrados; só "cras" (serviços),
+    // que vira a camada "Serviços" em js/mapa-camadas.js
+    (d.cras||[]).forEach(p=>b.push([p.lat,p.lon]));
     if(b.length) MAP.fitBounds(b,{padding:[40,40],maxZoom:14});
     MAP.invalidateSize();
     if(typeof atualizarCamadasMapa === "function") atualizarCamadasMapa();
