@@ -1,4 +1,15 @@
 {
-  "cursos": [],
+  "cursos": [
+    {
+      "municipio": "Online",
+      "curso": "Educação Financeira Usando o Excel",
+      "instituicao": "Escola do Trabalhador 4.0 (Ministério do Trabalho e Emprego e Microsoft)",
+      "modalidade": "Online",
+      "carga": "60h",
+      "area": "Administração e Gestão",
+      "link": "https://ead.escoladotrabalhador40.com.br/",
+      "status": "aberto"
+    }
+  ],
   "vagas": []
 }

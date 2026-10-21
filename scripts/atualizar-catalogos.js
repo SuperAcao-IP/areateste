@@ -16,7 +16,7 @@
 const fs = require("fs");
 const path = require("path");
 const { normalizarTitulo, buscar, emLotes } = require("./lib/util");
-const { coletarAprendaMais, coletarEVG, coletarBradesco } = require("./lib/coletores");
+const { coletarAprendaMais, coletarEVG, coletarBradesco, coletarIFRS, coletarIFMG, coletarMundi } = require("./lib/coletores");
 const { classificar } = require("./lib/regras");
 
 const RAIZ = path.join(__dirname, "..");
@@ -28,19 +28,35 @@ const LIMITE_LISTA = 60;            // itens por seção no relatório (o resto 
 const args = process.argv.slice(2);
 const SIMULAR = args.includes("--simular");
 const SEM_LINKS = args.includes("--sem-links");
+/* --ignorar evg,bradesco: só para teste local. Não coleta esses catálogos e mantém os dados
+   anteriores deles. A Action nunca usa esta opção: lá, falha em qualquer fonte impede tudo. */
+const iIgn = args.indexOf("--ignorar");
+const IGNORAR = new Set(iIgn >= 0 ? String(args[iIgn + 1] || "").split(",").map(s => s.trim()).filter(Boolean) : []);
 const iRel = args.indexOf("--relatorio");
 const ARQ_RELATORIO = path.resolve(iRel >= 0 ? args[iRel + 1] : path.join(RAIZ, "relatorio-atualizacao.md"));
 const HOJE = new Date().toISOString().slice(0, 10);
 
-/* Os três catálogos, na ordem de prioridade para repetidos (o primeiro vence). */
+/* Os catálogos, NA ORDEM DE PRIORIDADE para repetidos: o curso automático cujo título já
+   aparece numa fonte mais acima nesta lista fica escondido (vale uma versão só).
+   Decisão manual nunca é escondida por repetição.
+   soVisiveis: o arquivo de dados guarda só os cursos que aparecem no site (página leve);
+   a lista completa e as decisões ficam em dados/decisoes-catalogos.json.
+   checarLinks: a página do curso abre sem login (nas plataformas Moodle ela redireciona
+   para o login, então o link só vale como "está na listagem pública"). */
 const CATALOGOS = [
   { chave: "aprendaMais", nome: "Aprenda Mais (MEC)", arquivo: "cursos-aprenda-mais.js", constante: "APRENDA_MAIS",
     coletar: prev => coletarAprendaMais({ minimoEsperado: prev.length }), cargaPadrao: "40h", campos: ["titulo", "area", "link"] },
+  { chave: "ifrs", nome: "Moodle IFRS", arquivo: "cursos-ifrs.js", constante: "IFRS",
+    coletar: () => coletarIFRS(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
+  { chave: "ifmg", nome: "+IFMG", arquivo: "cursos-ifmg.js", constante: "IFMG",
+    coletar: () => coletarIFMG(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true },
+  { chave: "mundi", nome: "Mundi (IFSul)", arquivo: "cursos-mundi.js", constante: "MUNDI",
+    coletar: () => coletarMundi(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], soVisiveis: true, checarLinks: true },
   { chave: "bradesco", nome: "Fundação Bradesco", arquivo: "cursos-bradesco.js", constante: "EV",
-    coletar: () => coletarBradesco(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"] },
+    coletar: () => coletarBradesco(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], checarLinks: true },
   { chave: "evg", nome: "Escola Virtual de Governo (EVG)", arquivo: "cursos-evg.js", constante: "EVG",
     coletar: () => coletarEVG(), cargaPadrao: "", campos: ["titulo", "inst", "carga", "area", "link"],
-    soVisiveis: true }   // o catálogo é enorme (~900); o arquivo guarda só o que aparece no site
+    soVisiveis: true, checarLinks: true }   // o catálogo é enorme (~900)
 ];
 
 const CABECALHO = {
@@ -55,6 +71,24 @@ const CABECALHO = {
    Coletado de ev.org.br · atualizado em ${HOJE} (${info}).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js. */`,
+  ifrs: (info) => `/* Moodle do IFRS · cursos livres (MOOC) gratuitos e abertos, 100% online.
+   Coletado de moodle.ifrs.edu.br · atualizado em ${HOJE} (${info}).
+   Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
+   Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
+   Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
+   completa coletada e as decisões estão em dados/decisoes-catalogos.json. */`,
+  ifmg: (info) => `/* +IFMG · cursos online EaD gratuitos do Instituto Federal de Minas Gerais.
+   Coletado de mais.ifmg.edu.br · atualizado em ${HOJE} (${info}).
+   Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
+   Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
+   Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
+   completa coletada e as decisões estão em dados/decisoes-catalogos.json. */`,
+  mundi: (info) => `/* Mundi · cursos online gratuitos (MOOC) do IFSul.
+   Coletado de mundi.ifsul.edu.br · atualizado em ${HOJE} (${info}).
+   Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
+   Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
+   Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
+   completa coletada e as decisões estão em dados/decisoes-catalogos.json. */`,
   evg: (info) => `/* Escola Virtual de Governo (EVG) · cursos online gratuitos.
    Coletado de escolavirtual.gov.br · atualizado em ${HOJE} (${info}).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
@@ -101,6 +135,27 @@ function cargaEmHoras(carga){
 }
 const cargaOk = carga => { const h = cargaEmHoras(carga); return h == null ? true : h >= CARGA_MINIMA_H; };
 
+/* O que aparece no site, por catálogo: decisão "manter" + carga mínima + uma versão só.
+   Percorre os catálogos na ordem de prioridade (CATALOGOS). O curso AUTOMÁTICO cujo título
+   já aparece numa fonte mais acima fica escondido; decisão manual nunca é escondida por
+   repetição (ex.: Excel na Prática, mantido à mão no Aprenda Mais e no Bradesco).
+   listas: { chave: [{titulo, carga}] }  ->  { visiveis: {chave: Set}, repetidos: {chave: [{titulo}]} } */
+function calcularVisiveis(listas, decisoes){
+  const visiveis = {}, repetidos = {}, acima = new Set();
+  for(const cat of CATALOGOS){
+    const V = new Set(); repetidos[cat.chave] = [];
+    for(const c of listas[cat.chave] || []){
+      const n = normalizarTitulo(c.titulo), e = decisoes[cat.chave][n];
+      if(!e || e.d !== "manter" || !cargaOk(c.carga || cat.cargaPadrao)) continue;
+      if(e.o === "auto" && acima.has(n)){ repetidos[cat.chave].push({ titulo: c.titulo }); continue; }
+      V.add(n);
+    }
+    V.forEach(n => acima.add(n));   // só depois de percorrer o catálogo inteiro
+    visiveis[cat.chave] = V;
+  }
+  return { visiveis, repetidos };
+}
+
 /* ---------- escrita ---------- */
 const js = v => JSON.stringify(v == null ? "" : v);
 function gerarCatalogo(cat, cursos, info){
@@ -118,9 +173,7 @@ function gerarFiltro(permitidos){
    A carga mínima de 15h é aplicada à parte, em js/config.js. Desliga tudo:
    FILTRAR_PUBLICO_FAMILIAS = false em js/config.js. */
 const TITULOS_PERMITIDOS = {
-${bloco("aprendaMais", permitidos.aprendaMais)},
-${bloco("bradesco", permitidos.bradesco)},
-${bloco("evg", permitidos.evg)}
+${CATALOGOS.map(c => bloco(c.chave, permitidos[c.chave] || [])).join(",\n")}
 };
 `;
 }
@@ -173,6 +226,10 @@ function escreverRelatorio(r){
       ? Object.entries(porMotivo).sort((a, b) => b[1].length - a[1].length)
           .map(([m, t]) => `- ${m}: **${t.length}**` + (t.length <= 3 ? ` (${t.join("; ")})` : ` (ex.: ${t.slice(0, 3).join("; ")})`)).join("\n") + "\n"
       : "_nenhum_\n");
+    if(c.repetidosEntreFontes && c.repetidosEntreFontes.length)
+      L.push(`### Escondidos por repetição em fonte de prioridade maior (${c.repetidosEntreFontes.length})\n\nVale uma versão só: Aprenda Mais, Moodle IFRS, +IFMG, Mundi, Bradesco, EVG, nessa ordem.\n\n${lista(c.repetidosEntreFontes, r => r.titulo)}`);
+    if(c.reavaliados && c.reavaliados.length)
+      L.push(`### Decisões automáticas que mudaram por causa de ajuste nas regras (${c.reavaliados.length})\n\n${lista(c.reavaliados, x => `${x.titulo}: ${x.de} → ${x.para} (${x.motivo})`)}`);
     L.push(`### Saíram do catálogo (${c.sairam.length})\n`);
     L.push(lista(c.sairam, s => `${s.titulo}${s.eraVisivel ? " ⚠️ estava visível no site" : ""}`));
     if(c.repetidos && c.repetidos.length) L.push(`### Repetidos descartados (${c.repetidos.length})\n\nMesmo título de outro curso do catálogo; ficou só o primeiro.\n\n${lista(c.repetidos, r => `${r.titulo} — ${r.link}`)}`);
@@ -204,6 +261,12 @@ async function main(){
     atual.cursos = anterioresDe(cat, decisoes[cat.chave], atual);
     const info = { nome: cat.nome, chave: cat.chave, antes: atual.cursos.length, falhou: false };
     resultado.catalogos.push(info);
+    if(IGNORAR.has(cat.chave)){
+      coletas[cat.chave] = { cursos: atual.cursos, detalhe: "ignorado nesta execução (--ignorar)", atual };
+      info.coletados = atual.cursos.length; info.detalhe = "ignorado nesta execução (--ignorar)"; info.ignorado = true; info.repetidos = [];
+      console.log(`${cat.nome}: ignorado (--ignorar), mantém os dados anteriores`);
+      continue;
+    }
     try{
       console.log(`Coletando ${cat.nome}…`);
       const col = await cat.coletar(atual.cursos);
@@ -244,44 +307,63 @@ async function main(){
 
   /* 3. decisões: herdar as existentes, classificar as novas */
   const norm = normalizarTitulo;
-  const visiveis = {};   // chave -> Set de títulos normalizados visíveis
   for(const cat of CATALOGOS){
     const col = coletas[cat.chave];
-    // área: no EVG/Bradesco a coleta não traz área; herda a do catálogo anterior
+    // área: nas fontes em que a coleta não traz área, herda a do catálogo anterior
     const areaAnterior = new Map(col.atual.cursos.map(c => [norm(c.titulo), c.area]));
     col.cursos.forEach(c => {
       c.carga = c.carga || cat.cargaPadrao;
       if((!c.area || c.area === "Outros") && areaAnterior.has(norm(c.titulo))) c.area = areaAnterior.get(norm(c.titulo));
     });
-    const dec = decisoes[cat.chave];
-    visiveis[cat.chave] = new Set(col.cursos.filter(c => dec[norm(c.titulo)] && dec[norm(c.titulo)].d === "manter" && cargaOk(c.carga)).map(c => norm(c.titulo)));
   }
+  /* o que aparecia no site ANTES desta execução (decisões ainda sem os cursos novos) */
+  const antes = calcularVisiveis(Object.fromEntries(CATALOGOS.map(c => [c.chave, coletas[c.chave].atual.cursos])), decisoes);
+
+  /* decisões automáticas valem pela regra de hoje: se scripts/lib/regras.js mudou, os cursos
+     já coletados são reavaliados (as manuais, o: "manual", nunca são refeitas) */
+  for(const cat of CATALOGOS){
+    const info = resultado.catalogos.find(c => c.chave === cat.chave);
+    info.reavaliados = [];
+    for(const e of Object.values(decisoes[cat.chave])){
+      if(e.o !== "auto") continue;
+      const r = classificar(e.t);
+      if(r.d !== e.d) info.reavaliados.push({ titulo: e.t, de: e.d, para: r.d, motivo: r.m });
+      e.d = r.d; e.m = r.m;
+    }
+  }
+  for(const cat of CATALOGOS){
+    const col = coletas[cat.chave], dec = decisoes[cat.chave];
+    for(const c of col.cursos){
+      const n = norm(c.titulo);
+      if(dec[n]) continue;
+      const r = classificar(c.titulo);
+      dec[n] = { t: c.titulo, d: r.d, o: "auto", m: r.m, desde: HOJE };
+    }
+  }
+  /* o que aparece DEPOIS (inclui a remoção de repetidos entre fontes) */
+  const depois = calcularVisiveis(Object.fromEntries(CATALOGOS.map(c => [c.chave, coletas[c.chave].cursos])), decisoes);
+
   for(const cat of CATALOGOS){
     const col = coletas[cat.chave], info = resultado.catalogos.find(c => c.chave === cat.chave);
     const dec = decisoes[cat.chave];
     const antigos = new Map(col.atual.cursos.map(c => [norm(c.titulo), c]));
     const novos = new Map(col.cursos.map(c => [norm(c.titulo), c]));
-    info.visiveisAntes = col.atual.cursos.filter(c => dec[norm(c.titulo)] && dec[norm(c.titulo)].d === "manter" && cargaOk(c.carga || cat.cargaPadrao)).length;
+    info.visiveisAntes = antes.visiveis[cat.chave].size;
+    info.visiveisDepois = depois.visiveis[cat.chave].size;
+    info.repetidosEntreFontes = depois.repetidos[cat.chave];
     info.entraram = []; info.sairam = []; info.cargaBaixa = [];
 
-    for(const c of col.cursos){
-      const n = norm(c.titulo);
-      if(dec[n]) continue;
-      const outros = new Set(CATALOGOS.filter(o => o.chave !== cat.chave).flatMap(o => [...visiveis[o.chave]]));
-      const r = classificar(c.titulo, { visiveisEmOutrosCatalogos: outros });
-      dec[n] = { t: c.titulo, d: r.d, o: "auto", m: r.m, desde: HOJE };
-      if(r.d === "manter" && cargaOk(c.carga)) visiveis[cat.chave].add(n);
-    }
     for(const [n, c] of novos) if(!antigos.has(n)){
-      info.entraram.push({ titulo: c.titulo, carga: c.carga, visivel: dec[n].d === "manter" && cargaOk(c.carga), motivo: dec[n].m });
+      const repetido = depois.repetidos[cat.chave].some(r => norm(r.titulo) === n);
+      info.entraram.push({ titulo: c.titulo, carga: c.carga, area: c.area, visivel: depois.visiveis[cat.chave].has(n),
+                           motivo: repetido ? "repetido em fonte de prioridade maior" : dec[n].m });
     }
     for(const [n, c] of antigos) if(!novos.has(n))
-      info.sairam.push({ titulo: c.titulo, eraVisivel: !!(dec[n] && dec[n].d === "manter" && cargaOk(c.carga || cat.cargaPadrao)) });
+      info.sairam.push({ titulo: c.titulo, eraVisivel: antes.visiveis[cat.chave].has(n) });
     for(const c of col.cursos){
       const n = norm(c.titulo);
       if(dec[n].d === "manter" && !cargaOk(c.carga)) info.cargaBaixa.push({ titulo: c.titulo, carga: c.carga });
     }
-    info.visiveisDepois = col.cursos.filter(c => dec[norm(c.titulo)].d === "manter" && cargaOk(c.carga)).length;
     /* registra o que estava no site de origem nesta coleta (base da comparação da próxima) */
     const presentes = new Set();
     for(const c of col.cursos){
@@ -292,13 +374,14 @@ async function main(){
     for(const [n, e] of Object.entries(dec)) if(!presentes.has(n)) e.ativo = false;
     info.col = col;
   }
+  const visiveis = depois.visiveis;
 
   /* 4. links dos cursos visíveis (EVG e Bradesco) */
   for(const cat of CATALOGOS){
     const info = resultado.catalogos.find(c => c.chave === cat.chave);
     info.links = null;
-    if(SEM_LINKS || cat.chave === "aprendaMais") continue;
-    const alvo = info.col.cursos.filter(c => decisoes[cat.chave][norm(c.titulo)].d === "manter" && cargaOk(c.carga));
+    if(SEM_LINKS || !cat.checarLinks || info.ignorado) continue;
+    const alvo = info.col.cursos.filter(c => visiveis[cat.chave].has(norm(c.titulo)));
     console.log(`Conferindo ${alvo.length} links de ${cat.nome}…`);
     const quebrados = [];
     await emLotes(alvo, 4, async c => {
@@ -307,7 +390,7 @@ async function main(){
         const caminho = new URL(r.url).pathname.replace(/\/+$/, "") || "/";
         if(r.status === 404 || r.status === 410) quebrados.push({ titulo: c.titulo, link: c.link, motivo: "HTTP " + r.status });
         else if(r.status >= 400) quebrados.push({ titulo: c.titulo, link: c.link, motivo: "HTTP " + r.status });
-        else if(["/", "/catalogo", "/cursos"].includes(caminho)) quebrados.push({ titulo: c.titulo, link: c.link, motivo: "redireciona para a lista de cursos" });
+        else if(["/", "/catalogo", "/cursos", "/portal"].includes(caminho)) quebrados.push({ titulo: c.titulo, link: c.link, motivo: "redireciona para a lista de cursos" });
       }catch(e){
         quebrados.push({ titulo: c.titulo, link: c.link, motivo: "sem resposta" });
       }
@@ -332,10 +415,11 @@ async function main(){
   const permitidos = {};
   for(const cat of CATALOGOS){
     const col = coletas[cat.chave];
-    permitidos[cat.chave] = [...new Set(col.cursos.filter(c => decisoes[cat.chave][norm(c.titulo)].d === "manter").map(c => norm(c.titulo)))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+    permitidos[cat.chave] = [...visiveis[cat.chave]].sort((a, b) => a.localeCompare(b, "pt-BR"));
     const paraArquivo = cat.soVisiveis
-      ? col.cursos.filter(c => decisoes[cat.chave][norm(c.titulo)].d === "manter" && cargaOk(c.carga))
+      ? col.cursos.filter(c => visiveis[cat.chave].has(norm(c.titulo)))
       : col.cursos;
+    if(IGNORAR.has(cat.chave)) continue;   // arquivo do catálogo ignorado fica como está
     const infoTxt = (cat.soVisiveis ? `${paraArquivo.length} cursos visíveis de ${col.cursos.length} coletados` : `${col.cursos.length} cursos`)
       + (cat.chave === "aprendaMais" ? ", " + col.detalhe : "");
     gravarSeMudou(cat.arquivo, gerarCatalogo(cat, paraArquivo, infoTxt), resultado.mudancas);

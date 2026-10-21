@@ -105,7 +105,7 @@ function cargaNaFaixaTolerada(carga){
 const FILTRAR_PUBLICO_FAMILIAS = true;
 function normalizarTitulo(t){
   return String(t==null?"":t).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase()
-    .replace(/\s+-\s+turma\s+\d{4}[ab]\s*$/i,"").replace(/\s+/g," ").trim();
+    .replace(/\s+-\s+turmas?\s+\d{4}[ab]\s*$/i,"").replace(/\s+/g," ").trim();
 }
 const _PERMITIDOS_CACHE = {};
 /* fonte: "aprendaMais" | "bradesco" | "evg" */

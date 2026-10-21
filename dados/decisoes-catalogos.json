@@ -7025,7 +7025,7 @@
    "t": "Termo de Compromisso Cultural: Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "15h",
@@ -7345,7 +7345,7 @@
    "t": "Convênios de Educação, Ciência, Tecnologia e Inovação: Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "voltado a servidor / gestão pública",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "30h",
@@ -7705,7 +7705,7 @@
    "t": "Licitação por concorrência, concurso, leilão e diálogo competitivo",
    "d": "ocultar",
    "o": "auto",
-   "m": "voltado a servidor / gestão pública",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "20h",
@@ -7735,7 +7735,7 @@
    "t": "Termos de Fomento e de Colaboração: Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "14h",
@@ -7795,7 +7795,7 @@
    "t": "Docência Plural - Formação em Interculturalidade e Bilinguismo",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "voltado a professor / escola / EaD",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "40h",
@@ -8245,7 +8245,7 @@
    "t": "Termo de Execução Descentralizada: Visão Geral e Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "10h",
@@ -9375,7 +9375,7 @@
    "t": "Termo de Compromisso: Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "14h",
@@ -9915,7 +9915,7 @@
    "t": "Transferências Discricionárias da União: Atos Preparatórios",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "14h",
@@ -10785,7 +10785,7 @@
    "t": "Inovações em Tecnologia Educacional",
    "d": "ocultar",
    "o": "auto",
-   "m": "sem regra de manter (fora do perfil por padrão)",
+   "m": "voltado a professor / escola / EaD",
    "desde": "2026-10-21",
    "ativo": true,
    "c": "25h",
@@ -13481,6 +13481,5762 @@
    "desde": "2026-10-21",
    "ativo": true,
    "c": "16h",
+   "ar": "Outros"
+  }
+ },
+ "ifrs": {
+  "administrador de banco de dados": {
+   "t": "Administrador de Banco de Dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Tecnologia da Informação"
+  },
+  "apresentacoes google": {
+   "t": "Apresentações Google",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "automacao de sistemas": {
+   "t": "Automação de Sistemas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "banco de dados 1: fundamentos": {
+   "t": "Banco de Dados 1: fundamentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "banco de dados: oracle pl/sql": {
+   "t": "Banco de Dados: Oracle PL/SQL",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "bibliotecas graficas no contexto dos jogos digitais": {
+   "t": "Bibliotecas Gráficas no contexto dos Jogos Digitais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "computacao: fundamentos": {
+   "t": "Computação: Fundamentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Tecnologia da Informação"
+  },
+  "css3: estilizando paginas web com estilo": {
+   "t": "CSS3: Estilizando Páginas Web com Estilo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "descoberta de conhecimento em bases de dados: fundamentos": {
+   "t": "Descoberta de Conhecimento em Bases de Dados: fundamentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "desenvolvimento backend com php: poo e integracao com mysql": {
+   "t": "Desenvolvimento Backend com PHP: POO e Integração com MySQL",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "documentos google: editor de textos": {
+   "t": "Documentos Google: editor de textos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Tecnologia da Informação"
+  },
+  "gestao de projetos de software com pmbok: guia essencial para iniciantes": {
+   "t": "Gestão de Projetos de Software com PMBOK: Guia Essencial para Iniciantes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "google drive": {
+   "t": "Google Drive",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "html5: fundamentos para construcao de paginas web modernas": {
+   "t": "HTML5: Fundamentos para Construção de Páginas Web Modernas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "inkscape": {
+   "t": "Inkscape",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "instalador e reparador de redes de computadores": {
+   "t": "Instalador e Reparador de Redes de Computadores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Tecnologia da Informação"
+  },
+  "javascript: fundamentos para desenvolvimento web interativo": {
+   "t": "JavaScript: Fundamentos para Desenvolvimento Web Interativo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "logica de programacao: comecando a desenvolver seus primeiros programas": {
+   "t": "Lógica de Programação: começando a desenvolver seus primeiros programas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "logica de programacao: deixando os seus programas espertos": {
+   "t": "Lógica de Programação: deixando os seus programas espertos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "logica de programacao: multiplos valores e modulos": {
+   "t": "Lógica de Programação: múltiplos valores e módulos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "node.js: introducao ao desenvolvimento de apis modernas": {
+   "t": "Node.js: Introdução ao Desenvolvimento de APIs Modernas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "php para iniciantes: fundamentos praticos para o desenvolvimento web": {
+   "t": "PHP para Iniciantes: Fundamentos Práticos para o Desenvolvimento Web",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "planilhas google: planilha eletronica": {
+   "t": "Planilhas Google: Planilha Eletrônica",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao basica com java i": {
+   "t": "Programação Básica com Java I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao basica com java ii": {
+   "t": "Programação Básica com Java II",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao basica com java iii": {
+   "t": "Programação Básica com Java III",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programador web": {
+   "t": "Programador Web",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Tecnologia da Informação"
+  },
+  "projeto de sistemas web": {
+   "t": "Projeto de Sistemas Web",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "raspberry pi basico para iot": {
+   "t": "Raspberry PI Básico para IoT",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "raspberry pi e aplicacoes": {
+   "t": "Raspberry PI e Aplicações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "react native: criacao de aplicativos moveis modernos": {
+   "t": "React Native: Criação de Aplicativos Móveis Modernos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "react: construindo single page applications dinamicas e interativas": {
+   "t": "React: Construindo Single Page Applications Dinâmicas e Interativas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "scrum: gerenciando projetos de software com agilidade": {
+   "t": "SCRUM: Gerenciando Projetos de Software com Agilidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "windows server 2016: active directory": {
+   "t": "Windows Server 2016: active directory",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "windows server 2016: instalacao e administracao": {
+   "t": "Windows Server 2016: Instalação e Administração",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "aprendizagem significativa": {
+   "t": "Aprendizagem Significativa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "assistente de secretaria escolar": {
+   "t": "Assistente de Secretaria Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "assistente escolar": {
+   "t": "Assistente Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "autismo em sala de aula: estrategias de inclusao e aprendizagem": {
+   "t": "Autismo em Sala de Aula: Estratégias de Inclusão e Aprendizagem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "auxiliar pedagogico": {
+   "t": "Auxiliar Pedagógico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "como usar o laboratorio de informatica nas aulas? ensino infantil e fundamental - anos iniciais": {
+   "t": "Como Usar o Laboratório de Informática nas aulas? Ensino Infantil e Fundamental - Anos Iniciais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "cuidado e desenvolvimento na educacao infantil": {
+   "t": "Cuidado e Desenvolvimento na Educação Infantil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "cuidador de estudantes com autismo no ambiente escolar: fundamentos, praticas e trabalho colaborativo": {
+   "t": "Cuidador de Estudantes com Autismo no Ambiente Escolar: fundamentos, práticas e trabalho colaborativo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "cultura digital e educacao midiatica": {
+   "t": "Cultura Digital e Educação Midiática",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "didatica": {
+   "t": "Didática",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "direitos humanos, diversidade e inclusao educacional": {
+   "t": "Direitos Humanos, Diversidade e Inclusão Educacional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "educacao brasileira": {
+   "t": "Educação Brasileira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "educacao de jovens e adultos integrada a educacao profissional e tecnologica": {
+   "t": "Educação de Jovens e Adultos Integrada à Educação Profissional e Tecnológica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "educacao profissional e o novo ensino medio": {
+   "t": "Educação Profissional e o Novo Ensino Médio",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "extensao para estudantes": {
+   "t": "Extensão para Estudantes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "gestao de documentos e organizacao escolar": {
+   "t": "Gestão de Documentos e Organização Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "140h",
+   "ar": "Outros"
+  },
+  "gestao em educacao escolar": {
+   "t": "Gestão em Educação Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestor escolar": {
+   "t": "Gestor Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "introducao a organizacao das nacoes unidas e as simulacoes academicas e escolares (muns)": {
+   "t": "Introdução à Organização das Nações Unidas e às simulações acadêmicas e escolares (MUNs)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "monitor de transporte escolar": {
+   "t": "Monitor de Transporte Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "organizacao do trabalho escolar": {
+   "t": "Organização do Trabalho Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Outros"
+  },
+  "personalizacao do ensino a partir de metodologias ativas": {
+   "t": "Personalização do Ensino a partir de Metodologias Ativas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "pesquisa em sala de aula na educacao basica": {
+   "t": "Pesquisa em Sala de Aula na Educação Básica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "possibilidades para a fabricacao digital de recursos de tecnologia assistiva de baixo custo na educacao": {
+   "t": "Possibilidades para a fabricação digital de recursos de Tecnologia Assistiva de Baixo Custo na educação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "projetos educacionais e interdisciplinares": {
+   "t": "Projetos Educacionais e Interdisciplinares",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "psicologia da aprendizagem": {
+   "t": "Psicologia da Aprendizagem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "tecnologia assistiva no contexto educacional": {
+   "t": "Tecnologia Assistiva no Contexto Educacional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "ensino de portugues brasileiro como lingua de acolhimento": {
+   "t": "Ensino de Português Brasileiro como Língua de Acolhimento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "espanhol 1": {
+   "t": "Espanhol 1",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "espanhol 2": {
+   "t": "Espanhol 2",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "generos textuais academicos": {
+   "t": "Gêneros Textuais Acadêmicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "ingles 1": {
+   "t": "Inglês 1",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 2": {
+   "t": "Inglês 2",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 3": {
+   "t": "Inglês 3",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 4": {
+   "t": "Inglês 4",
+   "d": "manter",
+   "o": "auto",
+   "m": "idioma, nível básico (1 a 4)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 5": {
+   "t": "Inglês 5",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 6": {
+   "t": "Inglês 6",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 7": {
+   "t": "Inglês 7",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 8": {
+   "t": "Inglês 8",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 9": {
+   "t": "Inglês 9",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 10": {
+   "t": "Inglês 10",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 11": {
+   "t": "Inglês 11",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 12": {
+   "t": "Inglês 12",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 13": {
+   "t": "Inglês 13",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ingles 14": {
+   "t": "Inglês 14",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "idioma, nível acima do 4",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "libras para professores": {
+   "t": "Libras para Professores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "libras: compreensao basica": {
+   "t": "Libras: compreensão básica",
+   "d": "manter",
+   "o": "auto",
+   "m": "inclusão",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "lingua portuguesa e cultura brasileira para estrangeiros basico": {
+   "t": "Língua Portuguesa e Cultura Brasileira para Estrangeiros Básico",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "lingua portuguesa e cultura brasileira para estrangeiros intermediario": {
+   "t": "Língua Portuguesa e Cultura Brasileira para Estrangeiros Intermediário",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "literatura": {
+   "t": "Literatura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "palavra brincada: infancia, literatura e contacao de historias": {
+   "t": "Palavra brincada: infância, literatura e contação de histórias",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "politicas publicas para a leitura: praticas a partir do pnld literario": {
+   "t": "Políticas públicas para a leitura: práticas a partir do PNLD Literário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "portugues instrumental": {
+   "t": "Português Instrumental",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "educacao financeira": {
+   "t": "Educação Financeira",
+   "d": "manter",
+   "o": "auto",
+   "m": "dinheiro do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "estatistica: conceitos e representacoes": {
+   "t": "Estatística: conceitos e representações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "estatistica: medidas de posicao e dispersao": {
+   "t": "Estatística: medidas de posição e dispersão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "funcoes matematicas aplicadas a area da saude i": {
+   "t": "Funções Matemáticas Aplicadas à Área da Saúde I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "matematica basica: nivelamento": {
+   "t": "Matemática Básica: Nivelamento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "matematica em diferentes contextos - parte 1": {
+   "t": "Matemática em Diferentes Contextos - parte 1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "matematica em diferentes contextos - parte 2": {
+   "t": "Matemática em Diferentes Contextos - parte 2",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "matematica em diferentes contextos - parte 3": {
+   "t": "Matemática em Diferentes Contextos - parte 3",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "matematica financeira": {
+   "t": "Matemática Financeira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "operacionalizacao de valores monetarios": {
+   "t": "Operacionalização de Valores Monetários",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "probabilidade: conceitos iniciais": {
+   "t": "Probabilidade: conceitos iniciais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "quimica": {
+   "t": "Química",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "sistemas de unidades, conversoes e analise dimensional": {
+   "t": "Sistemas de Unidades, Conversões e Análise Dimensional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "agente de desenvolvimento socioambiental": {
+   "t": "Agente de Desenvolvimento Socioambiental",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Saúde e Cuidados"
+  },
+  "agente de gestao de residuos solidos": {
+   "t": "Agente de Gestão de Resíduos Sólidos",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Saúde e Cuidados"
+  },
+  "alimentacao, nutricao e saude infantil": {
+   "t": "Alimentação, Nutrição e Saúde Infantil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Saúde e Cuidados"
+  },
+  "altas habilidades / superdotacao no brasil: percurso historico-normativo e o advento da lei nº 15.436/2026": {
+   "t": "Altas Habilidades / Superdotação no Brasil: Percurso Histórico-Normativo e o Advento da Lei nº 15.436/2026",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "altas habilidades / superdotacao: conceitos": {
+   "t": "Altas Habilidades / Superdotação: conceitos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "biologia": {
+   "t": "Biologia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "burnout: reconhecimento, prevencao e cuidado": {
+   "t": "Burnout: Reconhecimento, Prevenção e Cuidado",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "coronavirus: conceitos e cuidados": {
+   "t": "Coronavírus: conceitos e cuidados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Saúde e Cuidados"
+  },
+  "cuidado, saude e desenvolvimento na infancia": {
+   "t": "Cuidado, Saúde e Desenvolvimento na Infância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Saúde e Cuidados"
+  },
+  "cuidador de idoso": {
+   "t": "Cuidador de Idoso",
+   "d": "manter",
+   "o": "auto",
+   "m": "cuidado e saúde básica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Saúde e Cuidados"
+  },
+  "cuidador infantil": {
+   "t": "Cuidador Infantil",
+   "d": "manter",
+   "o": "auto",
+   "m": "cuidado e saúde básica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Saúde e Cuidados"
+  },
+  "cuidados na infancia: conceitos iniciais": {
+   "t": "Cuidados na infância: conceitos iniciais",
+   "d": "manter",
+   "o": "auto",
+   "m": "cuidado e saúde básica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "educacao ambiental": {
+   "t": "Educação Ambiental",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "epidemiologia": {
+   "t": "Epidemiologia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "laboratório / pesquisa / saúde pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "exercitando a paternidade: cuidado e autocuidado": {
+   "t": "Exercitando a Paternidade: cuidado e autocuidado",
+   "d": "manter",
+   "o": "auto",
+   "m": "cuidado e saúde básica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "existe o aquecimento global?": {
+   "t": "Existe o aquecimento global?",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "geologia ambiental": {
+   "t": "Geologia Ambiental",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Saúde e Cuidados"
+  },
+  "gerenciamento de residuos": {
+   "t": "Gerenciamento de Resíduos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Saúde e Cuidados"
+  },
+  "maquiagem: produtos": {
+   "t": "Maquiagem: produtos",
+   "d": "manter",
+   "o": "auto",
+   "m": "beleza e estética (curso prático)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "objetivos de desenvolvimento sustentavel (ods)": {
+   "t": "Objetivos de Desenvolvimento Sustentável (ODS)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "planejamento ambiental": {
+   "t": "Planejamento Ambiental",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "primeiros socorros para profissionais de saude": {
+   "t": "Primeiros Socorros para Profissionais de Saúde",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a profissional já formado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "promocao da saude e organizacao do trabalho comunitario": {
+   "t": "Promoção da Saúde e Organização do Trabalho Comunitário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Saúde e Cuidados"
+  },
+  "psicologia aplicada a reabilitacao": {
+   "t": "Psicologia Aplicada à Reabilitação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "psicologia do trabalho": {
+   "t": "Psicologia do Trabalho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Saúde e Cuidados"
+  },
+  "reciclador": {
+   "t": "Reciclador",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Saúde e Cuidados"
+  },
+  "saude comunitaria e promocao da saude": {
+   "t": "Saúde Comunitária e Promoção da Saúde",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "120h",
+   "ar": "Saúde e Cuidados"
+  },
+  "saude ocupacional": {
+   "t": "Saúde Ocupacional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Saúde e Cuidados"
+  },
+  "sustentabilidade ambiental, social e economica": {
+   "t": "Sustentabilidade Ambiental, Social e Econômica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "vigilancia e promocao em saude": {
+   "t": "Vigilância e Promoção em Saúde",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "120h",
+   "ar": "Saúde e Cuidados"
+  },
+  "agencias de viagem e turismo": {
+   "t": "Agências de Viagem e Turismo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "agente de informacoes turisticas": {
+   "t": "Agente de Informações Turísticas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "agente de recepcao e reservas em meios de hospedagem": {
+   "t": "Agente de Recepção e Reservas em Meios de Hospedagem",
+   "d": "manter",
+   "o": "auto",
+   "m": "hotelaria, turismo e eventos",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "camareira em meios de hospedagem": {
+   "t": "Camareira em Meios de Hospedagem",
+   "d": "manter",
+   "o": "auto",
+   "m": "hotelaria, turismo e eventos",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "condutor de turismo de pesca": {
+   "t": "Condutor de Turismo de Pesca",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "condutor de turismo em espacos culturais locais": {
+   "t": "Condutor de Turismo em Espaços Culturais Locais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "geografia e turismo": {
+   "t": "Geografia e Turismo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "operacoes de hotelaria e atendimento": {
+   "t": "Operações de Hotelaria e Atendimento",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Turismo e Hotelaria"
+  },
+  "administracao estrategica": {
+   "t": "Administração Estratégica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "administracao financeira": {
+   "t": "Administração Financeira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "administracao: fundamentos": {
+   "t": "Administração: fundamentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "agente de desenvolvimento cooperativista": {
+   "t": "Agente de Desenvolvimento Cooperativista",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "almoxarife": {
+   "t": "Almoxarife",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente administrativo": {
+   "t": "Assistente Administrativo",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente administrativo no servico publico": {
+   "t": "Assistente Administrativo no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "300h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente de contabilidade": {
+   "t": "Assistente de Contabilidade",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente de logistica": {
+   "t": "Assistente de Logística",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente de recursos humanos": {
+   "t": "Assistente de Recursos Humanos",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente de servicos em comercio exterior": {
+   "t": "Assistente de Serviços em Comércio Exterior",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente de tesouraria": {
+   "t": "Assistente de Tesouraria",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "assistente financeiro": {
+   "t": "Assistente Financeiro",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "atendimento, comunicacao e praticas administrativas": {
+   "t": "Atendimento, Comunicação e Práticas Administrativas",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "160h",
+   "ar": "Administração e Gestão"
+  },
+  "comunicacao e atendimento ao cliente": {
+   "t": "Comunicação e Atendimento ao Cliente",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "contabilidade publica": {
+   "t": "Contabilidade Pública",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "contratos": {
+   "t": "Contratos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "convenios": {
+   "t": "Convênios",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "cooperativismo, governanca e gestao coletiva": {
+   "t": "Cooperativismo, Governança e Gestão Coletiva",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Administração e Gestão"
+  },
+  "direito administrativo": {
+   "t": "Direito Administrativo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "direito: nocoes": {
+   "t": "Direito: noções",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "etica no servico publico": {
+   "t": "Ética no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "financas para empreendedores": {
+   "t": "Finanças para Empreendedores",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "financas pessoais": {
+   "t": "Finanças Pessoais",
+   "d": "manter",
+   "o": "auto",
+   "m": "dinheiro do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "financas publicas": {
+   "t": "Finanças Públicas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "financas, orcamento e controle no setor publico": {
+   "t": "Finanças, Orçamento e Controle no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Administração e Gestão"
+  },
+  "gerenciamento de equipes": {
+   "t": "Gerenciamento de Equipes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "gestao administrativa no setor publico": {
+   "t": "Gestão Administrativa no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "130h",
+   "ar": "Administração e Gestão"
+  },
+  "gestao de carreiras e participacao em processos seletivos": {
+   "t": "Gestão de Carreiras e Participação em Processos Seletivos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "gestao de pessoas e relacoes de trabalho": {
+   "t": "Gestão de Pessoas e Relações de Trabalho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "140h",
+   "ar": "Administração e Gestão"
+  },
+  "gestao de pessoas: conceitos e processos": {
+   "t": "Gestão de Pessoas: conceitos e processos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "gestao de tempo e organizacao": {
+   "t": "Gestão de Tempo e Organização",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "gestor de microempresa": {
+   "t": "Gestor de Microempresa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "iniciacao ao servico publico nos institutos federais": {
+   "t": "Iniciação ao Serviço Público nos Institutos Federais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Administração e Gestão"
+  },
+  "licitacoes": {
+   "t": "Licitações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "lideranca e trabalho em equipe": {
+   "t": "Liderança e Trabalho em Equipe",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "logistica operacional e gestao de estoques": {
+   "t": "Logística Operacional e Gestão de Estoques",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Administração e Gestão"
+  },
+  "logistica reversa": {
+   "t": "Logística Reversa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "logistica, estoques e distribuicao": {
+   "t": "Logística, Estoques e Distribuição",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "140h",
+   "ar": "Administração e Gestão"
+  },
+  "marketing digital e redes sociais": {
+   "t": "Marketing Digital e Redes Sociais",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "marketing publico": {
+   "t": "Marketing Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "marketing: conceitos e estrategias": {
+   "t": "Marketing: conceitos e estratégias",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "metodos de pesquisa: conceitos introdutorios": {
+   "t": "Métodos de pesquisa: conceitos introdutórios",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "microempreendedor individual": {
+   "t": "Microempreendedor Individual",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "operacoes logisticas e cadeia de suprimentos": {
+   "t": "Operações Logísticas e Cadeia de Suprimentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "120h",
+   "ar": "Administração e Gestão"
+  },
+  "organizacao, sistemas e metodos": {
+   "t": "Organização, Sistemas e Métodos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "planejamento e execucao na gestao publica municipal": {
+   "t": "Planejamento e Execução na Gestão Pública Municipal",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "120h",
+   "ar": "Administração e Gestão"
+  },
+  "planejamento e gestao governamental": {
+   "t": "Planejamento e Gestão Governamental",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Administração e Gestão"
+  },
+  "planejamento financeiro": {
+   "t": "Planejamento Financeiro",
+   "d": "manter",
+   "o": "auto",
+   "m": "dinheiro do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "por que, quando e como construir mapas de riscos nas contratacoes publicas": {
+   "t": "Por que, quando e como construir mapas de riscos nas contratações públicas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "projetos: elaboracao e gestao": {
+   "t": "Projetos: elaboração e gestão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Administração e Gestão"
+  },
+  "resolucao de conflitos e negociacao": {
+   "t": "Resolução de Conflitos e Negociação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "rotinas trabalhistas e organizacao administrativa": {
+   "t": "Rotinas Trabalhistas e Organização Administrativa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Administração e Gestão"
+  },
+  "secretario": {
+   "t": "Secretário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "secretario (extra agosto)": {
+   "t": "Secretário (extra Agosto)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "cópia “(extra …)” de outro curso",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "trilha para o empreendedorismo: organizando a sua ideia para criar um negocio": {
+   "t": "Trilha para o Empreendedorismo: Organizando a sua ideia para criar um negócio",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "vendedor": {
+   "t": "Vendedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Administração e Gestão"
+  },
+  "agente de alimentacao escolar": {
+   "t": "Agente de Alimentação Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Alimentação"
+  },
+  "alimentacao saudavel e sustentavel na escola": {
+   "t": "Alimentação Saudável e Sustentável na Escola",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Alimentação"
+  },
+  "analise sensorial": {
+   "t": "Análise Sensorial",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Alimentação"
+  },
+  "bebidas: conceitos e tipos": {
+   "t": "Bebidas: conceitos e tipos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Alimentação"
+  },
+  "bolos caseiros: tecnicas essenciais": {
+   "t": "Bolos caseiros: técnicas essenciais",
+   "d": "manter",
+   "o": "auto",
+   "m": "culinária e confeitaria",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Alimentação"
+  },
+  "confeitaria": {
+   "t": "Confeitaria",
+   "d": "manter",
+   "o": "auto",
+   "m": "alimentação",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Alimentação"
+  },
+  "gastronomia: eventos": {
+   "t": "Gastronomia: eventos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Alimentação"
+  },
+  "gastronomia: historia": {
+   "t": "Gastronomia: história",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Alimentação"
+  },
+  "higiene e controle de qualidade de alimentos": {
+   "t": "Higiene e Controle de Qualidade de Alimentos",
+   "d": "manter",
+   "o": "auto",
+   "m": "alimentação",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Alimentação"
+  },
+  "legislacao de alimentos": {
+   "t": "Legislação de Alimentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Alimentação"
+  },
+  "organizacao de estacao de trabalho e mise en place": {
+   "t": "Organização de Estação de Trabalho e Mise en Place",
+   "d": "manter",
+   "o": "auto",
+   "m": "culinária e confeitaria",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Alimentação"
+  },
+  "panificacao": {
+   "t": "Panificação",
+   "d": "manter",
+   "o": "auto",
+   "m": "alimentação",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Alimentação"
+  },
+  "agricultor agroflorestal": {
+   "t": "Agricultor Agroflorestal",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "agricultor familiar": {
+   "t": "Agricultor Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "agricultura e desenvolvimento rural sustentavel": {
+   "t": "Agricultura e Desenvolvimento Rural Sustentável",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "aquicultor": {
+   "t": "Aquicultor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "aspectos reprodutivos de bovinos": {
+   "t": "Aspectos Reprodutivos de Bovinos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "auxiliar de agroecologia": {
+   "t": "Auxiliar de Agroecologia",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "fruticultor": {
+   "t": "Fruticultor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "poda da videira": {
+   "t": "Poda da Videira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "viticultura: conceitos basicos": {
+   "t": "Viticultura: conceitos básicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "acesso a informacao cientifica e tecnologica": {
+   "t": "Acesso à Informação Científica e Tecnológica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "era vargas (1930-1945)": {
+   "t": "Era Vargas (1930-1945)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "filosofia i": {
+   "t": "Filosofia I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "geografia e bncc: do pensamento espacial as praticas pedagogicas": {
+   "t": "Geografia e BNCC: Do Pensamento Espacial às Práticas Pedagógicas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "geografia e geopolitica na atualidade": {
+   "t": "Geografia e Geopolítica na Atualidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "geografia i": {
+   "t": "Geografia I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "geografia ii": {
+   "t": "Geografia II",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "historia da africa pre-colonial": {
+   "t": "História da África Pré-Colonial",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "historia da america: astecas, maias, incas e tupis": {
+   "t": "História da América: Astecas, Maias, Incas e Tupis",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "historia do brasil": {
+   "t": "História do Brasil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "historia do rio grande do sul": {
+   "t": "História do Rio Grande do Sul",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "historia geral": {
+   "t": "História Geral",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "sociologia": {
+   "t": "Sociologia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "abordagens pedagogicas modernas na educacao a distancia": {
+   "t": "Abordagens Pedagógicas Modernas na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "acessibilidade de materiais didaticos em ambientes virtuais para a ead: praticas inclusivas na educacao online": {
+   "t": "Acessibilidade de Materiais Didáticos em Ambientes Virtuais para a EaD: Práticas Inclusivas na Educação Online",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "acompanhamento de alunos na ead com moodle": {
+   "t": "Acompanhamento de Alunos na EaD com Moodle",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "avaliacao na educacao a distancia": {
+   "t": "Avaliação na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "criacao de videoaulas na educacao a distancia": {
+   "t": "Criação de Videoaulas na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "cursos online abertos e massivos: teoria e pratica": {
+   "t": "Cursos Online Abertos e Massivos: teoria e prática",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "cursos regulares presenciais com carga horaria a distancia": {
+   "t": "Cursos Regulares Presenciais com Carga Horária a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "docencia e avaliacao na graduacao ead: como planejar aulas nas novas regras": {
+   "t": "Docência e Avaliação na Graduação EaD: Como Planejar Aulas nas Novas Regras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "educacao a distancia": {
+   "t": "Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "ensino e aprendizagem na ead": {
+   "t": "Ensino e Aprendizagem na EaD",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gamificacao no moodle na educacao a distancia": {
+   "t": "Gamificação no Moodle na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "implementacao e gestao de cursos de graduacao ead nas novas regras": {
+   "t": "Implementação e Gestão de Cursos de Graduação EaD nas Novas Regras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "marco regulatorio da graduacao ead: fundamentos": {
+   "t": "Marco Regulatório da Graduação EaD: fundamentos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "mediacao pedagogica na educacao a distancia": {
+   "t": "Mediação Pedagógica na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "moodle basico para professores": {
+   "t": "Moodle Básico para Professores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "o uso de aplicativos web na construcao de materiais educacionais na educacao a distancia": {
+   "t": "O Uso de Aplicativos Web na Construção de Materiais Educacionais na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "planejamento de disciplinas com carga horaria de educacao a distancia": {
+   "t": "Planejamento de Disciplinas com Carga Horária de Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "qualidade de cursos em educacao a distancia": {
+   "t": "Qualidade de Cursos em Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "repositorios de materiais didaticos digitais e direitos de uso na educacao a distancia": {
+   "t": "Repositórios de Materiais Didáticos Digitais e Direitos de Uso na Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "tecnicas de escrita para educacao a distancia": {
+   "t": "Técnicas de Escrita para Educação a Distância",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "impressao 3d para iniciantes": {
+   "t": "Impressão 3D para iniciantes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Construção e Manutenção"
+  },
+  "soldagem com eletrodo revestido": {
+   "t": "Soldagem com Eletrodo Revestido",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Construção e Manutenção"
+  },
+  "tintas industriais: tipos, aplicacoes e caracterizacoes": {
+   "t": "Tintas industriais: tipos, aplicações e caracterizações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Construção e Manutenção"
+  },
+  "zelador": {
+   "t": "Zelador",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Construção e Manutenção"
+  },
+  "assistente de producao cultural": {
+   "t": "Assistente de Produção Cultural",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "audiovisuais: arte, tecnica e linguagem": {
+   "t": "Audiovisuais: arte, técnica e linguagem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "cerimonialista": {
+   "t": "Cerimonialista",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "eventos e gastronomia": {
+   "t": "Eventos e Gastronomia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "95h",
+   "ar": "Outros"
+  },
+  "eventos: conceitos": {
+   "t": "Eventos: conceitos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "eventos: tipos": {
+   "t": "Eventos: tipos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "organizador de eventos": {
+   "t": "Organizador de Eventos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "200h",
+   "ar": "Outros"
+  },
+  "planejamento, cerimonial e gestao de eventos": {
+   "t": "Planejamento, Cerimonial e Gestão de Eventos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "110h",
+   "ar": "Outros"
+  },
+  "planejamento, cerimonial e producao de eventos": {
+   "t": "Planejamento, Cerimonial e Produção de Eventos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Outros"
+  },
+  "tecnicas fotograficas": {
+   "t": "Técnicas Fotográficas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "alfabetizacao e letramento turma 2026b": {
+   "t": "Alfabetização e Letramento Turma 2026B",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  }
+ },
+ "ifmg": {
+  "tecnologias na educacao: docencia e tutoria ead": {
+   "t": "Tecnologias na Educação: Docência e Tutoria EaD",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "ensino e aprendizagem": {
+   "t": "Ensino e Aprendizagem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "operador de computador: utilizacao de linux": {
+   "t": "Operador de computador: Utilização de Linux",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "ferramentas de gestao (qualidade): modulo inovacao": {
+   "t": "Ferramentas de Gestão (Qualidade): Módulo Inovação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "operador de computador ansys": {
+   "t": "Operador de Computador ANSYS",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "software técnico / de engenharia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "boas praticas de seguranca do trabalho em laboratorios": {
+   "t": "Boas práticas de Segurança do Trabalho em Laboratórios",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "laboratório / pesquisa / saúde pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "seguranca do trabalho na construcao civil": {
+   "t": "Segurança do Trabalho na Construção Civil",
+   "d": "manter",
+   "o": "auto",
+   "m": "segurança do trabalho (básico)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "redacao para o enem": {
+   "t": "Redação para o ENEM",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "microbiologista: conhecendo o hpv, suas doencas e vacinas": {
+   "t": "Microbiologista: conhecendo o HPV, suas doenças e vacinas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Saúde e Cuidados"
+  },
+  "gramatica do portugues": {
+   "t": "Gramática do Português",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "tecnologia da informacao na educacao - ticseduca": {
+   "t": "Tecnologia da Informação na Educação - TICSEDUCA",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "introducao a gestao de projetos": {
+   "t": "Introdução à Gestão de Projetos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "matematica financeira": {
+   "t": "Matemática Financeira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "ergonomia aplicada aos postos de trabalho": {
+   "t": "Ergonomia Aplicada aos Postos de Trabalho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "meios multissemioticos e ensino: estrategias para sala de aula": {
+   "t": "Meios Multissemióticos e Ensino: Estratégias para Sala de Aula",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "generos textuais academicos para ensino tecnico, graduacao e pos-graduacao": {
+   "t": "Gêneros Textuais Acadêmicos para Ensino Técnico, Graduação e Pós-Graduação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "portugues instrumental para ensino superior": {
+   "t": "Português Instrumental para Ensino Superior",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "planilhas eletronicas na gestao": {
+   "t": "Planilhas Eletrônicas na Gestão",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "historia das ciencias e o metodo cientifico: bases para a educacao cientifica": {
+   "t": "História das Ciências e o Método Científico: Bases para a Educação Científica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "moodle para professores": {
+   "t": "Moodle Para Professores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "educacao inclusiva: introducao ao transtorno do espectro autista (tea)": {
+   "t": "Educação Inclusiva: Introdução ao Transtorno do Espectro Autista (TEA)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestao de pessoas: prazer e sofrimento no trabalho": {
+   "t": "Gestão de Pessoas: Prazer e Sofrimento no Trabalho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "seguranca do trabalho: normas basicas": {
+   "t": "Segurança do Trabalho: Normas Básicas",
+   "d": "manter",
+   "o": "auto",
+   "m": "segurança do trabalho (básico)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "desenho tecnico: leitura e interpretacao": {
+   "t": "Desenho Técnico: Leitura e Interpretação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "desenho tecnico manual": {
+   "t": "Desenho Técnico Manual",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "multimidia educacional colaborativa": {
+   "t": "Multimídia Educacional Colaborativa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "multimeios didaticos utilizando o linux educacional": {
+   "t": "Multimeios Didáticos Utilizando o Linux Educacional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "formacao de educadores em sistemas agroflorestais sintropicos": {
+   "t": "Formação de educadores em sistemas agroflorestais sintrópicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "matematica basica para o enem": {
+   "t": "Matemática Básica para o ENEM",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "comunicacao oral e escrita": {
+   "t": "Comunicação Oral e Escrita",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "eletronica: introducao aos inversores de tensao": {
+   "t": "Eletrônica: Introdução aos Inversores de Tensão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "metodologia cientifica: introducao a projetos de pesquisa": {
+   "t": "Metodologia científica: introdução a projetos de pesquisa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "administrador de organizacoes civis: direitos humanos e justica": {
+   "t": "Administrador de Organizações Civis: Direitos Humanos e Justiça",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "automacao industrial – introducao a pneumatica": {
+   "t": "Automação Industrial – Introdução à Pneumática",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "principios do atendimento educacional especializado (aee) na educacao basica": {
+   "t": "Princípios do Atendimento Educacional Especializado (AEE) na Educação Básica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "cadista para a construcao civil – projeto arquitetonico": {
+   "t": "Cadista para a Construção Civil – Projeto Arquitetônico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "educacao profissional e tecnologica: historia, conceitos e praticas": {
+   "t": "Educação Profissional e Tecnológica: História, Conceitos e Práticas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "excel avancado: tecnicas para analise de dados": {
+   "t": "Excel Avançado: Técnicas para Análise de Dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao a producao de audio e video": {
+   "t": "Introdução à Produção de Áudio e Vídeo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "editor de texto e imagem: uso da ferramenta latex": {
+   "t": "Editor de texto e imagem: uso da ferramenta LaTeX",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "auxiliar de escritorio/administrativo: ferramentas e competencias basicas": {
+   "t": "Auxiliar de Escritório/Administrativo: Ferramentas e Competências Básicas",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "analise e producao de textos de comunicacao i": {
+   "t": "Análise e produção de textos de comunicação I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "espanhol para turismo e hospitalidade i": {
+   "t": "Espanhol para turismo e hospitalidade I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "coesao textual: dominando a competencia iv da redacao do enem": {
+   "t": "Coesão Textual: Dominando a Competência IV da Redação do Enem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "conceitos basicos de responsabilidade civil e penal": {
+   "t": "Conceitos Básicos de Responsabilidade Civil e Penal",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "industria 4.0: internet das coisas": {
+   "t": "Indústria 4.0: Internet das Coisas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "programador web em tecnologias front-end": {
+   "t": "Programador Web em Tecnologias Front-end",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "auxiliar de laboratorio de ciencias da natureza: quimica": {
+   "t": "Auxiliar de Laboratório de Ciências da Natureza: Química",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "laboratório / pesquisa / saúde pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestao de projetos - gerenciamento das partes interessadas": {
+   "t": "Gestão de Projetos - Gerenciamento das Partes Interessadas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "orientacao de projetos na educacao basica": {
+   "t": "Orientação de Projetos na Educação Básica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "tecnologias na educacao: uma visao geral para a sala de aula": {
+   "t": "Tecnologias na Educação: Uma Visão Geral para a Sala de Aula",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "monitor de recreacao": {
+   "t": "Monitor de Recreação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "industria 4.0: programador de maquina cnc - torno": {
+   "t": "Industria 4.0: Programador de Máquina CNC - Torno",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "industria 4.0: programador de maquina cnc - fresadora": {
+   "t": "Industria 4.0: Programador de Máquina CNC - Fresadora",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestao ambiental e sustentabilidade": {
+   "t": "Gestão Ambiental e Sustentabilidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "materiais ceramicos: estruturas, propriedades e diagramas de fases": {
+   "t": "Materiais cerâmicos: estruturas, propriedades e diagramas de fases",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "ciencias dos materiais: uma introducao": {
+   "t": "Ciências dos materiais: uma introdução",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "metodologias de ensino: mapa conceitual & aprendizagem significativa": {
+   "t": "Metodologias de ensino: mapa conceitual & aprendizagem significativa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "matematica: analise combinatoria e probabilidade": {
+   "t": "Matemática: Análise Combinatória e Probabilidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestao de projetos com msproject 2016": {
+   "t": "Gestão de Projetos com MsProject 2016",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "frances basico": {
+   "t": "Francês Básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "praticas de ensino: pensamento utopico, utopia e distopia em sala de aula": {
+   "t": "Práticas de ensino: Pensamento utópico, utopia e distopia em sala de aula",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "desenhista tecnico (arquitetura) - modelagem em bim": {
+   "t": "Desenhista Técnico (Arquitetura) - Modelagem em BIM",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "planejamento de obras utilizando o microsoft project": {
+   "t": "Planejamento de Obras Utilizando o Microsoft Project",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "programacao vba para excel - modulo 1": {
+   "t": "Programação VBA para Excel - Módulo 1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
+  },
+  "principios do patrimonio historico e cultural": {
+   "t": "Princípios do Patrimônio Histórico e Cultural",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "gestao de projetos com oracle primavera p6 - modulo 1": {
+   "t": "Gestão de Projetos com Oracle Primavera P6 - Módulo 1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "fundamentos de logica, teoria dos numeros e criptografia": {
+   "t": "Fundamentos de Lógica, Teoria dos Números e Criptografia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Tecnologia da Informação"
+  },
+  "pre-ifmg: lingua portuguesa": {
+   "t": "Pré-IFMG: Língua Portuguesa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "72h",
+   "ar": "Outros"
+  },
+  "pre-ifmg: ciencias da natureza": {
+   "t": "Pré-IFMG: Ciências da Natureza",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "48h",
+   "ar": "Outros"
+  },
+  "pre-ifmg: matematica": {
+   "t": "Pré-IFMG: Matemática",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "72h",
+   "ar": "Outros"
+  },
+  "pre-ifmg: ciencias humanas": {
+   "t": "Pré-IFMG: Ciências Humanas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "48h",
+   "ar": "Outros"
+  },
+  "avaliacao de qualidade do solo para a formacao e autonomia de agricultores familiares": {
+   "t": "Avaliação de qualidade do solo para a formação e autonomia de agricultores familiares",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "gestao de projetos: introducao ao scrum": {
+   "t": "Gestão de Projetos: Introdução ao Scrum",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "estatistica basica por meio do excel": {
+   "t": "Estatística Básica por meio do Excel",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "tecnologias no ensino de matematica da educacao basica": {
+   "t": "Tecnologias no Ensino de Matemática da Educação Básica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "programador java: nivel basico": {
+   "t": "Programador Java: Nível Básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "atendente de farmacia - balconista": {
+   "t": "Atendente de Farmácia - Balconista",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Saúde e Cuidados"
+  },
+  "formacao docente em metodologias ativas: praticas de ensino ↔ aprendizagem criativas": {
+   "t": "Formação Docente em Metodologias Ativas: práticas de ensino ↔ aprendizagem criativas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "equacoes diferenciais ordinarias": {
+   "t": "Equações Diferenciais Ordinárias",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao especial e inclusiva para deficientes auditivos": {
+   "t": "Educação Especial e Inclusiva para Deficientes Auditivos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao especial e inclusiva para deficientes visuais": {
+   "t": "Educação Especial e Inclusiva para Deficientes Visuais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "espanhol basico para atendimento a clientes - i": {
+   "t": "Espanhol básico para atendimento a clientes - I",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "espanhol basico para atendimento a clientes - ii": {
+   "t": "Espanhol básico para atendimento a clientes - II",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao ambiental para professores: conceitos basicos": {
+   "t": "Educação Ambiental para Professores: Conceitos Básicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "operador e programador de sistemas automatizados - praticas iniciais em clp": {
+   "t": "Operador e Programador de Sistemas Automatizados - Práticas Iniciais em CLP",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "professores de linguas estrangeiras modernas: formacao, metodos, abordagens e possibilidades": {
+   "t": "Professores de Línguas Estrangeiras Modernas: formação, métodos, abordagens e possibilidades",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "criacao de site utilizando ferramentas google": {
+   "t": "Criação de Site Utilizando Ferramentas Google",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao especial e inclusiva para deficientes intelectuais": {
+   "t": "Educação Especial e Inclusiva para Deficientes Intelectuais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao empreendedora basica para mei": {
+   "t": "Educação Empreendedora Básica para MEI",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "literatura para o enem": {
+   "t": "Literatura para o ENEM",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "lingua portuguesa para estrangeiros: nivel basico": {
+   "t": "Língua Portuguesa para Estrangeiros: Nível Básico",
+   "d": "manter",
+   "o": "auto",
+   "m": "comunicação e português",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "confeitaria basica: biscoitos e minibolos": {
+   "t": "Confeitaria Básica: Biscoitos e Minibolos",
+   "d": "manter",
+   "o": "auto",
+   "m": "alimentação",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "comunicacao e marketing pessoal: autopromocao profissional e processos eletivos": {
+   "t": "Comunicação e Marketing Pessoal: autopromoção profissional e processos eletivos",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "metodologias ativas em sala de aula: novas estrategias para velhos problemas": {
+   "t": "Metodologias Ativas em sala de aula: novas estratégias para velhos problemas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "analise e visualizacao de dados com power bi": {
+   "t": "Análise e Visualização de Dados com Power BI",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "direitos do consumidor para o cidadao": {
+   "t": "Direitos do Consumidor para o Cidadão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "formas alternativas de resolucao de conflitos": {
+   "t": "Formas Alternativas de Resolução de Conflitos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "tecnicas de analise de populacao": {
+   "t": "Técnicas de Análise de População",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "quimica organica: uma introducao": {
+   "t": "Química orgânica: uma introdução",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "orcamento e contabilidade do setor publico": {
+   "t": "Orçamento e contabilidade do Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "python basico": {
+   "t": "Python Básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "python avancado": {
+   "t": "Python Avançado",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "pre-enem matematica: sequencias e funcoes - analise combinatoria e probabilidade": {
+   "t": "PRÉ-ENEM MATEMÁTICA: Sequências e Funções - Análise Combinatória e Probabilidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Outros"
+  },
+  "pre-enem: linguagens": {
+   "t": "Pré-ENEM: Linguagens",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Outros"
+  },
+  "introducao aos algoritmos e a programacao basica com a linguagem java": {
+   "t": "Introdução aos Algoritmos e à Programação Básica com a Linguagem Java",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "conceitos avancados sobre algoritmos e programacao com a linguagem java": {
+   "t": "Conceitos Avançados sobre Algoritmos e Programação com a Linguagem Java",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "vivenciando a etica profissional no servico publico": {
+   "t": "Vivenciando a Ética Profissional no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "programacao web (basico)": {
+   "t": "Programação Web (Básico)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao .net: basico": {
+   "t": "Programação .Net: básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao .net: avancado": {
+   "t": "Programação .Net: avançado",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "javascript (basico)": {
+   "t": "JavaScript (básico)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "pre-enem: ciencias humanas e suas tecnologias": {
+   "t": "PRÉ-ENEM: Ciências Humanas e suas tecnologias",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "programacao para dispositivos moveis (basico)": {
+   "t": "Programação para dispositivos móveis (básico)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao para dispositivos moveis (avancado)": {
+   "t": "Programação para dispositivos móveis (avançado)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Tecnologia da Informação"
+  },
+  "programacao web (avancado)": {
+   "t": "Programação Web (Avançado)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "javascript (avancado)": {
+   "t": "JavaScript (avançado)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "web designer": {
+   "t": "Web Designer",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "fundamentos de power bi": {
+   "t": "Fundamentos de Power BI",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "marketing digital: ferramentas gratuitas para promocao de vendas": {
+   "t": "Marketing Digital: ferramentas gratuitas para promoção de vendas",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "big data basico": {
+   "t": "Big Data Básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "big data avancado e mineracao de dados": {
+   "t": "Big Data Avançado e Mineração de Dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "nível avançado",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Tecnologia da Informação"
+  },
+  "trilha de capacitacao em conduta etica em ensino, pesquisa e extensao com seres humanos": {
+   "t": "Trilha de capacitação em conduta ética em ensino, pesquisa e extensão com seres humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "ensino e aprendizagem: a comunicacao professor/aluno": {
+   "t": "Ensino e Aprendizagem: A comunicação professor/aluno",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "aportes para o ensino de historia da africa e afrodiasporica: conceitos fundamentais, intelectuais negras e dialogos atlanticos": {
+   "t": "Aportes para o ensino de história da África e afrodiaspórica: conceitos fundamentais, intelectuais negras e diálogos atlânticos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "ingles: nivel basico": {
+   "t": "Inglês: Nível Básico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "pre-ifmg: matematica - parte 2": {
+   "t": "Pré-IFMG: Matemática - parte 2",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "120h",
+   "ar": "Outros"
+  },
+  "pre-ifmg continuidade: ciencias humanas": {
+   "t": "Pré-IFMG Continuidade: Ciências Humanas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "48h",
+   "ar": "Outros"
+  },
+  "pre-ifmg continuidade: lingua portuguesa": {
+   "t": "Pré-IFMG Continuidade: Língua Portuguesa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "preparatório (ENEM, vestibular, concurso, ingresso)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Outros"
+  },
+  "ingles: nivel pre-intermediario": {
+   "t": "Inglês: Nível Pré-Intermediário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "ingles: nivel intermediario": {
+   "t": "Inglês: Nível Intermediário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "extraordinarias em tech: a importancia das mulheres na tecnologia": {
+   "t": "Extraordinárias em Tech: A Importância das Mulheres na Tecnologia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "quem e gente? contextos e processos de desumanizacao": {
+   "t": "Quem é gente? Contextos e processos de desumanização",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "frances iniciantes 2024": {
+   "t": "Francês iniciantes 2024",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "aperfeicoamento educador do futuro: steam, letramento digital e inovacao – versao especial mais ciencia na escola": {
+   "t": "Aperfeiçoamento Educador do Futuro: STEAM, Letramento Digital e Inovação – Versão Especial Mais Ciência na Escola",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "300h",
+   "ar": "Outros"
+  },
+  "operando estudios no ifmg": {
+   "t": "Operando Estúdios no IFMG",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "inovacao e empreendedorismo": {
+   "t": "Inovação e empreendedorismo",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "educacao interdisciplinar steam: teoria e pratica": {
+   "t": "Educação interdisciplinar STEAM: teoria e prática",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "fundamentos de eletronica para amadores": {
+   "t": "Fundamentos de Eletrônica para Amadores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao a programacao e desenvolvimento em arduino": {
+   "t": "Introdução a Programação e Desenvolvimento em Arduíno",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao a programacao e desenvolvimento em iot": {
+   "t": "Introdução a Programação e Desenvolvimento em IoT",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "prototipagem, impressao 3d e corte a laser": {
+   "t": "Prototipagem, Impressão 3D e Corte a Laser",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "gestao orcamentaria e estrategias para captacao de recursos": {
+   "t": "Gestão Orçamentária e Estratégias para captação de Recursos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "24h",
+   "ar": "Outros"
+  },
+  "gestao estrategica e governanca na rede federal: planejamento, riscos e desafios": {
+   "t": "Gestão Estratégica e Governança na Rede Federal: Planejamento, Riscos e Desafios",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "26h",
+   "ar": "Outros"
+  },
+  "gestao por indicadores": {
+   "t": "Gestão por Indicadores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "gestao integrada na educacao profissional e tecnologica": {
+   "t": "Gestão Integrada na Educação Profissional e Tecnológica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "lideranca e gestao por competencias": {
+   "t": "Liderança e Gestão por Competências",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "gestao integrada de pessoas: desenvolvimento, diversidade e bem-estar": {
+   "t": "Gestão Integrada de Pessoas: Desenvolvimento, Diversidade e Bem-Estar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "transformacao digital na educacao: lideranca, dados e tecnologia": {
+   "t": "Transformação Digital na Educação: Liderança, Dados e Tecnologia",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "inteligencia artificial generativa no contexto das instituicoes da rfepct": {
+   "t": "Inteligência Artificial Generativa no Contexto das Instituições da RFEPCT",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "aperfeicoamento educador do futuro: steam, letramento digital e inovacao - versao especial mais ciencia na escola - 2026": {
+   "t": "Aperfeiçoamento Educador do Futuro: STEAM, Letramento Digital e Inovação - Versão Especial Mais Ciência na Escola - 2026",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "250h",
+   "ar": "Outros"
+  },
+  "frances basico i - frances como lingua estrangeira (turmas 2026)": {
+   "t": "Francês Básico I - Francês como língua estrangeira (turmas 2026)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "frances basico ii - frances como lingua estrangeira (turma 2026)": {
+   "t": "Francês Básico II - Francês como língua estrangeira (turma 2026)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "franmobe - frances para mobilidade academica (turma 2026)": {
+   "t": "FRANMOBE - Francês para mobilidade acadêmica (turma 2026)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "ingles: quatro habilidades intermediario 2 com tutores - i4ht - 2026.1": {
+   "t": "Inglês: Quatro Habilidades Intermediário 2 com Tutores - I4HT - 2026.1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "ingles: quatro habilidades intermediario 3 com tutores - i4ht - 2026.1": {
+   "t": "Inglês: Quatro Habilidades Intermediário 3 com Tutores - I4HT - 2026.1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "ingles: quatro habilidades iniciante 2 com tutores - i4ht - 2026.1": {
+   "t": "Inglês: Quatro Habilidades Iniciante 2 com Tutores - I4HT - 2026.1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "ingles: quatro habilidades iniciante 3 com tutores - i4ht - 2026.1": {
+   "t": "Inglês: Quatro Habilidades Iniciante 3 com Tutores - I4HT - 2026.1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  }
+ },
+ "mundi": {
+  "a crianca e o eca: caminhos para a protecao integral": {
+   "t": "A Criança e o ECA: Caminhos para a Proteção Integral",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "atencao a saude na escola: do cuidado diario as emergencias": {
+   "t": "Atenção à Saúde na Escola: Do cuidado diário às emergências",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "boas praticas na alimentacao escolar": {
+   "t": "Boas práticas na alimentação escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "coleta de residuos e limpeza urbana": {
+   "t": "Coleta de Resíduos e Limpeza Urbana",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "conduta etica e legislacao ambiental": {
+   "t": "Conduta Ética e Legislação Ambiental",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "cozinha escolar: planejamento e preparo": {
+   "t": "Cozinha Escolar: Planejamento e Preparo",
+   "d": "manter",
+   "o": "auto",
+   "m": "alimentação",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "escola saudavel: nutricao e consciencia": {
+   "t": "Escola Saudável: Nutrição e Consciência",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "espanhol basico i": {
+   "t": "Espanhol Básico I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "espanhol basico ii": {
+   "t": "Espanhol Básico II",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "espanhol basico iii": {
+   "t": "Espanhol Básico III",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "espanhol intermediario i": {
+   "t": "Espanhol Intermediário I",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "espanhol intermediario ii": {
+   "t": "Espanhol Intermediário II",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "espanhol intermediario iii": {
+   "t": "Espanhol Intermediário III",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "gestao de equipes e competencias": {
+   "t": "Gestão de Equipes e Competências",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "inclusao e acessibilidade na educacao": {
+   "t": "Inclusão e Acessibilidade na Educação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "planejamento de rotinas na educacao infantil": {
+   "t": "Planejamento de Rotinas na Educação Infantil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "producao textual e norma culta": {
+   "t": "Produção Textual e Norma Culta",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "reciclagem e organizacao da limpeza publica": {
+   "t": "Reciclagem e Organização da Limpeza Pública",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "relacoes interpessoais no trabalho": {
+   "t": "Relações Interpessoais no trabalho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "normativas e legislacoes da construcao civil do uruguai": {
+   "t": "Normativas e Legislações da Construção Civil do Uruguai",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "aplicacoes de inteligencia artificial no ensino": {
+   "t": "Aplicações de Inteligência Artificial no Ensino",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "introducao a analise exploratoria de dados com ia": {
+   "t": "Introdução à Análise Exploratória de Dados com IA",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "aprendizagem de maquina em redes bayesianas - fundamentos e aplicacoes": {
+   "t": "Aprendizagem de Máquina em Redes Bayesianas - Fundamentos e Aplicações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "aplicacoes de inteligencia artificial generativa na extensao comunitaria": {
+   "t": "Aplicações de Inteligência Artificial Generativa na Extensão Comunitária",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "violencias no ambiente institucional: prevencao e enfrentamento": {
+   "t": "Violências no ambiente institucional: prevenção e enfrentamento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "violencias estruturais em nossa sociedade: genero, deficiencia e questoes etnico-raciais": {
+   "t": "Violências estruturais em nossa Sociedade: Gênero, Deficiência e questões étnico-raciais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "educacao em direitos humanos e o enfrentamento as varias formas de violencia": {
+   "t": "Educação em Direitos Humanos e o enfrentamento às várias formas de violência",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "inteligencia artificial: fundamentos, aplicacoes e criatividade": {
+   "t": "Inteligência Artificial: Fundamentos, Aplicações e Criatividade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "capacitacao para a elaboracao de cursos mooc": {
+   "t": "Capacitação para a Elaboração de Cursos MOOC",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "caminhos para a construcao de uma educacao antirracista": {
+   "t": "Caminhos para a construção de uma Educação antirracista",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "viver em uma sociedade racializada": {
+   "t": "Viver em uma sociedade racializada",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "45h",
+   "ar": "Outros"
+  },
+  "racismo e suas sutilezas": {
+   "t": "Racismo e suas sutilezas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "45h",
+   "ar": "Outros"
+  },
+  "a construcao do racismo no brasil": {
+   "t": "A construção do racismo no Brasil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "45h",
+   "ar": "Outros"
+  },
+  "sistemas de informacao administrativos para empresas": {
+   "t": "Sistemas de Informação Administrativos para Empresas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "fundamentos de programacao com linguagem python": {
+   "t": "Fundamentos de Programação com Linguagem Python",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "administracao financeira empresarial": {
+   "t": "Administração Financeira Empresarial",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao ao gerenciamento de recursos financeiros": {
+   "t": "Introdução ao Gerenciamento de Recursos Financeiros",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "controle financeiro estrategico para negocio": {
+   "t": "Controle Financeiro Estratégico para Negócio",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "informatica aplicada": {
+   "t": "Informática Aplicada",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "administracao de recursos humanos": {
+   "t": "Administração de Recursos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "banco de dados": {
+   "t": "Banco de Dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao infantil na bncc": {
+   "t": "Educação infantil na BNCC",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "producao de animacao 2d": {
+   "t": "Produção de Animação 2D",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "producao de animacao 3d": {
+   "t": "Produção de Animação 3D",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "educacao atraves da internet": {
+   "t": "Educação através da Internet",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "recrutamento e selecao": {
+   "t": "Recrutamento e Seleção",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "responsabilidade ambiental nas organizacoes": {
+   "t": "Responsabilidade Ambiental nas Organizações",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao a logistica": {
+   "t": "Introdução à Logística",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "gestao integrada de residuos solidos": {
+   "t": "Gestão Integrada de Resíduos Sólidos",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "armazenagem": {
+   "t": "Armazenagem",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "aspectos gerais da agropecuaria": {
+   "t": "Aspectos Gerais da Agropecuária",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "cargos, salarios e beneficios": {
+   "t": "Cargos, salários e benefícios",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "compras e distribuicao fisica na logistica": {
+   "t": "Compras e Distribuição Física na Logística",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "economia solidaria na agricultura familiar": {
+   "t": "Economia Solidária na Agricultura Familiar",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "conceito de logistica reversa": {
+   "t": "Conceito de Logística Reversa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "criacao de personagens e cenarios": {
+   "t": "Criação de Personagens e Cenários",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "embalagens e distribuicao fisica de materiais": {
+   "t": "Embalagens e Distribuição Física de Materiais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "economia circular": {
+   "t": "Economia Circular",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "logistica reversa pos consumo pos venda": {
+   "t": "Logística Reversa Pós Consumo Pós Venda",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "fundamentos do desenho": {
+   "t": "Fundamentos do Desenho",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "gestao ambiental na agropecuaria": {
+   "t": "Gestão Ambiental na Agropecuária",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "gestao democratica escolar": {
+   "t": "Gestão Democrática Escolar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "inclusao social digital": {
+   "t": "Inclusão Social Digital",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "informatica basica": {
+   "t": "Informática Básica",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "informatica basica e desenvolvimento educacional": {
+   "t": "Informática Básica e Desenvolvimento Educacional",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao a logica de programacao": {
+   "t": "Introdução à Lógica de Programação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao a profissao almoxarife": {
+   "t": "Introdução à Profissão Almoxarife",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "linguagens de programacao orientadas a objetos": {
+   "t": "Linguagens de Programação Orientadas a Objetos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "legislacao educacional contemporanea": {
+   "t": "Legislação Educacional Contemporânea",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "pre-producao em animacao": {
+   "t": "Pré-produção em Animação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "preparo do solo": {
+   "t": "Preparo do Solo",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "processos de animacao": {
+   "t": "Processos de Animação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "projeto de interfaces graficas": {
+   "t": "Projeto de Interfaces Gráficas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "redes sociais e informacao na internet": {
+   "t": "Redes Sociais e Informação na Internet",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "tdics na elaboracao de projetos": {
+   "t": "TDICs na elaboração de projetos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "tecnicas de armazenagem de mercadorias": {
+   "t": "Técnicas de Armazenagem de Mercadorias",
+   "d": "manter",
+   "o": "auto",
+   "m": "ofícios e serviços",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "aspectos legais na aposentadoria": {
+   "t": "Aspectos legais na aposentadoria",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "atendimento, trabalho em equipe e lideranca": {
+   "t": "Atendimento, Trabalho em Equipe e Liderança",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "altas habilidades e superdotacao": {
+   "t": "Altas habilidades e superdotação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "aspectos legais da inclusao": {
+   "t": "Aspectos legais da Inclusão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "deficiencia auditiva e surdez": {
+   "t": "Deficiência Auditiva e Surdez",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "deficiencia fisica": {
+   "t": "Deficiência Física",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "deficiencia intelectual": {
+   "t": "Deficiência Intelectual",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "deficiencia visual": {
+   "t": "Deficiência Visual",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao a animacao": {
+   "t": "Introdução à Animação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao a educacao especial": {
+   "t": "Introdução à Educação Especial",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao aos residuos solidos": {
+   "t": "Introdução aos Resíduos Sólidos",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "neurologia da aprendizagem": {
+   "t": "Neurologia da aprendizagem",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "projetos sociais, ong e terceiro setor": {
+   "t": "Projetos Sociais, ONG e Terceiro Setor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "tecnologia assistiva": {
+   "t": "Tecnologia Assistiva",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "transtorno do espectro autista": {
+   "t": "Transtorno do Espectro Autista",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "acesso e representatividade nos espacos academicos": {
+   "t": "Acesso e representatividade nos espaços acadêmicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "a invisibilidade da mulher negra no contexto academico": {
+   "t": "A invisibilidade da mulher negra no contexto acadêmico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "as cotas raciais como direito de reparacao": {
+   "t": "As cotas raciais como direito de reparação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "a valorizacao da cultura afro-brasileira na sala de aula": {
+   "t": "A valorização da cultura afro-brasileira na sala de aula",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "como elaborar editais e construir pareceres": {
+   "t": "Como elaborar editais e construir pareceres",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "cotas raciais e acoes afirmativas": {
+   "t": "Cotas Raciais e Ações Afirmativas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "elaboracao de projetos culturais": {
+   "t": "Elaboração de Projetos Culturais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "experiencia do usuario - ux": {
+   "t": "Experiência do Usuário - UX",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "gestao do capital": {
+   "t": "Gestão do Capital",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "libras i": {
+   "t": "Libras I",
+   "d": "manter",
+   "o": "auto",
+   "m": "inclusão",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "libras ii": {
+   "t": "Libras II",
+   "d": "manter",
+   "o": "auto",
+   "m": "inclusão",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "libras iii": {
+   "t": "Libras III",
+   "d": "manter",
+   "o": "auto",
+   "m": "inclusão",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "por que as cotas raciais sao necessarias?": {
+   "t": "Por que as cotas raciais são necessárias?",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "tecnologia de produtos agropecuarios": {
+   "t": "Tecnologia de Produtos Agropecuários",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "css: folhas de estilo encadeadas": {
+   "t": "CSS: Folhas de Estilo Encadeadas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "libras para a interpretacao": {
+   "t": "Libras para a interpretação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "treinamento e desenvolvimento": {
+   "t": "Treinamento e Desenvolvimento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "aspectos socioemocionais na aposentadoria": {
+   "t": "Aspectos socioemocionais na aposentadoria",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "insercao digital na aposentadoria": {
+   "t": "Insercao digital na aposentadoria",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "aposentadoria e empreendedorismo": {
+   "t": "Aposentadoria e empreendedorismo",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "projeto de vida na aposentadoria": {
+   "t": "Projeto de vida na aposentadoria",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "promocao da saude na aposentadoria": {
+   "t": "Promoção da saúde na aposentadoria",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "planejamento financeiro na aposentadoria": {
+   "t": "Planejamento financeiro na aposentadoria",
+   "d": "manter",
+   "o": "auto",
+   "m": "dinheiro do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "producao vegetal familiar": {
+   "t": "Produção Vegetal Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "tratamento e disposicao de residuos solidos": {
+   "t": "Tratamento e Disposição de Resíduos Sólidos",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "audiovisual para libras": {
+   "t": "Audiovisual para Libras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "semiotica da libras e analise do discurso": {
+   "t": "Semiótica da Libras e Análise do Discurso",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "etica na profissao de tils": {
+   "t": "Ética na profissão de Tils",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "tecnicas de interpretacao da libras": {
+   "t": "Técnicas de Interpretação da Libras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "escrita de sinais da libras": {
+   "t": "Escrita de sinais da Libras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "contrastes entre a lingua brasileira de sinais e a lingua portuguesa": {
+   "t": "Contrastes entre a Língua Brasileira de Sinais e a Língua Portuguesa",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "formacao e atuacao do tils": {
+   "t": "Formação e atuação do TILS",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "linguistica da libras": {
+   "t": "Linguística da Libras",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "legislacao de tils": {
+   "t": "Legislação de Tils",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "educacao de surdos e formacao de tils": {
+   "t": "Educação de surdos e formação de TILS",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "introducao a programacao orientada a objetos": {
+   "t": "Introdução à Programação Orientada a Objetos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "linguagem php": {
+   "t": "Linguagem PHP",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "seguranca no trabalho e eletricidade basica": {
+   "t": "Segurança no Trabalho e Eletricidade Básica",
+   "d": "manter",
+   "o": "auto",
+   "m": "construção e reparos",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "manutencao de computadores": {
+   "t": "Manutenção de Computadores",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "linguagem javascript": {
+   "t": "Linguagem Javascript",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "fundamentos da qualidade": {
+   "t": "Fundamentos da Qualidade",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "editor de texto": {
+   "t": "Editor de Texto",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "empreendedorismo": {
+   "t": "Empreendedorismo",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "gestao financeira": {
+   "t": "Gestão Financeira",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "gestão / jurídico / logística especializados",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "moodle para estudantes": {
+   "t": "Moodle para Estudantes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "moodle para mediadores": {
+   "t": "Moodle para Mediadores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "moodle para docentes": {
+   "t": "Moodle para Docentes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "moodle para gestores": {
+   "t": "Moodle para Gestores",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "introducao a administracao": {
+   "t": "Introdução à Administração",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "planilhas eletronicas": {
+   "t": "Planilhas Eletrônicas",
+   "d": "manter",
+   "o": "auto",
+   "m": "informática do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "planejamento estrategico": {
+   "t": "Planejamento Estratégico",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "software de apresentacao": {
+   "t": "Software de Apresentação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao financeira": {
+   "t": "Educação Financeira",
+   "d": "manter",
+   "o": "auto",
+   "m": "dinheiro do dia a dia",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "fundamentos da programacao": {
+   "t": "Fundamentos da Programação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "logica de programacao": {
+   "t": "Lógica de Programação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "matéria de ensino médio / acadêmica",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "cotas raciais e heteroidentificacao": {
+   "t": "Cotas Raciais e Heteroidentificação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "fundamentos da agroecologia": {
+   "t": "Fundamentos da Agroecologia",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "pecuaria familiar": {
+   "t": "Pecuária Familiar",
+   "d": "manter",
+   "o": "auto",
+   "m": "agricultura e produção rural familiar",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Meio Ambiente e Agro"
+  },
+  "fundamentos da linguagem visual": {
+   "t": "Fundamentos da Linguagem Visual",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "controle e manutencao de estoque": {
+   "t": "Controle e Manutenção de Estoque",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "educacao especial e inclusao": {
+   "t": "Educação Especial e Inclusão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a professor / escola / EaD",
+   "desde": "2026-10-21",
+   "ativo": true,
+   "c": "40h",
    "ar": "Outros"
   }
  }

@@ -6,7 +6,7 @@ function normalizarTitulo(t){
   return String(t == null ? "" : t)
     .normalize("NFD").replace(/[̀-ͯ]/g, "")
     .toLowerCase()
-    .replace(/\s+-\s+turma\s+\d{4}[ab]\s*$/i, "")
+    .replace(/\s+-\s+turmas?\s+\d{4}[ab]\s*$/i, "")
     .replace(/\s+/g, " ")
     .trim();
 }
