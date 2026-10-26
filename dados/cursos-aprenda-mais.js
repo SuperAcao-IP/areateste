@@ -1,6 +1,6 @@
 /* =====================================================================
    APRENDA MAIS · MEC · cursos livres, gratuitos e 100% online
-   Coletado de aprendamais.mec.gov.br · atualizado em 2026-10-21 (410 cursos, turma 2026B).
+   Coletado de aprendamais.mec.gov.br · atualizado em 2026-10-26 (415 cursos, turma 2026B).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
    Todos sao EaD, gratuitos e com certificacao do MEC. A carga horaria real de cada curso
@@ -10,6 +10,7 @@ const APRENDA_MAIS = [
  {titulo:"Ação Educativa na Prevenção e Controle das Doenças e Agravos",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3160"},
  {titulo:"Altas Habilidades / Superdotação: conceitos",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3175"},
  {titulo:"Biologia",carga:"40h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3188"},
+ {titulo:"Crescimento e Desenvolvimento da Criança",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=1721"},
  {titulo:"Doenças Emergentes e Reemergentes na Saúde Coletiva",carga:"30h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3249"},
  {titulo:"Epidemiologia",carga:"40h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3268"},
  {titulo:"Fundamentos e Diretrizes do SUS",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=1724"},
@@ -19,6 +20,7 @@ const APRENDA_MAIS = [
  {titulo:"Higiene no Trabalho: iluminação, som e agentes químicos",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3344"},
  {titulo:"Indicadores na Saúde",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3349"},
  {titulo:"Microbiologia",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3403"},
+ {titulo:"Nutrição Hospitalar",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=2221"},
  {titulo:"O Agente Comunitário de Saúde no Planejamento, Programação e Avaliação em Saúde",carga:"",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3412"},
  {titulo:"O Agente Comunitário de Saúde: a promoção e a educação em saúde",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3413"},
  {titulo:"Organização e Funcionamento do SUS",carga:"30h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=1772"},
@@ -190,6 +192,7 @@ const APRENDA_MAIS = [
  {titulo:"Responsabilidade Social e Ambiental",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=1659"},
  {titulo:"Roteirização Internacional",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3485"},
  {titulo:"Rotinas Trabalhistas",carga:"30h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3487"},
+ {titulo:"Sistemas de Informação Aplicados ao Varejo",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=1661"},
  {titulo:"Supply Chain",carga:"30h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3506"},
  {titulo:"Técnicas de Negociação",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3511"},
  {titulo:"Técnicas de Vendas e Relações de Consumo",carga:"2h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3513"},
@@ -208,6 +211,7 @@ const APRENDA_MAIS = [
  {titulo:"Espanhol 10",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3274"},
  {titulo:"Espanhol para Eventos",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3283"},
  {titulo:"Estratégias de Leitura em Língua Inglesa para a Área de Meio Ambiente",carga:"20h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3286"},
+ {titulo:"Estratégias de Tradução e Interpretação Libras–Português",carga:"",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3619"},
  {titulo:"Inglês 1 (extra Agosto)",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3654"},
  {titulo:"Inglês 1",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3350"},
  {titulo:"Inglês 2",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3355"},
@@ -323,6 +327,7 @@ const APRENDA_MAIS = [
  {titulo:"Bovinocultura de Corte e Leite",carga:"20h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3192"},
  {titulo:"Cafeicultura Agroecológica",carga:"20h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3194"},
  {titulo:"Cartografia Ambiental",carga:"20h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3200"},
+ {titulo:"Comercialização e Marketing dos Produtos Orgânicos",carga:"30h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3108"},
  {titulo:"Conservação Ambiental",carga:"6h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3209"},
  {titulo:"Controle de Pragas e Doenças em Jardins",carga:"40h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3221"},
  {titulo:"Controle Orgânico de Pragas e Doenças",carga:"20h",area:"Meio Ambiente e Agro",link:"https://aprendamais.mec.gov.br/course/view.php?id=3225"},

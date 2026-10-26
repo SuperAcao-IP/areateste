@@ -84,6 +84,7 @@ const TITULOS_PERMITIDOS = {
   "saude e seguranca no trabalho",
   "seguranca agricola rural",
   "seguranca do trabalho: riscos ambientais e prevencao de acidentes",
+  "sistemas de informacao aplicados ao varejo",
   "solos",
   "tecnicas de negociacao",
   "viveiros e propagacao de mudas"

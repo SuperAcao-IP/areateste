@@ -4514,6 +4514,66 @@
    "ar": "Alimentação",
    "pa": "estudantes e profissionais de qualquer área do conhecimento",
    "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo"
+  },
+  "crescimento e desenvolvimento da crianca": {
+   "t": "Crescimento e Desenvolvimento da Criança",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-26",
+   "pa": "pessoas interessadas na saúde da criança e seu desenvolvimento",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "nutricao hospitalar": {
+   "t": "Nutrição Hospitalar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-26",
+   "pa": "nutricionistas ou interessados em nutrição hospitalar",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "sistemas de informacao aplicados ao varejo": {
+   "t": "Sistemas de Informação Aplicados ao Varejo",
+   "d": "manter",
+   "o": "auto",
+   "m": "renda e negócio próprio",
+   "desde": "2026-10-26",
+   "pa": "interessados em logística ou empreendedores",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "estrategias de traducao e interpretacao libras–portugues": {
+   "t": "Estratégias de Tradução e Interpretação Libras–Português",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "Libras especializado (interpretação, tradução, linguística)",
+   "desde": "2026-10-26",
+   "pa": "estudantes e interessados na compreensão na Língua Brasileira de Sinais (Libras)",
+   "rq": "compreensão de leitura em língua portuguesa e possuir computador com recursos de vídeo",
+   "ativo": true,
+   "c": "",
+   "ar": "Outros"
+  },
+  "comercializacao e marketing dos produtos organicos": {
+   "t": "Comercialização e Marketing dos Produtos Orgânicos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-10-26",
+   "pa": "produtores rurais, empreendedores e comerciantes do setor alimentício e demais interessados na área",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Meio Ambiente e Agro"
   }
  },
  "evg": {
@@ -10537,7 +10597,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "12h",
    "ar": "Outros"
   },
@@ -12927,7 +12987,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "40h",
    "ar": "Outros"
   },
@@ -13147,7 +13207,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -13537,7 +13597,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
