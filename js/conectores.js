@@ -93,6 +93,8 @@ function modalidadeTrampolim(c){
   // course_format vem como lista de objetos {key,value} (as vezes duplicada)
   if(Array.isArray(c.course_format)){
     const vals = [...new Set(c.course_format.map(rotuloDe).filter(Boolean))];
+    /* parte presencial + parte online: não é um curso online (só vale na cidade da turma presencial e vizinhas) */
+    if(vals.some(x=>/presencial/i.test(x)) && vals.some(x=>/online/i.test(x))) return "Presencial + Online";
     if(vals.length) return vals.join(" · ");
   }
   return rotuloDe(c.modality||c.modalidade||c.format||c.type_display||c.tipo) || "";
@@ -196,30 +198,39 @@ async function buscarCursosTrampolim(cidade){
   return cursos;
 }
 
-/* --- cursos ONLINE do Trampolim para todos os municípios ---
-   A API devolve resultados por cidade (parâmetro locale): os cursos 100% online vêm em toda consulta, mas os que têm
-   uma turma presencial além da online (formato "Presencial + Online") só vêm na consulta da cidade da turma. Como o
-   curso online vale para qualquer município, uma consulta SEM cidade (o catálogo do estado, ~100 cursos) é feita uma
-   vez por visita e só os cursos com formato online entram, em qualquer cidade. Os presenciais continuam só na cidade
-   (e vizinhas) deles. */
-const ehOnlineTrampolim = c => /online/i.test(c.modalidade || "");
-let _promessaOnlineTrampolim = null;
-function buscarCursosOnlineTrampolim(){
-  if(!_promessaOnlineTrampolim){
-    _promessaOnlineTrampolim = buscarCursosTrampolim("").then(l => l.filter(ehOnlineTrampolim));
-    _promessaOnlineTrampolim.catch(()=>{ _promessaOnlineTrampolim = null; });     // falhou: tenta de novo na próxima cidade
+/* --- cursos 100% ONLINE do Trampolim para todos os municípios ---
+   A API devolve os resultados por cidade (parâmetro locale) e, para cada cidade, mostra só os formatos disponíveis
+   perto dela: um curso com turma presencial em Monte Mor e turma online aparece como "Presencial + Online" em Monte
+   Mor e como "Online" em Osasco. Regra do portal: curso "Presencial + Online" NÃO é online; só vale na cidade da turma
+   presencial (e vizinhas), com a etiqueta "Presencial + Online". Só os 100% online aparecem em todos os municípios.
+   Para saber quem é quem, o catálogo do estado (consulta SEM cidade, ~100 cursos, com todos os formatos de cada curso) é
+   buscado uma vez por visita:
+     - os 100% online dele entram em qualquer cidade;
+     - o curso que ali tem parte presencial sai das cidades onde a API o mostra como "Online" (sem turma por perto). */
+const ehOnlineTrampolim = c => /online/i.test(c.modalidade || "") && !/presencial/i.test(c.modalidade || "");
+const ehHibridoTrampolim = c => /online/i.test(c.modalidade || "") && /presencial/i.test(c.modalidade || "");
+let _promessaEstadoTrampolim = null;
+function infoCatalogoEstadoTrampolim(){
+  if(!_promessaEstadoTrampolim){
+    _promessaEstadoTrampolim = buscarCursosTrampolim("").then(l => ({
+      online: l.filter(ehOnlineTrampolim),
+      hibridos: new Set(l.filter(ehHibridoTrampolim).map(c => c._id).filter(x => x != null))
+    }));
+    _promessaEstadoTrampolim.catch(()=>{ _promessaEstadoTrampolim = null; });     // falhou: tenta de novo na próxima cidade
   }
-  return _promessaOnlineTrampolim;
+  return _promessaEstadoTrampolim;
 }
 
 /* --- injeta os cursos no DADOS_CIDADE, criando categorias por area_interest ---
    Sem repetir: o mesmo curso (mesmo id na API) entra uma vez só, mesmo que venha da cidade, de uma vizinha e do
    catálogo do estado. Quem entra primeiro vence (a cidade da pessoa, sem etiqueta de "outra cidade"). */
-function mesclarTrampolim(cursos){
+function mesclarTrampolim(cursos, estado){
   const vistos = new Set();
   Object.values(DADOS_CIDADE).forEach(a => (a.cursos || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   cursos.forEach(c=>{
     if(!cursoAtingeCargaMinima(c.carga)) return;   // filtra cursos curtos (< 10h)
+    /* curso que tem parte presencial no estado, mas a API mostra como "Online" nesta cidade (turma presencial longe): não é online */
+    if(estado && c._id != null && estado.hibridos.has(c._id) && ehOnlineTrampolim(c)) return;
     if(c._id != null){ if(vistos.has(c._id)) return; vistos.add(c._id); }
     const id = areaDoCurso(c.nome, ...(c._rotulos || []));
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).cursos.push(c);
@@ -232,15 +243,14 @@ async function carregarTrampolimEAtualizar(cidade, token){
   const status = document.getElementById("statusTrampolim");
   if(status) status.textContent = "Buscando cursos no Trampolim SP\u2026";
   try{
-    const cursos = await buscarCursosTrampolim(cidade);
+    const [cursos, estado] = await Promise.all([
+      buscarCursosTrampolim(cidade),
+      infoCatalogoEstadoTrampolim().catch(e => { console.warn("[Trampolim] catalogo do estado falhou:", e); return null; })
+    ]);
     if(token!==buscaToken) return;
-    mesclarTrampolim(cursos);
-    /* cursos online valem para qualquer município (mesmo os que a API só devolve na cidade da turma presencial) */
-    try{
-      const online = await buscarCursosOnlineTrampolim();
-      if(token!==buscaToken) return;
-      mesclarTrampolim(online);
-    }catch(e){ console.warn("[Trampolim] catalogo online do estado falhou:", e); }
+    mesclarTrampolim(cursos, estado);
+    /* cursos 100% online valem para qualquer município */
+    if(estado) mesclarTrampolim(estado.online, estado);
     /* busca tambem nas cidades vizinhas */
     const vizinhas = CIDADES_VIZINHAS[cidade] || [];
     for(const viz of vizinhas){
@@ -248,7 +258,7 @@ async function carregarTrampolimEAtualizar(cidade, token){
         const cursosViz = await buscarCursosTrampolim(viz);
         if(token!==buscaToken) return;
         cursosViz.forEach(c=>{ c._deOutraCidade = viz; });
-        mesclarTrampolim(cursosViz);
+        mesclarTrampolim(cursosViz, estado);
       }catch(e){ console.warn("[Trampolim] vizinha "+viz+" falhou:", e); }
     }
     renderAreasGrade(cidade);
@@ -291,11 +301,18 @@ function normalizarVagaTrampolim(v){
   /* shift / contract_type: a API pode trazer campo de tipo de contrato */
   const tipo = rotuloDe(v.contract_type||v.tipo_contrato||v.modality||"");
   const cidade = rotuloDe(v.city||v.cidade||v.locale||"");
+  const lista = x => Array.isArray(x) ? [...new Set(x.map(rotuloDe).filter(Boolean))].join(", ") : rotuloDe(x);
+  const contrato = lista(v.work_relationship);                 // Efetivo, Temporário, Estágio...
   return {
     cargo: titulo,
     empresa: empresa ? (empresa+" · Trampolim SP") : "Trampolim SP",
     modalidade: modalidade,
-    tipo: tipo,
+    tipo: contrato || tipo,
+    escolaridade: lista(v.min_education),                      // "Médio Completo", "Fundamental Completo"...
+    experiencia: lista(v.min_experience),                      // "Sem experiência", "Até 6 meses de experiência"
+    turno: lista(v.work_shift),                                // "Integral", "Manhã"...
+    publicadaEm: lista(v.publication_date),                    // DD/MM/AAAA
+    _id: v.id != null ? v.id : null,
     cidade: cidade,
     desc: desc ? (desc.length>200 ? desc.slice(0,200)+"…" : desc) : "",
     link: url,
@@ -330,7 +347,10 @@ async function buscarVagasTrampolim(cidade){
 }
 
 function mesclarTrampolimVagas(vagas){
+  const vistos = new Set();
+  Object.values(DADOS_CIDADE).forEach(a => (a.oportunidades || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   vagas.forEach(v=>{
+    if(v._id != null){ if(vistos.has(v._id)) return; vistos.add(v._id); }
     const id = areaDoCurso(v.cargo, ...(v._rotulos || []));
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(v);
   });
@@ -357,6 +377,8 @@ async function carregarTrampolimVagasEAtualizar(cidade, token){
     console.warn("[Trampolim Vagas] FALHOU:", e);
     if(token!==buscaToken) return;
     if(status) status.textContent = "Nao foi possivel carregar as vagas do Trampolim SP agora. O restante do conteudo continua disponivel.";
+  }finally{
+    if(token===buscaToken) fonteDeVagasConcluida();
   }
 }
 
@@ -844,5 +866,7 @@ async function carregarPlanilhaVagasEAtualizar(cidade, token){
     console.warn("[Planilha Vagas] FALHOU:", e);
     if(token!==buscaToken) return;
     if(status) status.textContent = "Não foi possível carregar a planilha de vagas agora.";
+  }finally{
+    if(token===buscaToken) fonteDeVagasConcluida();
   }
 }

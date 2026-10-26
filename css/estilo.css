@@ -351,6 +351,14 @@
   .vaga .desc{ font-size:.85rem; color:var(--texto-suave); line-height:1.4; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
   .vaga .meta{ display:flex; flex-wrap:wrap; gap:.4rem; }
   .vaga .meta .item{ font-size:.78rem; font-weight:600; color:var(--texto); background:var(--fundo); border:1px solid var(--linha); padding:.28rem .55rem; border-radius:8px; display:inline-flex; align-items:center; gap:.3rem; }
+  .vaga .meta .item.destaque{ background:#E8F5E9; border-color:#A5D6A7; color:#1B5E20; }
+  .filtros-vagas{ display:flex; flex-wrap:wrap; gap:.45rem; margin:0 0 1rem; }
+  .chip-vaga{ border:1px solid var(--linha-forte); background:var(--branco); color:var(--texto); border-radius:999px; padding:.42rem .85rem; font:inherit; font-size:.85rem; font-weight:600; cursor:pointer; }
+  .chip-vaga small{ opacity:.7; margin-left:.2rem; }
+  .chip-vaga:hover{ border-color:var(--azul); }
+  .chip-vaga[aria-pressed="true"]{ background:var(--azul); border-color:var(--azul); color:#fff; }
+  .vagas-vazio p{ margin:.5rem 0 1rem; }
+  .vagas-vazio-links{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
   .vaga .rodape{ margin-top:auto; }
   .vaga .btn-vaga{
     width:100%; justify-content:center; display:inline-flex; align-items:center; gap:.45rem;

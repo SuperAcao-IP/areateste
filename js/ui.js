@@ -124,6 +124,8 @@ function renderAreasGrade(cidade){
   if(typeof atualizarCamadasMapa === "function") atualizarCamadasMapa();
 }
 function renderCidade(cidade){
+  vagasFiltro=null;
+  vagasPendentes=(TRAMPOLIM_VAGAS_ATIVO?1:0)+(PLANILHA_VAGAS_ATIVA?1:0);
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML=`
     <div class="cidade-cabec">
@@ -172,7 +174,7 @@ function renderCidade(cidade){
                 <span>Plataforma oficial do Governo do Estado com vagas de emprego atualizadas diariamente para a região.</span>
               </div>
             </div>
-            <a class="btn-trampolim" href="https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale=${encodeURIComponent(cidade)}&operation_range=50" target="_blank" rel="noopener noreferrer">
+            <a class="btn-trampolim" href="${urlVagasTrampolimSite(cidade)}" target="_blank" rel="noopener noreferrer">
               Ver vagas em ${cidade} no Trampolim SP
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
@@ -184,7 +186,7 @@ function renderCidade(cidade){
                 <span>Portal do Governo Federal com vagas do Sistema Nacional de Emprego em todo o país. Requer login com gov.br.</span>
               </div>
             </div>
-            <a class="btn-trampolim" style="background:var(--azul);" href="https://servicos.mte.gov.br/spme-v2/#/login" target="_blank" rel="noopener noreferrer">
+            <a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">
               Consultar vagas no Emprega Brasil
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
             </a>
@@ -373,23 +375,84 @@ function selecionarArea(cidade,areaId,btn){
 }
 
 /* --- renderiza a seção de vagas (separada das áreas de qualificação) --- */
+/* ===== Vagas: lista única, mais recentes primeiro ===== */
+const URL_SINE = "https://servicos.mte.gov.br/spme-v2/#/login";
+function urlVagasTrampolimSite(cidade){
+  return "https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale="+encodeURIComponent(cidade)+"&operation_range=50";
+}
+const VAGAS_MIN_FILTROS = 8;      // com menos vagas que isso a lista aparece direta, sem botões de filtro
+let vagasFiltro = null;           // null | "semexp" | "fund" | "area:<id>"
+let vagasPendentes = 0;           // fontes de vagas ainda carregando (não mostrar "0 vagas" antes da hora)
+function fonteDeVagasConcluida(){ vagasPendentes = Math.max(0, vagasPendentes-1); renderVagas(); }
+const vagaSemExperiencia = v => /^\s*sem\s+experi/i.test(v.experiencia||"");
+const vagaAteFundamental = v => /fundamental|sem\s+escolaridade/i.test(v.escolaridade||"");
+function vagaPassaFiltro(v,f){
+  if(!f) return true;
+  if(f==="semexp") return vagaSemExperiencia(v);
+  if(f==="fund") return vagaAteFundamental(v);
+  if(f.indexOf("area:")===0) return v._areaId===f.slice(5);
+  return true;
+}
+function dataDaVaga(v){ return dataDaPlanilha(v.publicadaEm||v._data); }
+function vagasOrdenadas(lista){
+  return lista.map((v,i)=>({v,i,d:dataDaVaga(v)})).sort((a,b)=>{
+    const ta=a.d?a.d.getTime():-Infinity, tb=b.d?b.d.getTime():-Infinity;
+    return tb-ta || a.i-b.i;                          // mais recente primeiro; sem data vai para o fim
+  }).map(x=>x.v);
+}
 function todasVagasDaCidade(){
-  const todas=[];
+  const todas=[], vistos=new Set();
   for(const id of Object.keys(DADOS_CIDADE)){
     const c=DADOS_CIDADE[id];
-    if(c&&c.oportunidades) c.oportunidades.forEach(v=>todas.push(v));
+    if(!c||!c.oportunidades) continue;
+    c.oportunidades.forEach(v=>{
+      const chave=v._id!=null ? "id:"+v._id : "t:"+normTxt([v.cargo,v.empresa,v.link].join("|"));
+      if(vistos.has(chave)) return;
+      vistos.add(chave);
+      todas.push(Object.assign({},v,{_areaId:id}));
+    });
   }
-  return todas;
+  return vagasOrdenadas(todas);
+}
+/* botões de filtro: só com ${VAGAS_MIN_FILTROS}+ vagas; nunca com 0 vagas, nunca "Outros", nem botão que não separa nada */
+function opcoesFiltroVagas(vagas){
+  if(vagas.length<VAGAS_MIN_FILTROS) return [];
+  const ops=[], total=vagas.length;
+  const nSem=vagas.filter(vagaSemExperiencia).length, nFund=vagas.filter(vagaAteFundamental).length;
+  if(nSem>0&&nSem<total) ops.push(["semexp","Sem experiência",nSem]);
+  if(nFund>0&&nFund<total) ops.push(["fund","Até fundamental completo",nFund]);
+  const porArea={};
+  vagas.forEach(v=>{ if(v._areaId&&v._areaId!=="outros") porArea[v._areaId]=(porArea[v._areaId]||0)+1; });
+  const areas=Object.entries(porArea).sort((a,b)=>b[1]-a[1]);
+  if(areas.length>=2) areas.forEach(([id,n])=>ops.push(["area:"+id,areaInfo(id).nome,n]));
+  return ops;
 }
 function renderVagas(){
   const wrap=document.getElementById("listaVagas");
   if(!wrap) return;
-  const vagas=todasVagasDaCidade();
-  if(!vagas.length){
-    wrap.innerHTML='<div class="vazio-area">Nenhuma vaga encontrada para esta cidade ainda. As vagas são carregadas ao vivo do Trampolim SP.</div>';
+  if(!wrap.dataset.ligado){
+    wrap.dataset.ligado="1";
+    wrap.addEventListener("click",e=>{
+      const b=e.target.closest("[data-filtro-vaga]");
+      if(!b) return;
+      vagasFiltro=b.dataset.filtroVaga||null;
+      renderVagas();
+    });
+  }
+  const todas=todasVagasDaCidade();
+  if(!todas.length){
+    if(vagasPendentes>0){ wrap.innerHTML='<div class="vazio-area">Buscando vagas\u2026</div>'; return; }
+    wrap.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div></div>`;
     return;
   }
-  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 1rem;text-align:left">${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}</p><div class="lista">${vagas.map(cartaoVaga).join("")}</div>`;
+  const ops=opcoesFiltroVagas(todas);
+  if(vagasFiltro && !ops.some(o=>o[0]===vagasFiltro)) vagasFiltro=null;
+  const vagas=todas.filter(v=>vagaPassaFiltro(v,vagasFiltro));
+  const chips=ops.length
+    ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${todas.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
+    : "";
+  const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as mais recentes primeiro`;
+  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>`;
 }
 
 const linkExterno=`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`;
@@ -494,5 +557,24 @@ function cartaoCurso(c){
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
   const acao = urlValida(v.link) ? '<a class="btn-vaga" href="'+esc(v.link)+'" target="_blank" rel="noopener noreferrer">'+rotulo+' '+linkExterno+'</a>' : "";
-  return `<div class="vaga"><div class="cargo">${esc(v.cargo||"")}</div>${v.empresa?`<div class="empresa"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> ${esc(v.empresa)}</div>`:""}${v.desc?`<div class="desc">${esc(v.desc)}</div>`:""}<div class="meta">${v.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(v.modalidade)}</span>`:""}${v.tipo?`<span class="item">📋 ${esc(v.tipo)}</span>`:""}${v.cidade?`<span class="item">📍 ${esc(v.cidade)}</span>`:""}${v.telefone?`<span class="item">📞 ${esc(v.telefone)}</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  const ic = (d)=>'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
+  const item = (txt,icone,classe)=>'<span class="item'+(classe?" "+classe:"")+'">'+(icone||"")+esc(txt)+'</span>';
+  const semExp = vagaSemExperiencia(v);
+  const area = (v._areaId && v._areaId!=="outros") ? areaInfo(v._areaId).nome : "";
+  const data = dataDaVaga(v);
+  const publicada = data ? data.toLocaleDateString("pt-BR") : "";
+  const meta = [
+    area ? item(area, ic('<path d="M3 7h18M3 12h18M3 17h18"/>')) : "",
+    semExp ? item("Aceita sem experiência", ic('<path d="m5 12 5 5 9-10"/>'), "destaque") : (v.experiencia ? item(v.experiencia, ic('<path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/>')) : ""),
+    v.escolaridade ? item(/sem\s+escolaridade/i.test(v.escolaridade) ? "Sem escolaridade mínima" : "Escolaridade: "+v.escolaridade, ic('<path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/>')) : "",
+    v.turno ? item("Turno: "+v.turno, ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')) : (v.modalidade ? item(v.modalidade, ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')) : ""),
+    v.tipo ? item(v.tipo, ic('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>')) : "",
+    v.cidade ? item(v.cidade, ic('<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.800 7 11 7 11Z"/><circle cx="12" cy="10" r="2.500"/>')) : "",
+    v.telefone ? item(v.telefone, ic('<path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>')) : "",
+    publicada ? item("Publicada em "+publicada, ic('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>')) : ""
+  ].filter(Boolean).join("");
+  return '<div class="vaga"><div class="cargo">'+esc(v.cargo||"")+'</div>'+
+    (v.empresa ? '<div class="empresa"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg> '+esc(v.empresa)+'</div>' : "")+
+    (v.desc ? '<div class="desc">'+esc(v.desc)+'</div>' : "")+
+    '<div class="meta">'+meta+'</div>'+(acao ? '<div class="rodape">'+acao+'</div>' : "")+'</div>';
 }
