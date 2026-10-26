@@ -234,6 +234,10 @@
     padding:.65rem 1.2rem; border-radius:10px; text-decoration:none; transition:background .15s; white-space:nowrap;
   }
   .btn-trampolim:hover{ background:#6d7e2e; color:#fff; }
+  @media (max-width:520px){
+    /* o texto longo do botão não pode ser mais largo que o cartão */
+    .btn-trampolim{ white-space:normal; text-align:center; justify-content:center; width:100%; max-width:100%; box-sizing:border-box; }
+  }
 
   /* badge de outro município */
   .badge-outra-cidade{
