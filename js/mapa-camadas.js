@@ -277,10 +277,13 @@ function _popupPonto(p){
   if(p.telefone) extra.push("Telefone: " + _escM(p.telefone));
   if(p.obs) extra.push(_escM(p.obs));
   const info = p.fonte && p.fonte.indexOf("Cadastro Estadual") === 0
-    ? '<p class="pop-nota">Informação do ' + _escM(p.fonte) + (p.ano ? ", respondida em " + _escM(p.ano) : "") + ". Confirme com o local antes de ir.</p>"
+    ? '<p class="pop-nota">Informação do ' + _escM(p.fonte) + (p.ano ? ", respondida em " + _escM(p.ano) : "") + ".</p>"
     : (p.verificado ? '<p class="pop-nota">Verificado em ' + _escM(p.verificado) + ".</p>" : "");
+  /* só bibliotecas pedem documento para usar o computador; telecentro, lan house e outros não */
+  const documentos = p.tipo === "biblioteca"
+    ? '<p class="pop-aviso"><b>Atenção:</b> oriente a família a levar RG e comprovante de residência para utilizar o computador na biblioteca.</p>' : "";
   return '<div class="pop-mapa"><b>' + _escM(p.nome) + "</b> " + selo + "<br><span>" + _escM(PONTOS_TIPOS[p.tipo] || "Local") + " · " + _escM(p.endereco || "") + "</span>" +
-    (extra.length ? "<p>" + extra.join("<br>") + "</p>" : "") + info + "</div>";
+    documentos + (extra.length ? "<p>" + extra.join("<br>") + "</p>" : "") + info + '<p class="pop-confirme">Confirme com o local antes de ir.</p></div>';
 }
 
 /* o pop-up nunca pode ser mais largo que o mapa (no celular o mapa tem ~340 px): ajusta a largura e

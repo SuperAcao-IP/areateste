@@ -192,6 +192,8 @@
   }
   .pop-mapa ul{ margin:.2rem 0 .3rem 1.1rem; padding:0; max-height:170px; overflow:auto; }
   .pop-mapa .pop-titulo{ margin:.5rem 0 .1rem; font-weight:700; }
+  .pop-mapa .pop-aviso{ margin:.5rem 0 .2rem; padding:.4rem .55rem; background:#FFF3E0; border-left:4px solid #E65100; border-radius:4px; color:#4E2A00; font-size:.8rem; }
+  .pop-mapa .pop-confirme{ margin:.4rem 0 0; color:#C62828; font-weight:700; font-size:.82rem; }
   .pop-mapa .pop-nota{ margin:.4rem 0 0; color:#5c6b7a; font-size:.78rem; }
 
 

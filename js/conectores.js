@@ -142,6 +142,7 @@ function normalizarCursoTrampolim(c){
     link: urlAbsolutaTrampolim(c.absolute_url||c.url||c.link||c.permalink||""),
     _rotulos: rotulosArea(c),
     _enderecos: enderecosTrampolim(c),
+    _id: c.id != null ? c.id : (c.course_uuid || null),     // chave para não repetir o mesmo curso (veja mesclarTrampolim)
     _trampolim: true
   };
 }
@@ -195,10 +196,31 @@ async function buscarCursosTrampolim(cidade){
   return cursos;
 }
 
-/* --- injeta os cursos no DADOS_CIDADE, criando categorias por area_interest --- */
+/* --- cursos ONLINE do Trampolim para todos os municípios ---
+   A API devolve resultados por cidade (parâmetro locale): os cursos 100% online vêm em toda consulta, mas os que têm
+   uma turma presencial além da online (formato "Presencial + Online") só vêm na consulta da cidade da turma. Como o
+   curso online vale para qualquer município, uma consulta SEM cidade (o catálogo do estado, ~100 cursos) é feita uma
+   vez por visita e só os cursos com formato online entram, em qualquer cidade. Os presenciais continuam só na cidade
+   (e vizinhas) deles. */
+const ehOnlineTrampolim = c => /online/i.test(c.modalidade || "");
+let _promessaOnlineTrampolim = null;
+function buscarCursosOnlineTrampolim(){
+  if(!_promessaOnlineTrampolim){
+    _promessaOnlineTrampolim = buscarCursosTrampolim("").then(l => l.filter(ehOnlineTrampolim));
+    _promessaOnlineTrampolim.catch(()=>{ _promessaOnlineTrampolim = null; });     // falhou: tenta de novo na próxima cidade
+  }
+  return _promessaOnlineTrampolim;
+}
+
+/* --- injeta os cursos no DADOS_CIDADE, criando categorias por area_interest ---
+   Sem repetir: o mesmo curso (mesmo id na API) entra uma vez só, mesmo que venha da cidade, de uma vizinha e do
+   catálogo do estado. Quem entra primeiro vence (a cidade da pessoa, sem etiqueta de "outra cidade"). */
 function mesclarTrampolim(cursos){
+  const vistos = new Set();
+  Object.values(DADOS_CIDADE).forEach(a => (a.cursos || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   cursos.forEach(c=>{
     if(!cursoAtingeCargaMinima(c.carga)) return;   // filtra cursos curtos (< 10h)
+    if(c._id != null){ if(vistos.has(c._id)) return; vistos.add(c._id); }
     const id = areaDoCurso(c.nome, ...(c._rotulos || []));
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).cursos.push(c);
   });
@@ -213,6 +235,12 @@ async function carregarTrampolimEAtualizar(cidade, token){
     const cursos = await buscarCursosTrampolim(cidade);
     if(token!==buscaToken) return;
     mesclarTrampolim(cursos);
+    /* cursos online valem para qualquer município (mesmo os que a API só devolve na cidade da turma presencial) */
+    try{
+      const online = await buscarCursosOnlineTrampolim();
+      if(token!==buscaToken) return;
+      mesclarTrampolim(online);
+    }catch(e){ console.warn("[Trampolim] catalogo online do estado falhou:", e); }
     /* busca tambem nas cidades vizinhas */
     const vizinhas = CIDADES_VIZINHAS[cidade] || [];
     for(const viz of vizinhas){
