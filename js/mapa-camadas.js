@@ -135,8 +135,8 @@ function recursosDePonto(txt){
 }
 
 /* ---------- camadas no mapa (navegador) ---------- */
-var CAMADAS_ESTADO = { servicos: true, escolas: true, computador: true };   // a escolha da pessoa vale ao trocar de cidade
-var CAMADAS_MAPA = { cidade: null, servicos: null, escolas: null, computador: null };
+var CAMADAS_ESTADO = { servicos: true, vagas: true, escolas: true, computador: true };   // a escolha da pessoa vale ao trocar de cidade
+var CAMADAS_MAPA = { cidade: null, servicos: null, vagas: null, escolas: null, computador: null };
 var _pontosPlanilhaCache = null;
 
 function _escM(s){ return (typeof esc === "function") ? esc(s) : String(s == null ? "" : s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c])); }
@@ -307,6 +307,30 @@ function _popupServico(s){
 function _iconeServico(){
   return L.divIcon({ className: "pino-servico", html: "<span>S</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
 }
+/* ---------- camada "Vagas": posição APROXIMADA (grade de ≈ 1 km), sem rua nem número ---------- */
+function _iconeVaga(n){
+  return L.divIcon({ className: "pino-vaga", html: "<span><b>" + n + "</b></span>", iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -26] });
+}
+/* vagas da cidade (Trampolim) agrupadas por posição aproximada: [{lat, lon, vagas:[...]}] */
+function vagasParaMapa(){
+  const todas = (typeof todasVagasDaCidade === "function") ? todasVagasDaCidade() : [];
+  const grupos = new Map();
+  todas.filter(v => v._aprox).forEach(v => {
+    const k = v._aprox.lat.toFixed(2) + "," + v._aprox.lon.toFixed(2);
+    if(!grupos.has(k)) grupos.set(k, { lat: v._aprox.lat, lon: v._aprox.lon, vagas: [] });
+    grupos.get(k).vagas.push(v);
+  });
+  return [...grupos.values()];
+}
+function _popupVagas(g){
+  const locais = [...new Set(g.vagas.map(v => [v._bairro, v.cidade].filter(Boolean).join(", ")).filter(Boolean))];
+  const onde = locais.length ? "Região de " + locais.slice(0, 3).map(_escM).join(" / ") + (locais.length > 3 ? " e outras" : "") : "Região aproximada";
+  const itens = g.vagas.map(v => {
+    const link = (typeof urlValida === "function" && urlValida(v.link)) ? ' <a class="btn-vaga-mapa" href="' + _escM(v.link) + '" target="_blank" rel="noopener noreferrer">Ver vaga</a>' : "";
+    return "<li><b>" + _escM(v.cargo || "Vaga") + "</b><br><span>" + _escM(v.empresaNome || "Empresa anônima") + "</span>" + link + "</li>";
+  }).join("");
+  return '<div class="pop-mapa"><b>' + g.vagas.length + " vaga" + (g.vagas.length > 1 ? "s" : "") + " nesta região</b><br><span>" + onde + "</span><ul>" + itens + '</ul><p class="pop-nota">Posição aproximada da região, não é o endereço da empresa.</p></div>';
+}
 function _iconePonto(p){
   return L.divIcon({ className: "pino-pc " + (p.computador ? "pc" : "wifi"), html: "<span>" + (p.computador ? "PC" : "Wi") + "</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
 }
@@ -314,12 +338,13 @@ function _iconePonto(p){
 function _montarControleCamadas(){
   let el = document.getElementById("mapaCamadas");
   if(!el) return;
-  const n = { servicos: CAMADAS_MAPA.nServicos || 0, escolas: CAMADAS_MAPA.nEscolas || 0, computador: CAMADAS_MAPA.nPontos || 0 };
+  const n = { servicos: CAMADAS_MAPA.nServicos || 0, vagas: CAMADAS_MAPA.nVagas || 0, escolas: CAMADAS_MAPA.nEscolas || 0, computador: CAMADAS_MAPA.nPontos || 0 };
   el.innerHTML =
     '<label class="camada-opcao"><input type="checkbox" data-camada="servicos"' + (CAMADAS_ESTADO.servicos ? " checked" : "") + '> <span class="camada-amostra servico">S</span> Serviços <small>' + n.servicos + "</small></label>" +
+    '<label class="camada-opcao"><input type="checkbox" data-camada="vagas"' + (CAMADAS_ESTADO.vagas ? " checked" : "") + '> <span class="camada-amostra amostra-vagas">V</span> Vagas <small>' + n.vagas + "</small></label>" +
     '<label class="camada-opcao"><input type="checkbox" data-camada="escolas"' + (CAMADAS_ESTADO.escolas ? " checked" : "") + '> <span class="camada-amostra escola">1</span> Cursos presenciais (escolas) <small>' + n.escolas + "</small></label>" +
     '<label class="camada-opcao"><input type="checkbox" data-camada="computador"' + (CAMADAS_ESTADO.computador ? " checked" : "") + '> <span class="camada-amostra pc">PC</span> Computador e internet <small>' + n.computador + "</small></label>" +
-    '<span class="camada-selos"><span class="selo selo-pc">Tem computador</span> <span class="selo selo-wifi">Só Wi-Fi</span> <span class="selo selo-servico">CRAS, PAT, Sebrae Aqui</span></span>';
+    '<span class="camada-selos"><span class="selo selo-pc">Tem computador</span> <span class="selo selo-wifi">Só Wi-Fi</span> <span class="selo selo-servico">CRAS, PAT, Sebrae Aqui</span> <span class="selo selo-vaga">Vagas: posição aproximada</span></span>';
   el.querySelectorAll("input[data-camada]").forEach(inp => inp.addEventListener("change", () => {
     CAMADAS_ESTADO[inp.dataset.camada] = inp.checked;
     _aplicarVisibilidade();
@@ -327,7 +352,7 @@ function _montarControleCamadas(){
 }
 function _aplicarVisibilidade(){
   if(!MAP) return;
-  ["servicos", "escolas", "computador"].forEach(k => {
+  ["servicos", "vagas", "escolas", "computador"].forEach(k => {
     const g = CAMADAS_MAPA[k];
     if(!g) return;
     if(CAMADAS_ESTADO[k]){ if(!MAP.hasLayer(g)) g.addTo(MAP); } else if(MAP.hasLayer(g)) MAP.removeLayer(g);
@@ -346,8 +371,12 @@ async function _atualizarCamadasMapa(){
   const pontos = await pontosComputadorParaMapa(cidade);
   const servicos = await servicosParaMapa(cidade);
   if(mapa !== MAP || cidade !== cidadeAtual) return;       // a pessoa trocou de cidade enquanto carregava
-  ["servicos", "escolas", "computador"].forEach(k => { if(CAMADAS_MAPA[k] && mapa.hasLayer(CAMADAS_MAPA[k])) mapa.removeLayer(CAMADAS_MAPA[k]); });
-  const gE = L.layerGroup(), gP = L.layerGroup(), gS = L.layerGroup(), limites = [];
+  ["servicos", "vagas", "escolas", "computador"].forEach(k => { if(CAMADAS_MAPA[k] && mapa.hasLayer(CAMADAS_MAPA[k])) mapa.removeLayer(CAMADAS_MAPA[k]); });
+  const gE = L.layerGroup(), gP = L.layerGroup(), gS = L.layerGroup(), gV = L.layerGroup(), limites = [];
+  const gruposVagas = vagasParaMapa();
+  gruposVagas.forEach(g => {
+    L.marker([g.lat, g.lon], { icon: _iconeVaga(g.vagas.length), title: g.vagas.length + " vaga" + (g.vagas.length > 1 ? "s" : "") + " (posição aproximada)" }).bindPopup(_popupVagas(g), _opcoesPopup(mapa)).addTo(gV);
+  });
   servicos.forEach(s => {
     L.marker([s.lat, s.lon], { icon: _iconeServico(), title: s.nome }).bindPopup(_popupServico(s), _opcoesPopup(mapa)).addTo(gS);
     limites.push([s.lat, s.lon]);
@@ -360,7 +389,7 @@ async function _atualizarCamadasMapa(){
     L.marker([p.lat, p.lon], { icon: _iconePonto(p), title: p.nome }).bindPopup(_popupPonto(p), _opcoesPopup(mapa)).addTo(gP);
     limites.push([p.lat, p.lon]);
   });
-  CAMADAS_MAPA = { cidade, servicos: gS, escolas: gE, computador: gP, nServicos: servicos.length, nEscolas: unidades.length, nPontos: pontos.length };
+  CAMADAS_MAPA = { cidade, servicos: gS, vagas: gV, escolas: gE, computador: gP, nServicos: servicos.length, nVagas: gruposVagas.reduce((a, g) => a + g.vagas.length, 0), nEscolas: unidades.length, nPontos: pontos.length };
   _montarControleCamadas();
   _aplicarVisibilidade();
   // enquadra UMA vez por mapa (na primeira vez que há pontos novos); depois não mexe no zoom da pessoa

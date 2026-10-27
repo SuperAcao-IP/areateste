@@ -317,6 +317,14 @@ function normalizarVagaTrampolim(v){
   const cidade = rotuloDe((ender && ender.city) || v.city || v.cidade || v.locale || "");
   const lista = x => Array.isArray(x) ? [...new Set(x.map(rotuloDe).filter(Boolean))].join(", ") : rotuloDe(x);
   const contrato = lista(v.work_relationship);                 // Efetivo, Temporário, Estágio...
+  /* PRIVACIDADE: a API traz o endereço e a coordenada exatos da vaga. O portal guarda só uma posição APROXIMADA
+     (grade de 0,01° ≈ 1 km) e o bairro; a coordenada exata e a rua nunca vão para o mapa nem para a tela. */
+  const g = ender && ender.geopoint, glat = Number(g && g.lat), glon = Number(g && g.lon);
+  const coordFalsa = Math.abs(glat + 21.2922) < 0.001 && Math.abs(glon + 50.3428) < 0.001;     // ponto falso conhecido do Trampolim
+  const aprox = (g && isFinite(glat) && isFinite(glon) && !coordFalsa) ? { lat: Math.round(glat * 100) / 100, lon: Math.round(glon * 100) / 100 } : null;
+  const anonima = v.anonymous_publication === true || String(v.anonymous_publication).toLowerCase() === "true";
+  const ent = v.enterprise || {};
+  const nomeEmpresa = anonima ? "Empresa anônima" : rotuloDe(ent.fantasy_name || ent.corporate_name || "");
   return {
     cargo: titulo,
     empresa: empresa ? (empresa+" · Trampolim SP") : "Trampolim SP",
@@ -326,6 +334,10 @@ function normalizarVagaTrampolim(v){
     experiencia: lista(v.min_experience),                      // "Sem experiência", "Até 6 meses de experiência"
     turno: lista(v.work_shift),                                // "Integral", "Manhã"...
     publicadaEm: lista(v.publication_date),                    // DD/MM/AAAA
+    anonima: anonima,                                          // vaga de empresa não divulgada
+    empresaNome: nomeEmpresa,                                  // "Empresa anônima" quando a vaga é anônima
+    _aprox: aprox,                                             // posição aproximada (≈ 1 km) para a camada "Vagas" do mapa
+    _bairro: ender ? rotuloDe(ender.neighborhood) : "",
     _id: v.id != null ? v.id : null,
     cidade: cidade,
     desc: desc ? (desc.length>200 ? desc.slice(0,200)+"…" : desc) : "",
