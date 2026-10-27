@@ -1,5 +1,8 @@
 {
  "ano": 2025,
  "arquivos": {},
- "falhando": false
+ "falhando": true,
+ "falhaDesde": "2026-10-27",
+ "ultimoMotivo": "fonte indisponível. O MDS não entregou os zips do Censo SUAS (veja a tabela). Os dados atuais continuam no ar.",
+ "verificadoEm": "2026-10-27"
 }
