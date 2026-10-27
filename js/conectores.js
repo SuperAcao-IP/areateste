@@ -172,6 +172,18 @@ async function fetchTrampolimJSON(url){
   throw erro || new Error("falha ao buscar Trampolim");
 }
 
+/* Mensagens de andamento ("Buscando...", "carregados: 57") vão só para o CONSOLE; a família não vê.
+   Quando uma fonte falha, aparece só um aviso simples, sem termos técnicos. Quem chama continua usando
+   `status.textContent = "..."`, e se o elemento não existir recebe null (`if(status) ...`). */
+function statusFonteEl(id, rotulo, falha){
+  const el = document.getElementById(id);
+  if(!el) return null;
+  return { set textContent(msg){
+    console.log("[Portal] " + rotulo + ": " + msg);
+    el.textContent = /n[ãa]o foi poss[ií]vel/i.test(msg) ? falha : "";
+  } };
+}
+
 /* --- busca todas as paginas de uma cidade (com cache) --- */
 async function buscarCursosTrampolim(cidade){
   if(cacheTrampolim.has(cidade)) return cacheTrampolim.get(cidade);
@@ -240,7 +252,7 @@ function mesclarTrampolim(cursos, estado){
 /* --- orquestra: busca, mescla e atualiza so a grade (sem recriar o mapa) --- */
 async function carregarTrampolimEAtualizar(cidade, token){
   console.log("[Trampolim] iniciando busca para:", cidade, "| proxy:", TRAMPOLIM_CORS_PROXY);
-  const status = document.getElementById("statusTrampolim");
+  const status = statusFonteEl("statusTrampolim", "Trampolim (cursos)", "Os cursos do Trampolim SP não puderam ser carregados agora. Os demais continuam disponíveis.");
   if(status) status.textContent = "Buscando cursos no Trampolim SP\u2026";
   try{
     const [cursos, estado] = await Promise.all([
@@ -358,7 +370,7 @@ function mesclarTrampolimVagas(vagas){
 
 async function carregarTrampolimVagasEAtualizar(cidade, token){
   console.log("[Trampolim Vagas] iniciando busca para:", cidade);
-  const status = document.getElementById("statusTrampolimVagas");
+  const status = statusFonteEl("statusTrampolimVagas", "Trampolim (vagas)", "As vagas do Trampolim SP não puderam ser carregadas agora.");
   if(status) status.textContent = "Buscando vagas de emprego no Trampolim SP\u2026";
   try{
     const vagas = await buscarVagasTrampolim(cidade);
@@ -585,7 +597,7 @@ function mesclarSebrae(cursos){
 }
 
 async function carregarSebraeEAtualizar(cidade, token){
-  const status = document.getElementById("statusSebrae");
+  const status = statusFonteEl("statusSebrae", "Sebrae SP", "Os cursos do Sebrae SP não puderam ser carregados agora. Os demais continuam disponíveis.");
   if(status) status.textContent = "Buscando cursos gratuitos no Sebrae SP\u2026";
   try{
     const cursos = await buscarCursosSebrae();
@@ -747,7 +759,7 @@ function mesclarPlanilha(cursos, cidade){
 }
 
 async function carregarPlanilhaEAtualizar(cidade, token){
-  const status = document.getElementById("statusPlanilha");
+  const status = statusFonteEl("statusPlanilha", "Planilha (cursos)", "Alguns cursos cadastrados pela equipe não puderam ser carregados agora. Os demais continuam disponíveis.");
   if(status) status.textContent = "Buscando cursos cadastrados na planilha\u2026";
   try{
     const cursos = await buscarCursosPlanilha();
@@ -851,7 +863,7 @@ function mesclarPlanilhaVagas(vagas, cidade){
 }
 
 async function carregarPlanilhaVagasEAtualizar(cidade, token){
-  const status = document.getElementById("statusPlanilhaVagas");
+  const status = statusFonteEl("statusPlanilhaVagas", "Planilha (vagas)", "Algumas vagas cadastradas pela equipe não puderam ser carregadas agora.");
   if(status) status.textContent = "Buscando vagas cadastradas na planilha\u2026";
   try{
     const vagas = await buscarVagasPlanilha();

@@ -353,6 +353,7 @@ function selecionarArea(cidade,areaId,btn){
 /* --- renderiza a seção de vagas (separada das áreas de qualificação) --- */
 /* ===== Vagas: lista única, mais recentes primeiro ===== */
 const URL_SINE = "https://servicos.mte.gov.br/spme-v2/#/login";
+const AVISO_GOLPE_VAGAS = '<p class="vagas-aviso"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.500 20h19L12 3Z"/><path d="M12 10v4M12 17.500v.01"/></svg><span><strong>Vaga de verdade nunca cobra taxa.</strong> Desconfie de pedidos de pagamento ou de conversa fora da plataforma.</span></p>';
 function urlVagasTrampolimSite(cidade){
   return "https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale="+encodeURIComponent(cidade)+"&operation_range=50";
 }
@@ -418,7 +419,7 @@ function renderVagas(){
   const todas=todasVagasDaCidade();
   if(!todas.length){
     if(vagasPendentes>0){ wrap.innerHTML='<div class="vazio-area">Buscando vagas\u2026</div>'; return; }
-    wrap.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div></div>`;
+    wrap.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div>${AVISO_GOLPE_VAGAS}</div>`;
     return;
   }
   const ops=opcoesFiltroVagas(todas);
@@ -428,7 +429,7 @@ function renderVagas(){
     ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${todas.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
     : "";
   const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as mais recentes primeiro`;
-  const maisLinks=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>`;
+  const maisLinks=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
   wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>${maisLinks}`;
 }
 

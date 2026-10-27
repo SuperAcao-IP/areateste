@@ -362,6 +362,10 @@
   .chip-vaga:hover{ border-color:var(--azul); }
   .chip-vaga[aria-pressed="true"]{ background:var(--azul); border-color:var(--azul); color:#fff; }
   .vagas-vazio p{ margin:.5rem 0 1rem; }
+  .vagas-aviso{ display:flex; align-items:flex-start; gap:.5rem; margin:.9rem auto 0; max-width:640px; padding:.55rem .8rem; background:#FFF8E1; border:1px solid #FFE082; border-left:4px solid #F9A825; border-radius:8px; color:#5D4300; font-size:.84rem; line-height:1.4; text-align:left; }
+  .vagas-aviso svg{ flex:none; margin-top:.1rem; color:#E65100; }
+  .vagas-vazio .vagas-aviso{ margin:.9rem auto 0; }
+  .dica-area:empty{ display:none; }
   .vagas-mais{ display:flex; flex-wrap:wrap; gap:.4rem 1.4rem; justify-content:center; margin:1.2rem 0 .2rem; font-size:.88rem; }
   .vagas-mais a{ color:var(--azul); font-weight:600; text-decoration:underline; display:inline-flex; align-items:center; gap:.3rem; }
   .vagas-vazio-links{ display:flex; flex-wrap:wrap; gap:.6rem; justify-content:center; }
