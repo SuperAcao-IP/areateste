@@ -167,30 +167,6 @@ function renderCidade(cidade){
       <details class="secao-suspenso" id="secaoVagas" open>
         <summary class="bloco-titulo secao-summary"><span class="ic verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span><div><h3>Veja as vagas disponíveis</h3><p>Vagas de emprego na região de ${cidade}.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
-          <div class="trampolim-link-card">
-            <div class="trampolim-link-info">
-              <div>
-                <strong>Trampolim SP</strong>
-                <span>Plataforma oficial do Governo do Estado com vagas de emprego atualizadas diariamente para a região.</span>
-              </div>
-            </div>
-            <a class="btn-trampolim" href="${urlVagasTrampolimSite(cidade)}" target="_blank" rel="noopener noreferrer">
-              Ver vagas em ${cidade} no Trampolim SP
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-          </div>
-          <div class="trampolim-link-card">
-            <div class="trampolim-link-info">
-              <div>
-                <strong>SINE — Emprega Brasil</strong>
-                <span>Portal do Governo Federal com vagas do Sistema Nacional de Emprego em todo o país. Requer login com gov.br.</span>
-              </div>
-            </div>
-            <a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">
-              Consultar vagas no Emprega Brasil
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>
-            </a>
-          </div>
           <div id="listaVagas"></div>
           <p class="dica-area" id="statusPlanilhaVagas" style="margin-top:.35rem"></p>
         </div>
@@ -452,7 +428,8 @@ function renderVagas(){
     ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${todas.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
     : "";
   const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as mais recentes primeiro`;
-  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>`;
+  const maisLinks=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>`;
+  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>${maisLinks}`;
 }
 
 const linkExterno=`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`;
