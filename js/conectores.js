@@ -327,7 +327,7 @@ function normalizarVagaTrampolim(v){
   const nomeEmpresa = anonima ? "Empresa anônima" : rotuloDe(ent.fantasy_name || ent.corporate_name || "");
   return {
     cargo: titulo,
-    empresa: empresa ? (empresa+" · Trampolim SP") : "Trampolim SP",
+    empresa: nomeEmpresa || empresa || "Empresa não informada",   // nome da empresa, ou "Empresa anônima"; a fonte vai em "via Trampolim SP"
     modalidade: modalidade,
     tipo: contrato || tipo,
     escolaridade: lista(v.min_education),                      // "Médio Completo", "Fundamental Completo"...

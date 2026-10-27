@@ -357,7 +357,9 @@
   }
   .vaga:hover{ box-shadow:var(--sombra); border-color:var(--linha-forte); }
   .vaga .cargo{ font-family:"Jost"; font-weight:700; font-size:1.05rem; color:var(--azul); line-height:1.25; }
-  .vaga .empresa{ font-size:.88rem; color:var(--texto-suave); display:flex; align-items:center; gap:.4rem; }
+  .vaga .empresa{ font-size:.88rem; color:var(--texto-suave); display:flex; align-items:flex-start; gap:.4rem; }
+  .vaga .empresa svg{ flex:none; margin-top:.2rem; }
+  .vaga .empresa .via{ font-size:.72rem; opacity:.8; white-space:nowrap; }
   .vaga .desc{ font-size:.85rem; color:var(--texto-suave); line-height:1.4; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
   .vaga .meta{ display:flex; flex-wrap:wrap; gap:.4rem; }
   .vaga .meta .item{ font-size:.78rem; font-weight:600; color:var(--texto); background:var(--fundo); border:1px solid var(--linha); padding:.28rem .55rem; border-radius:8px; display:inline-flex; align-items:center; gap:.3rem; }
