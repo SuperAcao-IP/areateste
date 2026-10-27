@@ -1,0 +1,72 @@
+name: Atualizar Censo SUAS
+
+# Todo dia 3 do mês, 06h em Brasília (09h UTC), ou na hora pelo botão "Run workflow".
+# Verifica se o MDS publicou um Censo SUAS mais novo (ou republicou o atual). Se SIM: gera dados/servicos-oficiais.js
+# (CRAS e CREAS), passa pelas travas de segurança, publica na main e abre uma issue com o que mudou.
+# Se NÃO saiu nada novo: não faz nada. Se o endereço do MDS estiver fora do ar ou a lista nova não passar nas travas:
+# mantém os dados atuais e abre issue SÓ NA PRIMEIRA FALHA (meses seguintes com a fonte ainda fora do ar não abrem issue).
+# O estado (ano usado, data dos arquivos, se está falhando) fica em scripts/fontes/censo-suas-marca.json.
+on:
+  schedule:
+    - cron: "0 9 3 * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: atualizar-censo-suas
+  cancel-in-progress: false
+
+jobs:
+  atualizar:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Verificar o Censo SUAS e, se saiu um novo, gerar os CRAS/CREAS
+        id: censo
+        continue-on-error: true
+        run: node scripts/atualizar-censo-suas.js --relatorio relatorio-censo-suas.md
+
+      - name: Publicar na main
+        if: ${{ steps.censo.outcome == 'success' && steps.censo.outputs.publicar == 'true' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados scripts/fontes/censo-suas-marca.json
+          git commit -m "Censo SUAS: atualização automática ($(date -u +%F))"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      # issue só quando o script manda (atualização publicada ou PRIMEIRA falha) ou quando o próprio script quebrou
+      - name: Abrir issue com o resumo
+        if: ${{ always() && (steps.censo.outcome != 'success' || steps.censo.outputs.abrir_issue == 'true') }}
+        env:
+          RESULTADO: ${{ steps.censo.outcome }}
+          TITULO: ${{ steps.censo.outputs.titulo_issue }}
+        run: |
+          if [ "$RESULTADO" != "success" ]; then TITULO="Censo SUAS $(date -u +%Y-%m): o script FALHOU (nada foi publicado)"; fi
+          if [ ! -s relatorio-censo-suas.md ]; then
+            echo "O script não gerou relatório. Veja o log da execução: ${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}" > relatorio-censo-suas.md
+          fi
+          echo "" >> relatorio-censo-suas.md
+          echo "[Log da execução](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> relatorio-censo-suas.md
+          head -c 60000 relatorio-censo-suas.md > corpo-issue-censo.md
+          gh label create censo-automatico --color 0E8A16 --description "Resumo da verificação automática do Censo SUAS" 2>/dev/null || true
+          gh issue create --title "$TITULO" --body-file corpo-issue-censo.md --label censo-automatico
+
+      - name: Marcar a execução como falha se o script quebrou
+        if: ${{ steps.censo.outcome == 'failure' }}
+        run: exit 1

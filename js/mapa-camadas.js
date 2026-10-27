@@ -160,13 +160,51 @@ function _locaisDoTrampolim(cursos){
 }
 
 /* junta tudo que vira ponto de "cursos presenciais" para a cidade escolhida */
-function unidadesParaMapa(cidade){
+/* ---------- unidades de ensino cadastradas na aba "unidades" da planilha ---------- */
+var _unidadesPlanilhaCache = null;
+async function _lerUnidadesPlanilha(){
+  if(_unidadesPlanilhaCache) return _unidadesPlanilhaCache;
+  if(typeof PLANILHA_UNIDADES_CSV_URL === "undefined" || !PLANILHA_UNIDADES_CSV_URL) return (_unidadesPlanilhaCache = []);   // desligado
+  try{
+    const resp = await fetch(PLANILHA_UNIDADES_CSV_URL);
+    if(!resp.ok) throw new Error("HTTP " + resp.status);
+    const rows = csvParaObjetos(await resp.text(), "nome");
+    _unidadesPlanilhaCache = rows.filter(r => !statusFechado(r.status) && !/inativ/i.test(r.status || ""));
+  }catch(e){
+    console.warn("[Unidades] aba não carregou:", e);
+    _unidadesPlanilhaCache = [];
+  }
+  return _unidadesPlanilhaCache;
+}
+function _unidadeDaLinha(r){
+  const cidade = r.municipio || "";
+  let lat = numeroDecimal(r.lat), lon = numeroDecimal(r.lon);
+  if(lat == null || lon == null){
+    const g = (typeof PONTOS_GEOCODIFICADOS !== "undefined") ? PONTOS_GEOCODIFICADOS[chaveEnderecoPonto(r.endereco, cidade)] : null;
+    if(!g) return null;      // sem coordenada ainda: o script semanal calcula pelo endereço
+    lat = g.lat; lon = g.lon;
+  }
+  const n = _nm(r.instituicao);
+  const inst = /senai/.test(n) ? "Senai" : /senac/.test(n) ? "Senac" : String(r.instituicao || "").trim() || "Unidade";
+  return { id: "un-planilha-" + _normalizarChave(inst + r.nome + cidade), inst, nome: r.nome, endereco: [r.endereco, r.bairro].filter(Boolean).join(" – "), cidade, lat, lon, link: r.link || "", psg: false, cursos: [] };
+}
+async function unidadesDaPlanilha(){ return (await _lerUnidadesPlanilha()).map(_unidadeDaLinha).filter(Boolean); }
+/* junta as unidades: as da aba "unidades" (prioritárias) vencem; uma unidade dos arquivos só entra se NÃO for a mesma de uma da aba.
+   Mesmo lugar = mesma instituição, mesma cidade e (nome parecido ou menos de 150 m). Unidades dentro do mesmo grupo nunca se fundem. */
+function mesclarUnidades(prioritarias, outras){
+  const chave = u => _nm(u.nome).replace(/\b(senac|senai|unidade|escola|centro)\b/g, " ").replace(/[^a-z0-9]+/g, " ").trim();
+  const mesma = (x, u) => x.inst === u.inst && _nm(x.cidade) === _nm(u.cidade) &&
+    ((chave(x) && chave(x) === chave(u)) || (x.lat != null && u.lat != null && _kmEntre(x, u) < 0.15));
+  const pri = prioritarias || [];
+  return pri.concat((outras || []).filter(u => !pri.some(x => mesma(x, u))));
+}
+function unidadesParaMapa(cidade, extras){
   const ok = _cidadesDoMapa(cidade);
-  const base = (typeof UNIDADES !== "undefined" ? UNIDADES : []).filter(u => ok.has(_nm(u.cidade))).map(u => Object.assign({}, u, { cursos: (u.cursos || []).slice() }));
+  const todasUnidades = mesclarUnidades(extras, (typeof UNIDADES !== "undefined" ? UNIDADES : []));   // aba "unidades" vence os arquivos
+  const base = todasUnidades.filter(u => ok.has(_nm(u.cidade))).map(u => Object.assign({}, u, { cursos: (u.cursos || []).slice() }));
   const todosCursos = [];
   Object.values(DADOS_CIDADE || {}).forEach(a => (a.cursos || []).forEach(c => todosCursos.push(c)));
   // cursos da planilha (Senai/Senac) -> unidade, só quando a unidade é única ou o texto desempata
-  const todasUnidades = (typeof UNIDADES !== "undefined" ? UNIDADES : []);
   todosCursos.filter(c => c._planilha && /presencial/i.test(c.modalidade || "") && c._municipio).forEach(c => {
     const r = vincularCursoAUnidade(c._inst || c.inst, c._municipio, todasUnidades, c._unidade);
     if(!r.unidade) return;
@@ -239,14 +277,13 @@ function _servicoDaLinha(r){
   return { id: "svc-planilha-" + _normalizarChave(r.nome + cidade), tipo, nome: r.nome, endereco: r.endereco || "", bairro: r.bairro || "", cidade, lat, lon,
     horario: r.horario || "", telefone: r.telefone || "", fonte: "Cadastro da equipe" };
 }
-/* serviços de um município: planilha (vence) > mapa de campo (mapa-pontos.js) > fontes oficiais; sem repetir o mesmo lugar */
+/* serviços de um município: aba "servicos" da planilha (vence) > Censo SUAS (CRAS/CREAS oficiais); sem repetir o mesmo lugar.
+   O antigo mapa de campo (My Maps) não é mais usado: foi arquivado em dados/arquivo/. */
 async function servicosParaMapa(cidade){
   const ok = new Set([_nm(cidade)]);
-  const campo = ((typeof MAPA !== "undefined" && MAPA[cidade] && MAPA[cidade].cras) || []).filter(p => p.lat != null && p.lon != null)
-    .map(p => ({ id: "svc-campo-" + _normalizarChave(p.n + cidade), tipo: tipoDeServico(p.n), nome: String(p.n).replace(/[\u200b\u200c\u200d]/g, "").trim(), endereco: "", bairro: "", cidade, lat: p.lat, lon: p.lon, horario: "", telefone: "", fonte: "Mapa de campo" }));
   const oficiais = (typeof SERVICOS_OFICIAIS !== "undefined" ? SERVICOS_OFICIAIS : []).filter(s => ok.has(_nm(s.cidade)) && s.lat != null && s.lon != null);
   const manuais = (await _lerServicosPlanilha()).filter(r => ok.has(_nm(r.municipio))).map(_servicoDaLinha).filter(Boolean);
-  return mesclarServicos([manuais, campo, oficiais]);
+  return mesclarServicos([manuais, oficiais]);
 }
 
 async function pontosComputadorParaMapa(cidade){
@@ -367,7 +404,7 @@ function atualizarCamadasMapa(){
 async function _atualizarCamadasMapa(){
   if(typeof MAP === "undefined" || !MAP || !cidadeAtual) return;
   const cidade = cidadeAtual, mapa = MAP;
-  const unidades = unidadesParaMapa(cidade);
+  const unidades = unidadesParaMapa(cidade, await unidadesDaPlanilha());
   const pontos = await pontosComputadorParaMapa(cidade);
   const servicos = await servicosParaMapa(cidade);
   if(mapa !== MAP || cidade !== cidadeAtual) return;       // a pessoa trocou de cidade enquanto carregava

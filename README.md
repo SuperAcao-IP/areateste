@@ -52,9 +52,9 @@ A ordem no `index.html` **importa** — não embaralhe.
 
 ### Por que os dados estão em `.js` e não em `.json`
 
-`dados/mapa-pontos.js`, `dados/cursos-evg.js` e `dados/cursos-bradesco.js` são arquivos
+`dados/municipios.js`, `dados/cursos-evg.js` e `dados/cursos-bradesco.js` são arquivos
 `.js` com um `const` dentro, não JSON. O código usa essas constantes de forma síncrona
-na inicialização (`MUNICIPIOS = Object.keys(MAPA)`). Virar JSON obrigaria a
+na inicialização (`MUNICIPIOS = Object.keys(CENTROS_MUNICIPIOS)`). Virar JSON obrigaria a
 inicialização a virar assíncrona. Não vale a complicação agora.
 
 ---
@@ -70,7 +70,7 @@ inicialização a virar assíncrona. Não vale a complicação agora.
 | **Planilha** — vagas | mesma planilha, outra aba | `PLANILHA_VAGAS_ATIVA` |
 | **EVG e Bradesco** | listas fixas em `dados/` | — |
 | **Manuais** | `dados.json` | — |
-| **Mapa** | `dados/mapa-pontos.js`, do My Maps de campo | — |
+| **Mapa** | aba `servicos` da planilha + Censo SUAS (serviços), aba `unidades` e arquivos de unidades, bibliotecas; municípios em `dados/municipios.js` | — |
 
 Regras de conteúdo aplicadas a todas as fontes (também em `config.js`):
 
@@ -128,9 +128,9 @@ de versões**. Dá para restaurar qualquer estado anterior.
 
 ## Atualizar os dados fixos
 
-- **Pontos do mapa:** exportar o My Maps em KML, converter e substituir o conteúdo de
-  `dados/mapa-pontos.js`. A lista de municípios do seletor sai daqui — cidade que não
-  estiver no mapa não aparece na lista.
+- **Municípios e pontos do mapa:** a lista de municípios do seletor e o centro de cada um estão em
+  `dados/municipios.js` (cidade que não estiver lá não aparece na lista). Os serviços do mapa vêm da aba
+  `servicos` da planilha e do Censo SUAS (veja ATUALIZACAO-CATALOGOS.md); o antigo My Maps foi arquivado em `dados/arquivo/`.
 - **Áreas do programa:** `js/areas.js`. Cada área tem nome, descrição, ícone e a lista de
   palavras-chave que classifica os cursos automaticamente. Curso que não casa com
   nenhuma cai em "Outros".

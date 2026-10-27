@@ -1,9 +1,8 @@
 #!/usr/bin/env node
 /* Gera dados/servicos-oficiais.js: CRAS e CREAS dos municípios do mapa, a partir dos microdados abertos do
-   Censo SUAS (MDS/SNAS). Não é semanal: o Censo SUAS sai uma vez por ano. Rodar à mão quando o MDS publicar o
-   censo novo (confira a página https://aplicacoes.mds.gov.br/sagi/snas/vigilancia/index2.php e troque ANO).
-
-   Uso: node scripts/gerar-servicos-oficiais.js [ANO] [--simular]
+   Censo SUAS (MDS/SNAS). O Censo SUAS sai uma vez por ano: o fluxo mensal "Atualizar Censo SUAS"
+   (scripts/atualizar-censo-suas.js) verifica se saiu um mais novo e usa este arquivo como biblioteca.
+   À mão, para forçar: node scripts/gerar-servicos-oficiais.js [ANO] [--simular]
 
    Cuidados com a fonte (ver ATUALIZACAO-CATALOGOS.md):
      - o censo NÃO traz o nome da unidade: o rótulo vira "CRAS – Rua X, 123 (Bairro)";
@@ -16,10 +15,8 @@ const zlib = require("zlib");
 const { carregarCidades, km, RAIZ } = require("./lib/cidades");
 const { enderecoParaExibir } = require("./lib/geocodificar");
 
-const args = process.argv.slice(2);
-const SIMULAR = args.includes("--simular");
-const ANO = args.find(a => /^\d{4}$/.test(a)) || "2025";
-const BASE = `https://aplicacoes.mds.gov.br/snas/defeso/censosuas/${ANO}/`;
+const BASE_PADRAO = "https://aplicacoes.mds.gov.br/snas/defeso/censosuas/";   // + ANO + "/1_CRAS.zip" etc.
+const UA = "SuperAcaoSP-mapa/1.0 (+https://superacao-ip.github.io/plataforma/)";
 const ARQUIVOS = [["CRAS", "1_CRAS.zip", /Dados_Gerais\.csv$/i], ["CREAS", "2_CREAS.zip", /Dados_Gerais\.csv$/i]];
 const RAIO_MAXIMO_KM = 20;
 
@@ -70,15 +67,22 @@ const titulo = t => { const L = t.replace(/[^A-Za-zÀ-ÿ]/g, ""); return (!L || 
 const telefone = t => { const d = String(t || "").replace(/\D/g, ""); return d.length === 10 ? `(${d.slice(0, 2)}) ${d.slice(2, 6)}-${d.slice(6)}` : d.length === 11 ? `(${d.slice(0, 2)}) ${d.slice(2, 7)}-${d.slice(7)}` : ""; };
 const tipoLogradouro = t => ({ AV: "Avenida", "AV.": "Avenida", R: "Rua", "R.": "Rua" }[String(t).toUpperCase()] || titulo(String(t)));
 
-(async () => {
+/* baixa e lê os zips do ano; devolve a lista e o texto do arquivo, SEM gravar nada */
+async function gerar({ ano, base }){
+  const ANO = String(ano);
+  const BASE = (base || process.env.CENSO_SUAS_BASE || BASE_PADRAO).replace(/\/?$/, "/") + ANO + "/";
   const { municipios, centros, norm } = carregarCidades();
   const porNome = new Map(municipios.map(m => [norm(m), m]));
   const lista = [], semCoord = [], contagem = {};
   for(const [tipo, arq, padrao] of ARQUIVOS){
     console.log(`Baixando ${BASE}${arq} …`);
-    const resp = await fetch(BASE + arq, { headers: { "user-agent": "SuperAcaoSP-mapa/1.0 (+https://superacao-ip.github.io/areateste/)" } });
-    if(!resp.ok) throw new Error(`${arq}: HTTP ${resp.status} (o MDS pode ter mudado o endereço; confira a página do Censo SUAS)`);
-    const zip = lerZip(Buffer.from(await resp.arrayBuffer()));
+    const resp = await fetch(BASE + arq, { headers: { "user-agent": UA }, signal: AbortSignal.timeout(180000) });
+    if(!resp.ok){ const e = new Error(`${arq}: HTTP ${resp.status} (o MDS pode ter mudado o endereço; confira a página do Censo SUAS)`); e.indisponivel = true; throw e; }
+    const buf = Buffer.from(await resp.arrayBuffer());
+    if(buf.length < 4 || buf[0] !== 0x50 || buf[1] !== 0x4B){      // não começa com "PK": veio uma página, não o zip
+      const e = new Error(`${arq}: a fonte não devolveu um zip (foi redirecionada para ${resp.url})`); e.indisponivel = true; throw e;
+    }
+    const zip = lerZip(buf);
     const entrada = zip.entradas.find(e => padrao.test(e.nome));
     if(!entrada) throw new Error(`${arq}: não achei o arquivo Dados_Gerais.csv dentro do zip`);
     const rows = csvPontoVirgula(zip.ler(entrada).toString("latin1"));
@@ -106,8 +110,20 @@ const tipoLogradouro = t => ({ AV: "Avenida", "AV.": "Avenida", R: "Rua", "R.": 
   const texto = `/* CRAS e CREAS dos municípios do mapa. Fonte: microdados abertos do Censo SUAS ${ANO} (MDS/SNAS), ${BASE}.\n` +
     `   Gerado por scripts/gerar-servicos-oficiais.js · ${new Date().toISOString().slice(0, 10)}. Não edite à mão. O censo não traz o nome da unidade (o rótulo é o endereço).\n` +
     `   Quem está sem lat/lon (coordenada ausente ou inválida) não aparece no mapa. */\nconst SERVICOS_OFICIAIS = [\n${linhas}\n];\n`;
-  if(!SIMULAR) fs.writeFileSync(path.join(RAIZ, "dados", "servicos-oficiais.js"), texto, "utf8");
-  console.log(`${lista.length} unidades (${lista.filter(x => x.lat != null).length} com coordenada válida)${SIMULAR ? " [simulação: nada gravado]" : ""}`);
-  if(semCoord.length) console.log("Sem coordenada válida (fora do mapa):\n - " + semCoord.join("\n - "));
-  console.log("município | CRAS | CREAS"); municipios.forEach(m => console.log(`${m} | ${(contagem[m] || {}).CRAS || 0} | ${(contagem[m] || {}).CREAS || 0}`));
-})().catch(e => { console.error("ERRO:", e.message); process.exit(1); });
+  return { ano: ANO, base: BASE, lista, semCoord, contagem, texto, municipios };
+}
+
+module.exports = { gerar, lerZip, BASE_PADRAO };
+
+/* uso direto: node scripts/gerar-servicos-oficiais.js [ANO] [--simular] */
+if(require.main === module){
+  const args = process.argv.slice(2);
+  const SIMULAR = args.includes("--simular");
+  const ANO = args.find(a => /^\d{4}$/.test(a)) || "2025";
+  gerar({ ano: ANO }).then(r => {
+    if(!SIMULAR) fs.writeFileSync(path.join(RAIZ, "dados", "servicos-oficiais.js"), r.texto, "utf8");
+    console.log(`${r.lista.length} unidades (${r.lista.filter(x => x.lat != null).length} com coordenada válida)${SIMULAR ? " [simulação: nada gravado]" : ""}`);
+    if(r.semCoord.length) console.log("Sem coordenada válida (fora do mapa):\n - " + r.semCoord.join("\n - "));
+    console.log("município | CRAS | CREAS"); r.municipios.forEach(m => console.log(`${m} | ${(r.contagem[m] || {}).CRAS || 0} | ${(r.contagem[m] || {}).CREAS || 0}`));
+  }).catch(e => { console.error("ERRO:", e.message); process.exit(1); });
+}

@@ -46,7 +46,7 @@ function carregarSite(){
   const ler = rel => fs.readFileSync(path.join(RAIZ, rel), "utf8");
   vm.runInContext(["js/areas.js", "js/config.js", "js/conectores.js", "js/mapa-camadas.js"].map(ler).join("\n") +
     `\nglobalThis.__s = { vincularCursoAUnidade, chaveEnderecoPonto, separarEndereco, tipoDePonto, csvParaObjetos, parseCSV,
-       cursosUrl: PLANILHA_CSV_URL, pontosUrl: PLANILHA_PONTOS_CSV_URL, servicosUrl: PLANILHA_SERVICOS_CSV_URL, numeroDecimal, statusFechado };`, ctx);
+       cursosUrl: PLANILHA_CSV_URL, pontosUrl: PLANILHA_PONTOS_CSV_URL, servicosUrl: PLANILHA_SERVICOS_CSV_URL, unidadesUrl: PLANILHA_UNIDADES_CSV_URL, numeroDecimal, statusFechado };`, ctx);
   return ctx.__s;
 }
 
@@ -170,16 +170,16 @@ async function main(){
     }catch(e){ relatorio.falhas.push({ nome: "Bibliotecas", motivo: e.message }); biblRes = "FALHOU, mantida a versão anterior"; console.error("  FALHOU:", e.message); }
   }
 
-  /* ===== Aba "pontos_digitais": só calcula coordenada do que a equipe deixou sem lat/lon ===== */
-  let geo = geoAnt, pontosRes = "abas não configuradas (PLANILHA_PONTOS_CSV_URL e PLANILHA_SERVICOS_CSV_URL vazias)";
-  if((site.pontosUrl || site.servicosUrl) && !IGNORAR.has("pontos")){
+  /* ===== Abas "pontos_digitais", "servicos" e "unidades": só calculam a coordenada do que a equipe deixou sem lat/lon ===== */
+  let geo = geoAnt, pontosRes = "abas não configuradas (links CSV vazios em js/config.js)", linhasUnidades = [];
+  if((site.pontosUrl || site.servicosUrl || site.unidadesUrl) && !IGNORAR.has("pontos")){
     try{
       const linhas = [];
-      for(const [aba, url] of [["pontos_digitais", site.pontosUrl], ["servicos", site.servicosUrl]]){
+      for(const [aba, url] of [["pontos_digitais", site.pontosUrl], ["servicos", site.servicosUrl], ["unidades", site.unidadesUrl]]){
         if(!url) continue;
         const r = await buscar(url, { tentativas: 3 });
         if(r.status !== 200) throw new Error("a aba " + aba + " respondeu HTTP " + r.status);
-        site.csvParaObjetos(r.texto, "nome").filter(l => !site.statusFechado(l.status)).forEach(l => linhas.push(l));
+        site.csvParaObjetos(r.texto, "nome").filter(l => !site.statusFechado(l.status)).forEach(l => { linhas.push(l); if(aba === "unidades") linhasUnidades.push(l); });
       }
       const novo = {}; let calculadas = 0, semEnd = [];
       for(const l of linhas){
@@ -190,13 +190,20 @@ async function main(){
         if(g){ novo[site.chaveEnderecoPonto(l.endereco, l.municipio)] = { lat: g.lat, lon: g.lon }; calculadas++; }
         else semCoordenada.push(`${l.nome} (${l.municipio}): ${l.endereco}`);
       }
-      geo = novo; pontosRes = `${linhas.length} linhas ativas (pontos_digitais + servicos), ${calculadas} coordenadas calculadas pelo endereço`;
-      if(semEnd.length) relatorio.notas.push("Linhas das abas pontos_digitais/servicos sem endereço ou município (não entram no mapa): " + semEnd.join("; "));
-    }catch(e){ relatorio.falhas.push({ nome: "Abas pontos_digitais e servicos", motivo: e.message }); pontosRes = "FALHOU, mantida a versão anterior"; console.error("  FALHOU:", e.message); }
+      geo = novo; pontosRes = `${linhas.length} linhas ativas (pontos_digitais + servicos + unidades), ${calculadas} coordenadas calculadas pelo endereço`;
+      if(semEnd.length) relatorio.notas.push("Linhas das abas pontos_digitais/servicos/unidades sem endereço ou município (não entram no mapa): " + semEnd.join("; "));
+    }catch(e){ relatorio.falhas.push({ nome: "Abas pontos_digitais, servicos e unidades", motivo: e.message }); pontosRes = "FALHOU, mantida a versão anterior"; console.error("  FALHOU:", e.message); }
   }
 
   /* ===== relatório da aba "cursos": que cursos presenciais se ligam a uma unidade ===== */
-  const unidades = senac.concat(senai);
+  // unidades cadastradas na aba "unidades" também entram na conferência dos cursos da planilha
+  const unidadesAba = linhasUnidades.map(l => {
+    let lat = site.numeroDecimal(l.lat), lon = site.numeroDecimal(l.lon);
+    if(lat == null || lon == null){ const g = geo[site.chaveEnderecoPonto(l.endereco, l.municipio)]; if(!g) return null; lat = g.lat; lon = g.lon; }
+    const n = String(l.instituicao || "").toLowerCase();
+    return { id: "un-planilha-" + l.nome, inst: /senai/.test(n) ? "Senai" : /senac/.test(n) ? "Senac" : String(l.instituicao || "Unidade"), nome: l.nome, endereco: l.endereco || "", cidade: l.municipio, lat, lon, cursos: [] };
+  }).filter(Boolean);
+  const unidades = senac.concat(senai, unidadesAba.filter(u => !senac.concat(senai).some(x => x.inst === u.inst && x.cidade === u.cidade && x.nome.toLowerCase().includes(String(u.nome).toLowerCase().replace(/^(senac|senai)\s*/, "")))));
   let vinculos = null;
   try{
     const r = await buscar(site.cursosUrl, { tentativas: 3 });
@@ -251,7 +258,7 @@ function escrever(rel, res, semCoord, vinc, unidades, bibl){
   }
   L.push(rel.mudancas.length ? `**Arquivos ${SIMULAR ? "que seriam alterados" : "alterados"}:** ${rel.mudancas.map(a => "`dados/" + a + "`").join(", ")}\n` : "**Nenhum arquivo precisou mudar.**\n");
   L.push("| Fonte | Resultado |\n|---|---|");
-  L.push(`| Senac-SP | ${res.senacRes} |`, `| Senai-SP | ${res.senaiRes} |`, `| Bibliotecas (SisEB) | ${res.biblRes} |`, `| Abas pontos_digitais e servicos | ${res.pontosRes} |\n`);
+  L.push(`| Senac-SP | ${res.senacRes} |`, `| Senai-SP | ${res.senaiRes} |`, `| Bibliotecas (SisEB) | ${res.biblRes} |`, `| Abas pontos_digitais, servicos e unidades | ${res.pontosRes} |\n`);
   const porCidade = {};
   unidades.forEach(u => { (porCidade[u.cidade] = porCidade[u.cidade] || []).push(`${u.nome}${u.cursos.length ? " (" + u.cursos.length + " cursos)" : ""}`); });
   L.push(`## Unidades no mapa (${unidades.length})\n`);

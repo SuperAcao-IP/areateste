@@ -2,7 +2,7 @@
    INTERFACE  ·  estado da pagina, render da cidade, areas, cartoes,
    mapa (Leaflet) e modal do Senac
    ===================================================================== */
-const MUNICIPIOS = Object.keys(MAPA).sort((a,b)=>a.localeCompare(b,"pt-BR"));
+const MUNICIPIOS = Object.keys(CENTROS_MUNICIPIOS).sort((a,b)=>a.localeCompare(b,"pt-BR"));   // dados/municipios.js
 let cidadeAtual=null, DADOS_CIDADE={}, MAP=null;
 
 const grade=document.getElementById("cidadesSelect");
@@ -315,17 +315,15 @@ function ligarBusca(){
 
 function initMapa(cidade){
   if(MAP){MAP.remove();MAP=null;}
-  const d=MAPA[cidade]||{};
+  const centro=CENTROS_MUNICIPIOS[cidade];
   setTimeout(()=>{
     MAP=L.map("mapaP",{scrollWheelZoom:false}).setView([-23.1,-47.05],13);
     L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png",{attribution:"&copy; OpenStreetMap",maxZoom:19}).addTo(MAP);
     MAP.getPane("tilePane").style.filter="grayscale(1) contrast(.92) brightness(1.06)";
-    const b=[];
+    // o enquadramento começa no centro do município; as camadas (js/mapa-camadas.js) ajustam o zoom quando chegam
+    const b=centro?[[centro.lat,centro.lon]]:[];
     mapaBoundsBase=b;
-    // "curso" e "empregador" continuam em dados/mapa-pontos.js, mas não são mais mostrados; só "cras" (serviços),
-    // que vira a camada "Serviços" em js/mapa-camadas.js
-    (d.cras||[]).forEach(p=>b.push([p.lat,p.lon]));
-    if(b.length) MAP.fitBounds(b,{padding:[40,40],maxZoom:14});
+    if(centro) MAP.setView([centro.lat,centro.lon],12);
     MAP.invalidateSize();
     if(typeof atualizarCamadasMapa === "function") atualizarCamadasMapa();
     const dtl=document.getElementById("mapaSuspenso");

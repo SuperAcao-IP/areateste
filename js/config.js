@@ -94,6 +94,15 @@ const PLANILHA_PONTOS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-
             (tipo: CRAS, CREAS, PAT, Sebrae Aqui ou outro; status: Ativo, ou Fechado/Encerrado para esconder; lat/lon opcionais).
    Vazio = DESLIGADO (a camada usa só o mapa de campo e as fontes oficiais). Ligado (gid 676188309); se a aba mudar,
    troque aqui o link CSV dela (com o gid da aba). */
+/* Aba "unidades" da mesma planilha: unidades de ensino presencial (Senac, Senai e outras) cadastradas pela equipe.
+   Colunas: instituicao | nome | endereco | bairro | municipio | status | lat | lon | link
+            (instituicao: Senac, Senai ou outra; status: Ativo, ou Fechado/Encerrado para esconder; lat/lon e link opcionais).
+   Sem lat/lon, o script semanal calcula pelo endereço (aparece em até uma semana). Os cursos presenciais do Senac/Senai
+   da aba "cursos" se ligam à unidade pela instituição e pelo município (e pela coluna "unidade", se houver mais de uma).
+   Vazio = DESLIGADO (a camada usa só as unidades dos arquivos dados/unidades.js e scripts/fontes/). Depois de criar a aba
+   e publicá-la, cole aqui o link CSV dela (com o gid da aba). */
+const PLANILHA_UNIDADES_CSV_URL = "";
+
 const PLANILHA_SERVICOS_CSV_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQr5CRyAxIwluOeHE50A6TCG7RS3ua1AClEye3Q5zUEL-QOZ0PGzlijAe66nFKb_mYPS7Y8jkHqEaNu/pub?gid=676188309&single=true&output=csv";
 
 /* ---------- regras de conteudo ---------- */
