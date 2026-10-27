@@ -297,10 +297,10 @@ async function carregarTrampolimEAtualizar(cidade, token){
    ===================================================================== */
 const cacheTrampolimVagas   = new Map();
 
-function urlTrampolimVagas(cidade,pagina,limite){
+function urlTrampolimVagas(cidade,pagina,limite,raioKm){
   return TRAMPOLIM_BASE+"/api/v1/vacancy-allowany/search/?smart_filter=false&q=&type=vacancy"
     +"&order_by=latest&page="+pagina+"&page_limit="+limite
-    +"&status=available&status=extended&locale="+localeTrampolim(cidade)+"&operation_range=15";
+    +"&status=available&status=extended&locale="+localeTrampolim(cidade)+"&operation_range="+(raioKm||VAGAS_RAIO_KM);
 }
 
 function normalizarVagaTrampolim(v){
@@ -312,7 +312,9 @@ function normalizarVagaTrampolim(v){
   const turno = turnoTrampolim(v);
   /* shift / contract_type: a API pode trazer campo de tipo de contrato */
   const tipo = rotuloDe(v.contract_type||v.tipo_contrato||v.modality||"");
-  const cidade = rotuloDe(v.city||v.cidade||v.locale||"");
+  /* cidade onde a vaga fica: o endereço da vaga (objeto ou lista) traz o município */
+  const ender = Array.isArray(v.address) ? v.address[0] : v.address;
+  const cidade = rotuloDe((ender && ender.city) || v.city || v.cidade || v.locale || "");
   const lista = x => Array.isArray(x) ? [...new Set(x.map(rotuloDe).filter(Boolean))].join(", ") : rotuloDe(x);
   const contrato = lista(v.work_relationship);                 // Efetivo, Temporário, Estágio...
   return {
@@ -333,13 +335,13 @@ function normalizarVagaTrampolim(v){
   };
 }
 
-async function buscarVagasTrampolim(cidade){
-  if(cacheTrampolimVagas.has(cidade)) return cacheTrampolimVagas.get(cidade);
+/* todas as páginas de vagas de uma cidade dentro de um raio (km) */
+async function buscarVagasTrampolimRaio(cidade, raioKm){
   let pagina=1, total=null, totalPag=null, pageSize=null;
   const brutos=[];
   while(pagina<=TRAMPOLIM_MAX_PAGINAS){
     let json;
-    try{ json = await fetchTrampolimJSON(urlTrampolimVagas(cidade,pagina,TRAMPOLIM_PAGE_LIMIT)); }
+    try{ json = await fetchTrampolimJSON(urlTrampolimVagas(cidade,pagina,TRAMPOLIM_PAGE_LIMIT,raioKm)); }
     catch(e){ if(pagina===1) throw e; break; }
     const lote = listaDeCursos(json);
     if(pagina===1){ total = totalDeRegistros(json); totalPag = totalDePaginas(json); pageSize = lote.length || TRAMPOLIM_PAGE_LIMIT; }
@@ -352,8 +354,20 @@ async function buscarVagasTrampolim(cidade){
     if(prox==null && totalPag==null && lote.length<pageSize) break;
     pagina++;
   }
+  console.log("[Trampolim Vagas] vagas recebidas para", cidade, "em", raioKm, "km ->", brutos.length, "| paginas lidas:", pagina);
+  return brutos;
+}
+/* raio adaptativo: começa em VAGAS_RAIO_KM; com menos de VAGAS_MINIMO vagas, amplia até VAGAS_RAIO_MAX_KM (nunca mais que isso) */
+async function buscarVagasTrampolim(cidade){
+  if(cacheTrampolimVagas.has(cidade)) return cacheTrampolimVagas.get(cidade);
+  let brutos = await buscarVagasTrampolimRaio(cidade, VAGAS_RAIO_KM), raioUsado = VAGAS_RAIO_KM;
+  if(brutos.length < VAGAS_MINIMO && VAGAS_RAIO_MAX_KM > VAGAS_RAIO_KM){
+    try{ brutos = await buscarVagasTrampolimRaio(cidade, VAGAS_RAIO_MAX_KM); raioUsado = VAGAS_RAIO_MAX_KM; }
+    catch(e){ console.warn("[Trampolim Vagas] ampliar o raio falhou; ficam as vagas do raio menor:", e); }
+  }
   const vagas = brutos.map(normalizarVagaTrampolim);
-  console.log("[Trampolim Vagas] vagas recebidas para", cidade, "->", vagas.length, "| paginas lidas:", pagina);
+  vagas.raioKm = raioUsado;
+  vagas.ampliado = raioUsado > VAGAS_RAIO_KM;
   cacheTrampolimVagas.set(cidade, vagas);
   return vagas;
 }
@@ -376,6 +390,7 @@ async function carregarTrampolimVagasEAtualizar(cidade, token){
     const vagas = await buscarVagasTrampolim(cidade);
     if(token!==buscaToken) return;
     mesclarTrampolimVagas(vagas);
+    vagasRaioAmpliado = vagas.ampliado ? vagas.raioKm : 0;
     renderAreasGrade(cidade);
     renderVagas();
     if(areaAtual){

@@ -125,6 +125,7 @@ function renderAreasGrade(cidade){
 }
 function renderCidade(cidade){
   vagasFiltro=null;
+  vagasRaioAmpliado=0;
   vagasPendentes=(TRAMPOLIM_VAGAS_ATIVO?1:0)+(PLANILHA_VAGAS_ATIVA?1:0);
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML=`
@@ -359,6 +360,7 @@ function urlVagasTrampolimSite(cidade){
 }
 const VAGAS_MIN_FILTROS = 8;      // com menos vagas que isso a lista aparece direta, sem botões de filtro
 let vagasFiltro = null;           // null | "semexp" | "fund" | "area:<id>"
+let vagasRaioAmpliado = 0;        // 0 = raio normal; senão, o raio (km) usado quando a busca foi ampliada
 let vagasPendentes = 0;           // fontes de vagas ainda carregando (não mostrar "0 vagas" antes da hora)
 function fonteDeVagasConcluida(){ vagasPendentes = Math.max(0, vagasPendentes-1); renderVagas(); }
 const vagaSemExperiencia = v => /^\s*sem\s+experi/i.test(v.experiencia||"");
@@ -371,10 +373,12 @@ function vagaPassaFiltro(v,f){
   return true;
 }
 function dataDaVaga(v){ return dataDaPlanilha(v.publicadaEm||v._data); }
+/* vaga da própria cidade (ou sem cidade informada, como as da planilha para todas as cidades) */
+const vagaDaPropriaCidade = v => !v.cidade || normTxt(v.cidade)===normTxt(cidadeAtual||"");
 function vagasOrdenadas(lista){
-  return lista.map((v,i)=>({v,i,d:dataDaVaga(v)})).sort((a,b)=>{
+  return lista.map((v,i)=>({v,i,d:dataDaVaga(v),p:vagaDaPropriaCidade(v)?0:1})).sort((a,b)=>{
     const ta=a.d?a.d.getTime():-Infinity, tb=b.d?b.d.getTime():-Infinity;
-    return tb-ta || a.i-b.i;                          // mais recente primeiro; sem data vai para o fim
+    return a.p-b.p || tb-ta || a.i-b.i;               // própria cidade primeiro; depois mais recente primeiro; sem data vai para o fim
   }).map(x=>x.v);
 }
 function todasVagasDaCidade(){
@@ -428,9 +432,10 @@ function renderVagas(){
   const chips=ops.length
     ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${todas.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
     : "";
-  const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as mais recentes primeiro`;
+  const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as da sua cidade primeiro, depois as mais recentes`;
+  const ampliado=vagasRaioAmpliado ? `<p class="vagas-ampliado">Incluindo vagas em cidades a até ${vagasRaioAmpliado} km de ${esc(cidadeAtual||"")}.</p>` : "";
   const maisLinks=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
-  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>${maisLinks}`;
+  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${ampliado}${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>${maisLinks}`;
 }
 
 const linkExterno=`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`;

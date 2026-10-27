@@ -44,6 +44,11 @@ const TRAMPOLIM_BASE        = "https://trampolim-proxy.beatrizgribas.workers.dev
 const TRAMPOLIM_SITE        = "https://www.trampolim.sp.gov.br";  // dominio real -> links dos cursos
 const TRAMPOLIM_CORS_PROXY  = false;  // o Worker ja resolve o CORS; nao usa proxy publico
 const TRAMPOLIM_VAGAS_ATIVO = true;
+/* Raio das vagas (km): começa em VAGAS_RAIO_KM; se vierem menos de VAGAS_MINIMO vagas, amplia até VAGAS_RAIO_MAX_KM.
+   O link "Ver todas as vagas no Trampolim SP" continua com 50 km (js/ui.js). */
+const VAGAS_RAIO_KM = 15;
+const VAGAS_RAIO_MAX_KM = 30;
+const VAGAS_MINIMO = 8;
 
 /* ---------- integracao: Sebrae SP ---------- */
 const SEBRAE_ATIVO        = true;   // liga/desliga a integracao
