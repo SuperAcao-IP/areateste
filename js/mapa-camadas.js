@@ -40,7 +40,15 @@ function chaveEnderecoPonto(endereco, cidade){
 }
 
 function numeroDecimal(x){
-  const n = parseFloat(String(x == null ? "" : x).trim().replace(",", "."));
+  const t = String(x == null ? "" : x).trim();
+  /* O Google Sheets em português lê "-22.711953" como o número inteiro -22711953 e o publica como "-22.711.953"
+     (ponto = separador de milhar). Latitude e longitude do estado de SP têm sempre 2 dígitos antes da vírgula
+     (de -19 a -26 e de -44 a -53): quando o texto tem esse formato, a vírgula volta para depois do 2º dígito. */
+  if(/^-?\d{1,3}(\.\d{3}){1,3}$/.test(t) || /^-?\d{6,}$/.test(t)){
+    const d = t.replace(/\D/g, ""), n = parseFloat(d.slice(0, 2) + "." + d.slice(2));
+    return isNaN(n) ? null : (t[0] === "-" ? -n : n);
+  }
+  const n = parseFloat(t.replace(",", "."));
   return isNaN(n) ? null : n;
 }
 

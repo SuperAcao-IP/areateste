@@ -1,5 +1,5 @@
 /* CRAS e CREAS dos municípios do mapa. Fonte: microdados abertos do Censo SUAS 2025 (MDS/SNAS), https://aplicacoes.mds.gov.br/snas/defeso/censosuas/2025/.
-   Gerado por scripts/gerar-servicos-oficiais.js · 2026-10-21. Não edite à mão. O censo não traz o nome da unidade (o rótulo é o endereço).
+   Gerado por scripts/gerar-servicos-oficiais.js · 2026-10-27. Não edite à mão. O censo não traz o nome da unidade (o rótulo é o endereço).
    Quem está sem lat/lon (coordenada ausente ou inválida) não aparece no mapa. */
 const SERVICOS_OFICIAIS = [
  {"id":"svc-oficial-35016001892","tipo":"CRAS","nome":"CRAS – Rua Caetano de Campos, 60 (Jardim Nossa Senhora Aparecida)","endereco":"Rua Caetano de Campos, 60","bairro":"Jardim Nossa Senhora Aparecida","cidade":"Americana","lat":-22.705879,"lon":-47.298954,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
@@ -181,8 +181,8 @@ const SERVICOS_OFICIAIS = [
  {"id":"svc-oficial-35318033351","tipo":"CRAS","nome":"CRAS – Rua Aniceto Muniz Alves, 545 (Jardim Paulista)","endereco":"Rua Aniceto Muniz Alves, 545","bairro":"Jardim Paulista","cidade":"Monte Mor","lat":-22.930453,"lon":-47.261621,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
  {"id":"svc-oficial-35318033349","tipo":"CRAS","nome":"CRAS – Rua Rua Jorge Rohweder Filho, 58 (Centro)","endereco":"Rua Rua Jorge Rohweder Filho, 58","bairro":"Centro","cidade":"Monte Mor","lat":-22.944241,"lon":-47.310468,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
  {"id":"svc-oficial-35318096966","tipo":"CREAS","nome":"CREAS – Rua Afonso Ferri, 73 (Centro)","endereco":"Rua Afonso Ferri, 73","bairro":"Centro","cidade":"Monte Mor","lat":-22.947328,"lon":-47.310948,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
- {"id":"svc-oficial-35334002015","tipo":"CRAS","nome":"CRAS – Rua das Perobas, 114 (Jardim das Palmeiras)","endereco":"Rua das Perobas, 114","bairro":"Jardim das Palmeiras","cidade":"Nova Odessa","lat":null,"lon":null,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
- {"id":"svc-oficial-35334098120","tipo":"CREAS","nome":"CREAS – Rua Duque de Caxias, 442 (Centro)","endereco":"Rua Duque de Caxias, 442","bairro":"Centro","cidade":"Nova Odessa","lat":null,"lon":null,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
+ {"id":"svc-oficial-35334002015","tipo":"CRAS","nome":"CRAS – Rua das Perobas, 114 (Jardim das Palmeiras)","endereco":"Rua das Perobas, 114","bairro":"Jardim das Palmeiras","cidade":"Nova Odessa","lat":-22.801048,"lon":-47.310755,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
+ {"id":"svc-oficial-35334098120","tipo":"CREAS","nome":"CREAS – Rua Duque de Caxias, 442 (Centro)","endereco":"Rua Duque de Caxias, 442","bairro":"Centro","cidade":"Nova Odessa","lat":-22.779387,"lon":-47.29331,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
  {"id":"svc-oficial-35344035585","tipo":"CRAS","nome":"CRAS – Avenida Padroeira (Padroeira)","endereco":"Avenida Padroeira","bairro":"Padroeira","cidade":"Osasco","lat":-23.547947,"lon":-46.81217,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
  {"id":"svc-oficial-35344040581","tipo":"CRAS","nome":"CRAS – Avenida Prestes Maia, 308 (Jd D Abril)","endereco":"Avenida Prestes Maia, 308","bairro":"Jd D Abril","cidade":"Osasco","lat":-23.565873,"lon":-46.781016,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},
  {"id":"svc-oficial-35344002208","tipo":"CRAS","nome":"CRAS – Avenida Sarah Veloso, 299 (Veloso)","endereco":"Avenida Sarah Veloso, 299","bairro":"Veloso","cidade":"Osasco","lat":-23.564533,"lon":-46.800674,"telefone":"","fonte":"Censo SUAS 2025 (MDS)"},

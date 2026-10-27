@@ -107,7 +107,7 @@ async function gerar({ ano, base }){
   if(lista.length < 150) throw new Error(`só ${lista.length} unidades nos ${municipios.length} municípios (esperado ~280): o layout do censo pode ter mudado; nada foi gravado`);
   lista.sort((a, b) => a.cidade.localeCompare(b.cidade, "pt") || a.tipo.localeCompare(b.tipo) || a.nome.localeCompare(b.nome, "pt"));
   const linhas = lista.map(x => " " + JSON.stringify(x)).join(",\n");
-  const texto = `/* CRAS e CREAS dos municípios do mapa. Fonte: microdados abertos do Censo SUAS ${ANO} (MDS/SNAS), ${BASE}.\n` +
+  const texto = `/* CRAS e CREAS dos municípios do mapa. Fonte: microdados abertos do Censo SUAS ${ANO} (MDS/SNAS), ${BASE_PADRAO}${ANO}/.\n` +
     `   Gerado por scripts/gerar-servicos-oficiais.js · ${new Date().toISOString().slice(0, 10)}. Não edite à mão. O censo não traz o nome da unidade (o rótulo é o endereço).\n` +
     `   Quem está sem lat/lon (coordenada ausente ou inválida) não aparece no mapa. */\nconst SERVICOS_OFICIAIS = [\n${linhas}\n];\n`;
   return { ano: ANO, base: BASE, lista, semCoord, contagem, texto, municipios };

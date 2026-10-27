@@ -3,7 +3,8 @@
    - O centro serve para enquadrar o mapa e para recusar coordenadas calculadas que caiam longe do município (scripts/).
    - Para incluir um município novo: acrescente uma linha com o nome e a latitude/longitude do centro da cidade
      (clique com o botão direito no Google Maps). Depois cadastre as vizinhas em CIDADES_VIZINHAS (js/config.js), se houver.
-   Os centros foram calculados uma vez a partir dos pontos do antigo mapa de campo (My Maps), hoje arquivado em dados/arquivo/. */
+   Os centros foram calculados uma vez a partir dos pontos do antigo mapa de campo (My Maps), hoje arquivado em dados/arquivo/;
+   Nova Odessa e Holambra foram corrigidos à mão (a média dos pontos caía a 31 km e 18 km do centro da cidade). */
 const CENTROS_MUNICIPIOS = {
  "Americana": {"lat": -22.7374, "lon": -47.3386},
  "Araras": {"lat": -22.3605, "lon": -47.3692},
@@ -19,7 +20,7 @@ const CENTROS_MUNICIPIOS = {
  "Elias Fausto": {"lat": -23.0445, "lon": -47.3666},
  "Embu das Artes": {"lat": -23.6463, "lon": -46.8042},
  "Guarulhos": {"lat": -23.4551, "lon": -46.4668},
- "Holambra": {"lat": -22.7026, "lon": -47.2107},
+ "Holambra": {"lat": -22.6331, "lon": -47.0556},
  "Indaiatuba": {"lat": -23.1123, "lon": -47.2198},
  "Iracemápolis": {"lat": -22.601, "lon": -47.5108},
  "Itaquaquecetuba": {"lat": -23.4908, "lon": -46.3332},
@@ -35,7 +36,7 @@ const CENTROS_MUNICIPIOS = {
  "Mauá": {"lat": -23.6662, "lon": -46.4539},
  "Mogi Mirim": {"lat": -22.443, "lon": -46.96},
  "Monte Mor": {"lat": -22.9521, "lon": -47.3074},
- "Nova Odessa": {"lat": -22.5786, "lon": -47.1253},
+ "Nova Odessa": {"lat": -22.7828, "lon": -47.3003},
  "Osasco": {"lat": -23.5195, "lon": -46.767},
  "Paulínia": {"lat": -22.737, "lon": -47.1783},
  "Pedreira": {"lat": -22.733, "lon": -46.8964},
