@@ -240,7 +240,7 @@ function mesclarTrampolim(cursos, estado){
   const vistos = new Set();
   Object.values(DADOS_CIDADE).forEach(a => (a.cursos || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   cursos.forEach(c=>{
-    if(!cursoAtingeCargaMinima(c.carga)) return;   // filtra cursos curtos (< 10h)
+    if(!cursoAtingeCargaMinima(c.carga)) return;   // filtra cursos curtos (abaixo de CARGA_MINIMA_H, em js/config.js)
     /* curso que tem parte presencial no estado, mas a API mostra como "Online" nesta cidade (turma presencial longe): não é online */
     if(estado && c._id != null && estado.hibridos.has(c._id) && ehOnlineTrampolim(c)) return;
     if(c._id != null){ if(vistos.has(c._id)) return; vistos.add(c._id); }
@@ -412,7 +412,7 @@ async function carregarTrampolimVagasEAtualizar(cidade, token){
 /* =====================================================================
    SEBRAE SP  ·  Adobe Commerce (Catalog Service / Live Search) GraphQL
    - Cursos online gratuitos da loja do Sebrae SP (sp.loja.sebrae.com.br).
-   - So entram cursos GRATUITOS (preco 0) e com carga horaria >= 10h
+   - So entram cursos GRATUITOS (preco 0) e com carga horaria >= CARGA_MINIMA_H (js/config.js)
      (a duracao vem estruturada em horas no atributo "duracao").
    - Se o navegador bloquear por CORS, veja SEBRAE_CORS_PROXY abaixo.
    ===================================================================== */
@@ -464,7 +464,7 @@ function normalizarCursoSebrae(item){
     inst: "Sebrae SP",
     modalidade: fmt || "Online",
     carga: fmtCargaSebrae(duracao),
-    _cargaH: duracao,                                  // usado pelo filtro de 10h
+    _cargaH: duracao,                                  // usado pelo filtro de carga mínima (CARGA_MINIMA_H)
     desc: stripHTML(p.description && p.description.html) || sebraeAttr(pv,"objective"),
     link: urlAbsolutaSebrae(pv.url || pv.urlKey),
     _gratis: sebraeGratuito(item, pv),
@@ -564,6 +564,12 @@ const SEBRAE_PADROES_EXCLUSAO = [
   /trilha\s*de\s*empreendedorismo/,   // universitario (UNISUAM)
   // 13. Serie "Curso [X]Acao" para escolas
   /curso\s*(comunicacao|lideranca|motivacao|superando|universo|protagonismo|transformando)/,
+  // 14. Cursos desenhados para alunos de uma faculdade específica
+  /\bunifeso\b/,
+  // 15. Ocultados pela equipe (nome exato; não pega variações como "Gestão estratégica para comércio eletrônico")
+  /^gestao estrategica$/,
+  /^curso de exportacao$/,
+  /^programa de desenvolvimento de empreendedores$/,
 ];
 
 /* retorna true se o curso deve ficar (aderente ao publico do programa) */
@@ -596,7 +602,7 @@ async function buscarCursosSebrae(){
   const comCarga     = gratuitos.filter(c => cursoAtingeCargaMinima(c._cargaH));
   const cursos       = comCarga.filter(c => sebraeAderenteAoPublico(c.nome));
   const removidosPeloFiltro = comCarga.length - cursos.length;
-  console.log("[Sebrae] recebidos:", brutos.length, "| gratuitos:", gratuitos.length, "| com 10h+:", comCarga.length, "| aderentes ao publico:", cursos.length, "(filtrados por publico:", removidosPeloFiltro + ")");
+  console.log("[Sebrae] recebidos:", brutos.length, "| gratuitos:", gratuitos.length, "| com carga mínima (" + CARGA_MINIMA_H + "h+):", comCarga.length, "| aderentes ao publico:", cursos.length, "(filtrados por publico:", removidosPeloFiltro + ")");
   cacheSebrae.cursos = cursos;
   return cursos;
 }
@@ -624,8 +630,8 @@ async function carregarSebraeEAtualizar(cidade, token){
       if(btn) selecionarArea(cidade, areaAtual, btn);
     }
     if(status) status.textContent = cursos.length
-      ? ("Cursos gratuitos do Sebrae SP (10h+) carregados: "+cursos.length+".")
-      : "Nenhum curso gratuito do Sebrae SP com 10h+ encontrado.";
+      ? ("Cursos gratuitos do Sebrae SP ("+CARGA_MINIMA_H+"h+) carregados: "+cursos.length+".")
+      : "Nenhum curso gratuito do Sebrae SP com "+CARGA_MINIMA_H+"h+ encontrado.";
   }catch(e){
     console.warn("[Sebrae] FALHOU:", e);
     if(token!==buscaToken) return;
@@ -646,7 +652,7 @@ async function carregarSebraeEAtualizar(cidade, token){
      O curso aparece no site desde ja, com selo e o botao travado
      ate a data chegar. Em branco = ja esta aberto.
    - Cursos com municipio "Online" aparecem em todas as cidades.
-   - Aplica o mesmo filtro de carga horaria >= 10h.
+   - Aplica o mesmo filtro de carga horaria >= CARGA_MINIMA_H (js/config.js).
    - Se a planilha nao responder, o portal continua funcionando normalmente.
    ===================================================================== */
 const cachePlanilha = { cursos: null };
@@ -748,8 +754,8 @@ async function buscarCursosPlanilha(){
       const d = dataLocalPlanilha(c._ate);
       return !d || d>=hoje0();
     })
-    .filter(c => cursoAtingeCargaMinima(c.carga));                     // filtro de 10h
-  console.log("[Planilha] cursos válidos (10h+, abertos):", cursos.length, "| linhas no CSV:", rows.length);
+    .filter(c => cursoAtingeCargaMinima(c.carga));                     // filtro de carga mínima (CARGA_MINIMA_H)
+  console.log("[Planilha] cursos válidos (carga mínima " + CARGA_MINIMA_H + "h, abertos):", cursos.length, "| linhas no CSV:", rows.length);
   cachePlanilha.cursos = cursos;
   return cursos;
 }
