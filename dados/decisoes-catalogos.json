@@ -10597,7 +10597,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": false,
+   "ativo": true,
    "c": "12h",
    "ar": "Outros"
   },
@@ -12987,7 +12987,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": false,
+   "ativo": true,
    "c": "40h",
    "ar": "Outros"
   },
@@ -13207,7 +13207,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": false,
+   "ativo": true,
    "c": "30h",
    "ar": "Outros"
   },
@@ -13597,7 +13597,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": false,
+   "ativo": true,
    "c": "20h",
    "ar": "Outros"
   },

@@ -1,5 +1,5 @@
 /* Escola Virtual de Governo (EVG) · cursos online gratuitos.
-   Coletado de escolavirtual.gov.br · atualizado em 2026-10-26 (13 cursos visíveis de 910 coletados).
+   Coletado de escolavirtual.gov.br · atualizado em 2026-10-27 (13 cursos visíveis de 914 coletados).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
    completa coletada e as decisões estão em dados/decisoes-catalogos.json.
