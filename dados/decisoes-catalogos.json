@@ -4574,6 +4574,54 @@
    "ativo": true,
    "c": "30h",
    "ar": "Meio Ambiente e Agro"
+  },
+  "prevencao de acidente infantil": {
+   "t": "Prevenção de Acidente Infantil",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-16",
+   "pa": "pessoas interessadas em prevenção de acidentes",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Saúde e Cuidados"
+  },
+  "administracao de pessoas": {
+   "t": "Administração de Pessoas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-16",
+   "pa": "profissionais que trabalham com gestão de pessoas",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Administração e Gestão"
+  },
+  "administracao estrategica (extra novembro)": {
+   "t": "Administração Estratégica (extra Novembro)",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "cópia “(extra …)” de outro curso",
+   "desde": "2026-11-16",
+   "pa": "estudantes de Administração",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Administração e Gestão"
+  },
+  "analise de sistemas": {
+   "t": "Análise de Sistemas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-16",
+   "pa": "profissionais da tecnologia da informação (TI)",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
   }
  },
  "evg": {

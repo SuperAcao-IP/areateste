@@ -1,6 +1,6 @@
 /* =====================================================================
    APRENDA MAIS · MEC · cursos livres, gratuitos e 100% online
-   Coletado de aprendamais.mec.gov.br · atualizado em 2026-10-26 (415 cursos, turma 2026B).
+   Coletado de aprendamais.mec.gov.br · atualizado em 2026-11-16 (419 cursos, turma 2026B).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
    Todos sao EaD, gratuitos e com certificacao do MEC. A carga horaria real de cada curso
@@ -26,6 +26,7 @@ const APRENDA_MAIS = [
  {titulo:"Organização e Funcionamento do SUS",carga:"30h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=1772"},
  {titulo:"Planejamento em Saúde Coletiva",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3430"},
  {titulo:"Práticas em Saúde e Segurança do Trabalho",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3450"},
+ {titulo:"Prevenção de Acidente Infantil",carga:"20h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=1774"},
  {titulo:"Primeiros Socorros para Profissionais de Saúde",carga:"40h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3452"},
  {titulo:"Primeiros Socorros: conceitos iniciais",carga:"30h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3453"},
  {titulo:"Promoção da Saúde Mental",carga:"30h",area:"Saúde e Cuidados",link:"https://aprendamais.mec.gov.br/course/view.php?id=3463"},
@@ -107,6 +108,8 @@ const APRENDA_MAIS = [
  {titulo:"Técnicas de Construção Aplicadas à Escola",carga:"40h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3509"},
  {titulo:"Técnicas de Escrita para Educação a Distância",carga:"20h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3510"},
  {titulo:"Trabalho Escolar e Teorias Administrativas",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3518"},
+ {titulo:"Administração de Pessoas",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=1656"},
+ {titulo:"Administração Estratégica (extra Novembro)",carga:"40h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3755"},
  {titulo:"Administração Estratégica (extra Agosto)",carga:"40h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3655"},
  {titulo:"Administração Estratégica",carga:"40h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3162"},
  {titulo:"Administração Financeira (extra Setembro)",carga:"40h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3732"},
@@ -241,6 +244,7 @@ const APRENDA_MAIS = [
  {titulo:"Português como Língua Adicional 11",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3439"},
  {titulo:"Português como Língua Adicional 12",carga:"30h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3440"},
  {titulo:"Português Instrumental",carga:"20h",area:"Outros",link:"https://aprendamais.mec.gov.br/course/view.php?id=3449"},
+ {titulo:"Análise de Sistemas",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=1636"},
  {titulo:"Análise e Projeto de Software",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=1655"},
  {titulo:"Automação de Sistemas",carga:"30h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3182"},
  {titulo:"Banco de Dados 1: fundamentos",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3184"},
