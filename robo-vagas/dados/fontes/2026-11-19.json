@@ -1,0 +1,67 @@
+{
+ "Gupy": {
+  "status": "OK",
+  "vagas": 5336,
+  "motivo": "",
+  "aprovadas": 2671,
+  "funil": {
+   "título acima da entrada": 257,
+   "exige ensino superior": 83,
+   "repetida": 2020,
+   "contrato": 201,
+   "exige anos de experiência": 26,
+   "cargo fora das funções de entrada": 39,
+   "sinal de golpe": 16,
+   "nota abaixo": 19,
+   "inscrições encerradas": 2,
+   "trabalho remoto": 2
+  }
+ },
+ "Catho": {
+  "status": "OK",
+  "vagas": 518,
+  "motivo": "",
+  "aprovadas": 358,
+  "funil": {
+   "exige ensino superior": 3,
+   "repetida": 115,
+   "nota abaixo": 5,
+   "fora da região": 15,
+   "título acima da entrada": 12,
+   "cargo fora das funções de entrada": 6,
+   "exige anos de experiência": 1,
+   "contrato": 3
+  }
+ },
+ "InfoJobs": {
+  "status": "OK",
+  "vagas": 563,
+  "motivo": "",
+  "aprovadas": 372,
+  "funil": {
+   "exige ensino superior": 4,
+   "repetida": 107,
+   "cargo fora das funções de entrada": 13,
+   "exige anos de experiência": 14,
+   "título acima da entrada": 10,
+   "nota abaixo": 5,
+   "contrato": 4,
+   "fora da região": 33,
+   "trabalho remoto": 1
+  }
+ },
+ "vagas.com": {
+  "status": "OK",
+  "vagas": 339,
+  "motivo": "",
+  "aprovadas": 95,
+  "funil": {
+   "exige ensino superior": 7,
+   "título acima da entrada": 71,
+   "cargo fora das funções de entrada": 24,
+   "repetida": 102,
+   "fora da região": 39,
+   "exige anos de experiência": 1
+  }
+ }
+}
