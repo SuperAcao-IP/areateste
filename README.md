@@ -6,85 +6,134 @@ Secretaria de Desenvolvimento Social · apoio técnico da FGV).
 Voltado a supervisores e agentes do programa: a pessoa escolhe o município, vê no mapa
 onde ficam os cursos e serviços, e navega pelos cursos e vagas de cada área de formação.
 
-Site estático puro — HTML, CSS e JavaScript. Sem build, sem Node, sem servidor.
-Publicado no GitHub Pages.
+O **site** é estático puro (HTML, CSS e JavaScript, sem build), publicado no GitHub Pages.
+Os **robôs** que mantêm os dados rodam sozinhos nas GitHub Actions (Node e Python); um deles
+tem uma parte no computador da equipe (LinkedIn e Indeed).
 
 ---
 
 ## Rodar na sua máquina
 
-O site busca o `dados.json` com `fetch`, e o navegador bloqueia isso em `file://`.
-Ou seja: dois cliques no `index.html` **não** funciona direito. Precisa de um servidor
-local. O macOS já vem com Python, então não instala nada:
+O site busca arquivos com `fetch`, e o navegador bloqueia isso em `file://`: dois cliques
+no `index.html` **não** funcionam direito. Precisa de um servidor local (Python já basta):
 
 ```bash
-python3 -m http.server 8000
+python -m http.server 8000        # Windows: py -m http.server 8000
 ```
 
-E abrir <http://localhost:8000>. Para parar, `Ctrl+C`.
+E abrir <http://localhost:8000>. Para parar, `Ctrl+C`. O portal pede o e-mail institucional
+(@fgv.br) na entrada.
 
 ---
 
 ## Estrutura
 
 ```
-index.html            marcação da página
-css/estilo.css        todo o visual
+index.html            o portal
+painel.html           painel de acompanhamento (uso, vazios, catálogo completo, histórico de cursos)
+login.html            entrada com e-mail institucional
+css/estilo.css        todo o visual do portal
 img/                  logos do programa e da FGV
-dados/                dados fixos (mapa, catálogos EVG e Bradesco)
 js/                   a aplicação
-dados.json            cursos e vagas cadastrados à mão
+dados/                dados fixos e gerados pelos robôs (catálogos, mapa, vagas, histórico)
+dados.json            cursos e vagas cadastrados à mão (antigo)
+scripts/              robôs em Node (catálogos, mapa, Censo SUAS, histórico de cursos)
+robo-vagas/           robô de vagas em Python (veja robo-vagas/README.md)
+.github/workflows/    agendamento dos robôs
+.claude/commands/     /buscar-linkedin-indeed (parte do robô de vagas no computador da equipe)
 backup/               o index.html monolítico original, antes da separação
 ```
 
-### Os arquivos de `js/`, na ordem em que carregam
+### Os arquivos de `js/`, na ordem em que carregam no `index.html`
 
-A ordem no `index.html` **importa** — não embaralhe.
+A ordem **importa**, não embaralhe. Entre eles entram os arquivos de `dados/` e
+`scripts/lib/regras.js` (regras de público, usadas também no navegador).
 
 | Arquivo | O que faz |
 |---|---|
+| `auth.js` | Entrada por e-mail institucional (barreira de conveniência, não protege os dados) |
 | `config.js` | URLs, chaves e as flags de liga/desliga de cada fonte. **Mexa aqui primeiro.** |
 | `areas.js` | As 12 áreas do programa e o classificador por palavra-chave |
-| `conectores.js` | As cinco fontes externas de cursos e vagas |
+| `conectores.js` | Fontes externas: Trampolim (cursos e vagas), Sebrae, planilha (cursos e vagas), robô de vagas |
 | `ui.js` | Estado da página, render da cidade, áreas, cartões, mapa e modal |
-| `admin.js` | Painel de cadastro manual |
-| `app.js` | Ponto de entrada — precisa ser o último |
+| `mapa-camadas.js` | Camadas do mapa (serviços, vagas, cursos presenciais, computador e internet) |
+| `admin.js` | Formulário "Adicionar cursos e vagas aqui" (grava na planilha) |
+| `app.js` | Ponto de entrada |
+| `analytics.js` | Contagem anônima de uso (Worker da Cloudflare + D1) |
+| `aviso.js` | Aviso de uso, uma vez por sessão |
+| `historico-painel.js` | Só no `painel.html`: aba "Histórico de cursos" |
 
-### Por que os dados estão em `.js` e não em `.json`
+---
 
-`dados/municipios.js`, `dados/cursos-evg.js` e `dados/cursos-bradesco.js` são arquivos
-`.js` com um `const` dentro, não JSON. O código usa essas constantes de forma síncrona
-na inicialização (`MUNICIPIOS = Object.keys(CENTROS_MUNICIPIOS)`). Virar JSON obrigaria a
-inicialização a virar assíncrona. Não vale a complicação agora.
+## Os dois botões do canto
+
+- **Adicionar cursos e vagas aqui** (amarelo): abre o formulário de cadastro, que grava
+  direto na planilha do Google. Dá para cadastrar num município do programa ou numa
+  **cidade próxima** (Rio Claro, Sorocaba, Piracicaba...): o item aparece para os
+  municípios do programa vizinhos dela, e o formulário mostra para quais.
+- **Administrativo** (azul): leva ao `painel.html`, que pede o e-mail institucional e a
+  chave de acesso. Lá estão o uso do portal, os vazios do catálogo, o catálogo completo
+  e o **histórico de cursos**.
+
+> **Atenção:** o formulário de cadastro não tem senha própria. Quem entra no portal
+> consegue cadastrar e excluir. Se o portal for divulgado publicamente, isso precisa mudar.
+
+Se alguém apagar algo por engano: na planilha, **Arquivo → Histórico de versões**.
 
 ---
 
 ## De onde vêm os dados
 
-| Fonte | Como chega | Liga/desliga em `config.js` |
+| Fonte | Como chega | Atualização | Liga/desliga (`js/config.js`) |
+|---|---|---|---|
+| **Trampolim SP** — cursos | API ao vivo, via Worker da Cloudflare; filtro de perfil (regras de público + `dados/trampolim-decisoes.js`) | ao vivo | `TRAMPOLIM_ATIVO`, `FILTRAR_TRAMPOLIM` |
+| **Trampolim SP** — vagas | mesma API, `type=vacancy` | ao vivo | `TRAMPOLIM_VAGAS_ATIVO` |
+| **Robô de vagas** | Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed), filtradas pelo perfil; a fechada sai (`dados/vagas-robo.json`) | segunda 9h | `VAGAS_ROBO_ATIVO` |
+| **Sebrae SP** | GraphQL da loja (só cursos gratuitos) | ao vivo | `SEBRAE_ATIVO` |
+| **Planilha** — cursos e vagas | Google Sheets publicado em CSV | ao vivo | `PLANILHA_ATIVA`, `PLANILHA_VAGAS_ATIVA` |
+| **Catálogos online** (Aprenda Mais, EVG, Bradesco, +IFMG, Mundi) | listas em `dados/`, com filtro de público | segunda 6h | `FILTRAR_PUBLICO_FAMILIAS` |
+| **Senai e Senac** (cursos presenciais) | site de cada um: unidades e cursos gratuitos/com bolsa (`dados/unidades.js`) | segunda 9h | `COLETAR_SENAC` no workflow do mapa |
+| **Mapa** | aba `servicos` + Censo SUAS, unidades, bibliotecas, aba `pontos_digitais` | semanal / mensal | — |
+| **Manuais** | `dados.json` | à mão | — |
+
+Regras de conteúdo aplicadas a todas as fontes:
+
+- **Carga mínima de 15 h** (`CARGA_MINIMA_H`) — cursos mais curtos não aparecem. Carga desconhecida passa.
+- **Perfil do público** — os catálogos online e o Trampolim passam pelas regras de
+  `scripts/lib/regras.js` (fica o tema que serve a famílias de baixa renda, em geral sem
+  ensino médio completo). As vagas do robô passam pelo filtro de `robo-vagas/config.toml`.
+- **Cidades vizinhas** (`CIDADES_VIZINHAS`) — quem seleciona Santa Gertrudes, Cordeirópolis
+  ou Araras também vê o que há em Rio Claro, com um selo indicando a origem.
+- **Cursos do Senac** abrem um aviso antes do link, lembrando de pedir bolsa ao supervisor.
+
+Detalhes de cada robô: [ATUALIZACAO-CATALOGOS.md](ATUALIZACAO-CATALOGOS.md) (catálogos, mapa,
+Censo SUAS, filtro do Trampolim, histórico) e [robo-vagas/README.md](robo-vagas/README.md).
+
+---
+
+## Os robôs (GitHub Actions)
+
+| Workflow | Quando | O que faz |
 |---|---|---|
-| **Trampolim SP** — cursos | API ao vivo, via Worker da Cloudflare | `TRAMPOLIM_ATIVO` |
-| **Trampolim SP** — vagas | mesma API, `type=vacancy` | `TRAMPOLIM_VAGAS_ATIVO` |
-| **Sebrae SP** | GraphQL da loja (só cursos gratuitos, 10 h+) | `SEBRAE_ATIVO` |
-| **Planilha** — cursos | Google Sheets publicado em CSV | `PLANILHA_ATIVA` |
-| **Planilha** — vagas | mesma planilha, outra aba | `PLANILHA_VAGAS_ATIVA` |
-| **EVG e Bradesco** | listas fixas em `dados/` | — |
-| **Manuais** | `dados.json` | — |
-| **Mapa** | aba `servicos` da planilha + Censo SUAS (serviços), aba `unidades` e arquivos de unidades, bibliotecas; municípios em `dados/municipios.js` | — |
+| Atualizar catálogos | segunda 6h | Aprenda Mais, EVG (CSV oficial), Bradesco, +IFMG, Mundi |
+| Atualizar mapa | segunda 9h | Senai e Senac (unidades e cursos), bibliotecas, coordenadas |
+| Robô de vagas | segunda 9h | confere as vagas publicadas (a fechada sai) e busca novas |
+| Histórico de cursos | segunda 10h | retrato semanal de todos os cursos do portal |
+| Atualizar Censo SUAS | mensal | CRAS e CREAS oficiais |
 
-Regras de conteúdo aplicadas a todas as fontes (também em `config.js`):
+Cada um abre uma **issue** com o resumo e fecha a da semana anterior (só fica aberta a mais
+recente). Todos podem rodar na hora pelo botão **Actions → (workflow) → Run workflow**.
+Se uma fonte falhar, a versão anterior dela continua no ar.
 
-- **Carga mínima de 10 h** — cursos mais curtos não aparecem. Carga desconhecida passa.
-- **Cidades vizinhas** — quem seleciona Santa Gertrudes, Cordeirópolis ou Araras também
-  vê os cursos presenciais de Rio Claro, com um selo indicando a origem.
-- **Cursos do Senac** abrem um aviso antes do link, lembrando de pedir bolsa ao
-  supervisor.
+A parte do LinkedIn e do Indeed roda no computador da equipe, por uma Tarefa do Windows
+(segunda 9h). Instalação: [robo-vagas/INSTALAR.md](robo-vagas/INSTALAR.md).
 
 ---
 
 ## Publicar
 
-O repositório de **homologação** é onde se testa; o de **produção** é o que vai ao ar.
+O repositório de **homologação** (`areateste`) é onde se testa; o de **produção**
+(`plataforma`) é o que vai ao ar.
 
 ```bash
 git add .
@@ -92,69 +141,48 @@ git commit -m "descrição do que mudou"
 git push
 ```
 
-O GitHub Pages publica sozinho em um ou dois minutos.
-
-Três coisas que quebram no ar e funcionam local — vale conferir antes de subir:
+O GitHub Pages publica sozinho em um ou dois minutos. Três coisas que quebram no ar e
+funcionam local:
 
 1. **Caminhos relativos.** `href="css/estilo.css"` funciona; `href="/css/estilo.css"`
    não. O site fica em `usuario.github.io/repositorio/`, não na raiz do domínio.
-2. **Maiúscula e minúscula.** O macOS não diferencia, o servidor do GitHub diferencia.
-   `img/Logo.png` no HTML com o arquivo salvo como `logo.png` dá 404 publicado.
-3. **O arquivo `.nojekyll`** na raiz precisa continuar existindo.
+2. **Maiúscula e minúscula.** O servidor do GitHub diferencia: `img/Logo.png` no HTML com
+   o arquivo salvo como `logo.png` dá 404 publicado.
+3. **O arquivo `.nojekyll`** na raiz precisa continuar existindo. O navegador também usa
+   `scripts/lib/regras.js` e os arquivos de `dados/`, então essas pastas vão junto.
 
 Se os cursos do Trampolim sumirem depois de publicar e aparecer erro de CORS no console,
-o problema está no Worker da Cloudflare — ele precisa liberar a origem do GitHub Pages.
-
----
-
-## Cadastrar curso ou vaga na mão
-
-Pelo botão **Administração** no canto da página. O que é cadastrado ali vai direto para
-a planilha do Google e aparece para todo mundo.
-
-Cursos que vêm do Trampolim, Sebrae, EVG e Bradesco são carregados ao vivo das
-plataformas oficiais e **não podem ser editados nem removidos por ali**.
-
-> **Atenção:** o painel não tem senha. Qualquer pessoa que abra o portal consegue
-> cadastrar e excluir. É uma decisão consciente para esta fase de MVP — se o portal for
-> divulgado publicamente, isso precisa mudar.
-
-### Se alguém apagar algo por engano
-
-A planilha do Google guarda histórico: **Arquivo → Histórico de versões → Ver histórico
-de versões**. Dá para restaurar qualquer estado anterior.
+o problema está no Worker da Cloudflare: ele precisa liberar a origem do GitHub Pages.
 
 ---
 
 ## Atualizar os dados fixos
 
-- **Municípios e pontos do mapa:** a lista de municípios do seletor e o centro de cada um estão em
-  `dados/municipios.js` (cidade que não estiver lá não aparece na lista). Os serviços do mapa vêm da aba
-  `servicos` da planilha e do Censo SUAS (veja ATUALIZACAO-CATALOGOS.md); o antigo My Maps foi arquivado em `dados/arquivo/`.
-- **Áreas do programa:** `js/areas.js`. Cada área tem nome, descrição, ícone e a lista de
-  palavras-chave que classifica os cursos automaticamente. Curso que não casa com
-  nenhuma cai em "Outros".
-- **Catálogos EVG e Bradesco:** `dados/cursos-evg.js` e `dados/cursos-bradesco.js`.
-- **Cursos e vagas manuais:** `dados.json`.
+- **Municípios:** `dados/municipios.js` (cidade que não estiver lá não aparece na lista).
+  Cidades vizinhas: `CIDADES_VIZINHAS` em `js/config.js` (valem também para o robô de vagas
+  e para o formulário de cadastro).
+- **Áreas do programa:** `js/areas.js`. Curso que não casa com nenhuma área cai em "Outros".
+- **Cursos do Trampolim a mostrar ou esconder:** `dados/trampolim-decisoes.js`.
+- **Critérios das vagas:** `robo-vagas/config.toml`.
+- **Cursos e vagas manuais:** planilha (pelo botão amarelo) ou `dados.json`.
 
 ---
 
 ## Coisas conhecidas, para depois
 
-Nenhuma impede o portal de funcionar hoje. Ficam registradas para não se perderem:
+Nenhuma impede o portal de funcionar hoje:
 
-- **Volume de requisições.** Cada seleção de cidade dispara até ~300 chamadas — o
-  Trampolim pagina de 10 em 10 até 80 páginas, duas vezes, mais as cidades vizinhas.
-  Quase todas passam pelo Worker gratuito da Cloudflare, cujo limite dá para umas 400
-  seleções de cidade por dia. É o que vai aparecer primeiro com muita gente testando junto.
-- **Sem timeout nas chamadas.** Se uma API travar, a tela fica em "Carregando…" sem
-  mensagem de erro.
-- **Os cinco conectores são o mesmo código copiado cinco vezes** (~120 linhas cada).
-  Unificar num contrato só é o refactor que mais reduziria código.
-- **A exclusão no admin identifica a linha por `{curso, município}`.** Sem um id estável,
-  dois cursos de mesmo nome no mesmo município podem fazer apagar o errado.
-- Leaflet vem de CDN sem versão travada · `console.log` de diagnóstico ligado em
-  produção · sem testes automatizados.
+- **Volume de requisições ao Worker.** Cada seleção de cidade faz dezenas de chamadas ao
+  Trampolim (cursos e vagas, mais as cidades vizinhas). O Worker gratuito da Cloudflare
+  aguenta algumas centenas de seleções por dia.
+- **Sem timeout nas chamadas ao vivo.** Se uma API travar, aquela fonte fica carregando;
+  as outras aparecem normalmente.
+- **Os conectores repetem muito código** (Trampolim, Sebrae, planilha). Unificar num
+  contrato só é o refactor que mais reduziria código.
+- **A exclusão no formulário identifica a linha por `{curso, município}`.** Sem um id
+  estável, dois cursos de mesmo nome no mesmo município podem fazer apagar o errado.
+- **Senac:** os termos de uso do site pedem autorização por escrito para acesso automatizado.
+  A coleta foi ligada por decisão da equipe; o recomendado é pedir essa autorização.
 
 ---
 

@@ -20,11 +20,14 @@ abre uma **issue** com o resumo.
      (as antigas ficam em "Turmas anteriores"). A turma é descoberta a cada vez pelo
      "- Turma 2026B" no título; cada turma tem links novos. A carga horária real sai de
      `course/info.php` de cada curso.
-   - *EVG:* percorre `escolavirtual.gov.br/catalogo?page=N` até acabar (título, instituição,
-     carga horária e link).
+   - *EVG:* desde out/2026 o site é um aplicativo (a página chega vazia). A coleta lê a **exportação
+     oficial do catálogo em CSV** que o próprio site oferece (`escolavirtual.gov.br/catalogo/exportar/csv`,
+     que leva a `api-evg.enap.gov.br/v1/cursos/exportar/csv`): ID, título, conteudista e carga horária.
+     "Curso Exclusivo" (restrito a um órgão) não entra. O link do curso é `escolavirtual.gov.br/cursos/<id>`.
    - *Bradesco:* percorre `ev.org.br/cursos?pagina=N` até acabar (título, carga e link).
    - *+IFMG:* três buscas (`a`, `e`, `o`) em `mais.ifmg.edu.br/maisifmg` com `perpage=500`, uma
-     união que evita perder curso; carga, "gratuito" e "certificado" em `course/info.php`.
+     união que evita perder curso (tema Moove desde out/2026: cada curso é um cartão `data-course-id`);
+     carga, "gratuito" e "certificado" em `course/info.php`.
    - *Mundi:* uma página HTML estática (`mundi.ifsul.edu.br/portal/`) com todos os cursos e a duração.
    Das duas últimas só entram título, carga e link; o conteúdo fica na plataforma de origem.
 2. **Confere se a coleta é confiável, fonte por fonte.** Se uma fonte falhar, vier vazia, vier
@@ -40,9 +43,10 @@ abre uma **issue** com o resumo.
      registrada (`o: "auto"`);
    - decisão automática vale pela **regra de hoje**: se `regras.js` mudar, os cursos já coletados
      são reavaliados na execução seguinte e a issue lista o que mudou. As manuais não mudam.
-4. **Confere links** dos cursos visíveis da EVG e do Bradesco (quebrado = 404/410, erro, ou
+4. **Confere links** dos cursos visíveis do Bradesco e do Mundi (quebrado = 404/410, erro, ou
    redirecionamento para a lista). No Aprenda Mais os links vêm da listagem pública da
-   turma vigente, então estão no ar por construção. Link quebrado só é **reportado**.
+   turma vigente e na EVG da exportação oficial, então estão no ar por construção (no aplicativo
+   da EVG todo endereço responde 200, então conferir não diria nada). Link quebrado só é **reportado**.
 5. **Grava** `dados/cursos-*.js`, `dados/filtro-publico.js` e `dados/decisoes-catalogos.json`
    (só se algo mudou) e faz commit na `main`.
 6. **Abre uma issue** com o resumo, **só quando houve mudança ou falha** (semana sem
@@ -102,7 +106,7 @@ node scripts/atualizar-catalogos.js --sem-links    # pula a conferência de link
 node scripts/atualizar-catalogos.js --ignorar evg  # só teste local: não coleta a EVG e mantém os dados dela
 ```
 
-Precisa de Node 18 ou mais novo. Demora cerca de 2 a 3 minutos (a EVG tem ~77 páginas).
+Precisa de Node 18 ou mais novo. Demora cerca de 3 a 5 minutos (o Aprenda Mais abre a página de cada curso).
 `relatorio-atualizacao.md` não vai para o repositório (está no `.gitignore`).
 
 ## Se algo der errado
@@ -136,14 +140,14 @@ O mapa de cada município tem quatro camadas (Serviços, Vagas, Cursos presencia
 
 0. **Serviços (CRAS, CREAS, PAT, Sebrae Aqui):** círculos rosa "S", vindos da aba `servicos` da planilha e do Censo SUAS (veja abaixo). O antigo mapa de campo (My Maps) deixou de ser usado.
 
-1. **Cursos presenciais (escolas):** quadrados laranja com o número de cursos. Ao clicar: endereço, lista de cursos (com link, quando o curso vem da planilha ou do Trampolim).
+1. **Cursos presenciais (escolas):** quadrados laranja com o número de cursos. Ao clicar: endereço, lista de cursos (com link, quando o curso vem da planilha, do Trampolim ou do site do Senai/Senac). Os cursos do Senai e do Senac entram também na lista de cursos do município (e das vizinhas); se a equipe cadastrou o mesmo curso na planilha, fica a versão da planilha.
 2. **Computador e internet:** círculos verdes ("Tem computador") e azuis ("Só Wi-Fi"), com os dois selos explicados abaixo do mapa.
 
 ### De onde vêm os pontos
 | Camada | Fonte | Como atualiza |
 |---|---|---|
-| Escolas | **Senac-SP**: cadastro manual das 18 unidades (nome e endereço, sem cursos) em `scripts/fontes/unidades-senac-cadastro.json`; a coordenada é calculada pelo endereço. Os cursos do Senac vêm da planilha. | coordenada semanal (workflow **Atualizar mapa**) |
-| Escolas | **Senai-SP**: páginas de unidade (endereço; coordenadas calculadas) | semanal |
+| Escolas | **Senac-SP**: coleta no site (unidades e cursos presenciais **com bolsa**, curso livre, 15h+, tema aceito pelas regras de público), ligada no workflow por decisão da equipe em 19/11/2026 (`COLETAR_SENAC=1`; os termos de uso do Senac pedem autorização por escrito para acesso automatizado, veja `scripts/atualizar-mapa.js`). Desligada, volta ao cadastro manual `scripts/fontes/unidades-senac-cadastro.json`. | semanal, segunda 9h (workflow **Atualizar mapa**) |
+| Escolas | **Senai-SP**: páginas de unidade (endereço; coordenadas calculadas) e, de cada unidade, os **cursos livres presenciais gratuitos** (15h+, tema aceito pelas regras), da lista pública "Conheça nossos cursos" | semanal, segunda 9h |
 | Escolas | **Trampolim**: cursos presenciais trazem endereço e coordenada; viram "locais de curso" | ao vivo, ao escolher a cidade |
 | Escolas | **Planilha, aba cursos**: cursos presenciais do Senai/Senac entram na lista da unidade | ao vivo |
 | Computador | **Bibliotecas** que declaram computador para o público ou Wi-Fi (cadastro estadual SisEB) | levantamento anual à mão + geocodificação semanal |
@@ -205,3 +209,25 @@ O arquivo `scripts/fontes/bibliotecas-siseb.json` é um levantamento do cadastro
 - Cada fonte é isolada: se uma falhar, mantém a versão anterior só dela e a issue ("Mapa AAAA-MM-DD: … FALHOU: <fonte>") avisa.
 - (Só se a coleta do Senac for religada com autorização) O Senac já bloqueou um IP por excesso de consultas: o script faz 1 por segundo e para no primeiro erro 403, mantendo a versão anterior.
 - Para desligar uma camada para todos: apague os pontos de `dados/unidades.js` ou de `dados/pontos-computador.js` (deixe a lista vazia).
+
+## Cursos do Trampolim SP: filtro de perfil
+
+Os cursos do Trampolim chegam ao vivo (não há arquivo de catálogo), mas passam pelas **mesmas regras de público** dos catálogos
+fixos: o navegador carrega `scripts/lib/regras.js` (`RegrasCatalogo`) e decide cada título na hora (`trampolimPermitido`, em
+`js/conectores.js`). A equipe ajusta à mão em **`dados/trampolim-decisoes.js`**:
+
+- `manter` / `ocultar`: títulos exatos (vencem as regras);
+- `temas_manter`: pedaços de título que também mantêm o curso, para temas que as regras gerais não pegam pela forma da palavra
+  ("trancista", "biscoitos", "vender pelo WhatsApp"...), sem mexer nos catálogos fixos.
+
+Desligar o filtro: `FILTRAR_TRAMPOLIM = false` em `js/config.js`. Em 19/11/2026 eram 66 títulos diferentes no estado inteiro;
+52 aparecem. A issue semanal do **Histórico de cursos** mostra quais ficam de fora.
+
+## Histórico de cursos (aba do painel)
+
+Toda segunda às 10h o workflow **Histórico de cursos** (`scripts/atualizar-historico.js`) monta o retrato do que o portal mostra,
+com as mesmas funções do site, e junta em `dados/historico-cursos.json`: um registro por curso (origem + título + online/presencial),
+com os municípios, a primeira e a última semana em que apareceu e em quantas semanas esteve no portal. As planilhas semanais
+baixadas de 02/09 a 03/11/2026 foram importadas (`scripts/fontes/historico-importado/`; para importar outra:
+`node scripts/atualizar-historico.js --importar <pasta>`). No painel, a aba **Histórico de cursos** filtra por período, modalidade,
+carga horária, município, área, origem e situação, e baixa CSV do filtrado, só dos novos da última semana ou dos novos desde uma data.
