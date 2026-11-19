@@ -2,7 +2,7 @@ name: Histórico de cursos
 
 # Toda segunda-feira, 10h em Brasília (13h UTC), depois dos catálogos (6h) e do mapa (9h), ou pelo botão "Run workflow".
 # Monta o retrato dos cursos que o portal mostra nesta semana (com as mesmas funções do site) e junta ao histórico
-# dados/historico-cursos.json, que alimenta a aba "Histórico de cursos" do painel. Abre uma issue com os cursos que
+# dados/historico-cursos.json, dados/historico-vagas.json e dados/cobertura.json (abas Histórico, Vazios e Visão geral do painel). Abre uma issue com os cursos que
 # entraram e saíram e com o resultado do filtro de perfil do Trampolim (e fecha a da semana anterior).
 on:
   schedule:
@@ -43,7 +43,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dados/historico-cursos.json
+          git add dados/historico-cursos.json dados/historico-vagas.json dados/cobertura.json
           git diff --cached --quiet || git commit -m "Histórico de cursos: retrato de $(date -u +%F)"
           git pull --rebase origin main
           git push origin HEAD:main
@@ -54,9 +54,10 @@ jobs:
           RESULTADO: ${{ steps.hist.outcome }}
           NOVOS: ${{ steps.hist.outputs.novos }}
           SAIRAM: ${{ steps.hist.outputs.sairam }}
+          VAGAS: ${{ steps.hist.outputs.vagas_novas }}
         run: |
           if [ "$RESULTADO" = "success" ]; then
-            SITUACAO="${NOVOS:-0} cursos novos, ${SAIRAM:-0} saíram"
+            SITUACAO="${NOVOS:-0} cursos novos, ${SAIRAM:-0} saíram, ${VAGAS:-0} vagas novas"
           else
             SITUACAO="FALHOU (o histórico não foi alterado)"
           fi

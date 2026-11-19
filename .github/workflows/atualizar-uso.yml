@@ -1,0 +1,52 @@
+name: Uso semanal do portal
+
+# Toda segunda-feira, 07h em Brasília (10h UTC), ou na hora pelo botão "Run workflow".
+# Guarda os números AGREGADOS de uso da semana (sessões, buscas, cliques, buscas por município e área, cursos mais
+# clicados; sem e-mail nem IP) em dados/uso-semanal.json, para a linha do tempo da aba "Visão geral" do painel.
+# Precisa do Secret PAINEL_CHAVE (a chave do painel). Sem ele, o workflow só avisa.
+# A primeira execução reconstrói as últimas 52 semanas. Para refazer: Run workflow com "reconstruir" marcado.
+on:
+  schedule:
+    - cron: "0 10 * * 1"
+  workflow_dispatch:
+    inputs:
+      reconstruir:
+        description: "Reconstruir as últimas 52 semanas"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: atualizar-uso
+  cancel-in-progress: false
+
+jobs:
+  uso:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Guardar o uso da semana
+        env:
+          PAINEL_CHAVE: ${{ secrets.PAINEL_CHAVE }}
+        run: node scripts/atualizar-uso.js ${{ inputs.reconstruir && '--reconstruir' || '' }}
+
+      - name: Publicar na main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados/uso-semanal.json 2>/dev/null || true
+          git diff --cached --quiet && exit 0
+          git commit -m "Uso semanal do portal ($(date -u +%F))"
+          git pull --rebase origin main
+          git push origin HEAD:main

@@ -28,11 +28,12 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --papel:#F2F4F7; --carta:#FFFFFF; --tinta:#0E2338; --tinta2:#4A5B6E; --tinta3:#7B8A9B;
-    --azul:#14458C; --azul-claro:#E4ECF8;
+    --papel:#EAF0FB; --carta:#FFFFFF; --tinta:#0E2338; --tinta2:#4A5B6E; --tinta3:#7B8A9B;
+    --azul:#0D5A94; --azul-claro:#DCE8F6;
     --ambar:#A85B0B; --ambar-fundo:#FDF3E6; --ambar-borda:#F0DCC0; --ambar-barra:#E0A85F;
     --verde:#0B6E52; --verde-fundo:#E7F3EE;
     --linha:#D9E0E8; --raio:10px;
@@ -194,6 +195,69 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     .jornada-trilho{grid-column:1 / -1;order:4}
   }
   @media (prefers-reduced-motion:reduce){ *{transition:none !important;animation:none !important} }
+
+  /* logos e topo */
+  .logos{display:flex;align-items:center;gap:14px}
+  .logos img{display:block;width:auto}
+  .logos .l-prog{height:30px}.logos .l-fgv{height:26px}
+  .logos .divisor{width:1px;height:28px;background:var(--linha)}
+  .porta-caixa .logos{margin:0 0 18px}
+  header{box-shadow:0 1px 0 var(--linha)}
+  .abas{overflow-x:auto}
+  .abas button{white-space:nowrap}
+
+  /* visão geral: gráficos */
+  .kpis.oito{grid-template-columns:repeat(4,1fr)}
+  .kpi .valor small{font-size:15px;color:var(--tinta3);font-weight:500}
+  .vg-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .vg-grade.tres{grid-template-columns:repeat(3,1fr)}
+  .vg-barras{display:flex;flex-direction:column;gap:2px;padding:2px 0 8px}
+  .vg-barra{display:grid;grid-template-columns:minmax(110px,1.1fr) minmax(0,2fr) auto;gap:10px;align-items:center;padding:5px 0;font-size:13.5px;cursor:default}
+  .vg-barra:hover .vg-rot{color:var(--azul)}
+  .vg-rot{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .vg-trilho{height:10px;background:#EEF2F7;border-radius:99px;overflow:hidden}
+  .vg-preenche{display:block;height:100%;border-radius:4px}
+  .vg-val{font-size:13px;color:var(--tinta2);min-width:28px;text-align:right}
+  .vg-linha{width:100%;height:auto;display:block}
+  .vg-eixo{font:11px 'IBM Plex Mono',monospace;fill:var(--tinta3)}
+  .vg-alvo .vg-mira,.vg-alvo .vg-ponto{opacity:0}
+  .vg-alvo:hover .vg-mira,.vg-alvo:hover .vg-ponto{opacity:1}
+  .vg-chips{display:flex;flex-wrap:wrap;gap:6px}
+  .vg-chip{background:var(--ambar-fundo);border:1px solid var(--ambar-borda);color:#5C3A10;border-radius:99px;padding:4px 11px;font-size:13px}
+  .vg-chip small{color:var(--tinta3)}
+  .vg-dica{position:fixed;z-index:5000;pointer-events:none;background:#0E2338;color:#fff;font-size:12.5px;line-height:1.45;
+    padding:7px 10px;border-radius:8px;max-width:280px;box-shadow:0 6px 18px rgba(0,0,0,.2)}
+  .vg-dica b{display:block;font-weight:600}
+  #vgMapa{height:420px;border-radius:8px;border:1px solid var(--linha);margin-top:6px}
+  .vg-legenda{display:flex;flex-wrap:wrap;gap:14px;font-size:12.5px;color:var(--tinta2);margin:8px 0 0}
+  .vg-legenda i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:6px;vertical-align:-1px}
+  td.vg-viz{background:#FFF8EC;color:var(--ambar)}
+  td.vg-viz small{color:var(--tinta3)}
+  .titulo-linha{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
+
+  /* histórico: seletor cursos | vagas */
+  .seletor{display:inline-flex;border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;margin:4px 0 12px}
+  .seletor button{border:0;background:var(--carta);font-family:inherit;font-size:14px;font-weight:600;padding:8px 18px;cursor:pointer;color:var(--tinta2)}
+  .seletor button[aria-pressed="true"]{background:var(--azul);color:#fff}
+
+  /* acessos: colunas por semana */
+  .ac-colunas{display:flex;align-items:flex-end;gap:6px;height:170px;padding:16px 0 4px}
+  .ac-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
+  .ac-barra{width:100%;max-width:34px;background:#2a78d6;border-radius:4px 4px 0 0}
+  .ac-num{font-size:11px;color:var(--tinta2);margin-bottom:3px}
+  .ac-rot{font-size:10.5px;color:var(--tinta3);margin-top:4px}
+
+  @media (max-width:820px){
+    .vg-grade,.vg-grade.tres{grid-template-columns:1fr}
+    .logos .l-fgv,.logos .divisor{display:none}
+  }
+  @media print{
+    body{background:#fff}
+    .abas,.controles,.acoes-topo,.no-print,#porta{display:none !important}
+    .wrap{padding:0}
+    .cartao,.kpi{break-inside:avoid;border-color:#ccc}
+    #vgMapa{height:360px}
+  }
 </style>
 </head>
 <body>
@@ -202,7 +266,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <!-- ENTRADA -->
 <div class="porta" id="porta">
   <div class="porta-caixa">
-    <p class="eyebrow">SuperAção SP</p>
+    <div class="logos"><img class="l-prog" src="img/logo-superacao.png" alt="SuperAção SP"><span class="divisor"></span><img class="l-fgv" src="img/logo-fgv.png" alt="FGV"></div>
     <h1>Painel de acompanhamento</h1>
     <p>Informe a chave de acesso para continuar.</p>
     <label class="campo" for="chave">Chave de acesso</label>
@@ -217,7 +281,8 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   <header>
     <div class="topo">
       <div class="marca">
-        <p class="eyebrow">Governo do Estado de São Paulo · SEDS · FGV</p>
+        <div class="logos" style="margin-bottom:10px"><img class="l-prog" src="img/logo-superacao.png" alt="SuperAção SP"><span class="divisor"></span><img class="l-fgv" src="img/logo-fgv.png" alt="FGV"></div>
+        <p class="eyebrow">Governo do Estado de São Paulo · SEDS · apoio técnico FGV</p>
         <h1>Painel de acompanhamento</h1>
         <p id="atualizado">Carregando dados</p>
       </div>
@@ -233,15 +298,76 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       </div>
     </div>
     <div class="abas" role="tablist">
-      <button role="tab" aria-selected="true" data-aba="uso">Uso do portal</button>
+      <button role="tab" aria-selected="true" data-aba="visao">Visão geral</button>
+      <button role="tab" aria-selected="false" data-aba="uso">Uso do portal</button>
       <button role="tab" aria-selected="false" data-aba="catalogo">Vazios do catálogo</button>
       <button role="tab" aria-selected="false" data-aba="completo">Catálogo completo</button>
-      <button role="tab" aria-selected="false" data-aba="historico">Histórico de cursos</button>
+      <button role="tab" aria-selected="false" data-aba="historico">Histórico de cursos e vagas</button>
+      <button role="tab" aria-selected="false" data-aba="acessos">Acessos</button>
     </div>
   </header>
 
+  <!-- ============ ABA 0: VISÃO GERAL (gráficos e números; js/visao-geral.js) ============ -->
+  <div class="wrap" id="aba-visao">
+    <div class="acoes-topo no-print">
+      <span class="status" id="vgPeriodo">Carregando…</span>
+      <button class="btn" id="vgImprimir" style="margin-left:auto">Imprimir relatório</button>
+    </div>
+    <div class="kpis oito" id="vgKpis"></div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <h3>Municípios sem nenhuma busca</h3>
+      <div id="vgSemBusca"></div>
+    </div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <h3>Mapa dos municípios do programa</h3>
+      <p class="sub">Passe o mouse para ver os números de cada cidade.</p>
+      <div id="vgMapa" role="img" aria-label="Mapa dos municípios do programa com o número de buscas"></div>
+      <p class="vg-legenda"><span><i style="background:#2a78d6"></i>buscas no período (tamanho = quantidade)</span>
+        <span><i style="background:#B7C0CB"></i>nenhuma busca</span>
+        <span><i style="background:#fff;border:3px solid #C26A0B;width:8px;height:8px"></i>tem área sem curso presencial na cidade</span></p>
+    </div>
+
+    <div class="vg-grade">
+      <div class="cartao fundo"><h3>Buscas por município</h3><p class="sub">Os 15 que mais buscaram no período.</p><div id="vgCidades"></div></div>
+      <div class="cartao fundo"><h3>Buscas sem resultado, por área</h3><p class="sub">Onde a pessoa procurou e não achou nenhuma oferta.</p><div id="vgLacunas"></div></div>
+    </div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <h3>Uso por semana</h3>
+      <p class="sub">Cada ponto é uma semana. <span id="vgNotaAprox" class="oculto">Pontos vazados são semanas reconstruídas (aproximadas).</span></p>
+      <div class="vg-grade tres" style="margin-top:0">
+        <div><p class="eyebrow">Sessões</p><div id="vgTempoSessoes"></div></div>
+        <div><p class="eyebrow">Buscas</p><div id="vgTempoBuscas"></div></div>
+        <div><p class="eyebrow">Cliques em cursos e vagas</p><div id="vgTempoCliques"></div></div>
+      </div>
+    </div>
+
+    <div class="vg-grade">
+      <div class="cartao fundo"><h3>Cursos no portal por semana</h3><p class="sub">Todos os cursos, de todas as origens, em cada retrato semanal.</p><div id="vgTempoCursos"></div></div>
+      <div class="cartao fundo"><h3>Vagas no portal por semana</h3><p class="sub">Trampolim SP, planilha da equipe e robô de vagas.</p><div id="vgTempoVagas"></div></div>
+    </div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <h3>Cliques por origem</h3><p class="sub">De onde vieram os cursos que as pessoas abriram no período.</p><div id="vgFontes"></div>
+    </div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <div class="titulo-linha">
+        <div><h3>Cursos e vagas por município</h3><p class="sub">O que cada cidade tem hoje no portal, ao lado das buscas do período.</p></div>
+        <button class="btn no-print" id="vgCsvMun">Baixar tabela (CSV)</button>
+      </div>
+      <div class="matriz-wrap"><table class="matriz" id="vgTabelaMun"></table></div>
+    </div>
+
+    <p class="rodape">
+      Uso do portal: anônimo (sem nome, e-mail ou IP). Cursos e vagas: retrato semanal feito toda segunda pelos robôs do repositório.
+    </p>
+  </div>
+
   <!-- ============ ABA 1: USO DO PORTAL ============ -->
-  <div class="wrap" id="aba-uso">
+  <div class="wrap oculto" id="aba-uso">
     <div class="acoes-topo">
       <button class="btn" id="copiar">Copiar resumo para o relatório</button>
       <button class="btn" id="baixar-lacunas">Baixar buscas sem resultado (CSV)</button>
@@ -289,7 +415,25 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   <div class="wrap oculto" id="aba-catalogo" data-pane>
 
     <div class="cartao fundo" style="margin-top:28px">
-      <h2>Varredura de oferta presencial</h2>
+      <div class="titulo-linha">
+        <div>
+          <h2>Vazios do catálogo · retrato automático</h2>
+          <p class="sub">Em quais áreas cada município não tem nenhum curso presencial. Sai sozinho toda segunda, do retrato semanal do portal; não precisa iniciar nada. <span id="cobData"></span></p>
+        </div>
+        <div class="linha-btn no-print">
+          <button class="btn" id="cobCsvMatriz">Baixar matriz (CSV)</button>
+          <button class="btn btn-principal" id="cobCsvVazios">Baixar lista de vazios (CSV)</button>
+        </div>
+      </div>
+      <div class="kpis" id="cobKpis"></div>
+      <div id="cobAuto" style="margin-top:14px">
+        <p class="sub" style="margin:0 0 8px">Verde: número de cursos presenciais na cidade. Âmbar claro: nenhum na cidade, mas há nas vizinhas (+n). Âmbar: nenhum.</p>
+        <div class="matriz-wrap"><table class="matriz" id="cobTabela"></table></div>
+      </div>
+    </div>
+
+    <div class="cartao fundo" style="margin-top:14px">
+      <h2>Refazer agora (varredura ao vivo)</h2>
       <p class="sub">Percorre o catálogo município por município e identifica em quais áreas de formação não existe nenhum curso presencial. Ao contrário da outra aba, não depende de ninguém ter procurado antes: encontra o vazio antes de ele ser notado.</p>
 
       <div id="semScripts" class="aviso oculto">
@@ -441,8 +585,9 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   <div class="wrap oculto" id="aba-historico">
 
     <div class="cartao fundo" style="margin-top:28px">
-      <h2>Histórico de cursos</h2>
-      <p class="sub">Todos os cursos que já passaram pelo portal, um por linha, com a primeira e a última semana em que apareceram. O retrato é feito sozinho toda segunda (e as planilhas semanais baixadas desde setembro já estão aqui). Use os filtros e baixe só o que precisa, sem cursos repetidos.</p>
+      <h2>Histórico de cursos e vagas</h2>
+      <p class="sub">Tudo o que já passou pelo portal, um por linha, com as semanas em que esteve no ar. O retrato é feito sozinho toda segunda (as planilhas semanais de cursos baixadas desde setembro já estão aqui; o histórico de vagas começa em novembro de 2026). Use os filtros e baixe só o que precisa, sem repetição.</p>
+      <div class="seletor" id="hSeletor" role="group" aria-label="Cursos ou vagas"><button type="button" data-h="cursos" aria-pressed="true">Cursos</button><button type="button" data-h="vagas" aria-pressed="false">Vagas</button></div>
       <p class="status" id="hStatus">Carregando o histórico…</p>
       <div class="kpis" id="hKpis"></div>
     </div>
@@ -450,7 +595,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     <div class="cartao fundo oculto" id="hResultados" style="margin-top:14px">
       <div class="linha-btn" style="justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
         <div>
-          <h3 style="margin:0">Cursos</h3>
+          <h3 style="margin:0" id="hTitulo">Cursos</h3>
           <p class="sub" style="margin:2px 0 0">Os downloads respeitam os filtros abaixo.</p>
         </div>
         <div class="linha-btn" style="flex-wrap:wrap;gap:8px">
@@ -476,11 +621,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           <label for="hNovosDesde">Entrou a partir de</label>
           <input type="date" id="hNovosDesde">
         </div>
-        <div class="campo-f">
+        <div class="campo-f so-cursos">
           <label for="hModalidade">Modalidade</label>
           <select id="hModalidade"><option value="">Todas</option><option value="presencial">Presencial e híbrido</option><option value="online">Online</option></select>
         </div>
-        <div class="campo-f">
+        <div class="campo-f so-cursos">
           <label for="hCarga">Carga horária</label>
           <select id="hCarga">
             <option value="">Todas</option><option value="0-19">Até 19h</option><option value="20-39">20h a 39h</option>
@@ -499,6 +644,10 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           <label for="hFonte">Origem</label>
           <select id="hFonte"><option value="">Todas</option></select>
         </div>
+        <div class="campo-f so-vagas oculto">
+          <label for="hContrato">Contrato</label>
+          <select id="hContrato"><option value="">Todos</option></select>
+        </div>
         <div class="campo-f">
           <label for="hSituacao">Situação</label>
           <select id="hSituacao"><option value="">Todas</option><option value="no_ar">No portal agora</option><option value="saiu">Já saiu</option></select>
@@ -508,8 +657,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           <input type="search" id="hBusca" placeholder="ex.: manicure">
         </div>
       </div>
-      <label style="display:inline-flex;gap:6px;align-items:center;margin:4px 0 10px;font-size:13px">
+      <label class="so-cursos" style="display:inline-flex;gap:6px;align-items:center;margin:4px 0 10px;font-size:13px">
         <input type="checkbox" id="hComOnline" checked> Ao filtrar por município, incluir os cursos online (valem para todos)
+      </label>
+      <label class="so-vagas oculto" style="display:inline-flex;gap:6px;align-items:center;margin:4px 0 10px;font-size:13px">
+        <input type="checkbox" id="hSemExp"> Só vagas que aceitam sem experiência
       </label>
 
       <p class="contagem" id="hContagem"></p>
@@ -517,9 +669,42 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </div>
 
     <p class="rodape">
-      Um curso é a combinação de origem, título e modalidade: o mesmo curso do Trampolim em várias cidades é uma linha só, com a lista de municípios.<br>
-      "Semanas no portal" conta os retratos semanais em que o curso apareceu. Arquivo: dados/historico-cursos.json (scripts/atualizar-historico.js).
+      Um curso é a combinação de origem, título e modalidade; uma vaga, a origem e o identificador do anúncio. O mesmo curso ou vaga em várias cidades é uma linha só, com a lista de municípios.<br>
+      "Semanas" conta os retratos semanais em que o item apareceu. Arquivos: dados/historico-cursos.json e dados/historico-vagas.json (scripts/atualizar-historico.js).
     </p>
+  </div>
+
+  <!-- ============ ABA: ACESSOS (js/acessos-painel.js; dados só via Apps Script, com a chave) ============ -->
+  <div class="wrap oculto" id="aba-acessos">
+    <div class="cartao fundo" style="margin-top:28px">
+      <h2>Acessos ao portal</h2>
+      <p class="sub">Quem entrou com o e-mail institucional, de qual município (coluna da planilha), quando foi a primeira e a última vez. Os dados vêm da planilha pelo Apps Script, só com a chave deste painel, e não ficam gravados em nenhum outro lugar.</p>
+      <p class="status" id="acStatus">Abra esta aba para carregar.</p>
+      <div class="kpis" id="acKpis"></div>
+    </div>
+    <div id="acResultados" class="oculto">
+      <div class="vg-grade">
+        <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso (últimas 16 semanas).</p><div id="acNovas"></div></div>
+        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub">Pessoas diferentes com login na semana (aba acessos_log).</p><div id="acAtivas"></div></div>
+      </div>
+      <div class="vg-grade">
+        <div class="cartao fundo"><h3>Pessoas por município</h3><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
+        <div class="cartao fundo"><h3>Municípios do programa sem ninguém cadastrado</h3><p class="sub">Nenhuma pessoa com esse município na planilha.</p><div id="acSemNinguem"></div></div>
+      </div>
+      <div class="cartao fundo" style="margin-top:14px">
+        <div class="titulo-linha">
+          <div><h3>Pessoas</h3><p class="sub">Uso interno: contém e-mails. O download respeita os filtros.</p></div>
+          <button class="btn btn-principal" id="acCsv">Baixar lista (CSV)</button>
+        </div>
+        <div class="filtros">
+          <div class="campo-f"><label for="acFMunicipio">Município</label><select id="acFMunicipio"><option value="">Todos</option></select></div>
+          <div class="campo-f"><label for="acFSituacao">Situação</label><select id="acFSituacao"><option value="">Todas</option><option value="ativos">Entraram nos últimos 30 dias</option><option value="sumiu">Sem entrar há mais de 30 dias</option></select></div>
+          <div class="campo-f"><label for="acFBusca">Buscar e-mail</label><input type="search" id="acFBusca" placeholder="ex.: nome@fgv.br"></div>
+        </div>
+        <p class="contagem" id="acContagem"></p>
+        <div class="matriz-wrap"><table class="matriz" id="acTabela"></table></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -535,7 +720,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <script src="dados/trampolim-decisoes.js"></script>
 <script src="js/areas.js"></script>
 <script src="js/conectores.js"></script>
+<script src="dados/municipios.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.js"></script>
 <script src="js/historico-painel.js"></script>
+<script src="js/visao-geral.js"></script>
+<script src="js/acessos-painel.js"></script>
 
 <script>
 (function(){
@@ -605,11 +794,14 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         o.setAttribute('aria-selected', o === b ? 'true' : 'false');
       });
       var alvo = b.dataset.aba;
-      ['uso','catalogo','completo','historico'].forEach(function(nome){
+      ['visao','uso','catalogo','completo','historico','acessos'].forEach(function(nome){
         $('aba-' + nome).classList.toggle('oculto', nome !== alvo);
       });
-      $('controlesUso').classList.toggle('oculto', alvo !== 'uso');
+      $('controlesUso').classList.toggle('oculto', alvo !== 'uso' && alvo !== 'visao');
+      if(alvo === 'visao' && window.VisaoGeral) window.VisaoGeral.abrir();
+      if(alvo === 'catalogo' && window.VisaoGeral) window.VisaoGeral.abrirVazios();
       if(alvo === 'historico' && window.HistoricoCursos) window.HistoricoCursos.abrir();
+      if(alvo === 'acessos' && window.AcessosPainel) window.AcessosPainel.abrir();
     });
   });
 
@@ -653,6 +845,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     var alvo = $('aba-uso');
     alvo.classList.add('carregando');
     $('atualizado').textContent = 'Carregando dados';
+    if(window.VisaoGeral) window.VisaoGeral.carregarArquivos();
 
     fetch(API + '/dash?k=' + encodeURIComponent(chave()) + '&dias=' + dias)
       .then(function(r){
@@ -662,6 +855,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       })
       .then(function(j){
         dados = j;
+        window.dispatchEvent(new CustomEvent('painel:uso', { detail: { j: j, dias: dias } }));
         try{ desenharUso(j); }
         catch(err){ throw new Error('erro ao montar a tela: ' + (err && err.message)); }
         alvo.classList.remove('carregando');
@@ -751,6 +945,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       'Buscas que não encontraram nenhuma oferta: ' + fmt(total(j, 'busca_sem_resultado')) + '.',
       ''
     ];
+    if(window.VisaoGeral){ window.VisaoGeral.linhasResumo().forEach(function(l){ linhas.push(l); }); linhas.push(''); }
     if((j.lacunas || []).length){
       linhas.push('Maiores lacunas de oferta:');
       j.lacunas.slice(0, 10).forEach(function(l, i){
@@ -1137,14 +1332,23 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     }
   }
 
+  /* cursos 100% online do Trampolim valem para todos os municípios: entram UMA vez, como "Online"
+     (antes entravam uma vez por município e um curso virava 47 linhas) */
+  var trampolimOnlineVistos = {};
   async function coletarCidade(cidade){
     try{
       var cursos = await buscarCursosTrampolim(cidade);
       cursos.forEach(function(c){
         if(typeof cursoAtingeCargaMinima === 'function' && !cursoAtingeCargaMinima(c.carga)) return;
         if(typeof trampolimPermitido === 'function' && !trampolimPermitido(c)) return;   // mesmo filtro de perfil do portal
+        var online = /online/i.test(c.modalidade || '') && !/presencial/i.test(c.modalidade || '');
+        if(online){
+          var k = c._id != null ? 'id:' + c._id : 'n:' + normal(c.nome);
+          if(trampolimOnlineVistos[k]) return;
+          trampolimOnlineVistos[k] = 1;
+        }
         addCurso({
-          municipio:cidade, curso:c.nome, inst:c.inst || 'Trampolim SP',
+          municipio:online ? 'Online' : cidade, curso:c.nome, inst:c.inst || 'Trampolim SP',
           modalidade:c.modalidade || '', carga:c.carga || '',
           area:nomeArea(areaDoCurso.apply(null, [c.nome].concat(c._rotulos || []))),
           fonte:'Trampolim SP', link:c.link || '', ate:''
@@ -1297,7 +1501,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   });
 
   $('btLimparColeta').addEventListener('click', function(){
-    coletando = false; indiceCat = 0; catalogo = []; cidadesCat = []; onlineJaColetado = false;
+    coletando = false; indiceCat = 0; catalogo = []; cidadesCat = []; onlineJaColetado = false; trampolimOnlineVistos = {};
     $('progresso2').style.width = '0';
     $('resultadosCompleto').classList.add('oculto');
     $('log2').textContent = ''; $('log2').classList.add('oculto');
