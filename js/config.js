@@ -2,19 +2,14 @@
    CONFIGURACAO  ·  URLs, flags de integracao e utilitarios base
    Para ligar/desligar uma fonte de dados, mexa so neste arquivo.
    ===================================================================== */
-/* =====================================================================
-   VERSAO DE VISUALIZACAO  ·  DADOS REAIS embutidos (sem Supabase)
-   - Cursos online: coletados ao vivo da Escola Virtual de Governo (EVG)
-   - Pontos do mapa: do seu My Maps de campo (KML da Catia), ja parseados
-   Nada aqui e inventado. Na producao, esses dados entram sozinhos pelo
-   Supabase alimentado pelos conectores.
-   ===================================================================== */
-console.log("%c[SuperAcao] build v9 · Trampolim + Sebrae + Planilha · "+new Date().toISOString(),"color:#0D5A94;font-weight:bold");
+/* De onde vem cada dado: tabela "De onde vêm os dados" no README.md.
+   Diagnóstico no console do navegador: abra o portal com ?debug no endereço. */
+if(typeof location!=="undefined" && /[?&]debug\b/.test(location.search)) console.log("%c[SuperAcao] diagnóstico ligado · "+new Date().toISOString(),"color:#0D5A94;font-weight:bold");
 
 const COR = { curso:"#7CB342", empregador:"#673AB7", cras:"#C2185B" };
 const DADOS_BASE="";
-/* URL do Google Apps Script que grava na planilha.
-   Substitua pela URL gerada ao implantar o Apps Script (veja apps-script-backend.gs). */
+/* URL do Google Apps Script que grava na planilha (cadastro do botão "Adicionar cursos e vagas aqui").
+   O script fica na própria planilha: Extensões > Apps Script. Se for reimplantado, cole aqui a URL nova. */
 const APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbxFku81pzX_0m-6G7sh45v3K_tJRHfqx9nLSaLVotuf0FUNiODpXLUdFqY_Ho38Y7Q/exec";
 
 /* ---------- integracao: Trampolim SP ---------- */
@@ -22,33 +17,30 @@ const TRAMPOLIM_ATIVO       = true;   // liga/desliga a integracao
 const TRAMPOLIM_PAGE_LIMIT  = 10;     // a API valida isto; 10 e o valor do exemplo que funciona (nao alterar sem testar)
 const TRAMPOLIM_MAX_PAGINAS = 80;     // trava de seguranca contra loop infinito
 /* ----------------------------------------------------------------------
-   CORS — escolha UM modo (a API fica em outro dominio, entao o navegador
-   exige um destes):
-
-   (A) PROXY LOCAL  [recomendado p/ teste: sem CORS, sem flag, sem terceiros]
-       rode o serve.js que acompanha este arquivo:   node serve.js
-       e mantenha:   TRAMPOLIM_BASE = "/trampolim"   +   TRAMPOLIM_CORS_PROXY = false
-       (o proprio servidor repassa a API na MESMA origem da pagina)
-
-   (B) DIRETO + Chrome sem seguranca [so teste]
-       TRAMPOLIM_BASE = "https://www.trampolim.sp.gov.br" ; CORS_PROXY = false
-       e abra o Chrome com --disable-web-security
-
-   (C) PROXY PUBLICO [instavel]
-       TRAMPOLIM_BASE = "https://www.trampolim.sp.gov.br" ; CORS_PROXY = true
-
-   PRODUCAO: sirva a pagina na mesma origem da API (ou repasse no seu backend);
-       TRAMPOLIM_BASE = "" (mesma origem) ou a URL real, com CORS_PROXY = false.
+   CORS: a API do Trampolim fica em outro domínio e não libera o navegador.
+   As chamadas passam pelo Worker da Cloudflare (TRAMPOLIM_BASE abaixo), que
+   repassa a API e libera a origem do GitHub Pages. Se os cursos do Trampolim
+   sumirem com erro de CORS no console, o problema está no Worker.
+   Alternativa só para teste (instável): TRAMPOLIM_BASE = TRAMPOLIM_SITE e
+   TRAMPOLIM_CORS_PROXY = true (usa proxies públicos).
    ---------------------------------------------------------------------- */
 const TRAMPOLIM_BASE        = "https://trampolim-proxy.beatrizgribas.workers.dev";  // base das CHAMADAS de API (Worker proxy na Cloudflare)
 const TRAMPOLIM_SITE        = "https://www.trampolim.sp.gov.br";  // dominio real -> links dos cursos
 const TRAMPOLIM_CORS_PROXY  = false;  // o Worker ja resolve o CORS; nao usa proxy publico
 const TRAMPOLIM_VAGAS_ATIVO = true;
+/* Filtro de perfil nos cursos do Trampolim: as mesmas regras dos catálogos fixos (scripts/lib/regras.js) mais as
+   decisões à mão da equipe (dados/trampolim-decisoes.js). false = mostra todos os cursos do Trampolim. */
+const FILTRAR_TRAMPOLIM = true;
 /* Raio das vagas (km): começa em VAGAS_RAIO_KM; se vierem menos de VAGAS_MINIMO vagas, amplia até VAGAS_RAIO_MAX_KM.
    O link "Ver todas as vagas no Trampolim SP" continua com 50 km (js/ui.js). */
 const VAGAS_RAIO_KM = 15;
 const VAGAS_RAIO_MAX_KM = 30;
 const VAGAS_MINIMO = 8;
+
+/* ---------- robô de vagas (robo-vagas/, toda segunda) ----------
+   Vagas da Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed, quando a busca roda no computador da equipe),
+   filtradas pelo perfil do programa e conferidas toda semana. O arquivo é dados/vagas-robo.json. */
+const VAGAS_ROBO_ATIVO = true;
 
 /* ---------- integracao: Sebrae SP ---------- */
 const SEBRAE_ATIVO        = true;   // liga/desliga a integracao

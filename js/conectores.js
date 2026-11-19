@@ -233,6 +233,43 @@ function infoCatalogoEstadoTrampolim(){
   return _promessaEstadoTrampolim;
 }
 
+/* --- filtro de perfil dos cursos do Trampolim ---
+   Mesmas regras dos catálogos fixos (scripts/lib/regras.js, carregado como RegrasCatalogo) mais as decisões à mão
+   da equipe em dados/trampolim-decisoes.js, que vencem as regras. Sem as regras carregadas, nada é filtrado
+   (melhor mostrar a mais do que esconder tudo). Liga/desliga: FILTRAR_TRAMPOLIM em js/config.js. */
+const _decisaoTrampolim = new Map();
+function _regrasTrampolim(){
+  const d = (typeof TRAMPOLIM_DECISOES !== "undefined" && TRAMPOLIM_DECISOES) || {};
+  if(!_regrasTrampolim.cache){
+    _regrasTrampolim.cache = {
+      manter: new Set((d.manter || []).map(normalizarTitulo)),
+      ocultar: new Set((d.ocultar || []).map(normalizarTitulo)),
+      temas: (d.temas_manter || []).map(s => { try{ return new RegExp(s); }catch(e){ console.warn("[Trampolim] tema inválido em dados/trampolim-decisoes.js:", s); return null; } }).filter(Boolean)
+    };
+  }
+  return _regrasTrampolim.cache;
+}
+/* { d: "manter" | "ocultar", m: motivo } */
+function decisaoTrampolim(titulo){
+  const n = normalizarTitulo(titulo);
+  if(_decisaoTrampolim.has(n)) return _decisaoTrampolim.get(n);
+  const r = _regrasTrampolim();
+  let dec;
+  if(r.ocultar.has(n)) dec = { d: "ocultar", m: "decisão da equipe" };
+  else if(r.manter.has(n)) dec = { d: "manter", m: "decisão da equipe" };
+  else if(typeof RegrasCatalogo === "undefined") dec = { d: "manter", m: "regras não carregadas" };
+  else{
+    dec = RegrasCatalogo.classificar(titulo);
+    if(dec.d !== "manter" && r.temas.some(re => re.test(n))) dec = { d: "manter", m: "tema do Trampolim (dados/trampolim-decisoes.js)" };
+  }
+  _decisaoTrampolim.set(n, dec);
+  return dec;
+}
+function trampolimPermitido(c){
+  if(typeof FILTRAR_TRAMPOLIM !== "undefined" && !FILTRAR_TRAMPOLIM) return true;
+  return decisaoTrampolim(c.nome).d === "manter";
+}
+
 /* --- injeta os cursos no DADOS_CIDADE, criando categorias por area_interest ---
    Sem repetir: o mesmo curso (mesmo id na API) entra uma vez só, mesmo que venha da cidade, de uma vizinha e do
    catálogo do estado. Quem entra primeiro vence (a cidade da pessoa, sem etiqueta de "outra cidade"). */
@@ -241,6 +278,7 @@ function mesclarTrampolim(cursos, estado){
   Object.values(DADOS_CIDADE).forEach(a => (a.cursos || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   cursos.forEach(c=>{
     if(!cursoAtingeCargaMinima(c.carga)) return;   // filtra cursos curtos (abaixo de CARGA_MINIMA_H, em js/config.js)
+    if(!trampolimPermitido(c)) return;             // filtro de perfil (mesmas regras dos catálogos + decisões da equipe)
     /* curso que tem parte presencial no estado, mas a API mostra como "Online" nesta cidade (turma presencial longe): não é online */
     if(estado && c._id != null && estado.hibridos.has(c._id) && ehOnlineTrampolim(c)) return;
     if(c._id != null){ if(vistos.has(c._id)) return; vistos.add(c._id); }
@@ -782,6 +820,9 @@ function mesclarPlanilha(cursos, cidade){
     const deVizinha = !daCidade && vizinhas.some(v=>normTxt(v)===mun);
     if(!daCidade && !deVizinha) return;
     const id = c._area ? classificar(c._area) : classificar(c.nome);
+    /* o mesmo curso já veio da unidade do Senai/Senac (dados/unidades.js): fica a versão da planilha, cadastrada pela equipe */
+    const nomeN = normTxt(c.nome);
+    Object.values(DADOS_CIDADE).forEach(a=>{ if(a.cursos) a.cursos = a.cursos.filter(x=>!(x._unidade && normTxt(x.nome)===nomeN)); });
     const sufixo = ehOnlineFlag ? "" : " · "+c._municipio;
     const obj = Object.assign({}, c, {
       inst: ((c.inst||"")+sufixo).replace(/^ · /,""),
@@ -885,14 +926,54 @@ async function buscarVagasPlanilha(){
 }
 
 function mesclarPlanilhaVagas(vagas, cidade){
+  const vizinhas = CIDADES_VIZINHAS[cidade] || [];
   vagas.forEach(v=>{
     const mun = normTxt(v._municipio);
     const cidNorm = normTxt(cidade);
     const ehGeral = (mun==="" || mun.startsWith("online") || mun.startsWith("todos"));
-    if(!ehGeral && mun!==cidNorm) return;
+    const deVizinha = !ehGeral && mun!==cidNorm && vizinhas.some(x=>normTxt(x)===mun);   // vaga cadastrada numa cidade vizinha (ex.: Rio Claro)
+    if(!ehGeral && mun!==cidNorm && !deVizinha) return;
     const id = v._area ? classificar(v._area) : classificar(v.cargo);
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(v);
   });
+}
+
+/* =====================================================================
+   ROBÔ DE VAGAS  ·  dados/vagas-robo.json (gerado por robo-vagas/ toda segunda)
+   Vagas dos sites públicos de emprego (Gupy, Catho, InfoJobs, vagas.com e,
+   quando a busca roda no computador da equipe, LinkedIn e Indeed), já
+   filtradas pelo perfil do programa. Toda semana o robô confere cada vaga e
+   tira do arquivo a que fechou. A vaga de cidade vizinha aparece com a
+   cidade dela no cartão (mesma regra dos cursos).
+   O arquivo só é baixado quando a pessoa escolhe a cidade (uma vez por visita).
+   Liga/desliga: VAGAS_ROBO_ATIVO em js/config.js.
+   ===================================================================== */
+let _promessaVagasRobo = null;
+function carregarVagasRobo(){
+  if(!_promessaVagasRobo){
+    _promessaVagasRobo = fetch(DADOS_BASE+"dados/vagas-robo.json", {cache:"no-cache"})
+      .then(r => r.ok ? r.json() : { vagas: [] })
+      .then(j => Array.isArray(j && j.vagas) ? j.vagas : [])
+      .catch(e => { console.warn("[Robô de vagas] dados/vagas-robo.json não carregou:", e); _promessaVagasRobo = null; return []; });
+  }
+  return _promessaVagasRobo;
+}
+function mesclarVagasRobo(cidade, vagas){
+  if(!Array.isArray(vagas)) return 0;
+  const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+  const alvo = normTxt(cidade);
+  let n = 0;
+  vagas.forEach(v=>{
+    const mun = normTxt(v.municipio);
+    const daCidade = mun===alvo;
+    const deVizinha = !daCidade && vizinhas.some(x=>normTxt(x)===mun);
+    if(!daCidade && !deVizinha) return;
+    const obj = Object.assign({}, v, { _id:"robo:"+v.id, _robo:true, _via:v.fonte, _deOutraCidade: deVizinha ? v.municipio : null });
+    const id = areaDoCurso(v.cargo);
+    (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(obj);
+    n++;
+  });
+  return n;
 }
 
 async function carregarPlanilhaVagasEAtualizar(cidade, token){

@@ -11,7 +11,12 @@
 
    Para saber o quanto as regras concordam com as decisões já tomadas à mão:
    node scripts/validar-regras.js */
-const { normalizarTitulo } = require("./util");
+/* Roda no Node (scripts) e no NAVEGADOR (index.html e painel.html carregam este arquivo depois de js/config.js, para
+   filtrar os cursos do Trampolim que chegam ao vivo). No navegador tudo fica dentro desta função e só sai
+   window.RegrasCatalogo, para não colidir com as funções do portal (classificar, em js/areas.js). */
+(function(){
+const NODE = typeof module !== "undefined" && module.exports && typeof require === "function";
+const normalizarTitulo = NODE ? require("./util").normalizarTitulo : globalThis.normalizarTitulo;
 
 /* Tudo é testado sobre o título normalizado (sem acento, minúsculas). */
 const OCULTAR = [
@@ -168,4 +173,6 @@ function decidir(titulo, publico, requisitos){
   return r;
 }
 
-module.exports = { classificar, perfil, decidir, OCULTAR, MANTER };
+const API = { classificar, perfil, decidir, OCULTAR, MANTER };
+if(NODE) module.exports = API; else globalThis.RegrasCatalogo = API;
+})();
