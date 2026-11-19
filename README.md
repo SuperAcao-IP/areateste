@@ -61,7 +61,9 @@ A ordem **importa**, não embaralhe. Entre eles entram os arquivos de `dados/` e
 | `app.js` | Ponto de entrada |
 | `analytics.js` | Contagem anônima de uso (Worker da Cloudflare + D1) |
 | `aviso.js` | Aviso de uso, uma vez por sessão |
-| `historico-painel.js` | Só no `painel.html`: aba "Histórico de cursos" |
+| `historico-painel.js` | Só no `painel.html`: aba "Histórico de cursos e vagas" |
+| `visao-geral.js` | Só no `painel.html`: aba "Visão geral" e vazios automáticos |
+| `acessos-painel.js` | Só no `painel.html`: aba "Acessos" (lê a planilha pelo Apps Script, com a chave) |
 
 ---
 
@@ -72,8 +74,17 @@ A ordem **importa**, não embaralhe. Entre eles entram os arquivos de `dados/` e
   **cidade próxima** (Rio Claro, Sorocaba, Piracicaba...): o item aparece para os
   municípios do programa vizinhos dela, e o formulário mostra para quais.
 - **Administrativo** (azul): leva ao `painel.html`, que pede o e-mail institucional e a
-  chave de acesso. Lá estão o uso do portal, os vazios do catálogo, o catálogo completo
-  e o **histórico de cursos**.
+  chave de acesso. Abas do painel:
+  - **Visão geral**: números e gráficos (municípios sem busca, mapa, buscas por município e
+    por área, uso/cursos/vagas por semana, cursos e vagas por município) e botão de imprimir;
+  - **Uso do portal**: tabelas do uso no período (Worker de estatísticas);
+  - **Vazios do catálogo**: retrato automático da semana (`dados/cobertura.json`) e, se quiser,
+    a varredura ao vivo;
+  - **Catálogo completo**: monta ao vivo; curso online conta uma vez só;
+  - **Histórico de cursos e vagas**: tudo o que passou pelo portal, com filtros e CSV
+    (cursos desde setembro de 2026; vagas desde novembro de 2026);
+  - **Acessos**: quem entrou (e-mail, município, primeiro e último acesso), só com a chave do
+    painel. Precisa do Apps Script v8 da planilha: veja [apps-script/LEIA-ME.md](apps-script/LEIA-ME.md).
 
 > **Atenção:** o formulário de cadastro não tem senha própria. Quem entra no portal
 > consegue cadastrar e excluir. Se o portal for divulgado publicamente, isso precisa mudar.
@@ -118,12 +129,18 @@ Censo SUAS, filtro do Trampolim, histórico) e [robo-vagas/README.md](robo-vagas
 | Atualizar catálogos | segunda 6h | Aprenda Mais, EVG (CSV oficial), Bradesco, +IFMG, Mundi |
 | Atualizar mapa | segunda 9h | Senai e Senac (unidades e cursos), bibliotecas, coordenadas |
 | Robô de vagas | segunda 9h | confere as vagas publicadas (a fechada sai) e busca novas |
-| Histórico de cursos | segunda 10h | retrato semanal de todos os cursos do portal |
+| Uso semanal do portal | segunda 7h | números agregados de uso da semana (precisa do Secret `PAINEL_CHAVE`) |
+| Histórico de cursos | segunda 10h | retrato semanal de cursos e vagas do portal e cobertura presencial |
 | Atualizar Censo SUAS | mensal | CRAS e CREAS oficiais |
 
 Cada um abre uma **issue** com o resumo e fecha a da semana anterior (só fica aberta a mais
 recente). Todos podem rodar na hora pelo botão **Actions → (workflow) → Run workflow**.
 Se uma fonte falhar, a versão anterior dela continua no ar.
+
+**Secret `PAINEL_CHAVE`** (uma vez): a mesma chave do painel, cadastrada em Settings → Secrets and
+variables → Actions, ou no terminal com `gh secret set PAINEL_CHAVE --repo SuperAcao-IP/areateste`.
+Sem ele, o workflow de uso semanal só avisa; na primeira execução com a chave, reconstrói as 52
+semanas anteriores.
 
 A parte do LinkedIn e do Indeed roda no computador da equipe, por uma Tarefa do Windows
 (segunda 9h). Instalação: [robo-vagas/INSTALAR.md](robo-vagas/INSTALAR.md).

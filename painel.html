@@ -326,7 +326,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <div id="vgMapa" role="img" aria-label="Mapa dos municípios do programa com o número de buscas"></div>
       <p class="vg-legenda"><span><i style="background:#2a78d6"></i>buscas no período (tamanho = quantidade)</span>
         <span><i style="background:#B7C0CB"></i>nenhuma busca</span>
-        <span><i style="background:#fff;border:3px solid #C26A0B;width:8px;height:8px"></i>tem área sem curso presencial na cidade</span></p>
+        <span><i style="background:#fff;border:3px solid #C26A0B;width:8px;height:8px"></i>nenhum curso presencial na cidade</span></p>
     </div>
 
     <div class="vg-grade">
@@ -845,7 +845,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     var alvo = $('aba-uso');
     alvo.classList.add('carregando');
     $('atualizado').textContent = 'Carregando dados';
-    if(window.VisaoGeral) window.VisaoGeral.carregarArquivos();
+    if(window.VisaoGeral && !$('aba-visao').classList.contains('oculto')) window.VisaoGeral.abrir();   // desenha com os arquivos mesmo se o uso falhar
 
     fetch(API + '/dash?k=' + encodeURIComponent(chave()) + '&dias=' + dias)
       .then(function(r){

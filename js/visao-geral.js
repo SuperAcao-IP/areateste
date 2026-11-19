@@ -151,7 +151,8 @@
     var vazios = municipiosComVazio();
     var semPresencial = Object.keys(vazios).filter(function(m){ return estado.cobertura && vazios[m] === estado.cobertura.areas.length; });
 
-    $('vgPeriodo').textContent = j ? 'Uso dos últimos ' + dias + ' dias · cursos e vagas do retrato de ' + dataBR(estado.cursos && estado.cursos.atualizado) : 'Carregando…';
+    $('vgPeriodo').textContent = (j ? 'Uso dos últimos ' + dias + ' dias' : 'Uso do portal ainda carregando (ou indisponível: veja a aba Uso do portal)') +
+      (estado.cursos ? ' · cursos e vagas do retrato de ' + dataBR(estado.cursos.atualizado) : '');
     $('vgKpis').innerHTML =
       kpi('Pessoas que usaram', j ? fmt(ses('visitou')) : '–', 'sessões no período') +
       kpi('Municípios alcançados', j ? fmt(alcancados.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–', 'pesquisaram no período') +
@@ -218,7 +219,7 @@
       }).join('') + '</tbody>';
   }
 
-  /* mapa: bolha = buscas no período; cinza = ninguém buscou; contorno âmbar = alguma área sem curso presencial */
+  /* mapa: bolha = buscas no período; cinza = ninguém buscou; contorno âmbar = nenhum curso presencial na cidade */
   function desenharMapa(buscasCidade, vazios){
     var el = $('vgMapa');
     if(!el || typeof L === 'undefined' || typeof CENTROS_MUNICIPIOS === 'undefined') return;
@@ -233,10 +234,10 @@
     var max = Math.max.apply(null, MUNICIPIOS.map(function(m){ return buscasCidade[m] || 0; })) || 1;
     var nAreas = estado.cobertura ? estado.cobertura.areas.length : 0;
     MUNICIPIOS.forEach(function(m){
-      var b = buscasCidade[m] || 0, v = vazios[m] || 0;
+      var b = buscasCidade[m] || 0, v = vazios[m] || 0, semNenhum = nAreas && v === nAreas;
       var raio = b ? 6 + Math.sqrt(b / max) * 16 : 6;
       L.circleMarker([CENTROS_MUNICIPIOS[m].lat, CENTROS_MUNICIPIOS[m].lon], {
-        radius: raio, weight: v ? 3 : 2, color: v ? AMBAR : '#ffffff', fillColor: b ? COR : CINZA, fillOpacity: b ? 0.75 : 0.9
+        radius: raio, weight: semNenhum ? 3 : 2, color: semNenhum ? AMBAR : '#ffffff', fillColor: b ? COR : CINZA, fillOpacity: b ? 0.75 : 0.9
       }).bindTooltip('<b>' + esc(m) + '</b><br>' + (estado.uso ? fmt(b) + ' buscas em ' + estado.dias + ' dias' : '') +
         (nAreas ? '<br>' + v + ' de ' + nAreas + ' áreas sem curso presencial' : ''), { direction: 'top' }).addTo(estado.camada);
     });
@@ -298,11 +299,12 @@
   }
 
   /* ---------- ligações ---------- */
-  function abrirVisao(){ carregarArquivos().then(desenhar); }
-  function abrirVazios(){ carregarArquivos().then(desenharCobertura); }
+  function falhou(onde){ return function(e){ console.error('[painel] ' + onde + ':', e); var el = $(onde === 'vazios' ? 'cobData' : 'vgPeriodo'); if(el) el.textContent = 'Não consegui montar esta parte (' + (e && e.message) + '). Recarregue a página.'; }; }
+  function abrirVisao(){ carregarArquivos().then(desenhar).catch(falhou('visão geral')); }
+  function abrirVazios(){ carregarArquivos().then(desenharCobertura).catch(falhou('vazios')); }
   window.addEventListener('painel:uso', function(e){
     estado.uso = e.detail.j; estado.dias = e.detail.dias;
-    carregarArquivos().then(desenhar);
+    carregarArquivos().then(desenhar).catch(falhou('visão geral'));
   });
   document.addEventListener('DOMContentLoaded', function(){
     var b = $('vgImprimir'); if(b) b.addEventListener('click', function(){ window.print(); });

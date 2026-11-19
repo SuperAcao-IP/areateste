@@ -223,7 +223,17 @@ fixos: o navegador carrega `scripts/lib/regras.js` (`RegrasCatalogo`) e decide c
 Desligar o filtro: `FILTRAR_TRAMPOLIM = false` em `js/config.js`. Em 19/11/2026 eram 66 títulos diferentes no estado inteiro;
 52 aparecem. A issue semanal do **Histórico de cursos** mostra quais ficam de fora.
 
-## Histórico de cursos (aba do painel)
+## Histórico de cursos e vagas, cobertura (abas do painel)
+
+Desde a versão 2 do painel, o mesmo retrato semanal também grava:
+- `dados/historico-vagas.json`: as vagas do portal (Trampolim SP por município, planilha e robô de vagas). Vaga que saiu
+  há mais de 12 meses é removida.
+- `dados/cobertura.json`: cursos presenciais por município × área (na cidade e nas vizinhas), usado na aba **Vazios do
+  catálogo** sem precisar de varredura.
+- Em cada curso e vaga, `p` = as semanas exatas em que esteve no portal (índices em `semanas`).
+- Curso 100% online do Trampolim entra **uma vez só**, como "Online" (antes contava uma vez por município).
+
+### Histórico de cursos (detalhes)
 
 Toda segunda às 10h o workflow **Histórico de cursos** (`scripts/atualizar-historico.js`) monta o retrato do que o portal mostra,
 com as mesmas funções do site, e junta em `dados/historico-cursos.json`: um registro por curso (origem + título + online/presencial),
