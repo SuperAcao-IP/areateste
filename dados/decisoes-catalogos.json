@@ -6845,7 +6845,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "60h",
    "ar": "Outros"
   },
@@ -7355,7 +7355,7 @@
    "o": "auto",
    "m": "voltado a servidor / gestão pública",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -9425,7 +9425,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -9495,7 +9495,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -9575,7 +9575,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "36h",
    "ar": "Outros"
   },
@@ -9605,7 +9605,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "40h",
    "ar": "Outros"
   },
@@ -9625,7 +9625,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -9655,7 +9655,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "36h",
    "ar": "Outros"
   },
@@ -9685,7 +9685,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -9755,7 +9755,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -9815,7 +9815,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -10015,7 +10015,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "24h",
    "ar": "Outros"
   },
@@ -10115,7 +10115,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "25h",
    "ar": "Outros"
   },
@@ -10205,7 +10205,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "24h",
    "ar": "Outros"
   },
@@ -10275,7 +10275,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -10645,7 +10645,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "12h",
    "ar": "Outros"
   },
@@ -12065,7 +12065,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "60h",
    "ar": "Outros"
   },
@@ -12255,7 +12255,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -12655,7 +12655,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -12725,7 +12725,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -12785,7 +12785,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "8h",
    "ar": "Outros"
   },
@@ -13035,7 +13035,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "40h",
    "ar": "Outros"
   },
@@ -13185,7 +13185,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "40h",
    "ar": "Outros"
   },
@@ -13255,7 +13255,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -13365,7 +13365,7 @@
    "o": "auto",
    "m": "contexto institucional / serviço público",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -13415,7 +13415,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "30h",
    "ar": "Outros"
   },
@@ -13645,7 +13645,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -13787,6 +13787,1276 @@
    "desde": "2026-10-21",
    "ativo": true,
    "c": "20h",
+   "ar": "Outros"
+  },
+  "eixo 1 - elaborando a estrategia governamental e institucional programa - estrategia e planejamento": {
+   "t": "Eixo 1 - Elaborando a estratégia governamental e institucional Programa - Estratégia e Planejamento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "eixo 1 - questionando o convencional - programa - inovacao e mudanca": {
+   "t": "Eixo 1 - Questionando o convencional - Programa - Inovação e Mudança",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "eixo 2 - concebendo solucoes inovadoras - programa - inovacao e mudanca": {
+   "t": "Eixo 2 - Concebendo soluções inovadoras - Programa - Inovação e Mudança",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "70h",
+   "ar": "Outros"
+  },
+  "eixo 3 - criando o ambiente para inovacao - programa - inovacao e mudanca": {
+   "t": "Eixo 3 - Criando o ambiente para inovação - Programa - Inovação e Mudança",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "eixo 4 - gerindo a mudanca - programa - inovacao e mudanca": {
+   "t": "Eixo 4 - Gerindo a mudança - Programa - Inovação e Mudança",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "15h",
+   "ar": "Outros"
+  },
+  "eixo 2 - elaborando o planejamento governamental programa - estrategia e planejamento": {
+   "t": "Eixo 2 - Elaborando o planejamento governamental Programa - Estratégia e Planejamento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "155h",
+   "ar": "Outros"
+  },
+  "eixo 3 - realizando a gestao do planejamento e da estrategia programa - estrategia e planejamento": {
+   "t": "Eixo 3 - Realizando a gestão do planejamento e da estratégia Programa - Estratégia e Planejamento",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "130h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo a construcao do racismo no brasil - programa - fortalecendo liderancas negras no servico publico": {
+   "t": "Eixo 1 - Reconhecendo a construção do racismo no Brasil - Programa - Fortalecendo Lideranças Negras no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "18h",
+   "ar": "Outros"
+  },
+  "eixo 2 - realizando a gestao com equidade racial - programa - fortalecendo liderancas negras no servico publico": {
+   "t": "Eixo 2 - Realizando a gestão com equidade racial - Programa - Fortalecendo Lideranças Negras no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "18h",
+   "ar": "Outros"
+  },
+  "eixo 3 - desenvolvendo a lideranca inclusiva - programa - fortalecendo liderancas negras no servico publico": {
+   "t": "Eixo 3 - Desenvolvendo a liderança inclusiva - Programa - Fortalecendo Lideranças Negras no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "140h",
+   "ar": "Outros"
+  },
+  "eixo 1 - instruindo o processo de contratacao - programa - contratacoes publicas: planejamento da contratacao": {
+   "t": "Eixo 1 - Instruindo o Processo de Contratação - Programa - Contratações Públicas: Planejamento da Contratação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "eixo 1 - fiscalizando contratacoes - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 1 - Fiscalizando Contratações - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "68h",
+   "ar": "Outros"
+  },
+  "eixo 2 - fiscalizando obras - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 2 - Fiscalizando Obras - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "43h",
+   "ar": "Outros"
+  },
+  "eixo 3 - fiscalizando contratacoes de tecnologia da informacao - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 3 - Fiscalizando Contratações de Tecnologia da Informação - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "23h",
+   "ar": "Outros"
+  },
+  "eixo 4 - efetuando alteracao contratual - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 4 - Efetuando Alteração Contratual - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "27h",
+   "ar": "Outros"
+  },
+  "eixo 1 - selecionando fornecedor por licitacao -programa - contratacoes publicas: selecao do fornecedor": {
+   "t": "Eixo 1 - Selecionando fornecedor por licitação -Programa - Contratações Públicas: Seleção do Fornecedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "74h",
+   "ar": "Outros"
+  },
+  "eixo 2 - firmando ata de registro de precos - programa - contratacoes publicas: selecao do fornecedor": {
+   "t": "Eixo 2 - Firmando ata de registro de preços - Programa - Contratações Públicas: Seleção do Fornecedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "6h",
+   "ar": "Outros"
+  },
+  "eixo 3 - contratando por dispensa ou inexigibilidade - programa - contratacoes publicas: selecao do fornecedor": {
+   "t": "Eixo 3 - Contratando por dispensa ou inexigibilidade - Programa - Contratações Públicas: Seleção do Fornecedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "38h",
+   "ar": "Outros"
+  },
+  "eixo 5 - aplicando sancoes administrativas - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 5 - Aplicando Sanções Administrativas - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "29h",
+   "ar": "Outros"
+  },
+  "eixo 6 - encerrando contratacoes - programa - contratacoes publicas: gestao do contrato": {
+   "t": "Eixo 6 - Encerrando Contratações - Programa - Contratações Públicas: Gestão do Contrato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "42h",
+   "ar": "Outros"
+  },
+  "eixo 4 - utilizando os instrumentos auxiliares das licitacoes - programa - contratacoes publicas: selecao do fornecedor": {
+   "t": "Eixo 4 - Utilizando os instrumentos auxiliares das licitações - Programa - Contratações Públicas: Seleção do Fornecedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "22h",
+   "ar": "Outros"
+  },
+  "eixo 5 - concedendo suprimentos de fundos - programa - contratacoes publicas: selecao do fornecedor": {
+   "t": "Eixo 5 - Concedendo suprimentos de fundos - Programa - Contratações Públicas: Seleção do Fornecedor",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "22h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo e valorizando a diversidade - programa - diversidade e inclusao": {
+   "t": "Eixo 1 - Reconhecendo e valorizando a diversidade - Programa - Diversidade e Inclusão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "77h",
+   "ar": "Outros"
+  },
+  "eixo 2 - criando ambientes de trabalho inclusivos - programa - diversidade e inclusao": {
+   "t": "Eixo 2 - Criando ambientes de trabalho inclusivos - Programa - Diversidade e Inclusão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "eixo 3 - gerando servicos publicos inclusivos - programa - diversidade e inclusao": {
+   "t": "Eixo 3 - Gerando serviços públicos inclusivos - Programa - Diversidade e Inclusão",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "122h",
+   "ar": "Outros"
+  },
+  "eixo 1 - aplicando tecnologias digitais na geracao de produtos e servicos programa - mentalidade digital": {
+   "t": "Eixo 1 - Aplicando tecnologias digitais na geração de produtos e serviços Programa - Mentalidade Digital",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "227h",
+   "ar": "Outros"
+  },
+  "eixo 2 - integrando processo de gestao e tecnologias digitais programa - mentalidade digital": {
+   "t": "Eixo 2 - Integrando processo de gestão e tecnologias digitais Programa - Mentalidade Digital",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "124h",
+   "ar": "Outros"
+  },
+  "eixo 3 - integrando comunicacao e tecnologias digitais programa - mentalidade digital": {
+   "t": "Eixo 3 - Integrando comunicação e tecnologias digitais Programa - Mentalidade Digital",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "95h",
+   "ar": "Outros"
+  },
+  "eixo 1 - analisando dados e evidencias programa - resolucao de problemas com base em dados": {
+   "t": "Eixo 1 - Analisando dados e evidências Programa - Resolução de problemas com base em dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "87h",
+   "ar": "Outros"
+  },
+  "eixo 2 - resolvendo problemas programa - resolucao de problemas com base em dados": {
+   "t": "Eixo 2 - Resolvendo problemas Programa - Resolução de problemas com base em dados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "154h",
+   "ar": "Outros"
+  },
+  "eixo 1 - colaborando e cooperando para metas compartilhadas programa - trabalho em equipe": {
+   "t": "Eixo 1 - Colaborando e cooperando para metas compartilhadas Programa - Trabalho em Equipe",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "46h",
+   "ar": "Outros"
+  },
+  "eixo 2 - identificando a repercussao de suas acoes nos objetivos programa - trabalho em equipe": {
+   "t": "Eixo 2 - Identificando a repercussão de suas ações nos objetivos Programa - Trabalho em equipe",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "66h",
+   "ar": "Outros"
+  },
+  "eixo 1 - superando o desempenho padrao programa - foco nos resultados para os cidadaos": {
+   "t": "Eixo 1 - Superando o desempenho padrão Programa - Foco nos resultados para os cidadãos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "47h",
+   "ar": "Outros"
+  },
+  "eixo 2 - garantindo o atendimento das necessidades do usuario programa - foco nos resultados para os cidadaos": {
+   "t": "Eixo 2 - Garantindo o atendimento das necessidades do usuário Programa - Foco nos resultados para os cidadãos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "68h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo as bases para a pratica do pensamento sistemico programa - visao sistemica": {
+   "t": "Eixo 1 - Reconhecendo as bases para a prática do pensamento sistêmico Programa - Visão sistêmica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "112h",
+   "ar": "Outros"
+  },
+  "eixo 2 - identificando os marcos institucionais: inter-relacoes e impactos programa - visao sistemica": {
+   "t": "Eixo 2 - Identificando os marcos institucionais: inter-relações e impactos Programa - Visão sistêmica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "185h",
+   "ar": "Outros"
+  },
+  "eixo 3 - reconhecendo cenarios, tendencias e suas consequencias programa - visao sistemica": {
+   "t": "Eixo 3 - Reconhecendo cenários, tendências e suas consequências Programa - Visão sistêmica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "34h",
+   "ar": "Outros"
+  },
+  "eixo 1 - tomando decisoes com base na etica programa - etica e integridade publica": {
+   "t": "Eixo 1 - Tomando decisões com base na ética Programa - Ética e integridade pública",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "60h",
+   "ar": "Outros"
+  },
+  "eixo 2 - adotando conduta moral adequada programa - etica e integridade publica": {
+   "t": "Eixo 2 - Adotando conduta moral adequada Programa - Ética e integridade pública",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "22h",
+   "ar": "Outros"
+  },
+  "eixo 3 - interagir de forma produtiva programa - comunicacao": {
+   "t": "Eixo 3 - Interagir de forma produtiva Programa - Comunicação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "59h",
+   "ar": "Outros"
+  },
+  "eixo 2 - escutar de forma efetiva programa - comunicacao": {
+   "t": "Eixo 2 - Escutar de forma efetiva Programa - Comunicação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "80h",
+   "ar": "Outros"
+  },
+  "eixo 1 - expressando ideias e conceitos programa - comunicacao": {
+   "t": "Eixo 1 - Expressando ideias e conceitos Programa - Comunicação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "105h",
+   "ar": "Outros"
+  },
+  "eixo 1 - identificando as necessidades e expectativas dos usuarios programa - geracao de valor para o usuario": {
+   "t": "Eixo 1 - Identificando as necessidades e expectativas dos usuários Programa - Geração de Valor para o Usuário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "105h",
+   "ar": "Outros"
+  },
+  "eixo 2 - envolvendo a sociedade no processo de formulacao e implementacao de politicas publicas programa - geracao de valor para o usuario": {
+   "t": "Eixo 2 - Envolvendo a sociedade no processo de formulação e implementação de políticas públicas Programa - Geração de Valor para o Usuário",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "129h",
+   "ar": "Outros"
+  },
+  "eixo 1 - conhecendo a legislacao de protecao de dados pessoais programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 1 - Conhecendo a legislação de proteção de dados pessoais Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "eixo 2 - atuando na governanca e na aplicacao de medidas de protecao de dados pessoais programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 2 - Atuando na governança e na aplicação de medidas de proteção de dados pessoais Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "34h",
+   "ar": "Outros"
+  },
+  "eixo 3 - detalhando as atribuicoes do encarregado pelo tratamento de dados pessoais programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 3 - Detalhando as atribuições do encarregado pelo tratamento de dados pessoais Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "5h",
+   "ar": "Outros"
+  },
+  "eixo 4 - criando uma estrutura basica em seguranca da informacao programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 4 - Criando uma estrutura básica em segurança da informação Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "127h",
+   "ar": "Outros"
+  },
+  "eixo 5 - protegendo os ativos institucionais e o ambiente tecnologico da organizacao programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 5 - Protegendo os ativos institucionais e o ambiente tecnológico da organização Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "10h",
+   "ar": "Outros"
+  },
+  "eixo 6 - respondendo a um incidente de seguranca programa - privacidade e seguranca da informacao": {
+   "t": "Eixo 6 - Respondendo a um incidente de segurança Programa - Privacidade e Segurança da Informação",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "16h",
+   "ar": "Outros"
+  },
+  "eixo 1 - preparando a transicao e os primeiros 100 dias de governo no municipio programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 1 - Preparando a transição e os primeiros 100 dias de governo no município Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "4h",
+   "ar": "Outros"
+  },
+  "eixo 2 - visualizando caminhos para o futuro do municipio programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 2 - Visualizando caminhos para o futuro do município Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "10h",
+   "ar": "Outros"
+  },
+  "eixo 3 - planejando a gestao municipal com o plano plurianual (ppa) e outros instrumentos programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 3 - Planejando a gestão municipal com o Plano Plurianual (PPA) e outros instrumentos Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "4h",
+   "ar": "Outros"
+  },
+  "eixo 4 - organizando o orcamento e as financas para executar o planejamento municipal programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 4 - Organizando o orçamento e as finanças para executar o planejamento municipal Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "18h",
+   "ar": "Outros"
+  },
+  "eixo 5 - compras eficientes, transparencia e gerenciamento de riscos na gestao municipal programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 5 - Compras eficientes, transparência e gerenciamento de riscos na gestão municipal Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "5h",
+   "ar": "Outros"
+  },
+  "eixo 6 - apoiando a implementacao das politicas publicas no municipio programa - gestao municipal: tudo o que voce precisa saber para os primeiros 100 dias de mandato": {
+   "t": "Eixo 6 - Apoiando a implementação das políticas públicas no município Programa - Gestão Municipal: Tudo o que você precisa saber para os primeiros 100 dias de mandato",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "18h",
+   "ar": "Outros"
+  },
+  "eixo 1 - coordenando interesses programa - coordenacao e colaboracao em rede": {
+   "t": "Eixo 1 - Coordenando interesses Programa - Coordenação e Colaboração em Rede",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "73h",
+   "ar": "Outros"
+  },
+  "eixo 2 - atuando em rede programa - coordenacao e colaboracao em rede": {
+   "t": "Eixo 2 - Atuando em rede Programa - Coordenação e Colaboração em Rede",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "eixo 3 - construindo parcerias programa - coordenacao e colaboracao em rede": {
+   "t": "Eixo 3 - Construindo parcerias Programa - Coordenação e Colaboração em Rede",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "158h",
+   "ar": "Outros"
+  },
+  "eixo 1 - gerindo riscos programa - gestao de crises": {
+   "t": "Eixo 1 - Gerindo riscos Programa - Gestão de Crises",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "85h",
+   "ar": "Outros"
+  },
+  "eixo 2 - construindo solucoes e negociacoes programa - gestao de crises": {
+   "t": "Eixo 2 - Construindo soluções e negociações Programa - Gestão de Crises",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "27h",
+   "ar": "Outros"
+  },
+  "eixo 3 - agindo na crise programa - gestao de crises": {
+   "t": "Eixo 3 - Agindo na crise Programa - Gestão de Crises",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "62h",
+   "ar": "Outros"
+  },
+  "eixo 1 - tomando decisoes estrategicas programa - gestao para resultados": {
+   "t": "Eixo 1 - Tomando decisões estratégicas Programa - Gestão para Resultados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "133h",
+   "ar": "Outros"
+  },
+  "eixo 2 - orientacao para resultados programa - gestao para resultados": {
+   "t": "Eixo 2 - Orientação para resultados Programa - Gestão para Resultados",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "235h",
+   "ar": "Outros"
+  },
+  "eixo 1 - desenvolvendo e expressando conceitos e ideias programa - comunicacao estrategica": {
+   "t": "Eixo 1 - Desenvolvendo e expressando conceitos e ideias Programa - Comunicação estratégica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "eixo 2 - comunicando propositos, planos e estrategias programa - comunicacao estrategica": {
+   "t": "Eixo 2 - Comunicando propósitos, planos e estratégias Programa - Comunicação estratégica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "40h",
+   "ar": "Outros"
+  },
+  "eixo 3 - estabelecendo uma comunicacao empatica, persuasiva, influente e que inspire confianca programa - comunicacao estrategica": {
+   "t": "Eixo 3 - Estabelecendo uma comunicação empática, persuasiva, influente e que inspire confiança Programa - Comunicação estratégica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "71h",
+   "ar": "Outros"
+  },
+  "eixo 4 - construindo narrativas de politicas publicas (\"policy narratives\") programa - comunicacao estrategica": {
+   "t": "Eixo 4 - Construindo narrativas de políticas públicas (\"policy narratives\") Programa - Comunicação estratégica",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "38h",
+   "ar": "Outros"
+  },
+  "eixo 1 - empregando o autoconhecimento programa - auto conhecimento e desenvolvimento pessoal": {
+   "t": "Eixo 1 - Empregando o autoconhecimento Programa - Auto conhecimento e desenvolvimento pessoal",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "105h",
+   "ar": "Outros"
+  },
+  "eixo 2 - comprometendo-se com o desenvolvimento pessoa programa - autoconhecimento e desenvolvimento pessoal": {
+   "t": "Eixo 2 - Comprometendo-se com o desenvolvimento pessoa Programa - Autoconhecimento e desenvolvimento pessoal",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "15h",
+   "ar": "Outros"
+  },
+  "eixo 3 - construindo a identidade de lider programa - autoconhecimento e desenvolvimento pessoal": {
+   "t": "Eixo 3 - Construindo a identidade de líder Programa - Autoconhecimento e desenvolvimento pessoal",
+   "d": "manter",
+   "o": "auto",
+   "m": "trabalho e carreira",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "53h",
+   "ar": "Outros"
+  },
+  "eixo 1 - analisando cenarios atuais e futuros programa - visao de futuro": {
+   "t": "Eixo 1 - Analisando cenários atuais e futuros Programa - Visão de Futuro",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "74h",
+   "ar": "Outros"
+  },
+  "eixo 2 - tracando diretrizes estrategicas programa - visao de futuro": {
+   "t": "Eixo 2 - Traçando diretrizes estratégicas Programa - Visão de futuro",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "140h",
+   "ar": "Outros"
+  },
+  "eixo 3 - adotando praticas e estrategias social e ambientalmente responsaveis programa - visao de futuro": {
+   "t": "Eixo 3 - Adotando práticas e estratégias social e ambientalmente responsáveis Programa - Visão de Futuro",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "53h",
+   "ar": "Outros"
+  },
+  "eixo 1 - conduzindo pessoas programa - engajamento de pessoas e equipes": {
+   "t": "Eixo 1 - Conduzindo pessoas Programa - Engajamento de Pessoas e Equipes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "32h",
+   "ar": "Outros"
+  },
+  "eixo 2 - liderando equipes programa - engajamento de pessoas e equipes": {
+   "t": "Eixo 2 - Liderando equipes Programa - Engajamento de Pessoas e Equipes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "19h",
+   "ar": "Outros"
+  },
+  "eixo 3 - associando alto desempenho e bem-estar programa - engajamento de pessoas e equipes": {
+   "t": "Eixo 3 - Associando alto desempenho e bem-estar Programa - Engajamento de Pessoas e Equipes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "45h",
+   "ar": "Outros"
+  },
+  "eixo 4 - desenvolvendo pessoas programa - engajamento de pessoas e equipes": {
+   "t": "Eixo 4 - Desenvolvendo Pessoas Programa - Engajamento de Pessoas e Equipes",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "33h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo o direito a saude integral no sus municipal programa - gestao municipal: saude, seguranca alimentar e agricultura familiar": {
+   "t": "Eixo 1 - Reconhecendo o direito à saúde integral no SUS municipal Programa - Gestão Municipal: Saúde, Segurança Alimentar e Agricultura Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "5h",
+   "ar": "Outros"
+  },
+  "eixo 2 - organizando o sus no municipio com articulacao regional programa - gestao municipal: saude, seguranca alimentar e agricultura familiar": {
+   "t": "Eixo 2 - Organizando o SUS no município com articulação regional Programa - Gestão Municipal: Saúde, Segurança Alimentar e Agricultura Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "8h",
+   "ar": "Outros"
+  },
+  "eixo 3 - construindo a seguranca alimentar e nutricional no municipio programa - gestao municipal: saude, seguranca alimentar e agricultura familiar": {
+   "t": "Eixo 3 - Construindo a segurança alimentar e nutricional no município Programa - Gestão Municipal: Saúde, Segurança Alimentar e Agricultura Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "10h",
+   "ar": "Outros"
+  },
+  "eixo 4 - desenvolvendo a agricultura familiar no municipio programa - gestao municipal: saude, seguranca alimentar e agricultura familiar": {
+   "t": "Eixo 4 - Desenvolvendo a agricultura familiar no município Programa - Gestão Municipal: Saúde, Segurança Alimentar e Agricultura Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "13h",
+   "ar": "Outros"
+  },
+  "eixo 5 - articulando politicas publicas de saude, seguranca alimentar e agricultura familiar programa - gestao municipal: saude, seguranca alimentar e agricultura familiar": {
+   "t": "Eixo 5 - Articulando políticas públicas de saúde, segurança alimentar e agricultura familiar Programa - Gestão Municipal: Saúde, Segurança Alimentar e Agricultura Familiar",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "22h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo o papel da gestao municipal na seguranca publica programa - gestao municipal: justica e direitos humanos": {
+   "t": "Eixo 1 - Reconhecendo o papel da gestão municipal na segurança pública Programa - Gestão Municipal: Justiça e Direitos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "19h",
+   "ar": "Outros"
+  },
+  "eixo 2 - gerenciando problemas de ordem publica nas cidades e estabelecendo parcerias programa - gestao municipal: justica e direitos humanos": {
+   "t": "Eixo 2 - Gerenciando problemas de ordem pública nas cidades e estabelecendo parcerias Programa - Gestão Municipal: Justiça e Direitos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "7h",
+   "ar": "Outros"
+  },
+  "eixo 3 - reconhecendo os direitos humanos e sua aplicabilidade no municipio programa - gestao municipal: justica e direitos humanos": {
+   "t": "Eixo 3 - Reconhecendo os Direitos Humanos e sua aplicabilidade no município Programa - Gestão Municipal: Justiça e Direitos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "41h",
+   "ar": "Outros"
+  },
+  "eixo 4 - promovendo diversidade, equidade e inclusao na gestao municipal e na cidade programa - gestao municipal: justica e direitos humanos": {
+   "t": "Eixo 4 - Promovendo Diversidade, Equidade e Inclusão na gestão municipal e na cidade Programa - Gestão Municipal: Justiça e Direitos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "69h",
+   "ar": "Outros"
+  },
+  "eixo 5 - utilizando ferramentas de gestao para promover direitos humanos e justica no municipio programa - gestao municipal: justica e direitos humanos": {
+   "t": "Eixo 5 - Utilizando ferramentas de gestão para promover Direitos Humanos e Justiça no município Programa - Gestão Municipal: Justiça e Direitos Humanos",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "92h",
+   "ar": "Outros"
+  },
+  "eixo 1 - reconhecendo as dimensoes do desenvolvimento social na gestao municipal programa - gestao municipal: desenvolvimento social, educacao e cultura": {
+   "t": "Eixo 1 - Reconhecendo as dimensões do desenvolvimento social na gestão municipal Programa - Gestão Municipal: Desenvolvimento Social, Educação e Cultura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "9h",
+   "ar": "Outros"
+  },
+  "eixo 2 - organizando a politica de assistencia social no municipio programa - gestao municipal: desenvolvimento social, educacao e cultura": {
+   "t": "Eixo 2 - Organizando a política de assistência social no município Programa - Gestão Municipal: Desenvolvimento Social, Educação e Cultura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "17h",
+   "ar": "Outros"
+  },
+  "eixo 3 - organizando a politica municipal de educacao programa - gestao municipal: desenvolvimento social, educacao e cultura": {
+   "t": "Eixo 3 - Organizando a política municipal de educação Programa - Gestão Municipal: Desenvolvimento Social, Educação e Cultura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "10h",
+   "ar": "Outros"
+  },
+  "eixo 4 - implementando acoes pedagogicas no municipio programa - gestao municipal: desenvolvimento social, educacao e cultura": {
+   "t": "Eixo 4 - Implementando ações pedagógicas no município Programa - Gestão Municipal: Desenvolvimento Social, Educação e Cultura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "12h",
+   "ar": "Outros"
+  },
+  "eixo 5 - garantindo o acesso a cultura no municipio programa - gestao municipal: desenvolvimento social, educacao e cultura": {
+   "t": "Eixo 5 - Garantindo o acesso à cultura no município Programa - Gestão Municipal: Desenvolvimento Social, Educação e Cultura",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "8h",
+   "ar": "Outros"
+  },
+  "eixo 1 - mapeando tendencias em governanca e gestao das empresas estatais programa - inova: governanca e gestao das estatais": {
+   "t": "Eixo 1 - Mapeando tendências em governança e gestão das empresas estatais Programa - Inova: Governança e Gestão das Estatais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "49h",
+   "ar": "Outros"
+  },
+  "eixo 2 - transformando a realidade tecnologica e produtiva das empresas estatais no brasil programa - inova: gestao e governanca de estatais": {
+   "t": "Eixo 2 - Transformando a realidade tecnológica e produtiva das empresas estatais no Brasil Programa - Inova: Gestão e Governança de Estatais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "44h",
+   "ar": "Outros"
+  },
+  "eixo 3 - inovando e enfrentando desafios na gestao das empresas estatais programa - inova: gestao e governanca de estatais": {
+   "t": "Eixo 3 - Inovando e enfrentando desafios na gestão das empresas estatais Programa - Inova: Gestão e Governança de Estatais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "37h",
+   "ar": "Outros"
+  },
+  "fortalecimento de liderancas para defesa dos direitos de pessoas com deficiencia": {
+   "t": "Fortalecimento de Lideranças para Defesa dos Direitos de Pessoas com Deficiência",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "eixo 1 - fundamentos e consciencia critica sobre o uso da ia programa ia na pratica: ferramentas e solucoes no dia a dia do agente publico": {
+   "t": "Eixo 1 - Fundamentos e Consciência Crítica sobre o Uso da IA Programa IA na Prática: Ferramentas e Soluções no dia a dia do Agente Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "eixo 2 - aplicacoes praticas da ia na rotina administrativa programa ia na pratica: ferramentas e solucoes no dia a dia do agente publico": {
+   "t": "Eixo 2 - Aplicações Práticas da IA na Rotina Administrativa Programa IA na Prática: Ferramentas e Soluções no dia a dia do Agente Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "73h",
+   "ar": "Outros"
+  },
+  "eixo 1 - elaborando o plano plurianual (ppa) orcamento e financas": {
+   "t": "Eixo 1 - Elaborando o Plano Plurianual (PPA) Orçamento e Finanças",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "25h",
+   "ar": "Outros"
+  },
+  "eixo 2 - elaborando a lei de diretrizes orcamentarias (ldo) e a lei orcamentaria anual (loa) orcamento e financas": {
+   "t": "Eixo 2 - Elaborando a Lei de Diretrizes Orçamentárias (LDO) e a Lei Orçamentária Anual (LOA) Orçamento e Finanças",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Outros"
+  },
+  "eixo 3 - realizando a execucao orcamentaria e financeira orcamento e financas": {
+   "t": "Eixo 3 - Realizando a execução orçamentária e financeira Orçamento e Finanças",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "55h",
+   "ar": "Outros"
+  },
+  "eixo 4 - acompanhando e avaliando o planejamento e a execucao orcamentaria e financeira orcamento e financas": {
+   "t": "Eixo 4 - Acompanhando e avaliando o planejamento e a execução orçamentária e financeira Orçamento e Finanças",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "eixo 5 - analisando as financas publicas - orcamento e financas": {
+   "t": "Eixo 5 - Analisando as finanças públicas - Orçamento e Finanças",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "90h",
+   "ar": "Outros"
+  },
+  "eixo 1 - fundamentos para governanca de e cultura de dados programa - executivo de dados e ia: fundamentos e estrategias no setor publico": {
+   "t": "Eixo 1 - Fundamentos para Governança de e Cultura de Dados Programa - Executivo de Dados e IA: Fundamentos e Estratégias no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "135h",
+   "ar": "Outros"
+  },
+  "eixo 2 - aplicacoes estrategicas em dados e ia programa - executivo de dados e ia: fundamentos e estrategias no setor publico": {
+   "t": "Eixo 2 - Aplicações Estratégicas em Dados e IA Programa - Executivo de Dados e IA: Fundamentos e Estratégias no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "125h",
+   "ar": "Outros"
+  },
+  "eixo 1 - selecionando fornecedor por licitacao programa - contratacoes publicas: selecao do fornecedor.": {
+   "t": "Eixo 1 - Selecionando fornecedor por licitação Programa - Contratações Públicas: Seleção do Fornecedor.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "eixo 2 - firmando ata de registro de precos programa - contratacoes publicas: selecao do fornecedor.": {
+   "t": "Eixo 2 - Firmando ata de registro de preços Programa - Contratações Públicas: Seleção do Fornecedor.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "5h",
+   "ar": "Outros"
+  },
+  "eixo 3 - contratando por dispensa ou inexigibilidade programa - contratacoes publicas: selecao do fornecedor.": {
+   "t": "Eixo 3 - Contratando por dispensa ou inexigibilidade Programa - Contratações Públicas: Seleção do Fornecedor.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "35h",
+   "ar": "Outros"
+  },
+  "eixo 4 - utilizando os instrumentos auxiliares das licitacoes programa - contratacoes publicas: selecao do fornecedor.": {
+   "t": "Eixo 4 - Utilizando os instrumentos auxiliares das licitações Programa - Contratações Públicas: Seleção do Fornecedor.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "22h",
+   "ar": "Outros"
+  },
+  "eixo 5 - concedendo suprimentos de fundos programa - contratacoes publicas: selecao do fornecedor.": {
+   "t": "Eixo 5 - Concedendo suprimentos de fundos Programa - Contratações Públicas: Seleção do Fornecedor.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "24h",
+   "ar": "Outros"
+  },
+  "eixo 1 - fiscalizando contratacoes programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 1 - Fiscalizando Contratações Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "50h",
+   "ar": "Outros"
+  },
+  "eixo 2 - fiscalizando obras programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 2 - Fiscalizando Obras Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "43h",
+   "ar": "Outros"
+  },
+  "eixo 3 - fiscalizando contratacoes de tecnologia da informacao programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 3 - Fiscalizando Contratações de Tecnologia da Informação Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "23h",
+   "ar": "Outros"
+  },
+  "eixo 4 - efetuando alteracao contratual programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 4 - Efetuando Alteração Contratual Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "27h",
+   "ar": "Outros"
+  },
+  "eixo 5 - conduzindo investigacao em processos administrativos responsabilizatorios e solucionando conflitos programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 5 - Conduzindo Investigação em Processos Administrativos Responsabilizatórios e Solucionando Conflitos Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "contexto institucional / serviço público",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "29h",
+   "ar": "Outros"
+  },
+  "eixo 6 - encerrando contratacoes programa - contratacoes publicas: gestao do contrato.": {
+   "t": "Eixo 6 - Encerrando Contratações Programa - Contratações Públicas: Gestão do Contrato.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "48h",
+   "ar": "Outros"
+  },
+  "eixo 1 - instruindo o processo de contratacao programa - contratacoes publicas: planejamento da contratacao.": {
+   "t": "Eixo 1 - Instruindo o Processo de Contratação Programa - Contratações Públicas: Planejamento da Contratação.",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "100h",
+   "ar": "Outros"
+  },
+  "eixo 1 - fundamentos, etica e estrategia de dados programa - ia para otimizacao de processos e automacao inteligente no servico publico": {
+   "t": "Eixo 1 - Fundamentos, Ética e Estratégia de Dados Programa - IA para Otimização de Processos e Automação Inteligente no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "77h",
+   "ar": "Outros"
+  },
+  "eixo 2 - aplicacoes praticas da ia na rotina administrativa programa - ia para otimizacao de processos e automacao inteligente no servico publico": {
+   "t": "Eixo 2 - Aplicações Práticas da IA na Rotina Administrativa Programa - IA para Otimização de Processos e Automação Inteligente no Serviço Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "78h",
+   "ar": "Outros"
+  },
+  "eixo 1 - diretrizes eticas e responsabilidade no uso de ia programa - gestao e qualidade de ativos de dados no setor publico": {
+   "t": "Eixo 1 - Diretrizes Éticas e Responsabilidade no Uso de IA Programa - Gestão e Qualidade de Ativos de Dados no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "32h",
+   "ar": "Outros"
+  },
+  "eixo 2 - fundamentos de governanca de dados programa - gestao e qualidade de ativos de dados no setor publico": {
+   "t": "Eixo 2 - Fundamentos de Governança de Dados Programa - Gestão e Qualidade de Ativos de Dados no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "66h",
+   "ar": "Outros"
+  },
+  "eixo 3 - compartilhamento de dados programa - gestao e qualidade de ativos de dados no setor publico": {
+   "t": "Eixo 3 - Compartilhamento de Dados Programa - Gestão e Qualidade de Ativos de Dados no Setor Público",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "38h",
+   "ar": "Outros"
+  },
+  "gestao de convenios: da formalizacao a prestacao de contas": {
+   "t": "Gestão de Convênios: da Formalização à Prestação de Contas",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "interseccionalidade e participacao: perspectivas para uma ouvidoria inclusiva": {
+   "t": "Interseccionalidade e Participação: Perspectivas para uma Ouvidoria Inclusiva",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "praticas sociais educativas em prisoes: tirando a resolucao cnj 391 do papel": {
+   "t": "Práticas Sociais Educativas em Prisões: Tirando a Resolução CNJ 391 do Papel",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Outros"
+  },
+  "espaco educacional seguro: a jornada docente para prevencao e enfrentamento do assedio e da discriminacao na enap": {
+   "t": "Espaço Educacional Seguro: a jornada docente para prevenção e enfrentamento do assédio e da discriminação na Enap",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "voltado a servidor / gestão pública",
+   "desde": "2026-11-19",
+   "ativo": true,
+   "c": "5h",
    "ar": "Outros"
   }
  },
@@ -15669,7 +16939,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "90h",
    "ar": "Outros"
   },
@@ -15709,7 +16979,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "90h",
    "ar": "Outros"
   },
@@ -15769,7 +17039,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "",
    "ar": "Outros"
   },
@@ -15959,7 +17229,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "",
    "ar": "Outros"
   },
@@ -15969,7 +17239,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "",
    "ar": "Outros"
   },
@@ -15979,7 +17249,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "",
    "ar": "Outros"
   },
@@ -15989,7 +17259,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "",
    "ar": "Outros"
   }

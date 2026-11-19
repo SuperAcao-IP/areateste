@@ -1,5 +1,5 @@
 /* +IFMG · cursos online EaD gratuitos do Instituto Federal de Minas Gerais.
-   Coletado de mais.ifmg.edu.br · atualizado em 2026-10-21 (14 cursos visíveis de 158 coletados).
+   Coletado de mais.ifmg.edu.br · atualizado em 2026-11-19 (14 cursos visíveis de 151 coletados).
    Só título, carga e link públicos; o conteúdo fica na plataforma de origem.
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    Este arquivo guarda SÓ os cursos que aparecem no site (para a página ficar leve). A lista
