@@ -162,12 +162,63 @@ async function coletarSenai({ interessam, norm }){
     const a = separarEnderecoSenai(end);
     if(!interessam.has(norm(a.cidade))) continue;
     const cep = (r.texto.match(/CEP:\s*([\d-]+)/) || [])[1] || "";
+    const codigo = (r.texto.match(/href="\/cursos\?unidade=(\d+)"/) || [])[1] || "";   // botão "Conheça nossos cursos"
     unidades.push({
       id: "senai-" + slug, inst: "Senai", nome: decodificarHtml(nome || "SENAI " + a.cidade).replace(/\s*[|–-]\s*SENAI.*$/i, "").trim(),
-      rua: a.rua, numero: a.numero, bairro: a.bairro, cidade: a.cidade, cep, link: "https://www.sp.senai.br/unidade/" + slug + "/", cursos: []
+      rua: a.rua, numero: a.numero, bairro: a.bairro, cidade: a.cidade, cep, link: "https://www.sp.senai.br/unidade/" + slug + "/", codigo, cursos: []
     });
   }
   return { unidades, detalhe: `${slugs.length} unidades na lista, ${unidades.length} nas cidades de interesse, ${semEndereco} sem endereço na página` };
 }
 
-module.exports = { coletarSenac, coletarSenacUnidades, coletarSenai, separarEnderecoSenai };
+/* ---------- Senai-SP: cursos presenciais GRATUITOS de cada unidade ----------
+   A lista pública "Conheça nossos cursos" da unidade aceita os mesmos filtros da página (só GET, sem login):
+     /cursos/0/0?unidade=COD&modalidade=1&gratuito=1&pag=N    (modalidade 1 = presencial)
+   Cada cartão traz o tipo (Cursos Livres, Cursos Técnicos, Aprendiz SENAI), o título, a carga e o link /curso/<slug>/<id>.
+   Ficam só os CURSOS LIVRES (técnico exige ensino médio; aprendizagem é só para aprendiz contratado), com 15h ou
+   mais e tema aceito pelas regras de público (scripts/lib/regras.js). 1 requisição por segundo. */
+const SENAI = "https://www.sp.senai.br";
+function lerCartoesSenai(html){
+  const ini = html.indexOf("CURSOS DESK"), fim = html.indexOf("CURSOS MOBILE");   // a versão de celular repete os cartões
+  const trecho = ini >= 0 ? html.slice(ini, fim > ini ? fim : html.length) : html;
+  const saida = [];
+  for(const b of trecho.split('<div class="card">').slice(1)){
+    const u = b.match(/https:\/\/www\.sp\.senai\.br\/curso\/([a-z0-9-]+)\/(\d+)/);
+    if(!u) continue;
+    const textos = b.replace(/<[^>]*>/g, "|").split("|").map(s => decodificarHtml(s)).filter(Boolean);
+    const ch = (textos.join(" | ").match(/Carga hor[aá]ria:\s*\|?\s*(\d+)\s*hora/i) || [])[1];
+    saida.push({ id: u[2], modalidade: textos[0] || "", tipo: textos[1] || "", titulo: tituloCurto(textos[3] || ""), ch: ch ? +ch : null,
+                 link: SENAI + "/curso/" + u[1] + "/" + u[2] });
+  }
+  return saida;
+}
+async function coletarSenaiCursos(unidades){
+  let paginas = 0, vistos = 0, semCodigo = 0;
+  for(const u of unidades){
+    if(!u.codigo){ semCodigo++; continue; }
+    const porId = new Map();
+    for(let pag = 1; pag <= 10; pag++){
+      await espera(1100);
+      const r = await buscar(`${SENAI}/cursos/0/0?unidade=${u.codigo}&modalidade=1&gratuito=1&pag=${pag}`, { tentativas: 2, timeoutMs: 40000 });
+      paginas++;
+      if(r.status !== 200) throw new Error("lista de cursos do Senai respondeu HTTP " + r.status + " (unidade " + u.codigo + ")");
+      const cartoes = lerCartoesSenai(r.texto);
+      const novos = cartoes.filter(c => !porId.has(c.id));
+      novos.forEach(c => porId.set(c.id, c));
+      const ultima = Math.max(0, ...[...r.texto.matchAll(/GetQueryString\(9,\s*(\d+)/g)].map(m => +m[1]));
+      if(!novos.length || pag >= ultima) break;
+    }
+    vistos += porId.size;
+    u.cursos = [...porId.values()]
+      .filter(c => /presencial/i.test(c.modalidade) && /cursos livres/i.test(c.tipo))
+      .filter(c => c.ch == null || c.ch >= 15)
+      .filter(c => decidir(c.titulo).d === "manter")
+      .map(c => ({ n: c.titulo, ch: c.ch, l: c.link }))
+      .sort((x, y) => x.n.localeCompare(y.n, "pt-BR"));
+  }
+  const aceitos = unidades.reduce((a, u) => a + (u.cursos || []).length, 0);
+  return { detalhe: `${paginas} páginas de curso lidas, ${vistos} cursos presenciais gratuitos vistos, ${aceitos} aceitos (curso livre, 15h+, tema ok)` +
+                    (semCodigo ? `, ${semCodigo} unidades sem o código da lista de cursos` : "") };
+}
+
+module.exports = { coletarSenac, coletarSenacUnidades, coletarSenai, coletarSenaiCursos, lerCartoesSenai, separarEnderecoSenai };

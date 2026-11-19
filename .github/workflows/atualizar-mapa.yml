@@ -1,14 +1,15 @@
 name: Atualizar mapa
 
-# Toda terça-feira, 06h em Brasília (09h UTC), ou na hora pelo botão "Run workflow".
-# Atualiza as camadas do mapa (unidades do Senac, cadastradas à mão, e do Senai; a coleta no site do Senac está desligada; bibliotecas com computador
-# ou Wi-Fi; coordenadas dos pontos cadastrados na planilha), publica na main e abre uma issue com o
+# Toda segunda-feira, 09h em Brasília (12h UTC), junto do robô de vagas, ou na hora pelo botão "Run workflow".
+# Atualiza as camadas do mapa e os cursos presenciais: unidades e cursos com bolsa do Senac (coleta LIGADA por decisão da
+# equipe em 19/11/2026, veja scripts/atualizar-mapa.js), unidades e cursos livres gratuitos do Senai, bibliotecas com
+# computador ou Wi-Fi e coordenadas dos pontos cadastrados na planilha. Publica na main e abre uma issue com o
 # resumo, só quando algo mudou ou alguma fonte falhou. Cada fonte é isolada: se uma falhar, mantém a
 # versão anterior só dela. A primeira execução demora mais (geocodifica ~140 endereços, 1 por segundo);
 # depois só os endereços novos consultam a internet.
 on:
   schedule:
-    - cron: "0 9 * * 2"
+    - cron: "0 12 * * 1"
   workflow_dispatch:
 
 permissions:
@@ -38,6 +39,8 @@ jobs:
       - name: Coletar unidades, geocodificar e gerar os dados do mapa
         id: mapa
         continue-on-error: true
+        env:
+          COLETAR_SENAC: "1"   # coleta no site do Senac ligada (1 requisição por segundo; para no primeiro 403)
         run: node scripts/atualizar-mapa.js --relatorio relatorio-mapa.md
 
       - name: Publicar na main
@@ -72,7 +75,10 @@ jobs:
           echo "[Log da execução](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> relatorio-mapa.md
           head -c 60000 relatorio-mapa.md > corpo-issue-mapa.md
           gh label create mapa-automatico --color 1D76DB --description "Resumo da atualização automática do mapa" 2>/dev/null || true
-          gh issue create --title "Mapa $(date -u +%F): ${SITUACAO}" --body-file corpo-issue-mapa.md --label mapa-automatico
+          # fecha a issue anterior do mesmo tipo: fica aberta só a mais recente
+          ANTERIORES=$(gh issue list --label mapa-automatico --state open --json number --jq '.[].number')
+          NOVA=$(gh issue create --title "Mapa $(date -u +%F): ${SITUACAO}" --body-file corpo-issue-mapa.md --label mapa-automatico)
+          for n in $ANTERIORES; do gh issue close "$n" --comment "Substituída por ${NOVA}." || true; done
 
       - name: Marcar a execução como falha se o script falhou
         if: ${{ steps.mapa.outcome == 'failure' }}

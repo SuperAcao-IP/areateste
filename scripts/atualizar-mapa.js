@@ -21,7 +21,7 @@ const path = require("path");
 const vm = require("vm");
 const { carregarCidades, km, RAIZ } = require("./lib/cidades");
 const { carregarCache, salvarCache, geocodificar, enderecoParaExibir } = require("./lib/geocodificar");
-const { coletarSenac, coletarSenacUnidades, coletarSenai } = require("./lib/coletores-mapa");
+const { coletarSenac, coletarSenacUnidades, coletarSenai, coletarSenaiCursos } = require("./lib/coletores-mapa");
 const { buscar } = require("./lib/util");
 
 const DADOS = path.join(RAIZ, "dados");
@@ -33,10 +33,13 @@ const iRel = args.indexOf("--relatorio");
 const ARQ_RELATORIO = path.resolve(iRel >= 0 ? args[iRel + 1] : path.join(RAIZ, "relatorio-mapa.md"));
 const HOJE = new Date().toISOString().slice(0, 10);
 const QUEDA_MAXIMA = 0.30;
-/* Coleta automática do site do Senac-SP: DESLIGADA. Os termos de uso do site proíbem acesso automatizado e
-   cópia dos dados sem consentimento. Só ligue (COLETAR_SENAC=1 ou --coletar-senac) com autorização por escrito do Senac.
-   Desligada, as unidades vêm do cadastro manual scripts/fontes/unidades-senac-cadastro.json (nome e endereço, sem cursos);
-   os cursos do Senac vêm da aba "cursos" da planilha. */
+/* Coleta automática do site do Senac-SP (unidades e cursos com bolsa): COLETAR_SENAC=1 ou --coletar-senac.
+   ATENÇÃO: os termos de uso do site do Senac proíbem acesso automatizado e cópia dos dados sem consentimento.
+   Em 19/11/2026 a equipe decidiu LIGAR a coleta no workflow semanal (.github/workflows/atualizar-mapa.yml), ciente disso;
+   o recomendado é pedir autorização por escrito ao Senac. A coleta é lenta de propósito (1 requisição por segundo, teto
+   de chamadas de detalhe) e para no primeiro 403 (um IP já foi bloqueado depois de ~3.000 requisições em 10 minutos).
+   Desligada, as unidades vêm do cadastro manual scripts/fontes/unidades-senac-cadastro.json (nome e endereço, sem cursos)
+   e os cursos do Senac vêm só da aba "cursos" da planilha. */
 const COLETAR_SENAC = process.env.COLETAR_SENAC === "1" || args.includes("--coletar-senac");
 
 /* ---------- o site como biblioteca: mesmas regras do navegador ---------- */
@@ -137,14 +140,27 @@ async function main(){
       console.log("Senai: páginas de unidade…");
       const r = await coletarSenai(ctxFonte);
       console.log("  " + r.detalhe);
+      /* cursos presenciais gratuitos de cada unidade: se a lista de cursos falhar, ficam os cursos da versão anterior */
+      let cursosRes = "";
+      if(!IGNORAR.has("senai-cursos")){
+        console.log("Senai: cursos presenciais gratuitos de cada unidade…");
+        try{ cursosRes = (await coletarSenaiCursos(r.unidades)).detalhe; console.log("  " + cursosRes); }
+        catch(e){
+          relatorio.falhas.push({ nome: "Senai (cursos)", motivo: e.message });
+          const ant = new Map(senai.map(u => [u.id, u.cursos || []]));
+          r.unidades.forEach(u => { u.cursos = ant.get(u.id) || []; });
+          cursosRes = "lista de cursos FALHOU, mantidos os cursos da versão anterior";
+          console.error("  FALHOU:", e.message);
+        }
+      }
       const lista = [];
       for(const u of r.unidades){
         const g = await geocodificarUnidade(u);
-        if(g) lista.push({ id: u.id, inst: "Senai", nome: u.nome, endereco: [u.rua, u.numero].filter(Boolean).join(", ") + (u.bairro ? " – " + u.bairro : ""), cidade: u.cidade, lat: g.lat, lon: g.lon, link: u.link, psg: false, cursos: [] });
+        if(g) lista.push({ id: u.id, inst: "Senai", nome: u.nome, endereco: [u.rua, u.numero].filter(Boolean).join(", ") + (u.bairro ? " – " + u.bairro : ""), cidade: u.cidade, lat: g.lat, lon: g.lon, link: u.link, psg: false, cursos: u.cursos || [] });
       }
       if(senai.length >= 5 && lista.length < senai.length * (1 - QUEDA_MAXIMA)) throw new Error(`só ${lista.length} unidades do Senai contra ${senai.length} da versão anterior (queda de mais de 30%)`);
       if(!lista.length) throw new Error("nenhuma unidade do Senai");
-      senai = lista; senaiRes = `${lista.length} unidades`;
+      senai = lista; senaiRes = `${lista.length} unidades, ${lista.reduce((a, u) => a + u.cursos.length, 0)} cursos livres gratuitos` + (cursosRes ? ` (${cursosRes})` : "");
     }catch(e){ relatorio.falhas.push({ nome: "Senai", motivo: e.message }); senaiRes = "FALHOU, mantida a versão anterior (" + senai.length + " unidades)"; console.error("  FALHOU:", e.message); }
   }
 
