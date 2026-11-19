@@ -14,7 +14,10 @@
     +".a_legenda_obrig{font-size:.8rem;color:#5c6b7a;margin:0}"
     +"#admin-form .a_legenda_obrig,#admin-form .a_botoes,#admin-form .a_aviso_erro{grid-column:1/-1;flex-basis:100%;width:100%}"
     +"#admin-form .a_campo{display:flex;flex-direction:column;align-self:stretch}"
-    +"#admin-form .a_campo>input,#admin-form .a_campo>select{margin-top:auto}";
+    +"#admin-form .a_campo>input,#admin-form .a_campo>select{margin-top:auto}"
+    +"#admin-form .a_campo.a_largo{grid-column:1/-1;flex-basis:100%;width:100%}"
+    +"#admin-form .a_campo.a_largo>select{margin-top:0;max-width:480px}"
+    +"#admin-form .a_campo.a_largo .a_dica{margin:4px 0 0}";
   document.head.appendChild(st);
 })();
 const MODAL_ADM=["Presencial","Online","Híbrido"];
@@ -65,7 +68,9 @@ function aselectGrupos(id,grupos,sel){
   }).join('')+'</select>';
 }
 function campoMunicipio(grupos,sel){
+  /* ocupa a linha inteira: a dica embaixo não pode esticar a linha do campo ao lado (Área) */
   return acampo("Município",aselectGrupos("a_mun",grupos,sel),true)
+    .replace('<label class="a_campo">','<label class="a_campo a_largo">')
     .replace('</label>','<span class="a_dica" id="a_mun_dica">'+esc(dicaMunicipio(sel))+'</span></label>');
 }
 function ainp(id,val,ph,type){ return '<input id="'+id+'" type="'+(type||"text")+'" value="'+(val?String(val).replace(/"/g,'&quot;'):"")+'"'+(ph?' placeholder="'+ph+'"':'')+'>'; }
