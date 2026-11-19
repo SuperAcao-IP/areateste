@@ -236,6 +236,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <button role="tab" aria-selected="true" data-aba="uso">Uso do portal</button>
       <button role="tab" aria-selected="false" data-aba="catalogo">Vazios do catálogo</button>
       <button role="tab" aria-selected="false" data-aba="completo">Catálogo completo</button>
+      <button role="tab" aria-selected="false" data-aba="historico">Histórico de cursos</button>
     </div>
   </header>
 
@@ -437,6 +438,89 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       A data e a hora da coleta entram na primeira linha da planilha exportada.
     </p>
   </div>
+  <div class="wrap oculto" id="aba-historico">
+
+    <div class="cartao fundo" style="margin-top:28px">
+      <h2>Histórico de cursos</h2>
+      <p class="sub">Todos os cursos que já passaram pelo portal, um por linha, com a primeira e a última semana em que apareceram. O retrato é feito sozinho toda segunda (e as planilhas semanais baixadas desde setembro já estão aqui). Use os filtros e baixe só o que precisa, sem cursos repetidos.</p>
+      <p class="status" id="hStatus">Carregando o histórico…</p>
+      <div class="kpis" id="hKpis"></div>
+    </div>
+
+    <div class="cartao fundo oculto" id="hResultados" style="margin-top:14px">
+      <div class="linha-btn" style="justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+        <div>
+          <h3 style="margin:0">Cursos</h3>
+          <p class="sub" style="margin:2px 0 0">Os downloads respeitam os filtros abaixo.</p>
+        </div>
+        <div class="linha-btn" style="flex-wrap:wrap;gap:8px">
+          <button class="btn btn-principal" id="hCsvFiltrado">Baixar o que está filtrado (CSV)</button>
+          <button class="btn" id="hCsvSemana">Só os novos da última semana</button>
+          <span style="display:inline-flex;gap:6px;align-items:center">
+            <button class="btn" id="hCsvDesde">Novos desde</button>
+            <input type="date" id="hDesdeData" aria-label="Novos desde a data">
+          </span>
+        </div>
+      </div>
+
+      <div class="filtros">
+        <div class="campo-f">
+          <label for="hDe">Esteve no portal entre</label>
+          <input type="date" id="hDe" aria-label="De">
+        </div>
+        <div class="campo-f">
+          <label for="hAte">e</label>
+          <input type="date" id="hAte" aria-label="Até">
+        </div>
+        <div class="campo-f">
+          <label for="hNovosDesde">Entrou a partir de</label>
+          <input type="date" id="hNovosDesde">
+        </div>
+        <div class="campo-f">
+          <label for="hModalidade">Modalidade</label>
+          <select id="hModalidade"><option value="">Todas</option><option value="presencial">Presencial e híbrido</option><option value="online">Online</option></select>
+        </div>
+        <div class="campo-f">
+          <label for="hCarga">Carga horária</label>
+          <select id="hCarga">
+            <option value="">Todas</option><option value="0-19">Até 19h</option><option value="20-39">20h a 39h</option>
+            <option value="40-79">40h a 79h</option><option value="80-99999">80h ou mais</option><option value="sem">Sem informação</option>
+          </select>
+        </div>
+        <div class="campo-f">
+          <label for="hMunicipio">Município</label>
+          <select id="hMunicipio"><option value="">Todos</option></select>
+        </div>
+        <div class="campo-f">
+          <label for="hArea">Área</label>
+          <select id="hArea"><option value="">Todas</option></select>
+        </div>
+        <div class="campo-f">
+          <label for="hFonte">Origem</label>
+          <select id="hFonte"><option value="">Todas</option></select>
+        </div>
+        <div class="campo-f">
+          <label for="hSituacao">Situação</label>
+          <select id="hSituacao"><option value="">Todas</option><option value="no_ar">No portal agora</option><option value="saiu">Já saiu</option></select>
+        </div>
+        <div class="campo-f">
+          <label for="hBusca">Buscar no nome</label>
+          <input type="search" id="hBusca" placeholder="ex.: manicure">
+        </div>
+      </div>
+      <label style="display:inline-flex;gap:6px;align-items:center;margin:4px 0 10px;font-size:13px">
+        <input type="checkbox" id="hComOnline" checked> Ao filtrar por município, incluir os cursos online (valem para todos)
+      </label>
+
+      <p class="contagem" id="hContagem"></p>
+      <div class="matriz-wrap"><table class="matriz" id="hTabela"></table></div>
+    </div>
+
+    <p class="rodape">
+      Um curso é a combinação de origem, título e modalidade: o mesmo curso do Trampolim em várias cidades é uma linha só, com a lista de municípios.<br>
+      "Semanas no portal" conta os retratos semanais em que o curso apareceu. Arquivo: dados/historico-cursos.json (scripts/atualizar-historico.js).
+    </p>
+  </div>
 </div>
 
 <!-- arquivos do próprio portal, usados pelas abas de catálogo -->
@@ -447,8 +531,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <script src="dados/cursos-mundi.js"></script>
 <script src="dados/filtro-publico.js"></script>
 <script src="js/config.js"></script>
+<script src="scripts/lib/regras.js"></script>
+<script src="dados/trampolim-decisoes.js"></script>
 <script src="js/areas.js"></script>
 <script src="js/conectores.js"></script>
+<script src="js/historico-painel.js"></script>
 
 <script>
 (function(){
@@ -518,10 +605,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         o.setAttribute('aria-selected', o === b ? 'true' : 'false');
       });
       var alvo = b.dataset.aba;
-      ['uso','catalogo','completo'].forEach(function(nome){
+      ['uso','catalogo','completo','historico'].forEach(function(nome){
         $('aba-' + nome).classList.toggle('oculto', nome !== alvo);
       });
       $('controlesUso').classList.toggle('oculto', alvo !== 'uso');
+      if(alvo === 'historico' && window.HistoricoCursos) window.HistoricoCursos.abrir();
     });
   });
 
@@ -763,6 +851,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       var cursos = await buscarCursosTrampolim(cidade);
       cursos.forEach(function(c){
         if(typeof cursoAtingeCargaMinima === 'function' && !cursoAtingeCargaMinima(c.carga)) return;
+        if(typeof trampolimPermitido === 'function' && !trampolimPermitido(c)) return;   // mesmo filtro de perfil do portal
         if(!presencial(c.modalidade)) return;
         var id = areaDoCurso.apply(null, [c.nome].concat(c._rotulos || []));
         if(!(id in areas)) id = 'outros';
@@ -1053,6 +1142,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       var cursos = await buscarCursosTrampolim(cidade);
       cursos.forEach(function(c){
         if(typeof cursoAtingeCargaMinima === 'function' && !cursoAtingeCargaMinima(c.carga)) return;
+        if(typeof trampolimPermitido === 'function' && !trampolimPermitido(c)) return;   // mesmo filtro de perfil do portal
         addCurso({
           municipio:cidade, curso:c.nome, inst:c.inst || 'Trampolim SP',
           modalidade:c.modalidade || '', carga:c.carga || '',

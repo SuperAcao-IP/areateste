@@ -1,0 +1,74 @@
+name: Histórico de cursos
+
+# Toda segunda-feira, 10h em Brasília (13h UTC), depois dos catálogos (6h) e do mapa (9h), ou pelo botão "Run workflow".
+# Monta o retrato dos cursos que o portal mostra nesta semana (com as mesmas funções do site) e junta ao histórico
+# dados/historico-cursos.json, que alimenta a aba "Histórico de cursos" do painel. Abre uma issue com os cursos que
+# entraram e saíram e com o resultado do filtro de perfil do Trampolim (e fecha a da semana anterior).
+on:
+  schedule:
+    - cron: "0 13 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: atualizar-historico
+  cancel-in-progress: false
+
+jobs:
+  historico:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Montar o retrato da semana e atualizar o histórico
+        id: hist
+        continue-on-error: true
+        run: node scripts/atualizar-historico.js --relatorio relatorio-historico.md
+
+      - name: Publicar na main
+        if: ${{ steps.hist.outcome == 'success' }}
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados/historico-cursos.json
+          git diff --cached --quiet || git commit -m "Histórico de cursos: retrato de $(date -u +%F)"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Abrir issue com o resumo (e fechar a anterior)
+        if: always()
+        env:
+          RESULTADO: ${{ steps.hist.outcome }}
+          NOVOS: ${{ steps.hist.outputs.novos }}
+          SAIRAM: ${{ steps.hist.outputs.sairam }}
+        run: |
+          if [ "$RESULTADO" = "success" ]; then
+            SITUACAO="${NOVOS:-0} cursos novos, ${SAIRAM:-0} saíram"
+          else
+            SITUACAO="FALHOU (o histórico não foi alterado)"
+          fi
+          if [ ! -s relatorio-historico.md ]; then echo "O script não gerou relatório. Veja o log da execução." > relatorio-historico.md; fi
+          echo "" >> relatorio-historico.md
+          echo "[Log da execução](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> relatorio-historico.md
+          head -c 60000 relatorio-historico.md > corpo-issue-historico.md
+          gh label create historico-automatico --color 5319E7 --description "Resumo semanal do histórico de cursos" 2>/dev/null || true
+          ANTERIORES=$(gh issue list --label historico-automatico --state open --json number --jq '.[].number')
+          NOVA=$(gh issue create --title "Histórico de cursos $(date -u +%F): ${SITUACAO}" --body-file corpo-issue-historico.md --label historico-automatico)
+          for n in $ANTERIORES; do gh issue close "$n" --comment "Substituída por ${NOVA}." || true; done
+
+      - name: Marcar a execução como falha se o histórico falhou
+        if: ${{ steps.hist.outcome == 'failure' }}
+        run: exit 1
