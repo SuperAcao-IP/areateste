@@ -19,7 +19,29 @@
 })();
 const MODAL_ADM=["Presencial","Online","Híbrido"];
 const CONTRATO_ADM=["CLT","Estágio","Jovem Aprendiz","Temporário","PJ / Autônomo","Outro"];
-const MUN_ADM=["Online / Todos os municípios"].concat(MUNICIPIOS);
+/* Municípios do formulário: os do programa e as cidades próximas que abastecem algum deles (CIDADES_VIZINHAS, js/config.js).
+   Curso ou vaga cadastrado numa cidade próxima (ex.: Rio Claro) aparece para os municípios do programa que a têm como
+   vizinha (ex.: Santa Gertrudes, Cordeirópolis, Araras), com a etiqueta de município vizinho. */
+const CIDADES_PROXIMAS_ADM=[...new Set(Object.values(CIDADES_VIZINHAS).flat())]
+  .filter(c=>!MUNICIPIOS.some(m=>normTxt(m)===normTxt(c)))
+  .sort((a,b)=>a.localeCompare(b,"pt-BR"));
+const GRUPOS_MUN_CURSOS=[["",["Online / Todos os municípios"]],["Municípios do programa",MUNICIPIOS],["Cidades próximas (aparecem para os municípios vizinhos)",CIDADES_PROXIMAS_ADM]];
+const GRUPOS_MUN_VAGAS=GRUPOS_MUN_CURSOS.slice(1);
+/* municípios do programa em que um item cadastrado nesta cidade aparece */
+function aparecePara(cidade){
+  if(!cidade) return [];
+  if(/^online|^todos/i.test(cidade)) return ["todos os municípios"];
+  const n=normTxt(cidade);
+  const lista=MUNICIPIOS.filter(m=>normTxt(m)===n);
+  Object.keys(CIDADES_VIZINHAS).forEach(m=>{ if(CIDADES_VIZINHAS[m].some(v=>normTxt(v)===n) && !lista.includes(m)) lista.push(m); });
+  return lista;
+}
+function dicaMunicipio(cidade){
+  const l=aparecePara(cidade);
+  if(!cidade) return "Escolha o município. Cidades próximas aparecem para os municípios do programa vizinhos a elas.";
+  if(!l.length) return "Nenhum município do programa tem esta cidade como vizinha: o item não vai aparecer no portal.";
+  return "Aparece para: "+l.join(", ")+".";
+}
 let abaAdm="cursos", editIdx=-1;
 const elOverlay=document.getElementById("admin");
 document.getElementById("abrirAdmin").addEventListener("click",async()=>{
@@ -35,6 +57,17 @@ document.querySelectorAll(".admin-tabs button").forEach(b=>b.addEventListener("c
 
 function aopt(v,sel){ return '<option'+(v===sel?' selected':'')+'>'+v+'</option>'; }
 function aselect(id,arr,sel){ return '<select id="'+id+'"><option value=""></option>'+arr.map(v=>aopt(v,sel)).join('')+'</select>'; }
+/* select com grupos: [[rótulo do grupo ou "" para sem grupo, [opções]], ...] */
+function aselectGrupos(id,grupos,sel){
+  return '<select id="'+id+'"><option value=""></option>'+grupos.map(([rot,arr])=>{
+    const ops=arr.map(v=>aopt(v,sel)).join('');
+    return rot ? '<optgroup label="'+rot.replace(/"/g,'&quot;')+'">'+ops+'</optgroup>' : ops;
+  }).join('')+'</select>';
+}
+function campoMunicipio(grupos,sel){
+  return acampo("Município",aselectGrupos("a_mun",grupos,sel),true)
+    .replace('</label>','<span class="a_dica" id="a_mun_dica">'+esc(dicaMunicipio(sel))+'</span></label>');
+}
 function ainp(id,val,ph,type){ return '<input id="'+id+'" type="'+(type||"text")+'" value="'+(val?String(val).replace(/"/g,'&quot;'):"")+'"'+(ph?' placeholder="'+ph+'"':'')+'>'; }
 function acampo(lbl,inner,obrig,dica){
   return '<label class="a_campo"><span>'+lbl+(obrig?' <b class="a_obrig" title="Campo obrigatório">*</b>':'')+'</span>'
@@ -95,7 +128,7 @@ function renderAdmin(){
   const it=editIdx>=0?(DADOS[abaAdm][editIdx]||{}):{};
   if(abaAdm==="cursos"){
     f.innerHTML='<p class="a_legenda_obrig">Os campos marcados com <b class="a_obrig">*</b> são obrigatórios.</p>'
-      +acampo("Município",aselect("a_mun",MUN_ADM,it.municipio),true)
+      +campoMunicipio(GRUPOS_MUN_CURSOS,it.municipio)
       +acampo("Área",aselect("a_area",todasAreas().map(a=>a.nome),it.area),true)
       +acampo("Curso",ainp("a_curso",it.curso),true)
       +acampo("Instituição",ainp("a_inst",it.instituicao),true)
@@ -108,7 +141,7 @@ function renderAdmin(){
       +abotoes();
   }else{
     f.innerHTML='<p class="a_legenda_obrig">Os campos marcados com <b class="a_obrig">*</b> são obrigatórios.</p>'
-      +acampo("Município",aselect("a_mun",MUNICIPIOS,it.municipio),true)
+      +campoMunicipio(GRUPOS_MUN_VAGAS,it.municipio)
       +acampo("Área",aselect("a_area",todasAreas().map(a=>a.nome),it.area),true)
       +acampo("Cargo / vaga",ainp("a_cargo",it.cargo),true)
       +acampo("Empresa",ainp("a_empresa",it.empresa),true)
@@ -124,6 +157,8 @@ function renderAdmin(){
     const limpa=()=>{ const b=el.closest(".a_campo"); if(b) b.classList.remove("erro"); };
     el.addEventListener("input",limpa); el.addEventListener("change",limpa);
   });
+  const selMun=document.getElementById("a_mun"), dicaMun=document.getElementById("a_mun_dica");
+  if(selMun && dicaMun) selMun.addEventListener("change",()=>{ dicaMun.textContent=dicaMunicipio(selMun.value); });
   document.getElementById("a_salvar").addEventListener("click",salvarAdm);
   const c=document.getElementById("a_cancelar"); if(c) c.addEventListener("click",()=>{editIdx=-1;renderAdmin();});
   renderListaAdm();

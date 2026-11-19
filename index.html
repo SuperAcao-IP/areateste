@@ -7,11 +7,10 @@
 
 <!--
 ============================================================================
-  SUPERACAO SP  ·  VISUALIZACAO COM DADOS REAIS (sem backend)
+  SUPERACAO SP  ·  portal de cursos e vagas (site estatico, GitHub Pages)
 ============================================================================
-  Cursos online: coletados ao vivo da Escola Virtual de Governo.
-  Pontos do mapa: do seu My Maps de campo (KML). Nada inventado.
-  Esta versao e so para visualizar. A versao de producao le do Supabase.
+  De onde vem cada dado e como atualizar: README.md.
+  A ordem dos scripts no fim desta pagina importa: nao embaralhe.
 ============================================================================
 -->
 
@@ -145,14 +144,20 @@
   </div>
 </footer>
 
-<button id="abrirAdmin" class="btn-admin" type="button">Administração</button>
+<div class="acoes-fixas">
+  <!-- painel de acompanhamento (acessos, catálogo, histórico): pede o e-mail institucional e a chave -->
+  <a class="btn-admin" href="painel.html">Administrativo</a>
+  <!-- cadastro de cursos e vagas na planilha (js/admin.js) -->
+  <button id="abrirAdmin" class="btn-adicionar" type="button">Adicionar cursos e vagas aqui</button>
+</div>
 <div id="admin" class="admin-overlay" hidden>
   <div class="admin-box">
-    <div class="admin-head"><h3>Painel administrativo</h3><button id="fecharAdmin" type="button">Fechar</button></div>
+    <div class="admin-head"><h3>Adicionar cursos e vagas</h3><button id="fecharAdmin" type="button">Fechar</button></div>
     <div class="admin-aviso" role="note">
-      <strong>Painel de cadastro manual de cursos e vagas.</strong>
+      <strong>Cadastro manual de cursos e vagas.</strong>
       Os itens adicionados aqui são salvos diretamente na planilha do Google Sheets e ficam disponíveis para todos os visitantes.
-      Os cursos vindos do <strong>Trampolim SP</strong>, <strong>Sebrae SP</strong>, <strong>EVG</strong>, <strong>Fundação Bradesco</strong> e <strong>Aprenda Mais (MEC)</strong> são carregados ao vivo das plataformas oficiais e <strong>não podem ser editados ou removidos por aqui</strong>.
+      Cadastre num município do programa ou numa <strong>cidade próxima</strong> (ex.: Rio Claro): o item aparece também para os municípios vizinhos dela.
+      Os cursos e vagas que chegam sozinhos (Trampolim SP, Sebrae SP, catálogos online, Senai, Senac e o robô de vagas) <strong>não podem ser editados ou removidos por aqui</strong>.
     </div>
     <div class="admin-tabs"><button type="button" data-t="cursos" class="ativa">Cursos</button><button type="button" data-t="vagas">Vagas</button></div>
     <div id="admin-form"></div>
@@ -190,6 +195,8 @@
 
 <!-- aplicacao (a ordem importa: app.js precisa ser o ultimo) -->
 <script src="js/config.js"></script>
+<script src="scripts/lib/regras.js"></script>
+<script src="dados/trampolim-decisoes.js"></script>
 <script src="js/areas.js"></script>
 <script src="js/conectores.js"></script>
 <script src="js/ui.js"></script>
