@@ -52,8 +52,16 @@ function montar(){
     `<tr><td style="padding:18px 24px 6px"><h2 style="margin:0 0 8px;font:600 17px Arial,sans-serif;color:#0D5A94">${esc(titulo)}</h2>${corpo}</td></tr>`);
   const tabela = pares => `<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font:14px Arial,sans-serif;color:#0E2338">` +
     pares.map(([r, v, destaque]) => `<tr><td style="padding:4px 18px 4px 0;color:#4A5B6E">${esc(r)}</td><td style="padding:4px 0;font-weight:700${destaque ? ";color:#A85B0B" : ""}">${v}</td></tr>`).join("") + "</table>";
-  const lista = (itens, max) => `<ul style="margin:6px 0 0;padding-left:18px;font:13.5px Arial,sans-serif;color:#0E2338">` +
-    itens.slice(0, max).map(x => `<li style="margin:2px 0">${x}</li>`).join("") + (itens.length > max ? `<li style="color:#7B8A9B">… e mais ${itens.length - max} no painel</li>` : "") + "</ul>";
+  /* as 3 áreas com mais itens (sem "Outros"), em vez da lista item por item: a lista completa fica no painel */
+  const areasTop = (itens, titulo, unidade) => {
+    const conta = {};
+    itens.forEach(c => { const a = c.area || "Outros"; if(a !== "Outros") conta[a] = (conta[a] || 0) + 1; });
+    const top = Object.entries(conta).sort((a, b) => b[1] - a[1]).slice(0, 3);
+    if(!top.length) return "";
+    return `<p style="margin:12px 0 4px;font:600 13px Arial,sans-serif;color:#4A5B6E">${esc(titulo)}</p>` +
+      `<ol style="margin:0;padding-left:20px;font:13.5px Arial,sans-serif;color:#0E2338">` +
+      top.map(([a, n]) => `<li style="margin:2px 0">${esc(a)}: <b>${fmt(n)}</b> ${esc(unidade)}</li>`).join("") + "</ol>";
+  };
 
   /* uso */
   if(semana){
@@ -74,7 +82,7 @@ function montar(){
   if(cursos){
     bloco(`Cursos (retrato de ${dataBR(cursos.retrato)})`, tabela([
       ["No portal agora", fmt(cursos.agora.length)], ["Entraram esta semana", fmt(cursos.novos.length)], ["Saíram", fmt(cursos.sairam.length)]
-    ]) + (cursos.novos.length ? lista(cursos.novos.map(c => `${esc(c.curso)} <span style="color:#7B8A9B">· ${esc(c.fonte)}${c.classe === "presencial" ? " · " + esc(c.municipios.slice(0, 3).join(", ")) : " · online"}</span>`), 15) : ""));
+    ]) + areasTop(cursos.novos, "Áreas com mais cursos novos", "curso(s) novo(s)"));
     resumoTexto.push(`${fmt(cursos.novos.length)} cursos novos`);
   }
 
@@ -83,7 +91,7 @@ function montar(){
     bloco(`Vagas (retrato de ${dataBR(vagas.retrato)})`, tabela([
       ["No portal agora", fmt(vagas.agora.length)], ["Entraram esta semana", fmt(vagas.novos.length)], ["Fecharam ou saíram", fmt(vagas.sairam.length)],
       ["Aceitam sem experiência", fmt(vagas.agora.filter(v => /^sem experi/i.test(v.experiencia || "")).length)]
-    ]));
+    ]) + areasTop(vagas.agora, "Áreas com mais vagas no portal", "vaga(s)"));
     resumoTexto.push(`${fmt(vagas.agora.length)} vagas no portal`);
   }
 
