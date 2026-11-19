@@ -70,6 +70,21 @@ async function montarDados(cidade){
     if(!aberto(v.status,v.validade)) return;
     add(areaDoCurso(v.cargo, v.area),"oportunidades",{cargo:v.cargo, empresa:[v.empresa,v.cidade].filter(Boolean).join(" · "), tipo:v.tipo, link:v.link});
   });
+  /* cursos presenciais das unidades do Senai e do Senac (dados/unidades.js, atualizado toda segunda pelo robô do mapa):
+     cursos livres gratuitos do Senai e cursos com bolsa do Senac, já filtrados pelas regras de público. O curso que a
+     equipe cadastrou na planilha vence este (mesclarPlanilha tira a cópia). */
+  if(typeof UNIDADES!=="undefined" && Array.isArray(UNIDADES)){
+    const vizU = CIDADES_VIZINHAS[cidade] || [];
+    UNIDADES.forEach(u=>{
+      const daCidade = normTxt(u.cidade)===normTxt(cidade);
+      const deVizinha = !daCidade && vizU.some(v=>normTxt(v)===normTxt(u.cidade));
+      if(!daCidade && !deVizinha) return;
+      (u.cursos||[]).forEach(c=>add(areaDoCurso(c.n),"cursos",{nome:c.n, inst:u.nome, modalidade:"Presencial",
+        carga:c.ch?c.ch+"h":"", link:c.l||u.link, _unidade:true, _deOutraCidade: deVizinha ? u.cidade : null}));
+    });
+  }
+  /* vagas do robô (dados/vagas-robo.json): baixado uma vez por visita, na primeira cidade escolhida */
+  if(typeof VAGAS_ROBO_ATIVO!=="undefined" && VAGAS_ROBO_ATIVO) mesclarVagasRobo(cidade, await carregarVagasRobo());
 }
 function conteudoDaArea(id){ return DADOS_CIDADE[id]||{cursos:[],oportunidades:[]}; }
 /* maior carga primeiro; carga desconhecida vai para o fim; empate mantem a ordem original */
@@ -555,7 +570,7 @@ function cartaoVaga(v){
     publicada ? item("Publicada em "+publicada, ic('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>')) : ""
   ].filter(Boolean).join("");
   return '<div class="vaga"><div class="cargo">'+esc(v.cargo||"")+'</div>'+
-    (v.empresa ? '<div class="empresa"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>'+esc(v.empresa)+(v._trampolim ? ' <small class="via">via Trampolim SP</small>' : "")+'</span></div>' : "")+
+    (v.empresa ? '<div class="empresa"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>'+esc(v.empresa)+(v._trampolim ? ' <small class="via">via Trampolim SP</small>' : (v._via ? ' <small class="via">via '+esc(v._via)+'</small>' : ""))+'</span></div>' : "")+
     (v.desc ? '<div class="desc">'+esc(v.desc)+'</div>' : "")+
     '<div class="meta">'+meta+'</div>'+(acao ? '<div class="rodape">'+acao+'</div>' : "")+'</div>';
 }

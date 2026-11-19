@@ -1,0 +1,90 @@
+name: Robô de vagas
+
+# Toda segunda-feira, 09h em Brasília (12h UTC), ou na hora pelo botão "Run workflow".
+# 1) confere as vagas que estão no portal e tira as fechadas; 2) busca vagas novas (Gupy, Catho, InfoJobs, vagas.com)
+# nos municípios do programa e nas vizinhas; 3) filtra pelo perfil do programa; 4) publica dados/vagas-robo.json na main;
+# 5) abre uma issue com o resumo (e fecha a da semana anterior). Se os Secrets do Gmail existirem, manda também por e-mail.
+# Código e critérios: robo-vagas/ (config.toml).
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: buscar-vagas
+  cancel-in-progress: false
+
+jobs:
+  vagas:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      GH_TOKEN: ${{ github.token }}
+      TZ: America/Sao_Paulo
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+
+      - name: Testes do robô
+        working-directory: robo-vagas
+        run: python -m unittest discover tests
+
+      - name: Conferir, buscar, filtrar e publicar
+        id: robo
+        working-directory: robo-vagas
+        continue-on-error: true
+        env:
+          GMAIL_USER: ${{ secrets.GMAIL_USER }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
+        run: python -m robo.buscar --relatorio ../relatorio-vagas.md
+
+      # Grava mesmo se algo falhou no meio: o histórico (vagas.csv) evita repetir vaga na semana seguinte.
+      - name: Publicar na main
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados/vagas-robo.json robo-vagas/vagas robo-vagas/relatorios robo-vagas/dados
+          git diff --cached --quiet || git commit -m "Robô de vagas: atualização automática ($(date +%F))"
+          git pull --rebase origin main
+          git push origin HEAD:main
+
+      - name: Abrir issue com o resumo (e fechar a anterior)
+        if: always()
+        env:
+          RESULTADO: ${{ steps.robo.outcome }}
+          NOVAS: ${{ steps.robo.outputs.novas }}
+          TOTAL: ${{ steps.robo.outputs.total }}
+          FALHAS: ${{ steps.robo.outputs.fontes_com_falha }}
+        run: |
+          if [ "$RESULTADO" = "success" ]; then
+            SITUACAO="${NOVAS:-0} novas, ${TOTAL:-0} no portal"
+            if [ -n "$FALHAS" ]; then SITUACAO="$SITUACAO, mas FALHOU: $FALHAS"; fi
+          else
+            SITUACAO="FALHOU (as vagas que já estavam no portal continuam)"
+          fi
+          if [ ! -s relatorio-vagas.md ]; then
+            echo "O robô não gerou relatório. Veja o log da execução." > relatorio-vagas.md
+          fi
+          echo "" >> relatorio-vagas.md
+          echo "[Log da execução](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> relatorio-vagas.md
+          head -c 60000 relatorio-vagas.md > corpo-issue.md
+          gh label create vagas-automatico --color 1D76DB --description "Resumo semanal do robô de vagas" 2>/dev/null || true
+          ANTERIORES=$(gh issue list --label vagas-automatico --state open --json number --jq '.[].number')
+          NOVA=$(gh issue create --title "Vagas $(date +%F): ${SITUACAO}" --body-file corpo-issue.md --label vagas-automatico)
+          for n in $ANTERIORES; do gh issue close "$n" --comment "Substituída por ${NOVA}." || true; done
+
+      - name: Marcar a execução como falha se o robô falhou
+        if: ${{ steps.robo.outcome == 'failure' }}
+        run: exit 1

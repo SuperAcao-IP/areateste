@@ -1,0 +1,7 @@
+{
+ "atualizado": "2026-11-19",
+ "explicacao": "Vagas achadas pelo robô de vagas (robo-vagas/) nos sites públicos de emprego, filtradas pelo perfil do programa e conferidas toda segunda (a vaga fechada sai). Gerado automaticamente: não edite à mão. Para tirar uma vaga, ponha um termo dela em excluir_sempre (robo-vagas/config.toml).",
+ "no_robo": 0,
+ "vagas": [
+ ]
+}

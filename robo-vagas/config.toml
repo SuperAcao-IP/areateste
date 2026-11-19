@@ -1,0 +1,93 @@
+# Configuração do robô de vagas do SuperAção SP.
+# Público: pessoas de famílias de baixa renda, em geral sem ensino médio completo e com pouca ou nenhuma experiência formal.
+# As cidades NÃO ficam aqui: o robô lê os municípios do programa de dados/municipios.js e as cidades vizinhas de
+# CIDADES_VIZINHAS em js/config.js (o mesmo que o portal usa). Para incluir uma cidade, mexa lá.
+# Pode editar à vontade: listas entre colchetes, textos entre aspas.
+
+[local]
+uf = "sp"
+estado_gupy = "São Paulo"          # a API da Gupy usa o nome do estado por extenso
+gupy_incluir_vizinhas = true       # Gupy busca também nas cidades vizinhas (Rio Claro, Sorocaba...), além dos 47 municípios
+# Catho, InfoJobs e vagas.com: cada página é uma requisição com pausa, então só nas cidades-polo de cada região.
+# A vaga de uma cidade próxima que aparecer nessas buscas também entra, se a cidade for do programa ou vizinha.
+cidades_polo = [
+  "Campinas", "Jundiaí", "Sorocaba", "Osasco", "Guarulhos", "Santo André",
+  "Limeira", "Americana", "São Vicente", "Indaiatuba", "Barueri", "Rio Claro",
+]
+
+[busca]
+# Fontes que o robô pula. Nomes possíveis: "Gupy", "Catho", "InfoJobs", "vagas.com"
+fontes_desativadas = []
+# Gupy: cada termo em cada cidade (a busca acha o termo dentro do título: "auxiliar" acha "Auxiliar de Limpeza")
+termos_gupy = [
+  "auxiliar", "ajudante", "atendente", "operador", "repositor", "jovem aprendiz",
+  "vendedor", "caixa", "limpeza", "cozinha", "estoquista", "recepcionista",
+]
+max_paginas_gupy = 2               # 100 vagas por página
+# Catho e InfoJobs: primeira página de cada termo, em cada cidade-polo
+termos_portais = ["auxiliar", "ajudante geral", "atendente", "operador de caixa", "repositor", "jovem aprendiz"]
+# vagas.com: termos curtos (a busca deles não acha termos longos)
+termos_vagas_com = ["auxiliar", "ajudante", "atendente", "aprendiz"]
+max_termos_por_cidade = 4          # quantos termos de cada lista usar por cidade-polo nos portais
+
+[filtro]
+nota_minima = 5
+
+# EXCLUSÃO TOTAL: vaga com um destes termos na empresa, no título, na descrição ou no link é sempre descartada.
+excluir_sempre_motivo = "excluída"
+excluir_sempre = []
+
+# Sinais de golpe (no título ou na descrição): a vaga nunca entra. O portal avisa que vaga de verdade nunca cobra taxa.
+sinais_de_golpe = [
+  "taxa de inscrição", "taxa de cadastro", "taxa de admissão", "pagar taxa", "pagamento de taxa", "investimento inicial",
+  "kit inicial", "compra de kit", "adquirir o kit", "marketing multinível", "marketing de rede", "renda extra digitando",
+  "trabalhe de casa digitando", "ganhe por dia", "seja seu próprio chefe", "venda de cosméticos por catálogo",
+]
+
+# O título precisa ter uma destas funções de entrada.
+titulo_entrada = [
+  "auxiliar", "ajudante", "assistente", "atendente", "operador", "operadora", "repositor", "repositora", "caixa",
+  "vendedor", "vendedora", "balconista", "recepcionista", "cozinheiro", "cozinheira", "copeiro", "copeira", "garçom",
+  "garçonete", "chapeiro", "chapeira", "pizzaiolo", "padeiro", "padeira", "confeiteiro", "confeiteira", "açougueiro",
+  "salgadeiro", "salgadeira", "sushiman", "estoquista", "almoxarife", "conferente", "separador", "separadora",
+  "embalador", "embaladora", "empacotador", "empacotadora", "carregador", "motorista", "entregador", "entregadora",
+  "motoboy", "porteiro", "porteira", "controlador de acesso", "vigia", "zelador", "zeladora", "faxineiro", "faxineira",
+  "limpeza", "higienização", "servente", "jardineiro", "pedreiro", "pintor", "eletricista", "encanador", "costureiro",
+  "costureira", "manicure", "cabeleireiro", "cabeleireira", "cuidador", "cuidadora", "babá", "diarista", "camareiro",
+  "camareira", "lavador", "lavadeira", "passadeira", "frentista", "promotor", "promotora", "aprendiz", "telemarketing",
+  "teleatendimento", "montador", "montadora", "manobrista", "doméstica", "doméstico", "serviços gerais", "operário",
+  "operária", "lavanderia", "cumim", "bartender", "barista", "atendimento", "agente de limpeza", "recepção",
+]
+
+# Título com um destes está acima da entrada e não entra (salvo as exceções logo abaixo).
+titulo_acima_da_entrada = [
+  "analista", "gerente", "coordenador", "coordenadora", "supervisor", "supervisora", "diretor", "diretora", "head",
+  "especialista", "sênior", "senior", "sr.", "pleno", "engenheiro", "engenheira", "consultor", "consultora",
+  "desenvolvedor", "desenvolvedora", "arquiteto", "arquiteta", "cientista", "advogado", "advogada",
+  "enfermeiro", "enfermeira", "enfermagem", "coren", "farmacêutico", "farmacêutica", "psicólogo", "psicóloga", "contador", "contadora",
+  "professor", "professora", "trainee", "estágio", "estagiário", "estagiária", "técnico", "técnica", "líder", "lider",
+  "executivo de contas", "executiva de contas", "comprador", "compradora", "nutricionista", "fisioterapeuta",
+  "fonoaudiólogo", "biomédico", "veterinário", "dentista", "auditor", "auditora", "programador", "programadora",
+]
+# Exceções: título que tem um termo acima, mas é de entrada.
+titulo_acima_excecoes = ["auxiliar técnico", "auxiliar de técnico", "ajudante técnico"]
+
+# Termos que somam +1 na nota (benefícios e treinamento).
+palavras_boas = [
+  "vale transporte", "vale-transporte", "vale refeição", "vale alimentação", "cesta básica", "treinamento",
+  "capacitação", "plano de saúde", "assistência médica", "efetivação",
+]
+
+[portal]
+# O portal mostra no máximo isto por município (as de maior nota, depois as mais recentes). As outras ficam guardadas
+# (vagas/ativas.json) e entram quando alguma fechar.
+max_por_municipio = 25
+
+[conferir]
+# Vaga que passou disto no portal sai, mesmo sem aviso de encerramento (o anúncio pode ter ficado esquecido).
+dias_max = 60
+pausa = 2                          # segundos entre uma vaga e outra
+
+[relatorio]
+# Manda o resumo por e-mail quando os Secrets GMAIL_USER, GMAIL_APP_PASSWORD e EMAIL_DESTINO existem. Sem eles, só a issue.
+email_resumo = true

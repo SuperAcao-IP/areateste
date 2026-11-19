@@ -1,6 +1,8 @@
 .DS_Store
 *.log
-.claude/
+# configurações locais do Claude Code ficam fora; os comandos do projeto (/buscar-linkedin-indeed) entram
+.claude/*
+!.claude/commands/
 
 # relatório da última atualização automática (a Action publica como issue)
 relatorio-atualizacao.md
@@ -13,3 +15,9 @@ corpo-issue-mapa.md
 # relatório da verificação mensal do Censo SUAS (o fluxo publica como issue)
 relatorio-censo-suas.md
 corpo-issue-censo.md
+
+# relatórios do robô de vagas e do histórico de cursos (os fluxos publicam como issue)
+relatorio-vagas.md
+relatorio-historico.md
+corpo-issue-historico.md
+__pycache__/
