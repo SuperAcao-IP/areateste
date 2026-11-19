@@ -1,4 +1,4 @@
-# Robô de vagas · LinkedIn e Indeed (roda no computador da equipe; a Tarefa do Windows chama este arquivo toda segunda às 9h).
+﻿# Robô de vagas · LinkedIn e Indeed (roda no computador da equipe; a Tarefa do Windows chama este arquivo toda segunda às 9h).
 #   1. atualiza o repositório;
 #   2. abre o Claude Code com o comando /buscar-linkedin-indeed (Chrome logado no LinkedIn com o e-mail do robô);
 #   3. publica no GitHub as vagas novas (dados/vagas-robo.json) e o histórico.

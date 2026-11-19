@@ -1,4 +1,4 @@
-# Instala no computador da equipe o que o robô de vagas precisa para a parte do LinkedIn e do Indeed,
+﻿# Instala no computador da equipe o que o robô de vagas precisa para a parte do LinkedIn e do Indeed,
 # e agenda a Tarefa do Windows (toda segunda às 9h). Pode rodar de novo sem problema: só instala o que falta.
 #
 # Uso (PowerShell, na pasta do repositório):
