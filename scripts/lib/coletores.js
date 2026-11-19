@@ -115,32 +115,56 @@ async function coletarAprendaMais({ minimoEsperado = 0 } = {}){
 }
 
 /* ---------- Escola Virtual de Governo ---------- */
+/* Desde out/2026 o site da EVG é um aplicativo (a página chega vazia, sem cursos). O próprio site oferece
+   a exportação do catálogo em CSV (escolavirtual.gov.br/catalogo/exportar/csv leva a este endereço):
+   campos separados por "|", com ID, nome, conteudista, carga horária e tipo de oferta.
+   "Curso Exclusivo" (restrito a um órgão) não entra. A página do curso é /cursos/<id>. */
 const EVG_BASE = "https://www.escolavirtual.gov.br";
-async function coletarEVG(){
-  const cursos = [], vistos = new Set();
-  for(let p = 1; p <= 200; p++){
-    const r = await buscar(EVG_BASE + "/catalogo?page=" + p);
-    if(r.status !== 200) throw new Error("EVG página " + p + " respondeu HTTP " + r.status);
-    const blocos = r.texto.split('<div class="card" id="curso').slice(1);
-    if(!blocos.length) break;
-    for(const b of blocos){
-      const id = b.match(/^(\d+)"/);
-      const titulo = b.match(/<h3 class="card-title">[\s\S]*?<a [^>]*>([\s\S]*?)<\/a>/);
-      if(!id || !titulo || vistos.has(id[1])) continue;
-      vistos.add(id[1]);
-      const inst = b.match(/<dt>Conteudista:<\/dt>\s*<dd>([\s\S]*?)<\/dd>/);
-      const carga = b.match(/<dt>Carga Hor[^<]*<\/dt>\s*<dd>\s*([^<]*?)\s*<\/dd>/);
-      cursos.push({
-        titulo: decodificarHtml(titulo[1].replace(/<[^>]*>/g, "")),
-        inst: inst ? decodificarHtml(inst[1].replace(/<[^>]*>/g, "")) : "",
-        carga: carga ? decodificarHtml(carga[1]) : "",
-        area: "Outros",
-        link: EVG_BASE + "/curso/" + id[1]
-      });
-    }
-    await espera(150);
+const EVG_CSV = "https://api-evg.enap.gov.br/v1/cursos/exportar/csv";
+function lerCsvSeparador(texto, sep){
+  const linhas = [];
+  let campo = "", linha = [], aspas = false;
+  for(let i = 0; i < texto.length; i++){
+    const ch = texto[i];
+    if(aspas){
+      if(ch === '"' && texto[i + 1] === '"'){ campo += '"'; i++; }
+      else if(ch === '"') aspas = false;
+      else campo += ch;
+    }else if(ch === '"' && campo === "") aspas = true;
+    else if(ch === sep){ linha.push(campo); campo = ""; }
+    else if(ch === "\n" || ch === "\r"){
+      if(ch === "\r" && texto[i + 1] === "\n") i++;
+      linha.push(campo); campo = "";
+      if(linha.some(c => c !== "")) linhas.push(linha);
+      linha = [];
+    }else campo += ch;
   }
-  return { cursos, detalhe: cursos.length + " cursos no catálogo público" };
+  linha.push(campo);
+  if(linha.some(c => c !== "")) linhas.push(linha);
+  return linhas;
+}
+function lerCatalogoEVG(texto){
+  const linhas = lerCsvSeparador(String(texto).replace(/^﻿/, ""), "|");
+  const cab = (linhas[0] || []).map(c => semAcento(c).trim());
+  const col = nome => cab.findIndex(c => c.startsWith(nome));
+  const iId = col("id do curso"), iNome = col("nome do curso"), iCont = col("conteudista"), iCarga = col("carga horaria"), iTipo = col("tipo de oferta");
+  if([iId, iNome, iCarga].some(i => i < 0)) throw new Error("o CSV da EVG mudou de colunas (cabeçalho: " + (linhas[0] || []).join(" | ").slice(0, 200) + ")");
+  const cursos = [], vistos = new Set();
+  for(const l of linhas.slice(1)){
+    const id = (l[iId] || "").trim(), titulo = (l[iNome] || "").replace(/\s+/g, " ").trim();
+    if(!/^\d+$/.test(id) || !titulo || vistos.has(id)) continue;
+    if(iTipo >= 0 && /exclusiv/i.test(l[iTipo] || "")) continue;
+    vistos.add(id);
+    const carga = (l[iCarga] || "").trim();
+    cursos.push({ titulo, inst: iCont >= 0 ? (l[iCont] || "").trim() : "", carga: carga ? cargaH(carga) : "", area: "Outros", link: EVG_BASE + "/cursos/" + id });
+  }
+  return cursos;
+}
+async function coletarEVG(){
+  const r = await buscar(EVG_CSV, { timeoutMs: 120000 });
+  if(r.status !== 200) throw new Error("a exportação do catálogo da EVG respondeu HTTP " + r.status);
+  const cursos = lerCatalogoEVG(r.texto);
+  return { cursos, detalhe: cursos.length + " cursos abertos no catálogo oficial (CSV)" };
 }
 
 /* ---------- Escola Virtual · Fundação Bradesco ---------- */
@@ -173,22 +197,34 @@ async function coletarBradesco(){
    fica na plataforma de origem, o portal apenas aponta para ela. */
 const cargaH = texto => { const m = String(texto || "").match(/\d+(?:[.,]\d+)?/); return m ? m[0].replace(",", ".") + "h" : ""; };
 
-/* +IFMG: Moodle com busca que devolve todos os cursos numa página. Carga, "gratuito" e
-   "certificado" ficam em course/info.php. Curso que diz explicitamente "Gratuito: não" ou
-   "Certificado: não" não entra. */
+/* +IFMG: Moodle (tema Moove desde out/2026) com busca que devolve todos os cursos numa página.
+   Cada curso é um cartão `data-region="course-content" data-course-id="N"`, com a categoria em
+   `course-category`, o título no link `coursename` e campos como "Curso gratuito: Sim".
+   Carga, "gratuito" e "certificado" ficam em course/info.php. Curso que diz explicitamente
+   "Gratuito: não" ou "Certificado: não" não entra. */
 const IFMG_BASE = "https://mais.ifmg.edu.br/maisifmg";
+function lerCartoesIFMG(html){
+  const saida = [];
+  for(const b of html.split(/<div class="card dashboard-card[^"]*"[^>]*data-region="course-content"/).slice(1)){
+    const id = (b.match(/^[^>]*data-course-id="(\d+)"/) || [])[1];
+    const titulo = b.match(/<a [^>]*class="aalink coursename[^"]*"[^>]*>([\s\S]*?)<\/a>/);
+    if(!id || !titulo) continue;
+    const cat = (b.match(/<div class="course-category">([\s\S]*?)<\/div>/) || [])[1];
+    const gratuito = (b.match(/customfield_eh_gratuito[\s\S]*?customfieldvalue">([^<]*)/) || [])[1];
+    saida.push({ id, titulo: decodificarHtml(titulo[1].replace(/<[^>]*>/g, "")), categoria: cat ? decodificarHtml(cat.replace(/<[^>]*>/g, "")) : "",
+                 pago: /^\s*n[aã]o\s*$/i.test(gratuito || "") });
+  }
+  return saida;
+}
 async function coletarIFMG(){
   const porId = new Map();
   for(const termo of ["a", "e", "o"]){   // a busca casa com título/resumo: a união de três termos evita perder curso
     const r = await buscar(IFMG_BASE + "/course/search.php?search=" + termo + "&perpage=500");
     if(r.status !== 200) throw new Error("busca do +IFMG respondeu HTTP " + r.status);
-    for(const b of r.texto.split('<div class="top_courses ccnWithFoot">').slice(1)){
-      const cat = (b.match(/<div class="tag">([^<]*)/) || [])[1];
-      const m = b.match(/<a href="[^"]*course\/view\.php\?id=(\d+)"><h5>([\s\S]*?)<\/h5>/);
-      if(m && !porId.has(m[1])) porId.set(m[1], { id: m[1], titulo: decodificarHtml(m[2].replace(/<[^>]*>/g, "")), categoria: cat ? decodificarHtml(cat) : "" });
-    }
+    for(const c of lerCartoesIFMG(r.texto)) if(!c.pago && !porId.has(c.id)) porId.set(c.id, c);
     await espera(200);
   }
+  if(!porId.size) throw new Error("a busca do +IFMG não trouxe nenhum cartão de curso (o site mudou o formato?)");
   const brutos = [...porId.values()];
   const cursos = [];
   await emLotes(brutos, 4, async c => {

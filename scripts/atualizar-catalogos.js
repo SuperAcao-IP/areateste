@@ -54,7 +54,8 @@ const CATALOGOS = [
     coletar: () => coletarBradesco(), cargaPadrao: "", campos: ["titulo", "carga", "area", "link"], checarLinks: true },
   { chave: "evg", nome: "Escola Virtual de Governo (EVG)", arquivo: "cursos-evg.js", constante: "EVG",
     coletar: () => coletarEVG(), cargaPadrao: "", campos: ["titulo", "inst", "carga", "area", "link"],
-    soVisiveis: true, checarLinks: true }   // o catálogo é enorme (~900)
+    soVisiveis: true }   // o catálogo é enorme (~1.000). Sem conferir links: o site virou aplicativo (todo endereço responde 200)
+                         // e a lista vem da exportação oficial, então só traz curso que existe.
 ];
 
 const CABECALHO = {

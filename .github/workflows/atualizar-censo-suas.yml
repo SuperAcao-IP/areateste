@@ -65,7 +65,10 @@ jobs:
           echo "[Log da execução](${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID})" >> relatorio-censo-suas.md
           head -c 60000 relatorio-censo-suas.md > corpo-issue-censo.md
           gh label create censo-automatico --color 0E8A16 --description "Resumo da verificação automática do Censo SUAS" 2>/dev/null || true
-          gh issue create --title "$TITULO" --body-file corpo-issue-censo.md --label censo-automatico
+          # fecha a issue anterior do mesmo tipo: fica aberta só a mais recente
+          ANTERIORES=$(gh issue list --label censo-automatico --state open --json number --jq '.[].number')
+          NOVA=$(gh issue create --title "$TITULO" --body-file corpo-issue-censo.md --label censo-automatico)
+          for n in $ANTERIORES; do gh issue close "$n" --comment "Substituída por ${NOVA}." || true; done
 
       - name: Marcar a execução como falha se o script quebrou
         if: ${{ steps.censo.outcome == 'failure' }}
