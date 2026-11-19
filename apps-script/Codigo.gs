@@ -85,7 +85,7 @@ function lerCabecalho(aba) {
   if (ultima < 1) return [];
   return aba.getRange(1, 1, 1, ultima).getValues()[0].map(function (h) {
     return h.toString().trim().toLowerCase()
-      .normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/\s+/g, "_");
+      .normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/\s+/g, "_");
   });
 }
 
