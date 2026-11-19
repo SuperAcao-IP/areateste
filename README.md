@@ -131,6 +131,7 @@ Censo SUAS, filtro do Trampolim, histórico) e [robo-vagas/README.md](robo-vagas
 | Robô de vagas | segunda 9h | confere as vagas publicadas (a fechada sai) e busca novas |
 | Uso semanal do portal | segunda 7h | números agregados de uso da semana (precisa do Secret `PAINEL_CHAVE`) |
 | Histórico de cursos | segunda 10h | retrato semanal de cursos e vagas do portal e cobertura presencial |
+| Resumo semanal (e-mail) | segunda, depois do histórico | resumo da semana em `dados/resumo-semanal.html` e no feed `dados/resumo-semanal.xml`, que o Power Automate da conta coordcampo manda por e-mail ([docs/EMAIL-SEMANAL.md](docs/EMAIL-SEMANAL.md)) |
 | Atualizar Censo SUAS | mensal | CRAS e CREAS oficiais |
 
 Cada um abre uma **issue** com o resumo e fecha a da semana anterior (só fica aberta a mais

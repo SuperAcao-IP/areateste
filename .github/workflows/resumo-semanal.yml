@@ -1,0 +1,46 @@
+name: Resumo semanal (e-mail)
+
+# Roda sozinho assim que o robô "Histórico de cursos" termina (segunda, ~10h30 em Brasília), ou pelo botão "Run workflow".
+# Monta o resumo da semana (só números agregados, sem dados pessoais) e publica:
+#   dados/resumo-semanal.html  o resumo pronto
+#   dados/resumo-semanal.xml   feed RSS que o Power Automate da conta coordcampo lê para mandar o e-mail
+# Como ligar o e-mail: docs/EMAIL-SEMANAL.md
+on:
+  workflow_run:
+    workflows: ["Histórico de cursos"]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: resumo-semanal
+  cancel-in-progress: false
+
+jobs:
+  resumo:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      - name: Montar o resumo da semana
+        run: node scripts/resumo-semanal.js
+
+      - name: Publicar na main
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add dados/resumo-semanal.html dados/resumo-semanal.xml
+          git diff --cached --quiet && exit 0
+          git commit -m "Resumo semanal do portal ($(date -u +%F))"
+          git pull --rebase origin main
+          git push origin HEAD:main
