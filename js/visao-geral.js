@@ -258,7 +258,7 @@
     var alvo = $('cobAuto');
     if(!alvo) return;
     var c = estado.cobertura;
-    if(!c){ alvo.innerHTML = '<p class="vazio">O retrato automático ainda não foi gerado (ele sai toda segunda, no robô "Histórico de cursos"). Use a varredura ao vivo abaixo.</p>'; return; }
+    if(!c){ alvo.innerHTML = '<p class="vazio">O retrato automático ainda não foi gerado (ele sai todo domingo, no robô "Histórico de cursos"). Use a varredura ao vivo abaixo.</p>'; return; }
     var pares = 0, semNada = [], totalCursos = 0, soVizinha = 0;
     MUNICIPIOS.forEach(function(m){
       var l = c.municipios[m] || {}, algum = false;
@@ -270,7 +270,7 @@
       kpi('Vazios', fmt(pares), 'pares município × área sem curso presencial na cidade', AMBAR) +
       kpi('Cobertos só por vizinha', fmt(soVizinha), 'vazios que têm curso numa cidade vizinha') +
       kpi('Sem nenhum presencial', fmt(semNada.length), semNada.length ? esc(semNada.slice(0, 4).join(', ')) + (semNada.length > 4 ? '…' : '') : 'em nenhuma área', AMBAR);
-    $('cobData').textContent = 'Retrato automático de ' + dataBR(c.atualizado) + ' (atualiza toda segunda).';
+    $('cobData').textContent = 'Retrato automático de ' + dataBR(c.atualizado) + ' (atualiza todo domingo).';
     var html = '<thead><tr><th>Município</th>' + c.areas.map(function(a){ return '<th title="' + esc(a) + '">' + esc(a.length > 16 ? a.slice(0, 15) + '…' : a) + '</th>'; }).join('') + '</tr></thead><tbody>';
     MUNICIPIOS.forEach(function(m){
       var l = c.municipios[m] || {};

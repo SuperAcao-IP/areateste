@@ -8,7 +8,7 @@ Um curso que aparece em mais de uma fonte fica **uma vez só**, na de maior prio
 (o automático das fontes abaixo é escondido; decisão manual nunca é escondida por repetição,
 por isso o Excel na Prática continua nos dois, como combinado). Vale só entre cursos online.
 
-Uma GitHub Action roda **toda segunda-feira** (06h em Brasília) e também a qualquer hora
+Uma GitHub Action roda **todo domingo** (06h em Brasília) e também a qualquer hora
 pelo botão *Actions → Atualizar catálogos → Run workflow*. Ninguém precisa aprovar nada:
 ela coleta, filtra, confere os links, publica na `main` e, quando algo mudou ou falhou,
 abre uma **issue** com o resumo.
@@ -146,8 +146,8 @@ O mapa de cada município tem quatro camadas (Serviços, Vagas, Cursos presencia
 ### De onde vêm os pontos
 | Camada | Fonte | Como atualiza |
 |---|---|---|
-| Escolas | **Senac-SP**: coleta no site (unidades e cursos presenciais **com bolsa**, curso livre, 15h+, tema aceito pelas regras de público), ligada no workflow por decisão da equipe em 19/11/2026 (`COLETAR_SENAC=1`; os termos de uso do Senac pedem autorização por escrito para acesso automatizado, veja `scripts/atualizar-mapa.js`). Desligada, volta ao cadastro manual `scripts/fontes/unidades-senac-cadastro.json`. | semanal, segunda 9h (workflow **Atualizar mapa**) |
-| Escolas | **Senai-SP**: páginas de unidade (endereço; coordenadas calculadas) e, de cada unidade, os **cursos livres presenciais gratuitos** (15h+, tema aceito pelas regras), da lista pública "Conheça nossos cursos" | semanal, segunda 9h |
+| Escolas | **Senac-SP**: coleta no site (unidades e cursos presenciais **com bolsa**, curso livre, 15h+, tema aceito pelas regras de público), ligada no workflow por decisão da equipe em 19/11/2026 (`COLETAR_SENAC=1`; os termos de uso do Senac pedem autorização por escrito para acesso automatizado, veja `scripts/atualizar-mapa.js`). Desligada, volta ao cadastro manual `scripts/fontes/unidades-senac-cadastro.json`. | semanal, domingo 9h (workflow **Atualizar mapa**) |
+| Escolas | **Senai-SP**: páginas de unidade (endereço; coordenadas calculadas) e, de cada unidade, os **cursos livres presenciais gratuitos** (15h+, tema aceito pelas regras), da lista pública "Conheça nossos cursos" | semanal, domingo 9h |
 | Escolas | **Trampolim**: cursos presenciais trazem endereço e coordenada; viram "locais de curso" | ao vivo, ao escolher a cidade |
 | Escolas | **Planilha, aba cursos**: cursos presenciais do Senai/Senac entram na lista da unidade | ao vivo |
 | Computador | **Bibliotecas** que declaram computador para o público ou Wi-Fi (cadastro estadual SisEB) | levantamento anual à mão + geocodificação semanal |
@@ -235,7 +235,7 @@ Desde a versão 2 do painel, o mesmo retrato semanal também grava:
 
 ### Histórico de cursos (detalhes)
 
-Toda segunda às 10h o workflow **Histórico de cursos** (`scripts/atualizar-historico.js`) monta o retrato do que o portal mostra,
+Todo domingo às 10h o workflow **Histórico de cursos** (`scripts/atualizar-historico.js`) monta o retrato do que o portal mostra,
 com as mesmas funções do site, e junta em `dados/historico-cursos.json`: um registro por curso (origem + título + online/presencial),
 com os municípios, a primeira e a última semana em que apareceu e em quantas semanas esteve no portal. As planilhas semanais
 baixadas de 02/09 a 03/11/2026 foram importadas (`scripts/fontes/historico-importado/`; para importar outra:

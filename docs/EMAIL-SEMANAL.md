@@ -1,6 +1,6 @@
 # E-mail semanal do portal (enviado pela conta coordcampo)
 
-Toda segunda, depois que os robôs terminam (~10h30), o GitHub publica o **resumo da semana**:
+Todo domingo, depois que os robôs terminam (~10h30), o GitHub publica o **resumo da semana**:
 - página: <https://superacao-ip.github.io/areateste/dados/resumo-semanal.html>
 - feed RSS: <https://superacao-ip.github.io/areateste/dados/resumo-semanal.xml>
 
@@ -23,7 +23,7 @@ agregados (uso, cursos, vagas, municípios sem curso presencial), sem e-mails ne
    - **Corpo**: clique no ícone **</>** (modo código) e escolha em "Conteúdo dinâmico" **Resumo do feed**
      (`Feed summary`). O resumo já vem formatado (títulos, tabelas e o botão para o painel).
    - Em "Mostrar opções avançadas": **Importância** = Normal.
-5. **Salvar**. Pronto: o e-mail sai toda segunda, uma vez, quando o resumo novo é publicado.
+5. **Salvar**. Pronto: o e-mail sai todo domingo, uma vez, quando o resumo novo é publicado.
 
 ## Testar agora
 No fluxo, clique em **Testar** → **Manualmente**. Depois, no GitHub, rode o workflow

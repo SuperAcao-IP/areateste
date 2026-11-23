@@ -2,7 +2,7 @@
 /* Histórico de TUDO o que passou pelo portal: cursos e vagas. Alimenta as abas "Histórico", "Vazios do catálogo" e
    "Visão geral" do painel.
 
-   Toda semana (GitHub Actions, segunda) monta o retrato do que o portal mostra, com as MESMAS funções do site
+   Toda semana (GitHub Actions, domingo) monta o retrato do que o portal mostra, com as MESMAS funções do site
    (js/conectores.js, js/config.js, filtros de público), igual ao "Catálogo completo" do painel:
      CURSOS
      - catálogos online fixos (Aprenda Mais, EVG, Bradesco, +IFMG, Mundi), já com o filtro de público;

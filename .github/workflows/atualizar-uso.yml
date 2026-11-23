@@ -1,13 +1,13 @@
 name: Uso semanal do portal
 
-# Toda segunda-feira, 07h em Brasília (10h UTC), ou na hora pelo botão "Run workflow".
+# Todo domingo, 07h em Brasília (10h UTC), ou na hora pelo botão "Run workflow".
 # Guarda os números AGREGADOS de uso da semana (sessões, buscas, cliques, buscas por município e área, cursos mais
 # clicados; sem e-mail nem IP) em dados/uso-semanal.json, para a linha do tempo da aba "Visão geral" do painel.
 # Precisa do Secret PAINEL_CHAVE (a chave do painel). Sem ele, o workflow só avisa.
 # A primeira execução reconstrói as últimas 52 semanas. Para refazer: Run workflow com "reconstruir" marcado.
 on:
   schedule:
-    - cron: "17 10 * * 1"
+    - cron: "17 10 * * 0"
   workflow_dispatch:
     inputs:
       reconstruir:

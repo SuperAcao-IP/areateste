@@ -1,13 +1,13 @@
 name: Atualizar catálogos
 
-# Toda segunda-feira, 06h em Brasília (09h UTC), ou na hora pelo botão "Run workflow".
+# Todo domingo, 06h em Brasília (09h UTC), ou na hora pelo botão "Run workflow".
 # Coleta Aprenda Mais, EVG e Bradesco, aplica o filtro de público, confere links,
 # publica na main sozinho e abre uma issue com o resumo (só quando há mudança ou falha;
 # semana sem novidade não gera issue). Se a coleta falhar ou vier
 # vazia, não publica nada: o catálogo anterior continua no ar.
 on:
   schedule:
-    - cron: "7 9 * * 1"
+    - cron: "7 9 * * 0"
   workflow_dispatch:
 
 permissions:

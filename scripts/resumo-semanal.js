@@ -115,7 +115,7 @@ function montar(){
 ${linhas.join("\n")}
 <tr><td style="padding:20px 24px 24px">
   <a href="${SITE}/painel.html" style="display:inline-block;background:#0D5A94;color:#ffffff;text-decoration:none;font:600 14px Arial,sans-serif;padding:10px 18px;border-radius:8px">Abrir o painel de acompanhamento</a>
-  <p style="margin:14px 0 0;font:12px Arial,sans-serif;color:#7B8A9B">Resumo automático feito toda segunda pelos robôs do portal, só com números agregados (sem dados pessoais).</p>
+  <p style="margin:14px 0 0;font:12px Arial,sans-serif;color:#7B8A9B">Resumo automático feito todo domingo pelos robôs do portal, só com números agregados (sem dados pessoais).</p>
 </td></tr>
 </table></td></tr></table></body></html>
 `;

@@ -1,6 +1,6 @@
 /* =====================================================================
    PAINEL · aba "Histórico" (cursos e vagas)
-   Lê dados/historico-cursos.json e dados/historico-vagas.json (gerados toda segunda por scripts/atualizar-historico.js).
+   Lê dados/historico-cursos.json e dados/historico-vagas.json (gerados todo domingo por scripts/atualizar-historico.js).
    Cada item traz as semanas exatas em que esteve no portal (p = índices em "semanas").
    Filtros comuns: período, município, área, origem, situação, busca. Cursos: modalidade e carga. Vagas: contrato e
    "sem experiência". Downloads em CSV: o que está filtrado, só os novos da última semana, ou os novos desde uma data.
@@ -48,7 +48,7 @@
       .then(function(j){
         carregando[t] = false;
         if(!j){
-          if(t === tipo){ $('hStatus').textContent = 'O histórico de ' + TIPOS[t].nomes + ' ainda não existe: ele começa no próximo retrato semanal (segunda).'; $('hKpis').innerHTML = ''; $('hResultados').classList.add('oculto'); }
+          if(t === tipo){ $('hStatus').textContent = 'O histórico de ' + TIPOS[t].nomes + ' ainda não existe: ele começa no próximo retrato semanal (domingo).'; $('hKpis').innerHTML = ''; $('hResultados').classList.add('oculto'); }
           return;
         }
         dados[t] = j;

@@ -2,7 +2,7 @@
 /* Uso semanal do portal (linha do tempo da aba "Visão geral" do painel).
 
    O Worker de estatísticas (o mesmo que o painel usa, /dash) só devolve totais de um período ("últimos N dias").
-   Toda segunda este script guarda os números AGREGADOS da semana em dados/uso-semanal.json:
+   Todo domingo este script guarda os números AGREGADOS da semana em dados/uso-semanal.json:
      sessões, eventos (buscas, cliques...), buscas por município, buscas sem resultado por município × área e os
      cursos mais clicados. Nada de e-mail, IP ou identificador: é o mesmo que o painel já mostra, guardado por semana.
    Na primeira execução (ou com --reconstruir), reconstrói as últimas 52 semanas subtraindo janelas: semana k =

@@ -1,13 +1,13 @@
 name: Robô de vagas
 
-# Toda segunda-feira, 09h em Brasília (12h UTC), ou na hora pelo botão "Run workflow".
+# Todo domingo, 09h em Brasília (12h UTC), ou na hora pelo botão "Run workflow".
 # 1) confere as vagas que estão no portal e tira as fechadas; 2) busca vagas novas (Gupy, Catho, InfoJobs, vagas.com)
 # nos municípios do programa e nas vizinhas; 3) filtra pelo perfil do programa; 4) publica dados/vagas-robo.json na main;
 # 5) abre uma issue com o resumo (e fecha a da semana anterior). Se os Secrets do Gmail existirem, manda também por e-mail.
 # Código e critérios: robo-vagas/ (config.toml).
 on:
   schedule:
-    - cron: "37 12 * * 1"
+    - cron: "37 12 * * 0"
   workflow_dispatch:
 
 permissions:

@@ -939,7 +939,7 @@ function mesclarPlanilhaVagas(vagas, cidade){
 }
 
 /* =====================================================================
-   ROBÔ DE VAGAS  ·  dados/vagas-robo.json (gerado por robo-vagas/ toda segunda)
+   ROBÔ DE VAGAS  ·  dados/vagas-robo.json (gerado por robo-vagas/ todo domingo)
    Vagas dos sites públicos de emprego (Gupy, Catho, InfoJobs, vagas.com e,
    quando a busca roda no computador da equipe, LinkedIn e Indeed), já
    filtradas pelo perfil do programa. Toda semana o robô confere cada vaga e

@@ -1,6 +1,6 @@
 name: Resumo semanal (e-mail)
 
-# Roda sozinho assim que o robô "Histórico de cursos" termina (segunda, ~10h30 em Brasília), ou pelo botão "Run workflow".
+# Roda sozinho assim que o robô "Histórico de cursos" termina (domingo, ~10h30 em Brasília), ou pelo botão "Run workflow".
 # Monta o resumo da semana (só números agregados, sem dados pessoais) e publica:
 #   dados/resumo-semanal.html  o resumo pronto
 #   dados/resumo-semanal.xml   feed RSS que o Power Automate da conta coordcampo lê para mandar o e-mail

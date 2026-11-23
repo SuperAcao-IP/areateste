@@ -70,7 +70,7 @@ async function montarDados(cidade){
     if(!aberto(v.status,v.validade)) return;
     add(areaDoCurso(v.cargo, v.area),"oportunidades",{cargo:v.cargo, empresa:[v.empresa,v.cidade].filter(Boolean).join(" · "), tipo:v.tipo, link:v.link});
   });
-  /* cursos presenciais das unidades do Senai e do Senac (dados/unidades.js, atualizado toda segunda pelo robô do mapa):
+  /* cursos presenciais das unidades do Senai e do Senac (dados/unidades.js, atualizado todo domingo pelo robô do mapa):
      cursos livres gratuitos do Senai e cursos com bolsa do Senac, já filtrados pelas regras de público. O curso que a
      equipe cadastrou na planilha vence este (mesclarPlanilha tira a cópia). */
   if(typeof UNIDADES!=="undefined" && Array.isArray(UNIDADES)){

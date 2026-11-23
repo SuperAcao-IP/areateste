@@ -37,7 +37,7 @@ const VAGAS_RAIO_KM = 15;
 const VAGAS_RAIO_MAX_KM = 30;
 const VAGAS_MINIMO = 8;
 
-/* ---------- robô de vagas (robo-vagas/, toda segunda) ----------
+/* ---------- robô de vagas (robo-vagas/, todo domingo) ----------
    Vagas da Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed, quando a busca roda no computador da equipe),
    filtradas pelo perfil do programa e conferidas toda semana. O arquivo é dados/vagas-robo.json. */
 const VAGAS_ROBO_ATIVO = true;

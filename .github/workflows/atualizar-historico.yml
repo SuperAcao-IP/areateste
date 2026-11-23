@@ -1,12 +1,12 @@
 name: Histórico de cursos
 
-# Toda segunda-feira, 10h em Brasília (13h UTC), depois dos catálogos (6h) e do mapa (9h), ou pelo botão "Run workflow".
+# Todo domingo, 10h em Brasília (13h UTC), depois dos catálogos (6h) e do mapa (9h), ou pelo botão "Run workflow".
 # Monta o retrato dos cursos que o portal mostra nesta semana (com as mesmas funções do site) e junta ao histórico
 # dados/historico-cursos.json, dados/historico-vagas.json e dados/cobertura.json (abas Histórico, Vazios e Visão geral do painel). Abre uma issue com os cursos que
 # entraram e saíram e com o resultado do filtro de perfil do Trampolim (e fecha a da semana anterior).
 on:
   schedule:
-    - cron: "47 13 * * 1"
+    - cron: "47 13 * * 0"
   workflow_dispatch:
 
 permissions:

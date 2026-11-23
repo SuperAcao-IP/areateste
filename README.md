@@ -99,11 +99,11 @@ Se alguém apagar algo por engano: na planilha, **Arquivo → Histórico de vers
 |---|---|---|---|
 | **Trampolim SP** — cursos | API ao vivo, via Worker da Cloudflare; filtro de perfil (regras de público + `dados/trampolim-decisoes.js`) | ao vivo | `TRAMPOLIM_ATIVO`, `FILTRAR_TRAMPOLIM` |
 | **Trampolim SP** — vagas | mesma API, `type=vacancy` | ao vivo | `TRAMPOLIM_VAGAS_ATIVO` |
-| **Robô de vagas** | Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed), filtradas pelo perfil; a fechada sai (`dados/vagas-robo.json`) | segunda 9h | `VAGAS_ROBO_ATIVO` |
+| **Robô de vagas** | Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed), filtradas pelo perfil; a fechada sai (`dados/vagas-robo.json`) | domingo 9h | `VAGAS_ROBO_ATIVO` |
 | **Sebrae SP** | GraphQL da loja (só cursos gratuitos) | ao vivo | `SEBRAE_ATIVO` |
 | **Planilha** — cursos e vagas | Google Sheets publicado em CSV | ao vivo | `PLANILHA_ATIVA`, `PLANILHA_VAGAS_ATIVA` |
-| **Catálogos online** (Aprenda Mais, EVG, Bradesco, +IFMG, Mundi) | listas em `dados/`, com filtro de público | segunda 6h | `FILTRAR_PUBLICO_FAMILIAS` |
-| **Senai e Senac** (cursos presenciais) | site de cada um: unidades e cursos gratuitos/com bolsa (`dados/unidades.js`) | segunda 9h | `COLETAR_SENAC` no workflow do mapa |
+| **Catálogos online** (Aprenda Mais, EVG, Bradesco, +IFMG, Mundi) | listas em `dados/`, com filtro de público | domingo 6h | `FILTRAR_PUBLICO_FAMILIAS` |
+| **Senai e Senac** (cursos presenciais) | site de cada um: unidades e cursos gratuitos/com bolsa (`dados/unidades.js`) | domingo 9h | `COLETAR_SENAC` no workflow do mapa |
 | **Mapa** | aba `servicos` + Censo SUAS, unidades, bibliotecas, aba `pontos_digitais` | semanal / mensal | — |
 | **Manuais** | `dados.json` | à mão | — |
 
@@ -126,12 +126,12 @@ Censo SUAS, filtro do Trampolim, histórico) e [robo-vagas/README.md](robo-vagas
 
 | Workflow | Quando | O que faz |
 |---|---|---|
-| Atualizar catálogos | segunda 6h | Aprenda Mais, EVG (CSV oficial), Bradesco, +IFMG, Mundi |
-| Atualizar mapa | segunda 9h | Senai e Senac (unidades e cursos), bibliotecas, coordenadas |
-| Robô de vagas | segunda 9h | confere as vagas publicadas (a fechada sai) e busca novas |
-| Uso semanal do portal | segunda 7h | números agregados de uso da semana (precisa do Secret `PAINEL_CHAVE`) |
-| Histórico de cursos | segunda 10h | retrato semanal de cursos e vagas do portal e cobertura presencial |
-| Resumo semanal (e-mail) | segunda, depois do histórico | resumo da semana em `dados/resumo-semanal.html` e no feed `dados/resumo-semanal.xml`, que o Power Automate da conta coordcampo manda por e-mail ([docs/EMAIL-SEMANAL.md](docs/EMAIL-SEMANAL.md)) |
+| Atualizar catálogos | domingo 6h | Aprenda Mais, EVG (CSV oficial), Bradesco, +IFMG, Mundi |
+| Atualizar mapa | domingo 9h | Senai e Senac (unidades e cursos), bibliotecas, coordenadas |
+| Robô de vagas | domingo 9h | confere as vagas publicadas (a fechada sai) e busca novas |
+| Uso semanal do portal | domingo 7h | números agregados de uso da semana (precisa do Secret `PAINEL_CHAVE`) |
+| Histórico de cursos | domingo 10h | retrato semanal de cursos e vagas do portal e cobertura presencial |
+| Resumo semanal (e-mail) | domingo, depois do histórico | resumo da semana em `dados/resumo-semanal.html` e no feed `dados/resumo-semanal.xml`, que o Power Automate da conta coordcampo manda por e-mail ([docs/EMAIL-SEMANAL.md](docs/EMAIL-SEMANAL.md)) |
 | Atualizar Censo SUAS | mensal | CRAS e CREAS oficiais |
 
 Cada um abre uma **issue** com o resumo e fecha a da semana anterior (só fica aberta a mais
