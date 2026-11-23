@@ -401,7 +401,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="cartao fundo" style="margin-top:14px">
       <h3>O caminho até a oportunidade</h3>
-      <p class="sub">Quantas pessoas chegaram a cada etapa. A barra compara com o total de quem abriu o portal.</p>
+      <p class="sub">Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.</p>
       <div id="lista-jornada"></div>
     </div>
 
@@ -911,12 +911,15 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         }).join('')
       : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
 
-    var base = total(j, 'visitou') || 1;
+    /* conta SESSÕES (visitas distintas) em cada etapa, não eventos: a troca de área dispara várias vezes na mesma
+       sessão e inflava as etapas de baixo (a lista parecia um funil, mas não era). Sem o campo sessoes, usa o total. */
+    var contagem = function(ev){ var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? (r.sessoes != null ? r.sessoes : r.total) : 0; };
+    var base = contagem('visitou') || 1;
     var jbox = $('lista-jornada');
-    var linhas = ORDEM.filter(function(ev){ return total(j, ev) > 0; });
+    var linhas = ORDEM.filter(function(ev){ return contagem(ev) > 0; });
     jbox.innerHTML = linhas.length
       ? linhas.map(function(ev){
-          var t = total(j, ev);
+          var t = contagem(ev);
           var pct = Math.min(Math.round((t / base) * 100), 100);
           return '<div class="jornada-linha' + (ev === 'busca_sem_resultado' ? ' alerta' : '') + '">' +
             '<div>' + esc(ROTULOS[ev] || ev) + '</div>' +
