@@ -14,7 +14,7 @@
     dominiosPermitidos: ['fgv.br'],
 
     // Duração da sessão, em horas.
-    horasDeSessao: 12,
+    horasDeSessao: 2,
 
     // URL do Apps Script, usada para registrar o e-mail na aba "emails".
     // Fica em branco de proposito: o valor vem do APPS_SCRIPT_URL do
