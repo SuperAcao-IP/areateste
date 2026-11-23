@@ -401,7 +401,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="cartao fundo" style="margin-top:14px">
       <h3>O caminho até a oportunidade</h3>
-      <p class="sub">Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.</p>
+      <p class="sub" id="jornada-sub">Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.</p>
       <div id="lista-jornada"></div>
     </div>
 
@@ -876,14 +876,19 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       });
   }
 
+  function linhaResumo(j, ev){
+    return (j.resumo || []).filter(function(x){ return x.ev === ev; })[0] || null;
+  }
   function total(j, ev){
-    var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0];
+    var r = linhaResumo(j, ev);
     return r ? r.total : 0;
   }
   function sessoes(j, ev){
-    var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0];
+    var r = linhaResumo(j, ev);
     return r ? r.sessoes : 0;
   }
+  /* etapas que uma visita atravessa em ordem; nenhuma deveria ter mais sessões que "visitou" */
+  var ETAPAS_FUNIL = ['selecionou_municipio', 'abriu_mapa', 'selecionou_area', 'viu_resultados'];
 
   function desenharUso(j){
     var comResultado = total(j, 'viu_resultados');
@@ -911,23 +916,46 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         }).join('')
       : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
 
-    /* conta SESSÕES (visitas distintas) em cada etapa, não eventos: a troca de área dispara várias vezes na mesma
-       sessão e inflava as etapas de baixo (a lista parecia um funil, mas não era). Sem o campo sessoes, usa o total. */
-    var contagem = function(ev){ var r = (j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? (r.sessoes != null ? r.sessoes : r.total) : 0; };
-    var base = contagem('visitou') || 1;
+    /* A lista conta SESSÕES (visitas distintas), não eventos: a troca de área dispara várias vezes na mesma sessão e
+       inflava as etapas de baixo. O modo é decidido uma vez para a lista inteira: se o servidor não mandar as sessões
+       de TODAS as linhas, a lista inteira cai para eventos (com aviso), nunca misturando as duas unidades. */
+    var resumo = j.resumo || [];
+    var usaSessoes = resumo.length > 0 && resumo.every(function(r){ return r.sessoes != null; });
+    var porEv = {};
+    resumo.forEach(function(r){ porEv[r.ev] = usaSessoes ? r.sessoes : r.total; });
+    var contagem = function(ev){ return porEv[ev] || 0; };
+    var base = contagem('visitou');
     var jbox = $('lista-jornada');
+    var avisos = [];
+    if(resumo.length && !usaSessoes){
+      avisos.push('O servidor não informou as sessões: os números abaixo são eventos e podem contar a mesma visita mais de uma vez.');
+    }
+    if(resumo.length && !base){
+      avisos.push('Sem o número de visitas ao portal, não dá para comparar as etapas.');
+    }
+    var acimaDaBase = {};
+    if(base){
+      ETAPAS_FUNIL.forEach(function(ev){ if(contagem(ev) > base) acimaDaBase[ev] = true; });
+      if(Object.keys(acimaDaBase).length){
+        avisos.push('Alguma etapa tem mais ' + (usaSessoes ? 'sessões' : 'eventos') + ' que as visitas: o registro de eventos pode estar incompleto.');
+      }
+    }
+    $('jornada-sub').textContent = usaSessoes
+      ? 'Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.'
+      : 'Quantas vezes cada etapa aconteceu. A barra compara com o total de aberturas do portal.';
     var linhas = ORDEM.filter(function(ev){ return contagem(ev) > 0; });
-    jbox.innerHTML = linhas.length
+    jbox.innerHTML = (avisos.length ? '<p class="sub" style="color:var(--ambar,#b45309)">' + avisos.map(esc).join('<br>') + '</p>' : '') + (linhas.length
       ? linhas.map(function(ev){
           var t = contagem(ev);
-          var pct = Math.min(Math.round((t / base) * 100), 100);
-          return '<div class="jornada-linha' + (ev === 'busca_sem_resultado' ? ' alerta' : '') + '">' +
+          var pct = base ? Math.round((t / base) * 100) : null;
+          var larg = pct == null ? 0 : Math.min(pct, 100);
+          return '<div class="jornada-linha' + (ev === 'busca_sem_resultado' || acimaDaBase[ev] ? ' alerta' : '') + '">' +
             '<div>' + esc(ROTULOS[ev] || ev) + '</div>' +
-            '<div class="jornada-trilho"><div class="jornada-preenche" data-p="' + pct + '"></div></div>' +
+            '<div class="jornada-trilho"><div class="jornada-preenche" data-p="' + larg + '"></div></div>' +
             '<div class="num">' + fmt(t) + '</div>' +
-            '<div class="jornada-pct">' + pct + '%</div></div>';
+            '<div class="jornada-pct">' + (pct == null ? '–' : pct + '%') + '</div></div>';
         }).join('')
-      : '<p class="vazio">Ainda não há eventos registrados neste período.</p>';
+      : '<p class="vazio">Ainda não há eventos registrados neste período.</p>');
     requestAnimationFrame(function(){
       Array.prototype.forEach.call(jbox.querySelectorAll('.jornada-preenche'), function(el){
         el.style.width = el.dataset.p + '%';
