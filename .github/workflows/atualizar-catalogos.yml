@@ -7,7 +7,7 @@ name: Atualizar catálogos
 # vazia, não publica nada: o catálogo anterior continua no ar.
 on:
   schedule:
-    - cron: "0 9 * * 1"
+    - cron: "7 9 * * 1"
   workflow_dispatch:
 
 permissions:

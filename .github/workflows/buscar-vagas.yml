@@ -7,7 +7,7 @@ name: Robô de vagas
 # Código e critérios: robo-vagas/ (config.toml).
 on:
   schedule:
-    - cron: "0 12 * * 1"
+    - cron: "37 12 * * 1"
   workflow_dispatch:
 
 permissions:

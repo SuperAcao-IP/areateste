@@ -7,7 +7,7 @@ name: Uso semanal do portal
 # A primeira execução reconstrói as últimas 52 semanas. Para refazer: Run workflow com "reconstruir" marcado.
 on:
   schedule:
-    - cron: "0 10 * * 1"
+    - cron: "17 10 * * 1"
   workflow_dispatch:
     inputs:
       reconstruir:

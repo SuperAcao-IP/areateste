@@ -9,7 +9,7 @@ name: Atualizar mapa
 # depois só os endereços novos consultam a internet.
 on:
   schedule:
-    - cron: "0 12 * * 1"
+    - cron: "23 12 * * 1"
   workflow_dispatch:
 
 permissions:

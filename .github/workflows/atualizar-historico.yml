@@ -6,7 +6,7 @@ name: Histórico de cursos
 # entraram e saíram e com o resultado do filtro de perfil do Trampolim (e fecha a da semana anterior).
 on:
   schedule:
-    - cron: "0 13 * * 1"
+    - cron: "47 13 * * 1"
   workflow_dispatch:
 
 permissions:
