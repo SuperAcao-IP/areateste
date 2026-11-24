@@ -32,14 +32,12 @@ const TRAMPOLIM_VAGAS_ATIVO = true;
    decisões à mão da equipe (dados/trampolim-decisoes.js). false = mostra todos os cursos do Trampolim. */
 const FILTRAR_TRAMPOLIM = true;
 /* ---------- Preparação para o mundo do trabalho (seção entre cursos e vagas) ----------
-   Os 4 links ficam aqui para ser fácil trocar. CONFERIR antes de publicar:
-   - conceitos: página do curso "Preparação para o Mundo do Trabalho" (14h) do SENAI (hoje: Mundo SENAI, a loja de cursos online)
-   - curriculo e entrevista: páginas exatas de criação no Trampolim (hoje: site do Trampolim) */
+   Os 4 links ficam aqui para ser fácil trocar. */
 const PREPARACAO_LINKS = {
-  conceitos:      "https://www.mundosenai.com.br",
+  conceitos:      "https://www.sp.senai.br/curso/preparacao-para-o-mundo-do-trabalho/92542",
   socioemocional: "https://www.escolavirtual.gov.br/cursos/318",   // Inteligência Emocional (EVG, 50h) — já está no catálogo
-  curriculo:      TRAMPOLIM_SITE,
-  entrevista:     TRAMPOLIM_SITE
+  curriculo:      TRAMPOLIM_SITE + "/cidadao/curriculo/",
+  entrevista:     TRAMPOLIM_SITE + "/pt/cidadao/preparador-entrevistas/"
 };
 
 /* ---------- robô de vagas (robo-vagas/, todo domingo) ----------
