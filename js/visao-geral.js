@@ -146,6 +146,7 @@
     var semBusca = MUNICIPIOS.filter(function(m){ return !buscasCidade[m]; });
     var tot = function(ev){ var r = (j && j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? r.total : 0; };
     var ses = function(ev){ var r = (j && j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? r.sessoes : 0; };
+    var cliquesPrep = (j && j.cursos || []).filter(function(c){ return c.fonte === 'preparacao'; }).reduce(function(s, c){ return s + (c.cliques || 0); }, 0);
     var buscas = tot('viu_resultados') + tot('busca_sem_resultado');
     var cursosNoAr = presentes(estado.cursos, 'cursos'), vagasNoAr = presentes(estado.vagas, 'vagas');
     var vazios = municipiosComVazio();
@@ -156,7 +157,8 @@
     $('vgKpis').innerHTML =
       kpi('Pessoas que usaram', j ? fmt(ses('visitou')) : '–', 'sessões no período') +
       kpi('Municípios alcançados', j ? fmt(alcancados.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–', 'pesquisaram no período') +
-      kpi('Cliques em cursos e vagas', j ? fmt(tot('clique_curso') + tot('clique_vaga')) : '–', 'encaminhamentos gerados') +
+      kpi('Cliques em cursos e vagas', j ? fmt(Math.max(0, tot('clique_curso') - cliquesPrep) + tot('clique_vaga')) : '–', 'encaminhamentos gerados') +
+      kpi('Preparação para o trabalho', j ? fmt(cliquesPrep) : '–', j ? fmt(tot('preparacao_feito')) + ' passos marcados como feitos' : '') +
       kpi('Buscas sem resultado', j ? fmt(tot('busca_sem_resultado')) : '–', buscas ? Math.round(tot('busca_sem_resultado') / buscas * 100) + '% das buscas' : '', AMBAR) +
       kpi('Cursos no portal', estado.cursos ? fmt(cursosNoAr.length) : '–', estado.cursos ? 'no retrato de ' + dataBR(estado.cursos.atualizado) : 'histórico não carregou') +
       kpi('Vagas no portal', estado.vagas ? fmt(vagasNoAr.length) : '–', estado.vagas ? 'no retrato de ' + dataBR(estado.vagas.atualizado) : 'o histórico de vagas começa no próximo retrato') +

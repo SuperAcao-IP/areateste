@@ -399,6 +399,16 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       </div>
     </div>
 
+    <div class="cartao" style="margin-top:14px">
+      <h3>Preparação para o mundo do trabalho</h3>
+      <p class="sub">Cliques nos 4 passos (cursos de Conceitos e de Habilidades socioemocionais, currículo e entrevista no Trampolim). Não entram em "Cursos mais procurados".</p>
+      <div class="rolagem"><table class="simples">
+        <thead><tr><th>Passo</th><th class="direita">Cliques</th></tr></thead>
+        <tbody id="tb-prep"></tbody>
+      </table></div>
+      <p class="sub" style="margin-top:8px">Passos marcados como feitos no período: <b id="prep-feitos" class="num">–</b></p>
+    </div>
+
     <div class="cartao fundo" style="margin-top:14px">
       <h3>O caminho até a oportunidade</h3>
       <p class="sub" id="jornada-sub">Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.</p>
@@ -821,13 +831,14 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     viu_aviso_senac:'Viram o aviso de curso pago',
     prosseguiu_curso_pago:'Seguiram para o curso pago',
     clique_whatsapp:'Chamaram no WhatsApp',
-    cadastro_manual:'Cadastros feitos por supervisores'
+    cadastro_manual:'Cadastros feitos por supervisores',
+    preparacao_feito:'Marcaram um passo da preparação como feito'
   };
   var ORDEM = ['visitou','selecionou_municipio','abriu_mapa','selecionou_area',
                'viu_resultados','busca_sem_resultado','clique_curso','clique_vaga',
-               'viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp','cadastro_manual'];
+               'viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp','cadastro_manual','preparacao_feito'];
   var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'EVG',
-                 bradesco:'Fund. Bradesco', senac:'Senac', manual:'Cadastro do programa' };
+                 bradesco:'Fund. Bradesco', senac:'Senac', manual:'Cadastro do programa', preparacao:'Preparação para o trabalho' };
 
   Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function(b){
     b.addEventListener('click', function(){
@@ -897,7 +908,9 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     $('k-sessoes').textContent = fmt(sessoes(j, 'visitou'));
     $('k-cidades').textContent = fmt((j.cidades || []).length);
-    $('k-cliques').textContent = fmt(total(j, 'clique_curso') + total(j, 'clique_vaga'));
+    var cliquesPrep = (j.cursos || []).filter(function(c){ return c.fonte === 'preparacao'; })
+      .reduce(function(s, c){ return s + (c.cliques || 0); }, 0);
+    $('k-cliques').textContent = fmt(Math.max(0, total(j, 'clique_curso') - cliquesPrep) + total(j, 'clique_vaga'));
     $('k-lacunas').textContent = fmt(semResultado);
     $('k-lacunas-nota').textContent = buscas
       ? Math.round((semResultado / buscas) * 100) + '% das buscas do período'
@@ -909,8 +922,18 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         }).join('')
       : '<tr><td colspan="2" class="vazio">Nenhuma cidade pesquisada no período.</td></tr>';
 
-    $('tb-cursos').innerHTML = (j.cursos || []).length
-      ? j.cursos.map(function(c){
+    var cursosSemPrep = (j.cursos || []).filter(function(c){ return c.fonte !== 'preparacao'; });
+    var PASSOS = ['Conceitos', 'Habilidades socioemocionais', 'Monte seu currículo', 'Treine a entrevista'];
+    var cliquesPasso = {};
+    (j.cursos || []).forEach(function(c){
+      if(c.fonte === 'preparacao') cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] = (cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] || 0) + (c.cliques || 0);
+    });
+    $('tb-prep').innerHTML = PASSOS.map(function(p, i){
+      return '<tr><td>' + (i + 1) + '. ' + esc(p) + '</td><td class="direita num">' + fmt(cliquesPasso[p] || 0) + '</td></tr>';
+    }).join('');
+    $('prep-feitos').textContent = fmt(total(j, 'preparacao_feito'));
+    $('tb-cursos').innerHTML = cursosSemPrep.length
+      ? cursosSemPrep.map(function(c){
           return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
             esc(FONTES[c.fonte] || c.fonte || '–') + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
         }).join('')

@@ -187,6 +187,14 @@
     if (href.indexOf('wa.me') !== -1) { track('clique_whatsapp'); return; }
     if (link.closest('footer')) return;
 
+    /* Preparação para o mundo do trabalho: os 4 passos (cursos do SENAI/EVG e currículo/entrevista no Trampolim) */
+    if (link.classList.contains('prep-btn')) {
+      var passo = link.closest('[data-prep]');
+      var nomePasso = passo ? limpar((passo.querySelector('h5') || {}).textContent) : '';
+      track('clique_curso', ctx({ fonte: 'preparacao', item: 'Preparação · ' + (nomePasso || 'passo') }));
+      return;
+    }
+
     /* curso */
     if (link.classList.contains('btn-curso')) {
       var cartao = link.closest('.curso');
@@ -219,6 +227,15 @@
                                 : '[atalho] Lista completa de vagas no Trampolim SP'
       }));
     }
+  }, true);
+
+  /* "Marcar como feito" da preparação: conta só quando a pessoa MARCA (o clique roda antes do portal trocar o estado) */
+  document.addEventListener('click', function (e) {
+    var b = e.target.closest && e.target.closest('.prep-fiz');
+    if (!b || b.getAttribute('aria-pressed') !== 'false') return;
+    var passo = b.closest('[data-prep]');
+    var nomePasso = passo ? limpar((passo.querySelector('h5') || {}).textContent) : '';
+    track('preparacao_feito', ctx({ fonte: 'preparacao', item: 'Preparação · ' + (nomePasso || 'passo') }));
   }, true);
 
   /* =====================================================================
