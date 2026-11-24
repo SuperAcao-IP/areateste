@@ -442,7 +442,8 @@ function cartoesPreparacao(){
     '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p>'+
     (meta?'<span class="prep-meta">'+esc(meta)+'</span>':'')+'</div>'+
     (urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+' '+linkExterno+'</a>':'')+'</li>';
-  return '<div class="prep-intro"><p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo. Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
+  return '<div class="prep-intro"><p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo.</p>'+
+    '<p>Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
     '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
     '<div class="prep-fase"><h4>Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
       passo(1,"Conceitos","SENAI","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.","Online e gratuito · 14 horas",PREPARACAO_LINKS.conceitos,"Fazer o curso")+

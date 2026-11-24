@@ -330,8 +330,9 @@
 
   /* preparação para o mundo do trabalho: sequência em 4 passos */
   .prep-intro{ background:var(--azul-suave); border-left:5px solid var(--azul); border-radius:0 var(--raio-sm) var(--raio-sm) 0; padding:1rem 1.25rem; margin-bottom:1.6rem; }
-  .prep-intro p{ margin:0; font-size:1.02rem; line-height:1.55; max-width:72ch; color:var(--texto); }
-  .prep-intro p + p{ margin-top:.55rem; }
+  .prep-intro p{ margin:0; font-size:1.02rem; line-height:1.55; color:var(--texto); }
+  .prep-intro p + p{ margin-top:.35rem; }
+  @media (min-width:760px){ .prep-intro p{ white-space:nowrap; } }
   .prep-fase + .prep-fase{ margin-top:1.8rem; }
   .prep-fase h4{ font-size:1.1rem; margin-bottom:.9rem; display:flex; flex-wrap:wrap; align-items:baseline; gap:.3rem .7rem; }
   .prep-fase h4 small{ font-family:"Mulish",system-ui,sans-serif; font-size:.85rem; font-weight:700; color:var(--texto-suave); }
