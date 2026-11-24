@@ -84,12 +84,20 @@ function montar(){
     bloco("Uso do portal", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#5C5B5F">Os números de uso entram aqui quando o Secret PAINEL_CHAVE estiver cadastrado no GitHub.</p>`);
   }
 
-  /* cursos */
+  /* cursos (um bloco só: números gerais e cobertura de cursos presenciais) */
+  const presenciais = cob ? (() => {
+    const semNada = municipios.filter(m => !Object.values(cob.municipios[m] || {}).some(([n]) => n));
+    return `<p style="margin:14px 0 0;font:13.5px Arial,sans-serif;color:#002D4D">` + (semNada.length
+      ? `<b style="color:#B06F0B">${semNada.length} municípios</b> sem nenhum curso presencial na própria cidade: ${esc(semNada.join(", "))}.`
+      : "Todos os municípios têm pelo menos um curso presencial.") + "</p>";
+  })() : "";
   if(cursos){
     bloco(`Cursos (retrato de ${dataBR(cursos.retrato)})`, tabela([
       ["No portal agora", fmt(cursos.agora.length)], ["Entraram esta semana", fmt(cursos.novos.length)], ["Saíram", fmt(cursos.sairam.length)]
-    ]) + areasTop(cursos.novos, "Áreas com mais cursos novos", "curso(s) novo(s)"));
+    ]) + areasTop(cursos.novos, "Áreas com mais cursos novos", "curso(s) novo(s)") + presenciais);
     resumoTexto.push(`${fmt(cursos.novos.length)} cursos novos`);
+  } else if(presenciais){
+    bloco("Cursos", presenciais);
   }
 
   /* vagas */
@@ -99,14 +107,6 @@ function montar(){
       ["Aceitam sem experiência", fmt(vagas.agora.filter(v => /^sem experi/i.test(v.experiencia || "")).length)]
     ]) + (vagas.semComparacao ? `<p style="margin:8px 0 0;font:13px Arial,sans-serif;color:#5C5B5F">Primeiro retrato completo das vagas: a comparação com a semana anterior começa no próximo.</p>` : "") + areasTop(vagas.agora, "Áreas com mais vagas no portal", "vaga(s)"));
     resumoTexto.push(`${fmt(vagas.agora.length)} vagas no portal`);
-  }
-
-  /* cobertura */
-  if(cob){
-    const semNada = municipios.filter(m => !Object.values(cob.municipios[m] || {}).some(([n]) => n));
-    bloco("Cursos presenciais", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#002D4D">${semNada.length
-      ? `<b style="color:#B06F0B">${semNada.length} municípios</b> sem nenhum curso presencial na própria cidade: ${esc(semNada.join(", "))}.`
-      : "Todos os municípios têm pelo menos um curso presencial."}</p>`);
   }
 
   let edicao = "";
