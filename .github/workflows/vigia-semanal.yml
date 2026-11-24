@@ -29,7 +29,7 @@ on:
 permissions:
   actions: write
   issues: write
-  contents: read
+  contents: write      # grava o relatório da última conferência em .github/vigia-ultimo.md
 
 concurrency:
   group: vigia-semanal
@@ -42,8 +42,13 @@ jobs:
     timeout-minutes: 300
     env:
       GH_TOKEN: ${{ github.token }}
+      GH_REPO: ${{ github.repository }}
       ENSAIO_MANUAL: ${{ github.event.inputs.ensaio == 'true' }}
     steps:
+      - uses: actions/checkout@v7
+        with:
+          ref: main
+
       - name: Conferir os robôs semanais e disparar o que faltou
         run: |
           ENSAIO=0
@@ -56,14 +61,14 @@ jobs:
             echo ""
             echo "| Robô | Última execução bem-sucedida | Situação |"
             echo "|---|---|---|"
-          } >> "$GITHUB_STEP_SUMMARY"
+          } | tee -a "$GITHUB_STEP_SUMMARY" > .github/vigia-ultimo.md
 
           idade() {   # dias desde a última execução bem-sucedida do workflow $1 (999 = nunca)
             local ult
             ult=$(gh run list --workflow "$1.yml" --status success --limit 1 --json createdAt --jq '.[0].createdAt // ""')
             if [ -z "$ult" ]; then echo 999; else echo $(( (AGORA - $(date -u -d "$ult" +%s)) / 86400 )); fi
           }
-          registrar() { echo "$1: $2"; echo "| $1 | $3 | $2 |" >> "$GITHUB_STEP_SUMMARY"; }
+          registrar() { echo "$1: $2"; echo "| $1 | $3 | $2 |" | tee -a "$GITHUB_STEP_SUMMARY" >> .github/vigia-ultimo.md; }
           esperar() {   # espera o disparo manual mais recente do workflow $1 terminar
             sleep 20
             local rid
@@ -105,5 +110,16 @@ jobs:
             gh label create vigia-automatico --color D93F0B --description "O vigia semanal disparou um robô que não rodou" 2>/dev/null || true
             gh issue create --title "Vigia $(date +%F): não rodaram e foram disparados de novo:$FALTOU" \
               --body "O agendamento do GitHub não rodou (ou não terminou bem) para:$FALTOU. O vigia disparou cada um de novo, na ordem: coleta, histórico, resumo. Veja a aba Actions." \
-              --label vigia-automatico
+              --label vigia-automatico || echo "(não consegui abrir a issue)"
           fi
+
+      - name: Guardar o relatório desta conferência
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .github/vigia-ultimo.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Vigia: relatório da conferência ($(date -u +%F))"
+          git pull --rebase origin main
+          git push origin HEAD:main
