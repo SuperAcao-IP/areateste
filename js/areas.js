@@ -22,7 +22,7 @@ const AREAS = [
     kw:["artesanat","artesa","design","producao cultural","gestao cultural","cultura popular","patrimonio cultural","artes visuais","artes plastic","artistic","bordad","ceramic","fotograf","audiovisual","edicao de video","producao musical","musica","ilustrac","serigrafia","joalheria","bijuteria","macrame","cenograf"] },
   { id:"tech", nome:"Tecnologia da Informação e Comunicação", descricao:"Informática, dados, sistemas e suporte.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>`,
-    kw:["informat","tecnolog","programac","software","computad","geoinform","banco de dados","power bi","analise de dados","ciencia de dados","inteligencia artificial","machine learning","desenvolvimento de sistemas","desenvolvimento web","sistemas de informacao","suporte tecnico","help desk","seguranca da informacao","ciberseg","cybersec","cloud","nuvem","azure","aws","python","java ","javascript","robotica","internet das coisas","redes de computador","suporte ti"] },
+    kw:["informat","tecnolog","programac","software","computad","geoinform","banco de dados","power bi","analise de dados","ciencia de dados","inteligencia artificial","machine learning","desenvolvimento de sistemas","desenvolvimento web","sistemas de informacao","suporte tecnico","help desk","seguranca da informacao","ciberseg","cybersec","cloud","nuvem","azure","aws","python","java ","javascript","robotica","internet das coisas","redes de computador","suporte ti","excel","microsoft word","word na pratica","planilha"] },
   { id:"logistica", nome:"Logística / Operações", descricao:"Estoque, almoxarifado, transporte e operações.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>`,
     kw:["logistic","estoque","almoxarif","empilhad","transporte","entrega","motorist","frota","supply chain","cadeia de suprimento","expedic","armazen","armazem","distribuic","recebimento de mercadoria","inventario","gestao de estoque","carga e descarga","abastecimento","motoboy","estoquista","camara fria","patio","auxiliar de movimentacao","operador de terminal","operador de balanca"] },
@@ -88,7 +88,10 @@ function contemPalavra(texto, chave){
    isso manda sobre o rotulo da fonte (ex.: "Cozinha Escolar" vinha rotulado "Meio Ambiente e Agro" e caia em Saude).
    Nos demais casos vale o de sempre (rotulo da fonte e, depois, o titulo). */
 function areaDoCursoPeloTitulo(titulo){
+  const n = normTxt(titulo);
   if(classificar(titulo) === "gastronomia") return "gastronomia";
+  if(/(^|[^a-z])libras([^a-z]|$)/.test(n)) return "educacao";
+  if(/cooperativismo|associativismo/.test(n)) return "gestao";
   return areaDoCurso.apply(null, arguments);
 }
 /* area de um curso: tenta pelos rotulos/tema; se nao achar, tenta pelo nome */
