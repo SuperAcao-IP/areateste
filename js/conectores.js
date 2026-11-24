@@ -930,7 +930,7 @@ function mesclarPlanilhaVagas(vagas, cidade){
     const ehGeral = (mun==="" || mun.startsWith("online") || mun.startsWith("todos"));
     const deVizinha = !ehGeral && mun!==cidNorm && vizinhas.some(x=>normTxt(x)===mun);   // vaga cadastrada numa cidade vizinha (ex.: Rio Claro)
     if(!ehGeral && mun!==cidNorm && !deVizinha) return;
-    const id = v._area ? classificar(v._area) : areaDaVaga(v.cargo);
+    const id = (v._area && areaPorNome(v._area)) || areaDaVaga(v.cargo, v._area || "");
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(v);
   });
 }

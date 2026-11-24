@@ -125,6 +125,18 @@ function renderAreasGrade(cidade){
   const wrap = document.getElementById("areasGrade");
   if(!wrap) return;
   const areas = areasComConteudo().filter(a=>conteudoDaArea(a.id).cursos.length>0);
+  if(areaAtual && !areas.some(a=>a.id===areaAtual)){
+    areaAtual=null;
+    const p=document.getElementById("painelArea"); if(p){ p.classList.remove("aberto"); p.innerHTML=""; }
+    const d=document.getElementById("dicaArea"); if(d) d.style.display="";
+  }
+  if(!areas.length){
+    wrap.innerHTML='<div class="vazio-area" style="grid-column:1/-1">Ainda não há cursos para esta cidade. Veja as vagas mais abaixo ou tente de novo em instantes.</div>';
+    const d=document.getElementById("dicaArea"); if(d) d.style.display="none";
+    if(typeof renderBusca === "function") renderBusca();
+    if(typeof atualizarResumo === "function") atualizarResumo();
+    return;
+  }
   wrap.innerHTML = areas.map(a=>{
     const c=conteudoDaArea(a.id), nC=c.cursos.length;
     return `<button class="area-btn" role="tab" aria-selected="false" data-area="${a.id}"><span class="ico">${a.icone}</span><span class="titulo">${a.nome}</span><span class="conta">${nC} curso${nC!==1?"s":""}</span></button>`;

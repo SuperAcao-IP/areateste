@@ -28,7 +28,7 @@ const AREAS = [
     kw:["logistic","estoque","almoxarif","empilhad","transporte","entrega","motorist","frota","supply chain","cadeia de suprimento","expedic","armazen","armazem","distribuic","recebimento de mercadoria","inventario","gestao de estoque","carga e descarga","abastecimento","motoboy","estoquista","camara fria","patio","auxiliar de movimentacao","operador de terminal","operador de balanca"] },
   { id:"mecanica", nome:"Mecânica e Serviços Gerais", descricao:"Mecânica, elétrica, manutenção e serviços gerais.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5a3.5 3.5 0 0 0-4.9 4.4L4 15.5 8.5 20l5.6-5.6a3.5 3.5 0 0 0 4.4-4.9l-2.5 2.5-2-2 2.5-2.5Z"/></svg>`,
-    kw:["mecanic","automot","automovel","veicul","motocicl","injecao eletronic","solda","soldagem","montagem","manutenc","industr","producao industrial","linha de producao","operador de producao","auxiliar de producao","metalurg","usinag","fabricac","maquinas","torneiro","fresad","refrigerac","ar-condicionado","ar condicionado","eletric","eletrotecnic","eletronic","servicos gerais","limpeza","jardinag","zelador","portaria","conservac","manutencao predial","chaveiro","ajudante","auxiliar operacional","auxiliar de operac","auxiliar operac","assistente de operac","operador de maquina","operador de impressao","operador de laminacao","operador de extrusao","operador troquel","operador de troquel","operador de retroescavadeira","operador de guincho","troquel","extrusao","laminacao","flexograf","galvano","envase","embalagem","movimentacao de material","movimentacao de materiais","operador (a) de producao","operador(a) de producao","operador de producao","operadora de producao","operador multifuncional","extrusora","transpaleteira","tecelao","rotomoldagem","operador de forno","operador mantenedor","operador de utilidades","tingimento","manipulacao"] },
+    kw:["mecanic","automot","automovel","veicul","motocicl","injecao eletronic","solda","soldagem","montagem","manutenc","industr","producao industrial","linha de producao","operador de producao","auxiliar de producao","metalurg","usinag","fabricac","maquinas","torneiro","fresad","refrigerac","ar-condicionado","ar condicionado","eletric","eletrotecnic","eletronic","servicos gerais","limpeza","jardinag","zelador","portaria","conservac","manutencao predial","chaveiro","ajudante","auxiliar operacional","auxiliar de operac","auxiliar operac","assistente de operac","operador de maquina","operador de impressao","operador de laminacao","operador de extrusao","operador troquel","operador de troquel","operador de retroescavadeira","operador de guincho","troquel","extrusao","laminacao","flexograf","galvano","envase","embalagem","movimentacao de material","movimentacao de materiais","operador (a) de producao","operador(a) de producao","operadora de producao","operador multifuncional","extrusora","transpaleteira","tecelao","rotomoldagem","operador de forno","operador mantenedor","operador de utilidades","tingimento","jardin"] },
   { id:"educacao", nome:"Desenvolvimento Educacional e Social", descricao:"Educação, idiomas, ação social e cidadania.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Z"/><path d="M19 18H6a2 2 0 0 0-2 2"/><path d="M9 7h6"/></svg>`,
     kw:["educac","pedagog","professor","docente","ensino","escolar","alfabetiz","assistencia social","acao social","servico social","projeto social","desenvolvimento social","impacto social","inclusao","libras","idioma","ingles","espanhol","monitoria","recreac","socioeducativ","socioemocional","primeira infancia","educacao infantil","cidadania","direitos humanos","terceiro setor","orientac educacional"] },
@@ -37,20 +37,20 @@ const AREAS = [
     kw:["jovem aprendiz","aprendiz","menor aprendiz","programa aprendiz","lei da aprendizagem","aprendizagem profissional","primeiro emprego","programa jovem","projov","patrulha mirim","camp ","clasa","abc aprendiz","espro","demà","renapsi","ciee","programa de aprendiz"] },
   { id:"gestao", nome:"Gestão, Negócios e Administrativo", descricao:"Administração, finanças, vendas e empreendedorismo.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>`,
-    kw:["administr","gestao","secretar","escritori","recepc","financ","orcament","empreend","empresari","compliance","contabil","negoci","vend","caixa","comerci","varejo","loja","marketing","redes sociais","recursos humanos"," rh ","atendiment","pessoas","lideranc","projeto","planejament","estrategi","inovac","modelo de negocio","mei","microempreend","tribut","fiscal","juridic","leis","direito","mercado","precific","custos","lucro","fluxo de caixa","dre","processos","qualidade","produtividade","cliente","office","compras","comprador","licitac","faturament","fiscal","tesouraria","cobranca","departamento pessoal","assistente administrativo","auxiliar administrativo"] }
+    kw:["administr","gestao","secretar","escritori","recepc","financ","orcament","empreend","empresari","compliance","contabil","negoci","vend","caixa","comerci","varejo","loja","marketing","redes sociais","recursos humanos"," rh ","atendiment","pessoas","lideranc","projeto","planejament","estrategi","inovac","modelo de negocio","mei","microempreend","tribut","fiscal","juridic","leis","direito","mercado","precific","custos","lucro","fluxo de caixa","dre","processos","qualidade","produtividade","cliente","office","compras","comprador","licitac","faturament","tesouraria","cobranca","departamento pessoal","assistente administrativo","auxiliar administrativo"] }
 ];
 /* Áreas que só existem nas vagas (cursos não usam). Entram na ordem antes de "logística". */
 const svgV = d => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
 const AREAS_VAGAS_EXTRA = [
   { id:"v-limpeza", nome:"Limpeza e Conservação", descricao:"Limpeza, higienização, zeladoria e conservação.",
     icone:svgV('<path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3Z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8.8-1.9Z"/>'),
-    kw:["rouparia","limpeza","higieniz","faxin","zelador","governanca","conservacao","copeir","jardin","lavagem","lavador"] },
+    kw:["rouparia","limpeza","higieniz","faxin","zelador","governanca","conservacao","copeir","lavagem","lavador"] },
   { id:"v-seguranca", nome:"Segurança e Portaria", descricao:"Vigilância, portaria e controle de acesso.",
     icone:svgV('<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/>'),
-    kw:["vigilante","porteiro","portaria","seguranca","vigia","controlador de acesso","ronda"] },
+    kw:["vigilante","porteiro","portaria","seguranca patrimonial","seguranca privada","agente de seguranca","auxiliar de seguranca","vigia","controlador de acesso","ronda"] },
   { id:"v-atendimento", nome:"Atendimento e Vendas", descricao:"Atendimento ao público, balcão, caixa, reposição e vendas.",
     icone:svgV('<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>'),
-    kw:["atendente","atendimento","repositor","balconista","vendedor","vendedora","vendas","caixa","promotor","sac","telemarketing","call center","operador de loja","e-commerce","ecommerce","frios","perecivel","pereciveis","mercearia","hortifrut"] }
+    kw:["atendente","atendimento","repositor","balconista","vendedor","vendedora","vendas","operador de caixa","operadora de caixa","operador(a) de caixa","frente de caixa","promotor","=sac","telemarketing","call center","operador de loja","e-commerce","ecommerce","frios","perecivel","pereciveis","mercearia","hortifrut"] }
 ];
 const OUTROS = { id:"outros", nome:"Outros", descricao:"Capacitações gerais e cursos que não se encaixam nas demais áreas.",
   icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>` };
@@ -66,6 +66,16 @@ function classificar(t){
    Continua valendo para radicais ("estetic" acha "esteticista"), porque
    o que se exige e o começo da palavra, nao a palavra inteira. */
 function contemPalavra(texto, chave){
+  if(chave.charAt(0) === "="){
+    const k = chave.slice(1);
+    let j = texto.indexOf(k);
+    while(j !== -1){
+      const a = j === 0 ? "" : texto[j-1], d = texto[j + k.length] || "";
+      if(!/[a-z0-9]/.test(a) && !/[a-z0-9]/.test(d)) return true;
+      j = texto.indexOf(k, j+1);
+    }
+    return false;
+  }
   let i = texto.indexOf(chave);
   while(i !== -1){
     const antes = i === 0 ? "" : texto[i-1];
@@ -81,13 +91,13 @@ function areaDoCurso(nome){
 }
 
 /* area de uma vaga: mesma ideia, mas com as areas so de vagas na ordem certa (antes de "logistica") */
-function _areasParaVagas(){
+const AREAS_ORDEM_VAGAS = (() => {
   const i = AREAS.findIndex(a => a.id === "logistica");
   return AREAS.slice(0, i).concat(AREAS_VAGAS_EXTRA).concat(AREAS.slice(i));
-}
+})();
 function classificarVaga(t){
   t = normTxt(t);
-  for(const a of _areasParaVagas()){ if(a.kw.some(k=>contemPalavra(t,k))) return a.id; }
+  for(const a of AREAS_ORDEM_VAGAS){ if(a.kw.some(k=>contemPalavra(t,k))) return a.id; }
   return "outros";
 }
 function areaDaVaga(cargo){
@@ -100,4 +110,12 @@ const AREAS_DINAMICAS = new Map();
 function normTxt(s){ return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[\u00b4\u0060\u2019\u2018]/g,"'").trim().toLowerCase(); }
 function todasAreas(){ return AREAS.concat(AREAS_VAGAS_EXTRA).concat([...AREAS_DINAMICAS.values()]).concat([OUTROS]); }
 
+/* áreas que o cadastro de CURSOS pode usar: sem as que só existem nas vagas */
+function areasParaCursos(){ return AREAS.concat([...AREAS_DINAMICAS.values()]).concat([OUTROS]); }
+/* id da área pelo nome exato (como aparece nos menus); null se não existir */
+function areaPorNome(nome){
+  const n = normTxt(nome);
+  const a = todasAreas().find(x => normTxt(x.nome) === n);
+  return a ? a.id : null;
+}
 function areaInfo(id){ return todasAreas().find(a=>a.id===id) || OUTROS; }

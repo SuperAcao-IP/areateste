@@ -134,7 +134,7 @@ function renderAdmin(){
   if(abaAdm==="cursos"){
     f.innerHTML='<p class="a_legenda_obrig">Os campos marcados com <b class="a_obrig">*</b> são obrigatórios.</p>'
       +campoMunicipio(GRUPOS_MUN_CURSOS,it.municipio)
-      +acampo("Área",aselect("a_area",todasAreas().map(a=>a.nome),it.area),true)
+      +acampo("Área",aselect("a_area",areasParaCursos().map(a=>a.nome),it.area),true)
       +acampo("Curso",ainp("a_curso",it.curso),true)
       +acampo("Instituição",ainp("a_inst",it.instituicao),true)
       +acampo("Modalidade",aselect("a_mod",MODAL_ADM,it.modalidade),true)
