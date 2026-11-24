@@ -2,9 +2,9 @@
 
 | Robô | Última execução bem-sucedida | Situação |
 |---|---|---|
-| atualizar-catalogos | há 4 dia(s) | ok |
-| atualizar-mapa | há 4 dia(s) | ok |
-| buscar-vagas | há 4 dia(s) | ok |
+| atualizar-catalogos | há 4 dia(s) | FALTOU: disparei |
+| atualizar-mapa | há 4 dia(s) | FALTOU: disparei |
+| buscar-vagas | há 4 dia(s) | FALTOU: disparei |
 | atualizar-uso | há 1 dia(s) | ok |
-| atualizar-historico | há 4 dia(s) | ok |
-| resumo-semanal | nunca | FALTOU: disparei |
+| atualizar-historico | há 4 dia(s) | FALTOU: disparei (depois da coleta) |
+| resumo-semanal | há 0 dia(s) | roda sozinho quando o histórico terminar |
