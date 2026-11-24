@@ -1,0 +1,74 @@
+name: Vigia semanal
+
+# O GitHub às vezes atrasa ou pula um agendamento (aconteceu na segunda 23/11: nenhum robô novo rodou e o e-mail não saiu).
+# Este vigia confere, toda segunda e quarta de manhã, se cada robô semanal teve uma execução bem-sucedida nos últimos
+# 4 dias; o que faltou ele dispara de novo e abre uma issue avisando. Se tudo rodou, só escreve o quadro no log.
+#
+# TESTE: o agendamento "29 11 25 11 *" roda UMA vez (25/11/2026, 08h29 em Brasília) em modo de ensaio: só mostra o que
+# faria, sem disparar nada. Depois de conferir o resultado, apague essa linha.
+on:
+  schedule:
+    - cron: "7 12 * * 1"       # segunda, 09h07 em Brasília
+    - cron: "7 12 * * 3"       # quarta, 09h07 (segunda chance)
+    - cron: "29 11 25 11 *"    # ENSAIO único: 25/11/2026 08h29 (só relata)
+  workflow_dispatch:
+    inputs:
+      ensaio:
+        description: "Só mostrar o que faria (não dispara nada)"
+        type: boolean
+        default: true
+
+permissions:
+  actions: write
+  issues: write
+  contents: read
+
+concurrency:
+  group: vigia-semanal
+  cancel-in-progress: false
+
+jobs:
+  vigia:
+    if: ${{ !github.event.repository.fork }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      GH_TOKEN: ${{ github.token }}
+      ENSAIO_AGENDADO: ${{ github.event.schedule == '29 11 25 11 *' }}
+      ENSAIO_MANUAL: ${{ github.event.inputs.ensaio == 'true' }}
+    steps:
+      - name: Conferir os robôs semanais e disparar o que faltou
+        run: |
+          ENSAIO=0
+          if [ "$ENSAIO_AGENDADO" = "true" ] || [ "$ENSAIO_MANUAL" = "true" ]; then ENSAIO=1; fi
+          LIMITE_DIAS=4
+          AGORA=$(date -u +%s)
+          FALTOU=""
+          {
+            echo "## Vigia semanal $(date -u +%F)$([ $ENSAIO = 1 ] && echo ' (ENSAIO: não dispara nada)')"
+            echo ""
+            echo "| Robô | Última execução bem-sucedida | Situação |"
+            echo "|---|---|---|"
+          } >> "$GITHUB_STEP_SUMMARY"
+          for w in atualizar-catalogos atualizar-mapa buscar-vagas atualizar-uso atualizar-historico resumo-semanal; do
+            ULT=$(gh run list --workflow "$w.yml" --status success --limit 1 --json createdAt --jq '.[0].createdAt // ""')
+            if [ -z "$ULT" ]; then IDADE=999; QUANDO="nunca"; else IDADE=$(( (AGORA - $(date -u -d "$ULT" +%s)) / 86400 )); QUANDO="$ULT (há $IDADE dia(s))"; fi
+            if [ "$IDADE" -gt "$LIMITE_DIAS" ]; then
+              if [ "$ENSAIO" = "1" ]; then
+                SIT="FALTOU: no modo normal eu dispararia de novo"
+              else
+                gh workflow run "$w.yml" && SIT="FALTOU: disparei de novo" || SIT="FALTOU: não consegui disparar"
+              fi
+              FALTOU="$FALTOU $w"
+            else
+              SIT="ok"
+            fi
+            echo "$w: $QUANDO -> $SIT"
+            echo "| $w | $QUANDO | $SIT |" >> "$GITHUB_STEP_SUMMARY"
+          done
+          if [ -n "$FALTOU" ] && [ "$ENSAIO" = "0" ]; then
+            gh label create vigia-automatico --color D93F0B --description "O vigia semanal disparou um robô que não rodou" 2>/dev/null || true
+            gh issue create --title "Vigia $(date +%F): não rodaram e foram disparados de novo:$FALTOU" \
+              --body "O agendamento do GitHub não rodou (ou não terminou bem) para:$FALTOU. O vigia disparou cada um de novo. Veja a aba Actions." \
+              --label vigia-automatico
+          fi

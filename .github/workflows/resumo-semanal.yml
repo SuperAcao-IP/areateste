@@ -1,6 +1,7 @@
 name: Resumo semanal (e-mail)
 
-# Roda sozinho assim que o robô "Histórico de cursos" termina (domingo, ~10h30 em Brasília), ou pelo botão "Run workflow".
+# Roda sozinho assim que o robô "Histórico de cursos" termina (domingo, ~10h30 em Brasília), no seu próprio horário de domingo
+# (11h11, caso o primeiro gatilho falhe) ou pelo botão "Run workflow". O vigia semanal confere se rodou.
 # Monta o resumo da semana (só números agregados, sem dados pessoais) e publica:
 #   dados/resumo-semanal.html  o resumo pronto
 #   dados/resumo-semanal.xml   feed RSS que o Power Automate da conta coordcampo lê para mandar o e-mail
@@ -9,6 +10,9 @@ on:
   workflow_run:
     workflows: ["Histórico de cursos"]
     types: [completed]
+  schedule:
+    - cron: "11 14 * * 0"       # domingo 11h11 em Brasília: não depende mais só do robô do histórico terminar
+    - cron: "17 11 25 11 *"    # ENSAIO único: 25/11/2026 08h17. Publica o resumo e o Power Automate manda o e-mail de teste. Depois de conferir, apague esta linha.
   workflow_dispatch:
 
 permissions:

@@ -36,3 +36,19 @@ Se rodar duas vezes no mesmo dia, o item do dia é substituído, não duplicado.
   essa conta. Peça a liberação dos conectores **RSS** e **Office 365 Outlook** (são conectores padrão, sem custo extra).
 - **O e-mail chega sem formatação**: confira se o corpo está em modo código (</>) com o **Resumo do feed**.
 - **Os números de uso não aparecem**: falta o Secret `PAINEL_CHAVE` no GitHub (veja o README).
+
+## Como garantir que o e-mail sai (e como testar sem esperar o domingo)
+O e-mail depende de uma cadeia: **robô do histórico → resumo semanal → feed RSS → fluxo do Power Automate → e-mail**.
+Em 23/11 a cadeia não rodou: o GitHub não disparou os agendamentos novos, e o resumo só roda depois do histórico.
+
+O que existe agora:
+- **O resumo tem agendamento próprio** (domingo 11h11), além de rodar quando o histórico termina. Se o mesmo dia roda duas vezes,
+  o item do dia é substituído e o e-mail não sai duas vezes.
+- **Vigia semanal** (`.github/workflows/vigia-semanal.yml`, segunda e quarta às 9h07): se algum robô semanal ou o resumo não teve
+  execução bem-sucedida nos últimos 4 dias, dispara de novo e abre uma issue "Vigia ...".
+- **Ensaios agendados para 25/11/2026** (rodam sozinhos, uma vez):
+  - 08h17: o resumo roda e publica um item novo no feed; o Power Automate deve mandar o e-mail de teste (pode levar até ~30 min).
+  - 08h29: o vigia roda em modo de ensaio e mostra, no resumo da execução (Actions → Vigia semanal), o que faria.
+  Depois de conferir, apague as linhas de cron "ENSAIO" desses dois arquivos.
+- Se o e-mail de teste não chegar até ~09h30, o problema está depois do GitHub: confira se o fluxo está **Ativado** e o histórico de
+  execuções dele em make.powerautomate.com (conta coordcampo). Dá para rodar o fluxo na mão pelo botão **Testar**.
