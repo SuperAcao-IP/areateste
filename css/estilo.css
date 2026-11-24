@@ -718,3 +718,6 @@ header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px;
 
 /* aviso de trabalho remoto/híbrido nos cartões de vaga */
 .vaga-aviso-remoto{ font-size:.8rem; font-weight:700; color:#78487F; background:#f1e6f1; border-radius:8px; padding:6px 10px; }
+
+/* filtro de modalidade (online/presencial) acima da busca de cursos e de vagas */
+.filtro-modalidade{ margin:0 0 .8rem; }
