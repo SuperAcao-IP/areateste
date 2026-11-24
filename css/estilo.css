@@ -668,3 +668,11 @@ header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px;
 /* aviso de golpe */
 .vagas-aviso{ margin:16px 0 0; padding:11px 14px; border-radius:10px; font-size:15px; font-weight:600; color:var(--texto); gap:10px; }
 .vagas-aviso svg{ margin-top:0; }
+
+/* etiquetas com cores diferentes por tipo (paleta FGV) */
+.curso .meta .item.mod-presencial, .vaga .meta .item.mod-presencial{ background:var(--azul-suave); color:var(--azul); }
+.curso .meta .item.mod-online, .vaga .meta .item.mod-online{ background:#f1e6f1; color:#78487F; }
+.curso .meta .item.mod-outra, .vaga .meta .item.mod-outra{ background:#eceef1; color:#5C5B5F; }
+.curso .meta .item.esc, .vaga .meta .item.esc{ background:#eaf1db; color:#566b34; }
+.curso .meta .item.exp, .vaga .meta .item.exp, .curso .meta .item.turno, .vaga .meta .item.turno{ background:#eceef1; color:#5C5B5F; }
+.curso .meta .item.tipo, .vaga .meta .item.tipo{ background:#dff0fa; color:#0C63AA; }

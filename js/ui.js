@@ -757,6 +757,8 @@ function _dataCurta(d){
   return dd+"/"+mm+(d.getFullYear()!==new Date().getFullYear()?"/"+d.getFullYear():"");
 }
 
+/* cor da etiqueta de modalidade: presencial, online ou outra */
+function classeModalidade(m){ return /presencial/i.test(m||"") ? "mod-presencial" : /online|ead|dist[aâ]ncia/i.test(m||"") ? "mod-online" : "mod-outra"; }
 function cartaoCurso(c){
   const rotulo = ehLinkMaps(c.link) ? "Local de inscrição" : "Como se inscrever";
   const abreEm = aindaNaoAbriu(c);
@@ -780,7 +782,7 @@ function cartaoCurso(c){
   const _cargaTxt = String(c.carga==null?"":c.carga).trim();
   const _cargaSimples = /^\d+([.,]\d+)?\s*(h|horas?)?$/i.test(_cargaTxt);
   const cargaGrande = _cargaSimples ? '<div class="curso-carga"><b>'+esc(_cargaTxt.replace(/\s*horas?$/i,"").replace(/h$/i,""))+'h</b><small>carga horária</small></div>' : "";
-  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="curso-topo"><div class="curso-tit"><div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}</div>${cargaGrande}</div>${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga&&!_cargaSimples?`<span class="item">⏱ ${c.carga}</span>`:""}${c.carga&&cargaNaFaixaTolerada(c.carga)?`<span class="item">carga entre 15 e 19 h</span>`:""}${c.bolsa?`<span class="item destaque">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="curso-topo"><div class="curso-tit"><div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}</div>${cargaGrande}</div>${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item ${classeModalidade(c.modalidade)}"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item turno">🕗 ${esc(c.turno)}</span>`:""}${c.carga&&!_cargaSimples?`<span class="item">⏱ ${c.carga}</span>`:""}${c.carga&&cargaNaFaixaTolerada(c.carga)?`<span class="item">carga entre 15 e 19 h</span>`:""}${c.bolsa?`<span class="item destaque">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
 }
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
@@ -792,10 +794,10 @@ function cartaoVaga(v){
   const contratoGrande = /^clt$/i.test((v.tipo||"").trim());
   const num = contratoGrande ? '<div class="curso-carga"><b>CLT</b><small>contrato</small></div>' : "";
   const pills = [
-    semExp ? pill("Aceita sem experiência","destaque") : (v.experiencia ? pill(v.experiencia) : ""),
-    v.escolaridade ? pill(/sem\s+escolaridade/i.test(v.escolaridade) ? "Sem escolaridade mínima" : "Escolaridade: "+v.escolaridade) : "",
-    (v.tipo && !contratoGrande) ? pill(v.tipo) : "",
-    v.turno ? pill("Turno: "+v.turno) : (v.modalidade ? pill(v.modalidade) : "")
+    semExp ? pill("Aceita sem experiência","destaque") : (v.experiencia ? pill(v.experiencia,"exp") : ""),
+    v.escolaridade ? pill(/sem\s+escolaridade/i.test(v.escolaridade) ? "Sem escolaridade mínima" : "Escolaridade: "+v.escolaridade,"esc") : "",
+    (v.tipo && !contratoGrande) ? pill(v.tipo,"tipo") : "",
+    v.turno ? pill("Turno: "+v.turno,"turno") : (v.modalidade ? pill(v.modalidade,classeModalidade(v.modalidade)) : "")
   ].filter(Boolean).join("");
   const linha = [v.cidade, publicada ? "publicada em "+publicada : "", (v.telefone && !v.anonima) ? v.telefone : ""].filter(Boolean).join(" · ");
   const empresa = v.empresa ? '<div class="empresa"><span>'+esc(v.empresa)+(v._trampolim ? ' · via Trampolim SP' : (v._via ? ' · via '+esc(v._via) : ""))+'</span></div>' : "";
