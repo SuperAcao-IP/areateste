@@ -1,5 +1,5 @@
 # Coleta do Senac no computador da equipe (o GitHub leva 503 do firewall do Senac; aqui, com o IP de casa, funciona).
-# A Tarefa do Windows chama este arquivo todo domingo, depois do robô do mapa do GitHub (que mantém o que este publica):
+# A Tarefa do Windows chama este arquivo toda segunda às 9h, depois do robô do mapa do GitHub, que roda no domingo (e mantém o que este publica):
 #   1. atualiza o repositório;
 #   2. coleta unidades e cursos com bolsa do Senac (1 requisição por segundo; para no primeiro 403);
 #   3. publica dados/unidades.js no GitHub.

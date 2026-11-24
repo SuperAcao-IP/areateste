@@ -48,7 +48,8 @@ O que existe agora:
   execução bem-sucedida nos últimos 4 dias, dispara de novo e abre uma issue "Vigia ...".
 - **Ensaios agendados para 25/11/2026** (rodam sozinhos, uma vez):
   - 08h17: o resumo roda e publica um item novo no feed; o Power Automate deve mandar o e-mail de teste (pode levar até ~30 min).
-  - 08h29: o vigia roda em modo de ensaio e mostra, no resumo da execução (Actions → Vigia semanal), o que faria.
-  Depois de conferir, apague as linhas de cron "ENSAIO" desses dois arquivos.
+  - 08h29: o vigia roda em modo real: o que não rodou na semana de 23/11 (catálogos, mapa, vagas, histórico) é disparado de novo, e o quadro
+    fica no resumo da execução (Actions → Vigia semanal). Quando o histórico termina, o resumo roda de novo (mesmo dia: item substituído, sem e-mail duplicado).
+  Depois de conferir, apague as linhas de cron "ENSAIO"/"ÚNICO" desses dois arquivos.
 - Se o e-mail de teste não chegar até ~09h30, o problema está depois do GitHub: confira se o fluxo está **Ativado** e o histórico de
   execuções dele em make.powerautomate.com (conta coordcampo). Dá para rodar o fluxo na mão pelo botão **Testar**.

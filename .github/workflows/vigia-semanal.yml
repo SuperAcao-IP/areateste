@@ -4,13 +4,13 @@ name: Vigia semanal
 # Este vigia confere, toda segunda e quarta de manhã, se cada robô semanal teve uma execução bem-sucedida nos últimos
 # 4 dias; o que faltou ele dispara de novo e abre uma issue avisando. Se tudo rodou, só escreve o quadro no log.
 #
-# TESTE: o agendamento "29 11 25 11 *" roda UMA vez (25/11/2026, 08h29 em Brasília) em modo de ensaio: só mostra o que
-# faria, sem disparar nada. Depois de conferir o resultado, apague essa linha.
+# RECUPERAÇÃO: o agendamento "29 11 25 11 *" roda UMA vez (25/11/2026, 08h29 em Brasília) em modo REAL: a semana de 23/11
+# não foi coletada (o GitHub não rodou os agendamentos de segunda), então ele dispara o que faltou. Depois, apague essa linha.
 on:
   schedule:
     - cron: "7 12 * * 1"       # segunda, 09h07 em Brasília
     - cron: "7 12 * * 3"       # quarta, 09h07 (segunda chance)
-    - cron: "29 11 25 11 *"    # ENSAIO único: 25/11/2026 08h29 (só relata)
+    - cron: "29 11 25 11 *"    # ÚNICO: 25/11/2026 08h29, recupera a semana que faltou (modo real)
   workflow_dispatch:
     inputs:
       ensaio:
@@ -34,13 +34,12 @@ jobs:
     timeout-minutes: 10
     env:
       GH_TOKEN: ${{ github.token }}
-      ENSAIO_AGENDADO: ${{ github.event.schedule == '29 11 25 11 *' }}
       ENSAIO_MANUAL: ${{ github.event.inputs.ensaio == 'true' }}
     steps:
       - name: Conferir os robôs semanais e disparar o que faltou
         run: |
           ENSAIO=0
-          if [ "$ENSAIO_AGENDADO" = "true" ] || [ "$ENSAIO_MANUAL" = "true" ]; then ENSAIO=1; fi
+          if [ "$ENSAIO_MANUAL" = "true" ]; then ENSAIO=1; fi
           LIMITE_DIAS=4
           AGORA=$(date -u +%s)
           FALTOU=""

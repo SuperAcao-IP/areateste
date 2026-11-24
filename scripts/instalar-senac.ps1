@@ -1,4 +1,4 @@
-# Instala (uma vez) a Tarefa do Windows que coleta o Senac todo domingo às 11h30.
+# Instala (uma vez) a Tarefa do Windows que coleta o Senac toda segunda às 9h (o computador da equipe fica ligado nesse dia).
 # Se o computador estava desligado, a tarefa roda assim que ligar. Uso (PowerShell, na pasta do repositório):
 #   powershell -ExecutionPolicy Bypass -File scripts\instalar-senac.ps1            (instala e agenda)
 #   powershell -ExecutionPolicy Bypass -File scripts\instalar-senac.ps1 -SemTarefa (só confere os requisitos)
@@ -31,8 +31,8 @@ if ($SemTarefa) { Write-Host "Pronto (sem tarefa agendada)."; exit 0 }
 
 $script = Join-Path $PSScriptRoot "rodar-senac.ps1"
 $acao = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$script`"" -WorkingDirectory $Repo
-$gatilho = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 11:30am
+$gatilho = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Monday -At 9am
 $config = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
 Register-ScheduledTask -TaskName $NomeTarefa -Action $acao -Trigger $gatilho -Settings $config -Description "Coleta unidades e cursos com bolsa do Senac e publica dados/unidades.js no GitHub" -Force | Out-Null
-Write-Host "OK  Tarefa '$NomeTarefa' agendada: todo domingo às 11h30."
+Write-Host "OK  Tarefa '$NomeTarefa' agendada: toda segunda às 9h."
 Write-Host "Para testar agora: powershell -ExecutionPolicy Bypass -File scripts\rodar-senac.ps1"
