@@ -43,15 +43,15 @@ async function montarDados(cidade){
   const IFMG_LISTA  = (typeof IFMG  !== "undefined" && Array.isArray(IFMG))  ? catalogoPermitido(IFMG,"ifmg")   : [];
   const MUNDI_LISTA = (typeof MUNDI !== "undefined" && Array.isArray(MUNDI)) ? catalogoPermitido(MUNDI,"mundi") : [];
 
-  EVG_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  EVG_LISTA.forEach(c=>add(areaDoCursoPeloTitulo(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:c.inst+" · EVG", modalidade:"Online", carga:c.carga, link:c.link}));
-  EV_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  EV_LISTA.forEach(c=>add(areaDoCursoPeloTitulo(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Fundação Bradesco · Escola Virtual", modalidade:"Online", carga:c.carga, link:c.link}));
-  AM_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  AM_LISTA.forEach(c=>add(areaDoCursoPeloTitulo(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Aprenda Mais · MEC (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
-  IFMG_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  IFMG_LISTA.forEach(c=>add(areaDoCursoPeloTitulo(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Instituto Federal de Minas Gerais · +IFMG (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
-  MUNDI_LISTA.forEach(c=>add(areaDoCurso(c.titulo, c.area),"cursos",
+  MUNDI_LISTA.forEach(c=>add(areaDoCursoPeloTitulo(c.titulo, c.area),"cursos",
     {nome:c.titulo, inst:"Instituto Federal Sul-rio-grandense · Mundi (online, gratuito)", modalidade:"Online", carga:c.carga, link:c.link}));
 
   /* cursos manuais (dados.json) */
@@ -592,7 +592,7 @@ function renderVagas(){
     btn.addEventListener("click",()=>selecionarAreaVagas(btn.dataset.area));
   });
   if(dica) dica.style.display=areaVagasAtual?"none":"";
-  rodape.innerHTML=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
+  rodape.innerHTML=`<p class="vagas-mais"><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
   if(areaVagasAtual) renderPainelVagas(); else { painel.classList.remove("aberto"); painel.innerHTML=""; }
   atualizarResumo();
   renderBuscaVagas();

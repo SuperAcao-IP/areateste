@@ -8,6 +8,7 @@ Pessoas de famílias de baixa renda atendidas pelo SuperAção SP (Governo do Es
 - Critérios: `config.toml`. Mudou critério: altere o `config.toml` e a seção "Critérios" abaixo.
 - Código: `robo/buscar.py` (rotina), `robo/fontes.py`, `robo/filtro.py`, `robo/municipios.py`, `robo/conferir.py`, `robo/portal.py`, `robo/registro.py`, `robo/fila.py`.
 - Vagas no portal: `vagas/ativas.json` → `dados/vagas-robo.json` (gerado; não edite à mão).
+- Local das vagas no mapa: `node scripts/geocodificar-vagas.js` (roda no fim do workflow semanal) lê o endereço da página de cada vaga do Gupy e grava `dados/vagas-local.json` (gerado). Vaga sem endereço aproveitável fica no pino do centro do município.
 - Histórico: `vagas/vagas.csv` (nunca leia inteiro; use `python -m robo.fila listar`). Relatórios: `relatorios/AAAA-MM-DD-busca.md`.
 
 ## Divisão de trabalho

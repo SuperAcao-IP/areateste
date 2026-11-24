@@ -84,6 +84,13 @@ function contemPalavra(texto, chave){
   }
   return false;
 }
+/* area de um curso de catalogo (EVG, Bradesco, Aprenda Mais, IFMG, Mundi): se o TITULO e de cozinha/alimentos,
+   isso manda sobre o rotulo da fonte (ex.: "Cozinha Escolar" vinha rotulado "Meio Ambiente e Agro" e caia em Saude).
+   Nos demais casos vale o de sempre (rotulo da fonte e, depois, o titulo). */
+function areaDoCursoPeloTitulo(titulo){
+  if(classificar(titulo) === "gastronomia") return "gastronomia";
+  return areaDoCurso.apply(null, arguments);
+}
 /* area de um curso: tenta pelos rotulos/tema; se nao achar, tenta pelo nome */
 function areaDoCurso(nome){
   for(let i=1;i<arguments.length;i++){ const id=classificar(arguments[i]); if(id!=="outros") return id; }

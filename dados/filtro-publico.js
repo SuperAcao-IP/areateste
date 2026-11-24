@@ -113,10 +113,8 @@ const TITULOS_PERMITIDOS = {
   "controle e manutencao de estoque",
   "cozinha escolar: planejamento e preparo",
   "economia solidaria na agricultura familiar",
-  "gestao integrada de residuos solidos",
   "informatica basica",
   "introducao a profissao almoxarife",
-  "introducao aos residuos solidos",
   "libras i",
   "libras ii",
   "libras iii",
@@ -142,7 +140,6 @@ const TITULOS_PERMITIDOS = {
   "acessibilidade na comunicacao",
   "comunicacao assertiva: oratoria, retorica e tecnicas de apresentacao",
   "economia criativa, empreendedorismo e inovacao",
-  "educacao ambiental climatica e reducao de riscos de desastres",
   "eixo 1 - colaborando e cooperando para metas compartilhadas programa - trabalho em equipe",
   "eixo 1 - empregando o autoconhecimento programa - auto conhecimento e desenvolvimento pessoal",
   "eixo 2 - comprometendo-se com o desenvolvimento pessoa programa - autoconhecimento e desenvolvimento pessoal",
@@ -154,7 +151,6 @@ const TITULOS_PERMITIDOS = {
   "introducao ao excel",
   "midias digitais e saude mental de criancas e adolescentes",
   "portugues - interpretacao de texto e emprego de regras gramaticais",
-  "producao e edicao de video pelo celular",
-  "residuos solidos"
+  "producao e edicao de video pelo celular"
  ]
 };

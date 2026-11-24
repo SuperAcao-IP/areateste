@@ -946,11 +946,21 @@ function mesclarPlanilhaVagas(vagas, cidade){
    Liga/desliga: VAGAS_ROBO_ATIVO em js/config.js.
    ===================================================================== */
 let _promessaVagasRobo = null;
+let _locaisVagasRobo = {};          // id da vaga -> {lat, lon}
 function carregarVagasRobo(){
   if(!_promessaVagasRobo){
     _promessaVagasRobo = fetch(DADOS_BASE+"dados/vagas-robo.json", {cache:"no-cache"})
       .then(r => r.ok ? r.json() : { vagas: [] })
       .then(j => Array.isArray(j && j.vagas) ? j.vagas : [])
+      .then(async vagas => {
+        /* local aproximado das vagas do Gupy (scripts/geocodificar-vagas.js); se não carregar, a vaga fica no pino do município */
+        try{
+          const r = await fetch(DADOS_BASE+"dados/vagas-local.json", {cache:"no-cache"});
+          const j = r.ok ? await r.json() : null;
+          _locaisVagasRobo = (j && j.locais) || {};
+        }catch(_){ _locaisVagasRobo = {}; }
+        return vagas;
+      })
       .catch(e => { console.warn("[Robô de vagas] dados/vagas-robo.json não carregou:", e); _promessaVagasRobo = null; return []; });
   }
   return _promessaVagasRobo;
@@ -966,6 +976,8 @@ function mesclarVagasRobo(cidade, vagas){
     const deVizinha = !daCidade && vizinhas.some(x=>normTxt(x)===mun);
     if(!daCidade && !deVizinha) return;
     const obj = Object.assign({}, v, { _id:"robo:"+v.id, _robo:true, _via:v.fonte, _deOutraCidade: deVizinha ? v.municipio : null });
+    const loc = _locaisVagasRobo[String(v.id)];
+    if(loc && loc.lat != null && loc.lon != null) obj._aprox = { lat: loc.lat, lon: loc.lon };      // posição aproximada: vai para o pino da região no mapa
     const id = areaDaVaga(v.cargo);
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(obj);
     n++;

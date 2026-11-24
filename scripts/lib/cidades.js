@@ -11,11 +11,12 @@ function carregarCidades(){
   const ctx = { console: { log(){}, warn(){}, error(){} } };
   vm.createContext(ctx);
   vm.runInContext(lerSite("js/areas.js") + "\n" + lerSite("js/config.js") + "\n" + lerSite("dados/municipios.js") +
-    "\nglobalThis.__c = { vizinhas: CIDADES_VIZINHAS, centrosBrutos: CENTROS_MUNICIPIOS, norm: normTxt };", ctx);
-  const { vizinhas, centrosBrutos, norm } = ctx.__c;
+    "\nglobalThis.__c = { vizinhas: CIDADES_VIZINHAS, centrosBrutos: CENTROS_MUNICIPIOS, externos: (typeof CENTROS_VIZINHAS_EXTERNAS !== \"undefined\" ? CENTROS_VIZINHAS_EXTERNAS : {}), norm: normTxt };", ctx);
+  const { vizinhas, centrosBrutos, externos, norm } = ctx.__c;
   const municipios = Object.keys(centrosBrutos);
   const centros = {};
   for(const m of municipios) centros[norm(m)] = { lat: centrosBrutos[m].lat, lon: centrosBrutos[m].lon };
+  for(const [m, c] of Object.entries(externos || {})) if(!centros[norm(m)]) centros[norm(m)] = { lat: c[0], lon: c[1] };   // vizinhas de fora do programa (js/config.js)
   // cidades que interessam: os municípios do portal + qualquer cidade listada como vizinha de um deles
   const interessam = new Set(municipios.map(norm));
   Object.values(vizinhas).forEach(l => l.forEach(v => interessam.add(norm(v))));

@@ -49,13 +49,22 @@ jobs:
           EMAIL_DESTINO: ${{ secrets.EMAIL_DESTINO }}
         run: python -m robo.buscar --relatorio ../relatorio-vagas.md
 
+      - uses: actions/setup-node@v7
+        with:
+          node-version: 24
+
+      # Lê o endereço de cada vaga do Gupy e grava a posição aproximada (dados/vagas-local.json). Se falhar, o mapa usa o centro do município.
+      - name: Localizar as vagas no mapa
+        continue-on-error: true
+        run: node scripts/geocodificar-vagas.js
+
       # Grava mesmo se algo falhou no meio: o histórico (vagas.csv) evita repetir vaga na semana seguinte.
       - name: Publicar na main
         if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add dados/vagas-robo.json robo-vagas/vagas robo-vagas/relatorios robo-vagas/dados
+          git add dados/vagas-robo.json dados/vagas-local.json robo-vagas/vagas robo-vagas/relatorios robo-vagas/dados
           git diff --cached --quiet || git commit -m "Robô de vagas: atualização automática ($(date +%F))"
           git pull --rebase origin main
           git push origin HEAD:main
