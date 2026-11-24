@@ -39,8 +39,8 @@ jobs:
       - name: Coletar unidades, geocodificar e gerar os dados do mapa
         id: mapa
         continue-on-error: true
-        env:
-          COLETAR_SENAC: "1"   # coleta no site do Senac ligada (1 requisição por segundo; para no primeiro 403)
+        # O Senac NÃO é coletado aqui: o firewall dele devolve 503 para o GitHub. A coleta roda no computador da equipe
+        # (scripts/rodar-senac.ps1, Tarefa do Windows) e esta rodada só mantém o que ela publicou.
         run: node scripts/atualizar-mapa.js --relatorio relatorio-mapa.md
 
       - name: Publicar na main

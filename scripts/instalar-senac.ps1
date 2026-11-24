@@ -1,0 +1,38 @@
+# Instala (uma vez) a Tarefa do Windows que coleta o Senac todo domingo às 11h30.
+# Se o computador estava desligado, a tarefa roda assim que ligar. Uso (PowerShell, na pasta do repositório):
+#   powershell -ExecutionPolicy Bypass -File scripts\instalar-senac.ps1            (instala e agenda)
+#   powershell -ExecutionPolicy Bypass -File scripts\instalar-senac.ps1 -SemTarefa (só confere os requisitos)
+param([switch]$SemTarefa)
+$ErrorActionPreference = "Stop"
+$Repo = Split-Path -Parent $PSScriptRoot
+$NomeTarefa = "SuperAcao - coleta do Senac"
+
+# Node 20 ou mais novo
+$v = (node --version) 2>$null
+if (-not $v) { throw "Falta instalar o Node.js (https://nodejs.org, versão LTS)." }
+if ([version]($v.TrimStart("v")) -lt [version]"20.0") { throw "O Node encontrado é $v; precisa do 20 ou mais novo." }
+Write-Host "OK  Node $v"
+
+# GitHub: a tarefa faz push de dados/unidades.js
+gh auth status 2>$null
+if ($LASTEXITCODE -ne 0) {
+    Write-Host "Falta entrar no GitHub. Rode 'gh auth login' (GitHub.com, HTTPS, login pelo navegador) e depois rode este script de novo."
+    exit 1
+}
+gh auth setup-git
+if (-not (git -C $Repo config user.name)) {
+    $login = (gh api user --jq .login).Trim()
+    git -C $Repo config user.name $login
+    git -C $Repo config user.email "$login@users.noreply.github.com"
+}
+Write-Host "OK  GitHub"
+
+if ($SemTarefa) { Write-Host "Pronto (sem tarefa agendada)."; exit 0 }
+
+$script = Join-Path $PSScriptRoot "rodar-senac.ps1"
+$acao = New-ScheduledTaskAction -Execute "powershell.exe" -Argument "-NoProfile -ExecutionPolicy Bypass -File `"$script`"" -WorkingDirectory $Repo
+$gatilho = New-ScheduledTaskTrigger -Weekly -DaysOfWeek Sunday -At 11:30am
+$config = New-ScheduledTaskSettingsSet -StartWhenAvailable -ExecutionTimeLimit (New-TimeSpan -Hours 1) -AllowStartIfOnBatteries -DontStopIfGoingOnBatteries
+Register-ScheduledTask -TaskName $NomeTarefa -Action $acao -Trigger $gatilho -Settings $config -Description "Coleta unidades e cursos com bolsa do Senac e publica dados/unidades.js no GitHub" -Force | Out-Null
+Write-Host "OK  Tarefa '$NomeTarefa' agendada: todo domingo às 11h30."
+Write-Host "Para testar agora: powershell -ExecutionPolicy Bypass -File scripts\rodar-senac.ps1"

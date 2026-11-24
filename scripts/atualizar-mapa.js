@@ -93,7 +93,12 @@ async function main(){
 
   /* ===== Senac ===== */
   let senac = unidadesAnt.filter(u => u.inst === "Senac"), senacRes = "mantido";
-  if(!COLETAR_SENAC && !IGNORAR.has("senac")){
+  /* Coleta feita no computador da equipe (o GitHub leva 503 do firewall do Senac): enquanto houver unidades coletadas
+     (id "senac-<código>", não "senac-manual-..."), a rodada do GitHub as MANTÉM em vez de voltar ao cadastro manual. */
+  const senacColetado = senac.some(u => !String(u.id).startsWith("senac-manual"));
+  if(!COLETAR_SENAC && !IGNORAR.has("senac") && senacColetado){
+    senacRes = "mantido da última coleta feita no computador da equipe (" + senac.length + " unidades, " + senac.reduce((a, u) => a + (u.cursos || []).length, 0) + " ofertas de curso)";
+  } else if(!COLETAR_SENAC && !IGNORAR.has("senac")){
     try{
       const cad = JSON.parse(fs.readFileSync(path.join(__dirname, "fontes", "unidades-senac-cadastro.json"), "utf8")).unidades || [];
       if(!cad.length) throw new Error("cadastro manual de unidades do Senac vazio");
