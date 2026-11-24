@@ -540,3 +540,36 @@ footer{padding-bottom:110px}
 .admin-foot{margin-top:1rem;display:flex;align-items:center;gap:.7rem;flex-wrap:wrap}
 .admin-dica{font-size:.78rem;color:#6b7480}
 @media(max-width:560px){#admin-form{grid-template-columns:1fr}}
+
+/* ---------- alinhado à prévia de layout ---------- */
+/* entrada clara: degradê azul celeste | branco, sem fundo escuro */
+.hero{ background:linear-gradient(120deg,#cfe8f7 0%,#e6f3fb 55%,#ffffff 100%); color:var(--texto); border-bottom:1px solid #b9dcf1; }
+.hero::after{ display:none; }
+.hero h1{ color:var(--azul); }
+.hero h1 em{ color:var(--acao); }
+.hero p.lead{ color:var(--texto-suave); }
+.hero .selo{ color:var(--azul); background:#fff; border:1px solid #b9dcf1; backdrop-filter:none; }
+.hero .passo{ background:#fff; border:1px solid var(--linha); box-shadow:var(--sombra); }
+.hero .passo .n{ background:var(--grad); color:#fff; }
+.hero .passo h4{ color:var(--azul); }
+.hero .passo p{ color:var(--texto-suave); }
+.busca-wrap{ border:1px solid #b9dcf1; }
+
+/* títulos de seção: título azul com fio celeste e o texto de apoio ao lado, sem quadradinho de ícone */
+.bloco-titulo .ic{ display:none; }
+.bloco-titulo > div{ display:flex; flex-wrap:wrap; align-items:baseline; gap:.2rem .9rem; }
+.bloco-titulo h3{ font-size:1.4rem; color:var(--azul); padding-bottom:4px; border-bottom:3px solid var(--celeste); }
+.bloco-titulo p{ margin:0; }
+
+/* caixinhas de área compactas, só nome e quantidade */
+.areas-grade{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.65rem; }
+.area-btn{ padding:.8rem .9rem; gap:.15rem; }
+.area-btn .ico{ display:none; }
+.area-btn .titulo{ font-size:.95rem; }
+#areasGradeVagas .area-btn .titulo{ color:var(--verde); }
+#areasGradeVagas .area-btn[aria-selected="true"]{ background:var(--verde); border-color:var(--verde); }
+#areasGradeVagas .area-btn[aria-selected="true"] .titulo{ color:#fff; }
+
+/* cartões de curso: etiquetas arredondadas */
+.curso .meta .item{ background:var(--azul-suave); border:0; color:var(--azul); font-weight:700; border-radius:999px; padding:.22rem .7rem; }
+.curso .meta .item.destaque{ background:var(--verde-suave); color:#1f6b59; }
