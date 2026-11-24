@@ -31,11 +31,16 @@ const TRAMPOLIM_VAGAS_ATIVO = true;
 /* Filtro de perfil nos cursos do Trampolim: as mesmas regras dos catálogos fixos (scripts/lib/regras.js) mais as
    decisões à mão da equipe (dados/trampolim-decisoes.js). false = mostra todos os cursos do Trampolim. */
 const FILTRAR_TRAMPOLIM = true;
-/* Raio das vagas (km): começa em VAGAS_RAIO_KM; se vierem menos de VAGAS_MINIMO vagas, amplia até VAGAS_RAIO_MAX_KM.
-   O link "Ver todas as vagas no Trampolim SP" continua com 50 km (js/ui.js). */
-const VAGAS_RAIO_KM = 15;
-const VAGAS_RAIO_MAX_KM = 30;
-const VAGAS_MINIMO = 8;
+/* ---------- Preparação para o mundo do trabalho (seção entre cursos e vagas) ----------
+   Os 4 links ficam aqui para ser fácil trocar. CONFERIR antes de publicar:
+   - conceitos: página do curso "Preparação para o Mundo do Trabalho" (14h) do SENAI (hoje: Mundo SENAI, a loja de cursos online)
+   - curriculo e entrevista: páginas exatas de criação no Trampolim (hoje: site do Trampolim) */
+const PREPARACAO_LINKS = {
+  conceitos:      "https://www.mundosenai.com.br",
+  socioemocional: "https://www.escolavirtual.gov.br/cursos/318",   // Inteligência Emocional (EVG, 50h) — já está no catálogo
+  curriculo:      TRAMPOLIM_SITE,
+  entrevista:     TRAMPOLIM_SITE
+};
 
 /* ---------- robô de vagas (robo-vagas/, todo domingo) ----------
    Vagas da Gupy, Catho, InfoJobs, vagas.com (e LinkedIn/Indeed, quando a busca roda no computador da equipe),
@@ -223,6 +228,53 @@ const CIDADES_VIZINHAS = {
   /* --- Baixada Santista --- */
   "São Vicente":            ["Santos", "Praia Grande", "Cubatão"]
 };
+
+/* Raio de busca proporcional ao porte do município (cursos e vagas).
+   Cidade grande já tem muita oferta própria: raio curto. Cidade pequena precisa buscar mais longe.
+   Nunca passa de RAIO_MAX_KM (15). Não amplia quando faltam vagas: aparece o aviso com os links do Trampolim e do SINE.
+   Porte aproximado (habitantes): grande > 500 mil · médio 100 a 500 mil · pequeno < 100 mil. Município fora da tabela = pequeno. */
+const RAIO_MAX_KM = 15;
+const RAIO_POR_PORTE = { grande: 5, medio: 10, pequeno: 15 };
+const PORTE_MUNICIPIO = {
+  "Campinas":"grande", "Guarulhos":"grande", "Osasco":"grande", "São Bernardo do Campo":"grande", "Santo André":"grande",
+  "Americana":"medio", "Araras":"medio", "Barueri":"medio", "Carapicuíba":"medio", "Cotia":"medio", "Diadema":"medio",
+  "Embu das Artes":"medio", "Indaiatuba":"medio", "Itaquaquecetuba":"medio", "Itatiba":"medio", "Itu":"medio",
+  "Jundiaí":"medio", "Limeira":"medio", "Mauá":"medio", "Paulínia":"medio", "Santa Bárbara d'Oeste":"medio",
+  "Santana de Parnaíba":"medio", "São Vicente":"medio", "Sumaré":"medio", "Taboão da Serra":"medio", "Valinhos":"medio"
+};
+function raioDoMunicipio(cidade){
+  const porte = PORTE_MUNICIPIO[cidade] || "pequeno";
+  return Math.min(RAIO_POR_PORTE[porte], RAIO_MAX_KM);
+}
+/* centro aproximado (±1 km) das cidades vizinhas que não estão no programa, só para medir distância */
+const CENTROS_VIZINHAS_EXTERNAS = {
+  "Rio Claro":[-22.4114,-47.5610], "Piracicaba":[-22.7253,-47.6492], "Leme":[-22.1808,-47.3841], "Hortolândia":[-22.8583,-47.2200],
+  "Cosmópolis":[-22.6419,-47.1908], "Capivari":[-22.9950,-47.5073], "Artur Nogueira":[-22.5728,-47.1725], "Amparo":[-22.7088,-46.7720],
+  "Mogi Guaçu":[-22.3689,-46.9428], "Itapira":[-22.4358,-46.8222], "Campo Limpo Paulista":[-23.2078,-46.7884], "Francisco Morato":[-23.2792,-46.7447],
+  "Atibaia":[-23.1171,-46.5563], "Salto":[-23.2000,-47.2869], "Sorocaba":[-23.5015,-47.4526], "Porto Feliz":[-23.2143,-47.5239],
+  "Vargem Grande Paulista":[-23.5997,-47.0237], "Jandira":[-23.5275,-46.9023], "Itapevi":[-23.5489,-46.9342], "Pirapora do Bom Jesus":[-23.3963,-47.0006],
+  "Itapecerica da Serra":[-23.7169,-46.8492], "Franco da Rocha":[-23.3220,-46.7255], "Mairiporã":[-23.3186,-46.5870], "São Caetano do Sul":[-23.6229,-46.5548],
+  "Ribeirão Pires":[-23.7106,-46.4136], "Suzano":[-23.5425,-46.3112], "Poá":[-23.5286,-46.3447], "Arujá":[-23.3964,-46.3208],
+  "Santos":[-23.9608,-46.3336], "Praia Grande":[-24.0058,-46.4028], "Cubatão":[-23.8950,-46.4256]
+};
+function _centroDaCidade(nome){
+  const c = (typeof CENTROS_MUNICIPIOS!=="undefined") && CENTROS_MUNICIPIOS[nome];
+  if(c) return [c.lat, c.lon];
+  return CENTROS_VIZINHAS_EXTERNAS[nome] || null;
+}
+function _kmEntreCidades(a, b){
+  const p=_centroDaCidade(a), q=_centroDaCidade(b);
+  if(!p||!q) return Infinity;
+  const R=6371, rad=x=>x*Math.PI/180, dLat=rad(q[0]-p[0]), dLon=rad(q[1]-p[1]);
+  const h=Math.sin(dLat/2)**2+Math.cos(rad(p[0]))*Math.cos(rad(q[0]))*Math.sin(dLon/2)**2;
+  return 2*R*Math.asin(Math.sqrt(h));
+}
+/* vizinhas (CIDADES_VIZINHAS) que estão dentro do raio da cidade escolhida; sem coordenada, fica de fora */
+function vizinhasNoRaio(cidade){
+  const raio = raioDoMunicipio(cidade);
+  return (CIDADES_VIZINHAS[cidade] || []).filter(v => _kmEntreCidades(cidade, v) <= raio);
+}
+
 
 /* ---------- dados manuais (dados.json) e utilitarios base ---------- */
 let DADOS=null;

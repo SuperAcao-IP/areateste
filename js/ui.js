@@ -57,7 +57,7 @@ async function montarDados(cidade){
   /* cursos manuais (dados.json) */
   (DADOS.cursos||[]).forEach(c=>{
     const daCidade = ehDaCidade(c.municipio,cidade) || ehOnline(c.municipio);
-    const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+    const vizinhas = vizinhasNoRaio(cidade);
     const deVizinha = !daCidade && vizinhas.some(v=>ehDaCidade(c.municipio,v));
     if(!daCidade && !deVizinha) return;
     if(!aberto(c.status,c.inscricoes_ate)) return;
@@ -74,7 +74,7 @@ async function montarDados(cidade){
      cursos livres gratuitos do Senai e cursos com bolsa do Senac, já filtrados pelas regras de público. O curso que a
      equipe cadastrou na planilha vence este (mesclarPlanilha tira a cópia). */
   if(typeof UNIDADES!=="undefined" && Array.isArray(UNIDADES)){
-    const vizU = CIDADES_VIZINHAS[cidade] || [];
+    const vizU = vizinhasNoRaio(cidade);
     UNIDADES.forEach(u=>{
       const daCidade = normTxt(u.cidade)===normTxt(cidade);
       const deVizinha = !daCidade && vizU.some(v=>normTxt(v)===normTxt(u.cidade));
@@ -140,6 +140,7 @@ function renderAreasGrade(cidade){
 }
 function renderCidade(cidade){
   vagasFiltro=null;
+  areaVagasAtual=null;
   vagasRaioAmpliado=0;
   vagasPendentes=(TRAMPOLIM_VAGAS_ATIVO?1:0)+(PLANILHA_VAGAS_ATIVA?1:0);
   const alvo=document.getElementById("painelCidade");
@@ -179,12 +180,24 @@ function renderCidade(cidade){
         </div>
       </details>
     </div>
+    <div class="bloco" id="blocoPreparacao">
+      <details class="secao-suspenso" id="secaoPreparacao" open>
+        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/></svg></span><div><h3>Preparação para o mundo do trabalho</h3><p>Conceitos, habilidades socioemocionais, currículo e entrevista: o caminho antes de se candidatar.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <div class="secao-conteudo">
+          <div class="lista">${cartoesPreparacao()}</div>
+        </div>
+      </details>
+    </div>
     <div class="bloco" id="blocoVagas">
       <details class="secao-suspenso" id="secaoVagas" open>
         <summary class="bloco-titulo secao-summary"><span class="ic verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span><div><h3>Veja as vagas disponíveis</h3><p>Vagas de emprego na região de ${cidade}.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
-          <div id="listaVagas"></div>
+          <div id="vagasAviso"></div>
+          <div class="areas-grade" id="areasGradeVagas" role="tablist"></div>
+          <p class="dica-area" id="dicaAreaVagas">Selecione uma área acima para ver as vagas disponíveis.</p>
           <p class="dica-area" id="statusPlanilhaVagas" style="margin-top:.35rem"></p>
+          <div class="painel" id="painelVagas"></div>
+          <div id="vagasRodape"></div>
         </div>
       </details>
     </div>`;
@@ -348,7 +361,7 @@ function initMapa(cidade){
 
 function selecionarArea(cidade,areaId,btn){
   areaAtual=areaId;
-  document.querySelectorAll(".area-btn").forEach(x=>x.setAttribute("aria-selected",x===btn?"true":"false"));
+  document.querySelectorAll("#areasGrade .area-btn").forEach(x=>x.setAttribute("aria-selected",x===btn?"true":"false"));
   const dica=document.getElementById("dicaArea"); if(dica) dica.style.display="none";
   const area=areaInfo(areaId), c=conteudoDaArea(areaId);
   const cursosHTML=c.cursos.length?`<div class="lista">${ordenarPorCarga(c.cursos).map(cartaoCurso).join("")}</div>`:`<div class="vazio-area">Sem cursos nesta área.</div>`;
@@ -369,9 +382,10 @@ function selecionarArea(cidade,areaId,btn){
 const URL_SINE = "https://servicos.mte.gov.br/spme-v2/#/login";
 const AVISO_GOLPE_VAGAS = '<p class="vagas-aviso"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3 2.500 20h19L12 3Z"/><path d="M12 10v4M12 17.500v.01"/></svg><span><strong>Vaga de verdade nunca cobra taxa.</strong> Desconfie de pedidos de pagamento ou de conversa fora da plataforma.</span></p>';
 function urlVagasTrampolimSite(cidade){
-  return "https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale="+encodeURIComponent(cidade)+"&operation_range=50";
+  return "https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale="+encodeURIComponent(cidade)+"&operation_range="+raioDoMunicipio(cidade);
 }
 const VAGAS_MIN_FILTROS = 8;      // com menos vagas que isso a lista aparece direta, sem botões de filtro
+let areaVagasAtual = null;        // área de vagas aberta no momento (id) ou null
 let vagasFiltro = null;           // null | "semexp" | "fund" | "area:<id>"
 let vagasRaioAmpliado = 0;        // 0 = raio normal; senão, o raio (km) usado quando a busca foi ampliada
 let vagasPendentes = 0;           // fontes de vagas ainda carregando (não mostrar "0 vagas" antes da hora)
@@ -421,34 +435,86 @@ function opcoesFiltroVagas(vagas){
   if(areas.length>=2) areas.forEach(([id,n])=>ops.push(["area:"+id,areaInfo(id).nome,n]));
   return ops;
 }
+/* ===== Preparação para o mundo do trabalho: 4 cartões com link ===== */
+function cartoesPreparacao(){
+  const itens=[
+    {n:"1",nome:"Conceitos",inst:"SENAI",desc:"Curso online e gratuito Preparação para o Mundo do Trabalho (14 horas): o que as empresas esperam e como funciona a busca por emprego.",carga:"14h",link:PREPARACAO_LINKS.conceitos,bt:"Fazer o curso"},
+    {n:"2",nome:"Habilidades socioemocionais",inst:"Escola Virtual de Governo (EVG)",desc:"Curso Inteligência Emocional: comunicação, autocontrole e convivência, o que mais pesa em uma contratação.",carga:"50h",link:PREPARACAO_LINKS.socioemocional,bt:"Fazer o curso"},
+    {n:"3",nome:"Monte seu currículo",inst:"Trampolim SP",desc:"Crie o seu currículo direto no Trampolim, passo a passo, e baixe pronto para enviar.",carga:"",link:PREPARACAO_LINKS.curriculo,bt:"Montar currículo"},
+    {n:"4",nome:"Treine a entrevista",inst:"Trampolim SP",desc:"Simule uma entrevista de emprego com perguntas comuns e receba dicas para melhorar as respostas.",carga:"",link:PREPARACAO_LINKS.entrevista,bt:"Treinar entrevista"}
+  ];
+  return itens.map(i=>'<div class="curso"><div class="nome">'+i.n+'. '+esc(i.nome)+'</div><div class="inst">'+esc(i.inst)+'</div><div class="desc">'+esc(i.desc)+'</div>'+
+    (i.carga?'<div class="meta"><span class="item">Carga horária: '+i.carga+'</span></div>':'')+
+    (urlValida(i.link)?'<div class="rodape"><a class="btn-curso" href="'+esc(i.link)+'" target="_blank" rel="noopener noreferrer">'+i.bt+' '+linkExterno+'</a></div>':'')+'</div>').join("");
+}
 function renderVagas(){
-  const wrap=document.getElementById("listaVagas");
-  if(!wrap) return;
-  if(!wrap.dataset.ligado){
-    wrap.dataset.ligado="1";
-    wrap.addEventListener("click",e=>{
+  const aviso=document.getElementById("vagasAviso"), grade=document.getElementById("areasGradeVagas");
+  const dica=document.getElementById("dicaAreaVagas"), painel=document.getElementById("painelVagas"), rodape=document.getElementById("vagasRodape");
+  if(!grade||!painel) return;
+  if(!painel.dataset.ligado){
+    painel.dataset.ligado="1";
+    painel.addEventListener("click",e=>{
       const b=e.target.closest("[data-filtro-vaga]");
       if(!b) return;
       vagasFiltro=b.dataset.filtroVaga||null;
-      renderVagas();
+      renderPainelVagas();
     });
   }
   const todas=todasVagasDaCidade();
   if(!todas.length){
-    if(vagasPendentes>0){ wrap.innerHTML='<div class="vazio-area">Buscando vagas\u2026</div>'; return; }
-    wrap.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div>${AVISO_GOLPE_VAGAS}</div>`;
+    grade.innerHTML=""; painel.classList.remove("aberto"); painel.innerHTML=""; rodape.innerHTML="";
+    if(dica) dica.style.display="none";
+    if(vagasPendentes>0){ aviso.innerHTML='<div class="vazio-area">Buscando vagas…</div>'; return; }
+    aviso.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div>${AVISO_GOLPE_VAGAS}</div>`;
     return;
   }
-  const ops=opcoesFiltroVagas(todas);
+  aviso.innerHTML=vagasRaioAmpliado ? `<p class="vagas-ampliado">Incluindo vagas em cidades a até ${vagasRaioAmpliado} km de ${esc(cidadeAtual||"")}.</p>` : "";
+  /* caixinhas por área, como nos cursos */
+  const porArea={};
+  todas.forEach(v=>{ const id=v._areaId||"outros"; porArea[id]=(porArea[id]||0)+1; });
+  const ids=Object.keys(porArea).sort((x,y)=>porArea[y]-porArea[x]);
+  if(areaVagasAtual && !porArea[areaVagasAtual]) areaVagasAtual=null;
+  grade.innerHTML=ids.map(id=>{
+    const a=areaInfo(id), n=porArea[id];
+    return `<button class="area-btn" role="tab" aria-selected="${id===areaVagasAtual}" data-area="${esc(id)}"><span class="ico">${a.icone}</span><span class="titulo">${a.nome}</span><span class="conta">${n} vaga${n!==1?"s":""}</span></button>`;
+  }).join("");
+  grade.querySelectorAll(".area-btn").forEach(btn=>{
+    btn.addEventListener("click",()=>selecionarAreaVagas(btn.dataset.area));
+  });
+  if(dica) dica.style.display=areaVagasAtual?"none":"";
+  rodape.innerHTML=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
+  if(areaVagasAtual) renderPainelVagas(); else { painel.classList.remove("aberto"); painel.innerHTML=""; }
+}
+function selecionarAreaVagas(areaId){
+  if(areaVagasAtual!==areaId) vagasFiltro=null;
+  areaVagasAtual=areaId;
+  document.querySelectorAll("#areasGradeVagas .area-btn").forEach(x=>x.setAttribute("aria-selected",x.dataset.area===areaId?"true":"false"));
+  const dica=document.getElementById("dicaAreaVagas"); if(dica) dica.style.display="none";
+  renderPainelVagas();
+  document.getElementById("painelVagas").scrollIntoView({behavior:"smooth",block:"start"});
+}
+function renderPainelVagas(){
+  const painel=document.getElementById("painelVagas");
+  if(!painel||!areaVagasAtual) return;
+  const area=areaInfo(areaVagasAtual);
+  const daArea=todasVagasDaCidade().filter(v=>(v._areaId||"outros")===areaVagasAtual);
+  const ops=opcoesFiltroVagas(daArea).filter(o=>o[0].indexOf("area:")!==0);
   if(vagasFiltro && !ops.some(o=>o[0]===vagasFiltro)) vagasFiltro=null;
-  const vagas=todas.filter(v=>vagaPassaFiltro(v,vagasFiltro));
+  const vagas=daArea.filter(v=>vagaPassaFiltro(v,vagasFiltro));
   const chips=ops.length
-    ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${todas.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
+    ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${daArea.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
     : "";
-  const resumo=vagasFiltro ? `${vagas.length} de ${todas.length} vagas` : `${vagas.length} vaga${vagas.length!==1?"s":""} encontrada${vagas.length!==1?"s":""}, as da sua cidade primeiro, depois as mais recentes`;
-  const ampliado=vagasRaioAmpliado ? `<p class="vagas-ampliado">Incluindo vagas em cidades a até ${vagasRaioAmpliado} km de ${esc(cidadeAtual||"")}.</p>` : "";
-  const maisLinks=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
-  wrap.innerHTML=`<p class="dica-area" style="margin:0 0 .8rem;text-align:left">${resumo}</p>${ampliado}${chips}<div class="lista">${vagas.map(cartaoVaga).join("")}</div>${maisLinks}`;
+  const qtd=vagasFiltro ? `${vagas.length} de ${daArea.length}` : `${vagas.length} disponíve${vagas.length!==1?"is":"l"}`;
+  painel.innerHTML=`
+    <div class="painel-cabec"><span class="ico">${area.icone}</span><div><h3>${area.nome}</h3><p>${area.descricao||""}</p></div></div>
+    <div class="painel-corpo">
+      <div class="painel-conteudo">
+        <div class="sub-cabec"><span class="tag vagas">Vagas</span><h4>Vagas disponíveis em ${area.nome}</h4><span class="qtd">${qtd}</span></div>
+        ${chips}
+        <div class="lista">${vagas.map(cartaoVaga).join("")}</div>
+      </div>
+    </div>`;
+  painel.classList.add("aberto");
 }
 
 const linkExterno=`<svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6M10 14 21 3M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/></svg>`;

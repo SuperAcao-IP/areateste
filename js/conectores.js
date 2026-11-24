@@ -32,7 +32,7 @@ function localeTrampolim(cidade){ return (cidade||"").trim().replace(/\s+/g,"+")
 function urlTrampolim(cidade,pagina,limite){
   return TRAMPOLIM_BASE+"/api/v1/courses/search/?smart_filter=false&q=&type=course"
     +"&order_by=more_popular&page="+pagina+"&page_limit="+limite
-    +"&status=available&locale="+localeTrampolim(cidade)+"&operation_range=10";
+    +"&status=available&locale="+localeTrampolim(cidade)+"&operation_range="+raioDoMunicipio(cidade);
 }
 
 /* --- leitura defensiva da resposta paginada --- */
@@ -302,7 +302,7 @@ async function carregarTrampolimEAtualizar(cidade, token){
     /* cursos 100% online valem para qualquer município */
     if(estado) mesclarTrampolim(estado.online, estado);
     /* busca tambem nas cidades vizinhas */
-    const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+    const vizinhas = vizinhasNoRaio(cidade);
     for(const viz of vizinhas){
       try{
         const cursosViz = await buscarCursosTrampolim(viz);
@@ -338,7 +338,7 @@ const cacheTrampolimVagas   = new Map();
 function urlTrampolimVagas(cidade,pagina,limite,raioKm){
   return TRAMPOLIM_BASE+"/api/v1/vacancy-allowany/search/?smart_filter=false&q=&type=vacancy"
     +"&order_by=latest&page="+pagina+"&page_limit="+limite
-    +"&status=available&status=extended&locale="+localeTrampolim(cidade)+"&operation_range="+(raioKm||VAGAS_RAIO_KM);
+    +"&status=available&status=extended&locale="+localeTrampolim(cidade)+"&operation_range="+(raioKm||raioDoMunicipio(cidade));
 }
 
 function normalizarVagaTrampolim(v){
@@ -407,17 +407,14 @@ async function buscarVagasTrampolimRaio(cidade, raioKm){
   console.log("[Trampolim Vagas] vagas recebidas para", cidade, "em", raioKm, "km ->", brutos.length, "| paginas lidas:", pagina);
   return brutos;
 }
-/* raio adaptativo: começa em VAGAS_RAIO_KM; com menos de VAGAS_MINIMO vagas, amplia até VAGAS_RAIO_MAX_KM (nunca mais que isso) */
+/* raio proporcional ao porte do município (raioDoMunicipio, js/config.js); não amplia quando faltam vagas */
 async function buscarVagasTrampolim(cidade){
   if(cacheTrampolimVagas.has(cidade)) return cacheTrampolimVagas.get(cidade);
-  let brutos = await buscarVagasTrampolimRaio(cidade, VAGAS_RAIO_KM), raioUsado = VAGAS_RAIO_KM;
-  if(brutos.length < VAGAS_MINIMO && VAGAS_RAIO_MAX_KM > VAGAS_RAIO_KM){
-    try{ brutos = await buscarVagasTrampolimRaio(cidade, VAGAS_RAIO_MAX_KM); raioUsado = VAGAS_RAIO_MAX_KM; }
-    catch(e){ console.warn("[Trampolim Vagas] ampliar o raio falhou; ficam as vagas do raio menor:", e); }
-  }
+  const raio = raioDoMunicipio(cidade);
+  const brutos = await buscarVagasTrampolimRaio(cidade, raio);
   const vagas = brutos.map(normalizarVagaTrampolim);
-  vagas.raioKm = raioUsado;
-  vagas.ampliado = raioUsado > VAGAS_RAIO_KM;
+  vagas.raioKm = raio;
+  vagas.ampliado = false;
   cacheTrampolimVagas.set(cidade, vagas);
   return vagas;
 }
@@ -811,7 +808,7 @@ async function buscarCursosPlanilha(){
 }
 
 function mesclarPlanilha(cursos, cidade){
-  const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+  const vizinhas = vizinhasNoRaio(cidade);
   cursos.forEach(c=>{
     const mun = normTxt(c._municipio);
     const cidNorm = normTxt(cidade);
@@ -926,7 +923,7 @@ async function buscarVagasPlanilha(){
 }
 
 function mesclarPlanilhaVagas(vagas, cidade){
-  const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+  const vizinhas = vizinhasNoRaio(cidade);
   vagas.forEach(v=>{
     const mun = normTxt(v._municipio);
     const cidNorm = normTxt(cidade);
@@ -960,7 +957,7 @@ function carregarVagasRobo(){
 }
 function mesclarVagasRobo(cidade, vagas){
   if(!Array.isArray(vagas)) return 0;
-  const vizinhas = CIDADES_VIZINHAS[cidade] || [];
+  const vizinhas = vizinhasNoRaio(cidade);
   const alvo = normTxt(cidade);
   let n = 0;
   vagas.forEach(v=>{
