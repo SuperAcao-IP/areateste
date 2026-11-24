@@ -197,7 +197,7 @@
  },
  "av. lafayete arruda camargo, 767, campinas": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "av. luiza barbosa silveira bueno, 46, barueri": {
@@ -300,7 +300,7 @@
  },
  "avenida antonio candido machado, 197, cajamar": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "avenida benjamin constant, 1633, campinas": {
@@ -319,7 +319,7 @@
  },
  "avenida doutor professor emilio coelho, s/nº, 0, campinas": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "avenida dra. sonia maria bulle lopes, 1245, salto": {
@@ -331,7 +331,7 @@
  },
  "avenida fernando de noronha, 340, sao roque": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "avenida ipiranga, 151, varzea paulista": {
@@ -420,7 +420,7 @@
  },
  "praca barao do rio branco., 5, mogi mirim": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "praca bernardino de campos, 150, itapira": {
@@ -439,7 +439,7 @@
  },
  "praca coronel david baptista, 56, santo antonio de posse": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "praca da biblia, 1, cubatao": {
@@ -472,7 +472,7 @@
  },
  "praca mal. floriano peixoto, 0, campinas": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "praca nicola vivilechio, 73, taboao da serra": {
@@ -519,12 +519,12 @@
  },
  "praca, r. dr. narciso gomes, 0, araras": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "r. das primeveras, 450, indaiatuba": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "r. nivaldo leite da silva, 95, sao vicente": {
@@ -543,7 +543,7 @@
  },
  "rodovia wilson finardi km 7 + 817m, 0, mogi mirim": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua 01, 790, santa gertrudes": {
@@ -555,7 +555,7 @@
  },
  "rua 24 de maio, 38, diadema": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua adelino damiao, 55, mogi guacu": {
@@ -567,7 +567,7 @@
  },
  "rua afonso monteiro da cruz, 254, diadema": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua alfredo massaretti, 191, itatiba": {
@@ -677,7 +677,7 @@
  },
  "rua campos salles, 72, santa barbara d'oeste": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua da liberdade, 363, maua": {
@@ -696,7 +696,7 @@
  },
  "rua demerval da s. pereira, 0, campinas": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua direita, 955, cotia": {
@@ -757,7 +757,7 @@
  },
  "rua eca de queiros, 371, maua": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua eduardo de matos, 159, diadema": {
@@ -860,7 +860,7 @@
  },
  "rua jose maria de oliveira moraes, 94, guarulhos": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua jose milani, 127, valinhos": {
@@ -970,7 +970,7 @@
  },
  "rua pitagoras,, 70, santo andre": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua praia de copacabana, 101, barueri": {
@@ -989,7 +989,7 @@
  },
  "rua quinze de janeiro, 449, guarulhos": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua rio grande do sul, 234, barueri": {
@@ -1049,13 +1049,15 @@
   "em": "2026-10-21"
  },
  "rua solidagos, 42, holambra": {
-  "falhou": true,
-  "em": "2026-10-21",
-  "v": 2
+  "lat": -22.64029,
+  "lon": -47.052312,
+  "confianca": "alta",
+  "fonte": "nominatim",
+  "em": "2026-11-24"
  },
  "rua vereador gustavo sonnewend netto, 135, diadema": {
   "falhou": true,
-  "em": "2026-10-21",
+  "em": "2026-11-24",
   "v": 2
  },
  "rua vereador sergio leopoldino alves, 500, santa barbara d'oeste": {
