@@ -141,7 +141,7 @@
 
   .cidade-cabec{
     display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
-    background:var(--branco); border:1px solid var(--linha); border-left:5px solid var(--azul);
+    background:linear-gradient(120deg,#cfe8f7 0%,#e6f3fb 55%,#ffffff 100%); border:1px solid #b9dcf1; border-left:5px solid var(--acao);
     border-radius:var(--raio); padding:1.1rem 1.3rem; box-shadow:var(--sombra);
   }
   .cidade-cabec .rotulo{ font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; color:var(--texto-suave); }
@@ -400,6 +400,11 @@
   }
   .curso:hover{ box-shadow:var(--sombra); border-color:var(--linha-forte); }
   .curso .nome{ font-family:"Google Sans Flex",Arial,sans-serif; font-weight:700; font-size:1.05rem; color:var(--azul); line-height:1.25; }
+  .curso-topo{ display:flex; justify-content:space-between; align-items:flex-start; gap:.8rem; }
+  .curso-tit{ display:flex; flex-direction:column; gap:.7rem; min-width:0; }
+  .curso-carga{ flex:none; text-align:right; }
+  .curso-carga b{ display:block; font-size:1.7rem; line-height:1; font-weight:700; color:var(--azul); font-variant-numeric:tabular-nums; }
+  .curso-carga small{ display:block; margin-top:.2rem; font-size:.7rem; font-weight:600; color:var(--texto-suave); }
   .curso .inst{ font-size:.88rem; color:var(--texto-suave); display:flex; align-items:center; gap:.4rem; }
   .curso .desc{ font-size:.85rem; color:var(--texto-suave); line-height:1.4; display:-webkit-box; -webkit-line-clamp:3; line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
   .meta{ display:flex; flex-wrap:wrap; gap:.4rem; }

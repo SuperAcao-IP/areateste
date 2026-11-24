@@ -29,20 +29,20 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.min.css">
-<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --papel:#EAF0FB; --carta:#FFFFFF; --tinta:#0E2338; --tinta2:#4A5B6E; --tinta3:#7B8A9B;
-    --azul:#0D5A94; --azul-claro:#DCE8F6;
-    --ambar:#A85B0B; --ambar-fundo:#FDF3E6; --ambar-borda:#F0DCC0; --ambar-barra:#E0A85F;
-    --verde:#0B6E52; --verde-fundo:#E7F3EE;
-    --linha:#D9E0E8; --raio:10px;
+    --papel:#f2f5f9; --carta:#FFFFFF; --tinta:#002D4D; --tinta2:#5C5B5F; --tinta3:#88868B;
+    --azul:#0C63AA; --azul-claro:#e6f1fa;
+    --ambar:#B06F0B; --ambar-fundo:#FFF1C9; --ambar-borda:#f0cf86; --ambar-barra:#E29200;
+    --verde:#2B8671; --verde-fundo:#e2f3ef;
+    --linha:#D7D9DD; --raio:10px;
   }
   *{box-sizing:border-box}
   html,body{margin:0;padding:0}
-  body{background:var(--papel);color:var(--tinta);font-family:'Archivo',system-ui,sans-serif;
+  body{background:var(--papel);color:var(--tinta);font-family:'Google Sans Flex',Arial,system-ui,sans-serif;
        font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
-  .num{font-family:'IBM Plex Mono',ui-monospace,monospace;font-variant-numeric:tabular-nums;font-weight:600}
+  .num{font-family:'Google Sans Flex',Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:600}
   .wrap{max-width:1200px;margin:0 auto;padding:0 20px 64px}
   .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
            color:var(--azul);margin:0 0 6px}
@@ -72,7 +72,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .btn:hover:not(:disabled){background:var(--azul-claro);border-color:var(--azul-claro)}
   .btn:disabled{opacity:.4;cursor:not-allowed}
   .btn-principal{background:var(--azul);border-color:var(--azul);color:#fff}
-  .btn-principal:hover:not(:disabled){background:#0F3670;border-color:#0F3670}
+  .btn-principal:hover:not(:disabled){background:#003A79;border-color:#003A79}
   .btn-fantasma{border-color:transparent;background:transparent;color:var(--tinta3)}
   .btn-fantasma:hover{background:transparent;color:var(--azul);text-decoration:underline}
   .linha-btn{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
@@ -243,7 +243,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   /* acessos: colunas por semana */
   .ac-colunas{display:flex;align-items:flex-end;gap:6px;height:170px;padding:16px 0 4px}
   .ac-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
-  .ac-barra{width:100%;max-width:34px;background:#2a78d6;border-radius:4px 4px 0 0}
+  .ac-barra{width:100%;max-width:34px;background:#0C63AA;border-radius:4px 4px 0 0}
   .ac-num{font-size:11px;color:var(--tinta2);margin-bottom:3px}
   .ac-rot{font-size:10.5px;color:var(--tinta3);margin-top:4px}
 
@@ -324,7 +324,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <h3>Mapa dos municípios do programa</h3>
       <p class="sub">Passe o mouse para ver os números de cada cidade.</p>
       <div id="vgMapa" role="img" aria-label="Mapa dos municípios do programa com o número de buscas"></div>
-      <p class="vg-legenda"><span><i style="background:#2a78d6"></i>buscas no período (tamanho = quantidade)</span>
+      <p class="vg-legenda"><span><i style="background:#0C63AA"></i>buscas no período (tamanho = quantidade)</span>
         <span><i style="background:#B7C0CB"></i>nenhuma busca</span>
         <span><i style="background:#fff;border:3px solid #C26A0B;width:8px;height:8px"></i>nenhum curso presencial na cidade</span></p>
     </div>

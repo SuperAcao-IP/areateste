@@ -20,7 +20,7 @@
   var norm = function(s){ return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase(); };
   var dataBR = function(iso){ return iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) + '/' + iso.slice(0, 4) : ''; };
   var diaMes = function(iso){ return iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) : ''; };
-  var COR = '#2a78d6', COR_SUAVE = '#cde2fb', CINZA = '#B7C0CB', AMBAR = '#C26A0B';
+  var COR = '#0C63AA', COR_SUAVE = '#cfe4f5', CINZA = '#B7C0CB', AMBAR = '#C26A0B';
   var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'EVG', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
                  manual:'Cadastro do programa', planilha:'Cadastro do programa', robo:'Robô de vagas' };
 

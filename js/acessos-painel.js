@@ -12,7 +12,7 @@
   var norm = function(s){ return (s || '').normalize('NFD').replace(/[̀-ͯ]/g, '').trim().toLowerCase(); };
   var dataBR = function(d){ return d ? d.toLocaleDateString('pt-BR') : ''; };
   var MUNICIPIOS = (typeof CENTROS_MUNICIPIOS !== 'undefined') ? Object.keys(CENTROS_MUNICIPIOS).sort(function(a, b){ return a.localeCompare(b, 'pt-BR'); }) : [];
-  var COR = '#2a78d6';
+  var COR = '#0C63AA';
 
   var D = null, carregando = false, ligado = false;
 
