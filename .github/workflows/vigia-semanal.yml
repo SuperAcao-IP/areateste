@@ -1,7 +1,7 @@
 name: Vigia semanal
 
 # O GitHub às vezes atrasa ou pula um agendamento (aconteceu na segunda 23/11: nenhum robô rodou e o e-mail não saiu).
-# Este vigia confere se cada robô semanal teve uma execução bem-sucedida nos últimos 4 dias e dispara o que faltou,
+# Este vigia confere se cada robô semanal teve uma execução bem-sucedida nos últimos 3 dias e dispara o que faltou,
 # NA ORDEM CERTA: primeiro os que coletam (catálogos, mapa, vagas, uso), e só depois o histórico (que tira o retrato do que
 # foi coletado); quando o histórico termina, o resumo semanal roda e o e-mail sai. Se algo faltou, abre uma issue.
 #
@@ -53,7 +53,7 @@ jobs:
         run: |
           ENSAIO=0
           if [ "$ENSAIO_MANUAL" = "true" ]; then ENSAIO=1; fi
-          LIMITE_DIAS=4
+          LIMITE_DIAS=3
           AGORA=$(date -u +%s)
           FALTOU=""
           {

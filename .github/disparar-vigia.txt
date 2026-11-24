@@ -1,1 +1,1 @@
-disparo 2026-11-24T15:44:06 (2ª tentativa: gh sem repositório)
+disparo 2026-11-24T15:47:32 (3ª tentativa: limite de 3 dias, recupera a semana de 23/11)
