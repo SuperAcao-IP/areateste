@@ -437,6 +437,7 @@ async function _atualizarCamadasMapa(){
   CAMADAS_MAPA = { cidade, servicos: gS, vagas: gV, escolas: gE, computador: gP, nServicos: servicos.length, nVagas: gruposVagas.reduce((a, g) => a + g.vagas.length, 0), nEscolas: unidades.length, nPontos: pontos.length };
   _montarControleCamadas();
   _aplicarVisibilidade();
+  if(typeof atualizarResumo === "function") atualizarResumo();
   // enquadra UMA vez por mapa (na primeira vez que há pontos novos); depois não mexe no zoom da pessoa
   if(limites.length && _mapaEnquadrado !== mapa){
     _mapaEnquadrado = mapa;

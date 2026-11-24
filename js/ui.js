@@ -148,10 +148,11 @@ function renderCidade(cidade){
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML=`
     <div class="cidade-cabec">
-      <div><div class="rotulo">Sua cidade</div><h2>${cidade}</h2></div>
+      <div class="cidade-info"><h2>${cidade}</h2><p class="sub">Tudo o que a família pode usar a até ${raioDoMunicipio(cidade)} km de ${cidade}.</p>
       <div class="acoes">
         <button class="btn-sec" onclick="window.print()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg> Imprimir</button>
         <button class="btn-sec" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Trocar cidade</button>
+      </div>
       </div>
     </div>
     <div class="bloco">
@@ -165,7 +166,7 @@ function renderCidade(cidade){
     </div>
     <div class="bloco">
       <details class="secao-suspenso" id="secaoQualificacao" open>
-        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><div><h3>Escolha uma área de qualificação</h3><p>Cursos online do EVG, Fundação Bradesco, Aprenda Mais (MEC), Trampolim SP, Sebrae SP e cadastros manuais da equipe.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><div><h3>Escolha uma área de qualificação</h3><p>Cursos online e presenciais, gratuitos ou com bolsa.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
           <div class="busca-cursos">
             <svg class="busca-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
@@ -184,7 +185,7 @@ function renderCidade(cidade){
     </div>
     <div class="bloco" id="blocoPreparacao">
       <details class="secao-suspenso" id="secaoPreparacao" open>
-        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/></svg></span><div><h3>Preparação para o mundo do trabalho</h3><p>Conceitos, habilidades socioemocionais, currículo e entrevista: o caminho antes de se candidatar.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/></svg></span><div><h3>Preparação para o mundo do trabalho</h3></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
           ${cartoesPreparacao()}
         </div>
@@ -192,7 +193,7 @@ function renderCidade(cidade){
     </div>
     <div class="bloco" id="blocoVagas">
       <details class="secao-suspenso" id="secaoVagas" open>
-        <summary class="bloco-titulo secao-summary"><span class="ic verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span><div><h3>Veja as vagas disponíveis</h3><p>Vagas de emprego na região de ${cidade}.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary class="bloco-titulo secao-summary"><span class="ic verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span><div><h3>Veja as vagas disponíveis</h3><p id="vagasSub">Vagas em ${cidade} e até ${raioDoMunicipio(cidade)} km, as da cidade primeiro.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
           <div id="vagasAviso"></div>
           <div id="buscaVagasWrap">
@@ -378,14 +379,7 @@ function selecionarArea(cidade,areaId,btn){
   const area=areaInfo(areaId), c=conteudoDaArea(areaId);
   const cursosHTML=c.cursos.length?`<div class="lista">${ordenarPorCarga(c.cursos).map(cartaoCurso).join("")}</div>`:`<div class="vazio-area">Sem cursos nesta área.</div>`;
   const painel=document.getElementById("painelArea");
-  painel.innerHTML=`
-    <div class="painel-cabec"><span class="ico">${area.icone}</span><div><h3>${area.nome}</h3><p>${area.descricao}</p></div></div>
-    <div class="painel-corpo">
-      <div class="painel-conteudo">
-        <div class="sub-cabec"><span class="tag cursos">Cursos</span><h4>Cursos disponíveis em ${area.nome}</h4><span class="qtd">${c.cursos.length} disponíve${c.cursos.length!==1?"is":"l"}</span></div>
-        ${cursosHTML}
-      </div>
-    </div>`;
+  painel.innerHTML=cursosHTML;
   painel.classList.add("aberto"); painel.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
@@ -458,17 +452,18 @@ function totalCursosDaCidade(){
 function montarResumoETrilha(cidade){
   const cab=document.querySelector("#painelCidade .cidade-cabec");
   if(!cab) return;
-  cab.insertAdjacentHTML("afterend",
-    '<div class="resumo-cidade" id="resumoCidade">'+
-      '<a href="#secaoQualificacao" data-ir="secaoQualificacao"><b id="resNCursos">–</b><span>cursos para fazer</span></a>'+
-      '<a href="#mapaSuspenso" data-ir="mapaSuspenso"><b>Mapa</b><span>serviços e escolas por perto</span></a>'+
-      '<a href="#secaoVagas" data-ir="secaoVagas" class="v"><b id="resNVagas">–</b><span>vagas abertas</span></a>'+
-    '</div>'+
+  cab.insertAdjacentHTML("beforebegin",
     '<nav class="trilha" id="trilhaEtapas" aria-label="Etapas do portal"><ol>'+
       '<li><a href="#secaoQualificacao" data-etapa="secaoQualificacao" aria-current="step"><span class="n">1</span>Cursos <small id="trCursos"></small></a></li>'+
       '<li><a href="#secaoPreparacao" data-etapa="secaoPreparacao"><span class="n">2</span>Preparação <small id="trPrep"></small></a></li>'+
       '<li><a href="#secaoVagas" data-etapa="secaoVagas"><span class="n">3</span>Vagas <small id="trVagas"></small></a></li>'+
     '</ol></nav>');
+  cab.insertAdjacentHTML("beforeend",
+    '<div class="resumo-cidade" id="resumoCidade">'+
+      '<a href="#secaoQualificacao" data-ir="secaoQualificacao"><b id="resNCursos">–</b><span>cursos para fazer</span></a>'+
+      '<a href="#mapaSuspenso" data-ir="mapaSuspenso"><b id="resNMapa">–</b><span>serviços no mapa</span></a>'+
+      '<a href="#secaoVagas" data-ir="secaoVagas" class="v"><b id="resNVagas">–</b><span>vagas abertas</span></a>'+
+    '</div>');
   const raiz=document.getElementById("painelCidade");
   raiz.querySelectorAll("[data-ir],[data-etapa]").forEach(a=>{
     a.addEventListener("click",e=>{
@@ -498,7 +493,9 @@ function montarResumoETrilha(cidade){
 function atualizarResumo(){
   const nC=totalCursosDaCidade(), nV=todasVagasDaCidade().length;
   const set=(id,t)=>{ const el=document.getElementById(id); if(el) el.textContent=t; };
-  set("resNCursos",nC); set("resNVagas",vagasPendentes>0&&!nV?"…":nV);
+  const nM=(typeof CAMADAS_MAPA!=="undefined"&&CAMADAS_MAPA&&CAMADAS_MAPA.nServicos!=null)?CAMADAS_MAPA.nServicos:"…";
+  set("resNCursos",nC); set("resNMapa",nM); set("resNVagas",vagasPendentes>0&&!nV?"…":nV);
+  if(nV&&cidadeAtual) set("vagasSub",nV+" vaga"+(nV!==1?"s":"")+" em "+cidadeAtual+" e até "+raioDoMunicipio(cidadeAtual)+" km, as da cidade primeiro.");
   set("trCursos",nC); set("trVagas",vagasPendentes>0&&!nV?"…":nV);
 }
 
@@ -529,23 +526,24 @@ document.addEventListener("click",e=>{
 
 /* ===== Preparação para o mundo do trabalho: texto de orientação + 4 passos em sequência ===== */
 function cartoesPreparacao(){
-  const passo=(n,nome,quem,desc,meta,link,bt)=>
+  const passo=(n,nome,quem,desc,link,bt)=>
     '<li class="prep-passo" data-prep="'+n+'"><span class="prep-num" aria-hidden="true">'+n+'</span>'+
-    '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p>'+
-    (meta?'<span class="prep-meta">'+esc(meta)+'</span>':'')+'</div>'+
-    '<div class="prep-acoes">'+(urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+' '+linkExterno+'</a>':'')+'<button type="button" class="prep-fiz" aria-pressed="false">Marcar como feito</button></div></li>';
-  return '<div class="prep-intro"><p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo.</p>'+
-    '<p>Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
-    '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
-    '<div class="prep-progresso" aria-live="polite"><b id="prepProgTxt">0 de 4</b> <span>passos feitos</span><div class="prep-barra"><i id="prepProgBarra"></i></div></div>'+
-    '<div class="prep-fase"><h4>Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
-      passo(1,"Conceitos","SENAI","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.","Online e gratuito · 14 horas",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
-      passo(2,"Habilidades socioemocionais","Escola Virtual de Governo","Inteligência Emocional: comunicação, autocontrole e convivência no trabalho.","Online e gratuito · 50 horas",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
-    '</ol></div>'+
-    '<div class="prep-fase"><h4>Depois, com a família, no Trampolim SP <small>o agente acompanha</small></h4><ol class="prep-passos">'+
-      passo(3,"Monte seu currículo","Trampolim SP","Crie o currículo da família passo a passo no site e baixe pronto para enviar.","Direto no site do Trampolim",PREPARACAO_LINKS.curriculo,"Montar currículo")+
-      passo(4,"Treine a entrevista","Trampolim SP","Simule uma entrevista com perguntas comuns e veja dicas para melhorar as respostas.","Direto no site do Trampolim",PREPARACAO_LINKS.entrevista,"Treinar entrevista")+
-    '</ol></div>';
+    '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p></div>'+
+    '<div class="prep-acoes">'+(urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+'</a>':'')+
+    '<button type="button" class="prep-fiz" aria-pressed="false">Marcar como feito</button></div></li>';
+  return '<div class="prep-topo"><div class="prep-texto">'+
+      '<p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo.</p>'+
+      '<p>Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
+      '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
+    '<div class="prep-progresso" aria-live="polite"><b id="prepProgTxt">0 de 4</b> <span>passos feitos</span><div class="prep-barra"><i id="prepProgBarra"></i></div></div></div>'+
+    '<h4 class="prep-fase-t">Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
+      passo(1,"Conceitos","SENAI · online e gratuito · 14 horas","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
+      passo(2,"Habilidades socioemocionais","Escola Virtual de Governo · online e gratuito · 50 horas","Comunicação, autocontrole e convivência no trabalho.",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
+    '</ol>'+
+    '<h4 class="prep-fase-t">Depois, com a família, no Trampolim SP <small>o agente acompanha</small></h4><ol class="prep-passos">'+
+      passo(3,"Monte seu currículo","Trampolim SP","Crie o currículo da família passo a passo e baixe pronto para enviar.",PREPARACAO_LINKS.curriculo,"Montar currículo")+
+      passo(4,"Treine a entrevista","Trampolim SP","Simule uma entrevista com perguntas comuns e veja dicas para melhorar as respostas.",PREPARACAO_LINKS.entrevista,"Treinar entrevista")+
+    '</ol>';
 }
 function renderVagas(){
   const aviso=document.getElementById("vagasAviso"), grade=document.getElementById("areasGradeVagas");
@@ -667,15 +665,7 @@ function renderPainelVagas(){
     ? `<div class="filtros-vagas" role="group" aria-label="Filtrar vagas"><button type="button" class="chip-vaga" data-filtro-vaga="" aria-pressed="${!vagasFiltro}">Todas <small>${daArea.length}</small></button>${ops.map(o=>`<button type="button" class="chip-vaga" data-filtro-vaga="${esc(o[0])}" aria-pressed="${vagasFiltro===o[0]}">${esc(o[1])} <small>${o[2]}</small></button>`).join("")}</div>`
     : "";
   const qtd=vagasFiltro ? `${vagas.length} de ${daArea.length}` : `${vagas.length} disponíve${vagas.length!==1?"is":"l"}`;
-  painel.innerHTML=`
-    <div class="painel-cabec"><span class="ico">${area.icone}</span><div><h3>${area.nome}</h3><p>${area.descricao||""}</p></div></div>
-    <div class="painel-corpo">
-      <div class="painel-conteudo">
-        <div class="sub-cabec"><span class="tag vagas">Vagas</span><h4>Vagas disponíveis em ${area.nome}</h4><span class="qtd">${qtd}</span></div>
-        ${chips}
-        <div class="lista">${vagas.map(cartaoVaga).join("")}</div>
-      </div>
-    </div>`;
+  painel.innerHTML=chips+(vagas.length?`<div class="lista">${vagas.map(cartaoVaga).join("")}</div>`:'<div class="vazio-area">Sem vagas nesta área.</div>');
   painel.classList.add("aberto");
 }
 
@@ -784,24 +774,23 @@ function cartaoCurso(c){
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
   const acao = urlValida(v.link) ? '<a class="btn-vaga" href="'+esc(v.link)+'" target="_blank" rel="noopener noreferrer">'+rotulo+' '+linkExterno+'</a>' : "";
-  const ic = (d)=>'<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">'+d+'</svg>';
-  const item = (txt,icone,classe)=>'<span class="item'+(classe?" "+classe:"")+'">'+(icone||"")+esc(txt)+'</span>';
+  const pill = (txt,classe)=>'<span class="item'+(classe?" "+classe:"")+'">'+esc(txt)+'</span>';
   const semExp = vagaSemExperiencia(v);
-  const area = (v._areaId && v._areaId!=="outros") ? areaInfo(v._areaId).nome : "";
   const data = dataDaVaga(v);
   const publicada = data ? data.toLocaleDateString("pt-BR") : "";
-  const meta = [
-    area ? item(area, ic('<path d="M3 7h18M3 12h18M3 17h18"/>')) : "",
-    semExp ? item("Aceita sem experiência", ic('<path d="m5 12 5 5 9-10"/>'), "destaque") : (v.experiencia ? item(v.experiencia, ic('<path d="M12 8v4l3 2"/><circle cx="12" cy="12" r="9"/>')) : ""),
-    v.escolaridade ? item(/sem\s+escolaridade/i.test(v.escolaridade) ? "Sem escolaridade mínima" : "Escolaridade: "+v.escolaridade, ic('<path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/>')) : "",
-    v.turno ? item("Turno: "+v.turno, ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')) : (v.modalidade ? item(v.modalidade, ic('<circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/>')) : ""),
-    v.tipo ? item(v.tipo, ic('<rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/>')) : "",
-    v.cidade ? item(v.cidade, ic('<path d="M12 21s7-6.2 7-11a7 7 0 0 0-14 0c0 4.800 7 11 7 11Z"/><circle cx="12" cy="10" r="2.500"/>')) : "",
-    (v.telefone && !v.anonima) ? item(v.telefone, ic('<path d="M5 4h4l2 5-2.500 1.500a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/>')) : "",
-    publicada ? item("Publicada em "+publicada, ic('<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>')) : ""
+  const contratoGrande = /^clt$/i.test((v.tipo||"").trim());
+  const num = contratoGrande ? '<div class="curso-carga"><b>CLT</b><small>contrato</small></div>' : "";
+  const pills = [
+    semExp ? pill("Aceita sem experiência","destaque") : (v.experiencia ? pill(v.experiencia) : ""),
+    v.escolaridade ? pill(/sem\s+escolaridade/i.test(v.escolaridade) ? "Sem escolaridade mínima" : "Escolaridade: "+v.escolaridade) : "",
+    (v.tipo && !contratoGrande) ? pill(v.tipo) : "",
+    v.turno ? pill("Turno: "+v.turno) : (v.modalidade ? pill(v.modalidade) : "")
   ].filter(Boolean).join("");
-  return '<div class="vaga"><div class="cargo">'+esc(v.cargo||"")+'</div>'+
-    (v.empresa ? '<div class="empresa"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg><span>'+esc(v.empresa)+(v._trampolim ? ' <small class="via">via Trampolim SP</small>' : (v._via ? ' <small class="via">via '+esc(v._via)+'</small>' : ""))+'</span></div>' : "")+
+  const linha = [v.cidade, publicada ? "publicada em "+publicada : "", (v.telefone && !v.anonima) ? v.telefone : ""].filter(Boolean).join(" · ");
+  const empresa = v.empresa ? '<div class="empresa"><span>'+esc(v.empresa)+(v._trampolim ? ' · via Trampolim SP' : (v._via ? ' · via '+esc(v._via) : ""))+'</span></div>' : "";
+  return '<div class="vaga"><div class="curso-topo"><div class="curso-tit"><div class="cargo">'+esc(v.cargo||"")+'</div>'+empresa+'</div>'+num+'</div>'+
     (v.desc ? '<div class="desc">'+esc(v.desc)+'</div>' : "")+
-    '<div class="meta">'+meta+'</div>'+(acao ? '<div class="rodape">'+acao+'</div>' : "")+'</div>';
+    (pills ? '<div class="meta">'+pills+'</div>' : "")+
+    (linha ? '<div class="vaga-linha">'+esc(linha)+'</div>' : "")+
+    (acao ? '<div class="rodape">'+acao+'</div>' : "")+'</div>';
 }

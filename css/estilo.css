@@ -573,3 +573,96 @@ footer{padding-bottom:110px}
 /* cartões de curso: etiquetas arredondadas */
 .curso .meta .item{ background:var(--azul-suave); border:0; color:var(--azul); font-weight:700; border-radius:999px; padding:.22rem .7rem; }
 .curso .meta .item.destaque{ background:var(--verde-suave); color:#1f6b59; }
+
+/* ---------- medidas da prévia: mesmo grid, mesmos espaçamentos ---------- */
+body{ font-size:15px; overflow-x:clip; }
+.container{ width:min(1066px, calc(100% - 2*clamp(14px,3vw,26px))); }
+
+/* barra do governo e cabeçalho: largura toda, como na prévia */
+.gov{ background:var(--azul-suave); color:var(--azul); font-size:.78rem; letter-spacing:0; text-transform:none; }
+.gov .container{ width:auto; max-width:none; padding:7px 18px; justify-content:space-between; gap:10px; flex-wrap:wrap; }
+header.topo{ border-bottom:4px solid var(--celeste); }
+header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px; }
+
+/* trilha: faixa de ponta a ponta, antes da faixa da cidade */
+.trilha{ position:sticky; top:0; z-index:1100; background:var(--branco); border:0; border-bottom:1px solid var(--linha); border-radius:0; box-shadow:none;
+  margin:0 calc(50% - 50vw); padding:0 calc(50vw - 50%); }
+.trilha ol{ gap:6px; padding:0; }
+.trilha a{ padding:13px 14px; gap:9px; }
+
+/* faixa da cidade: título, frase e os 3 números na mesma faixa */
+.cidade-cabec{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1.6fr); gap:20px; align-items:end; margin:18px 0 0; padding:26px clamp(16px,3vw,28px);
+  border:1px solid #b9dcf1; border-radius:16px; box-shadow:none; }
+.cidade-cabec h2{ font-size:clamp(1.9rem,4vw,2.6rem); color:var(--azul); letter-spacing:0; }
+.cidade-cabec .sub{ margin:6px 0 0; color:var(--texto-suave); font-size:15px; }
+.cidade-cabec .acoes{ margin:14px 0 0; }
+.resumo-cidade{ margin:0; gap:10px; }
+.resumo-cidade a{ padding:12px 14px; border-radius:12px; box-shadow:0 2px 8px rgba(0,45,77,.10); }
+.resumo-cidade b{ font-size:1.9rem; line-height:1; }
+.resumo-cidade span{ display:block; font-size:.84rem; line-height:1.55; }
+@media (min-width:521px){ .resumo-cidade{ grid-template-columns:repeat(3,minmax(0,1fr)); } }
+@media (max-width:820px){ .cidade-cabec{ grid-template-columns:1fr; } }
+@media (max-width:520px){ .resumo-cidade{ grid-template-columns:1fr; } }
+
+/* seções e títulos */
+.bloco{ margin-top:34px; }
+.bloco-titulo{ gap:12px; margin-bottom:14px; }
+.bloco-titulo > div{ gap:.2rem 12px; }
+.bloco-titulo p{ font-size:.92rem; }
+.secao-conteudo{ padding-top:0; }
+
+/* caixinhas de área */
+.areas-grade{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px; grid-auto-rows:1fr; margin-bottom:16px; }
+.area-btn{ padding:12px; gap:2px; border:1px solid var(--linha); border-radius:12px; display:grid; align-content:start; }
+.area-btn:hover{ transform:none; box-shadow:none; }
+.area-btn .titulo{ font-size:.95rem; line-height:1.15; }
+.area-btn .conta{ font-size:.8rem; font-weight:400; }
+.painel{ margin-top:16px; animation:none; }
+
+/* cartões de curso e de vaga: mesma grade, mesmo tamanho dentro do grupo */
+.lista{ grid-template-columns:repeat(auto-fill,minmax(300px,1fr)); gap:12px; grid-auto-rows:1fr; }
+.curso, .vaga{ padding:14px; border-radius:12px; gap:6px; }
+.curso:hover, .vaga:hover{ box-shadow:none; border-color:var(--linha); }
+.curso-topo{ gap:14px; }
+.curso-tit{ gap:6px; }
+.curso .nome, .vaga .cargo{ font-size:1.06rem; line-height:1.15; color:var(--texto); }
+.curso .inst, .vaga .empresa{ font-size:.84rem; }
+.curso-carga b{ font-size:1.7rem; }
+.curso-carga small{ font-size:.7rem; margin-top:3px; }
+.curso .meta, .vaga .meta{ gap:6px; margin-top:6px; }
+.curso .meta .item, .vaga .meta .item{ background:var(--azul-suave); border:0; color:var(--azul); font-size:.78rem; font-weight:800; border-radius:999px; padding:3px 10px; }
+.curso .meta .item.destaque, .vaga .meta .item.destaque{ background:var(--verde-suave); color:#1f6b59; }
+.vaga-linha{ font-size:.82rem; color:var(--texto-suave); }
+.curso .rodape, .vaga .rodape{ margin-top:6px; }
+.btn-curso, .vaga .btn-vaga{ padding:.62rem 1rem; border-radius:10px; font-size:.9rem; }
+
+/* preparação para o mundo do trabalho */
+.prep-topo{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px 24px; align-items:end; margin-bottom:16px; }
+.prep-texto p{ margin:0; color:var(--texto); max-width:80ch; }
+.prep-progresso{ min-width:210px; max-width:none; margin:0; }
+.prep-progresso b{ font-size:1.5rem; }
+.prep-progresso span{ font-size:.86rem; }
+.prep-barra{ margin-top:6px; }
+.prep-fase-t{ font-size:.98rem; font-weight:700; color:var(--texto); margin:18px 0 10px; display:flex; gap:10px; align-items:baseline; flex-wrap:wrap; }
+.prep-fase-t small{ font-family:inherit; font-size:.84rem; font-weight:700; color:var(--texto-suave); }
+.prep-passos{ gap:10px; }
+.prep-passo{ grid-template-columns:44px minmax(0,1fr) auto; gap:14px; padding:14px 16px 14px 12px; border-radius:14px; align-items:center; }
+.prep-passo:hover{ box-shadow:none; border-color:var(--linha); }
+.prep-num{ width:44px; height:44px; font-size:1.25rem; }
+.prep-corpo h5{ font-size:1.12rem; line-height:1.15; }
+.prep-quem{ font-size:.84rem; margin-top:0; }
+.prep-corpo p{ font-size:.92rem; margin:4px 0 0; max-width:64ch; }
+.prep-acoes{ min-width:168px; gap:8px; }
+.prep-btn{ width:100%; padding:.62rem 1rem; font-size:.9rem; white-space:nowrap; }
+.prep-fiz{ font-size:.86rem; padding:.5rem .8rem; border-radius:10px; }
+@media (max-width:820px){
+  .prep-topo{ grid-template-columns:1fr; }
+  .prep-passo{ grid-template-columns:40px minmax(0,1fr); }
+  .prep-num{ width:40px; height:40px; }
+  .prep-acoes{ grid-column:1 / -1; grid-template-columns:1fr 1fr; }
+}
+@media (max-width:520px){ .prep-acoes{ grid-template-columns:1fr; } }
+
+/* aviso de golpe */
+.vagas-aviso{ margin:16px 0 0; padding:11px 14px; border-radius:10px; font-size:15px; font-weight:600; color:var(--texto); gap:10px; }
+.vagas-aviso svg{ margin-top:0; }
