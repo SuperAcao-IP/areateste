@@ -276,8 +276,9 @@ async function retratoVagas(p, nomeArea, falhas){
   }
   if(p.VAGAS_ROBO_ATIVO){
     try{
-      const arq = path.join(RAIZ, "robo-vagas", "vagas", "ativas.json");
-      const ativas = fs.existsSync(arq) ? JSON.parse(fs.readFileSync(arq, "utf8")) : [];
+      /* o que o portal MOSTRA: dados/vagas-robo.json (as melhores de cada município), não todas as ativas do robô (robo-vagas/vagas/ativas.json) */
+      const arq = path.join(RAIZ, "dados", "vagas-robo.json");
+      const ativas = fs.existsSync(arq) ? (JSON.parse(fs.readFileSync(arq, "utf8")).vagas || []) : [];
       ativas.forEach(v => add("Robô · " + (v.fonte || "?"), { id: v.id, municipio: v.municipio, cargo: v.cargo, empresa: v.empresa, cidade: v.cidade, tipo: v.tipo,
         experiencia: v.experiencia, escolaridade: v.escolaridade, area: nomeArea(p.areaDoCurso(v.cargo)), link: v.link }));
     }catch(e){ falhas.push("Robô de vagas: " + e.message); }

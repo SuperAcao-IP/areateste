@@ -34,7 +34,11 @@ function movimento(hist, campo){
   const u = hist.semanas.length - 1, a = u - 1;
   const itens = hist[campo] || [];
   const tem = (c, i) => i >= 0 && (c.p || []).includes(i);
+  /* sem comparação: só existe um retrato, ou o anterior não tinha as vagas do robô e o atual tem (primeiro retrato completo) */
+  const robo = i => itens.some(c => tem(c, i) && /^Rob/.test(c.fonte || ""));
+  const semComparacao = a < 0 || (campo === "vagas" && robo(u) !== robo(a));
   return {
+    semComparacao,
     retrato: hist.semanas[u],
     agora: itens.filter(c => tem(c, u)),
     novos: itens.filter(c => tem(c, u) && Math.min(...c.p) === u),
@@ -91,9 +95,9 @@ function montar(){
   /* vagas */
   if(vagas){
     bloco(`Vagas (retrato de ${dataBR(vagas.retrato)})`, tabela([
-      ["No portal agora", fmt(vagas.agora.length)], ["Entraram esta semana", fmt(vagas.novos.length)], ["Fecharam ou saíram", fmt(vagas.sairam.length)],
+      ["No portal agora", fmt(vagas.agora.length)], ["Entraram esta semana", vagas.semComparacao ? "–" : fmt(vagas.novos.length)], ["Fecharam ou saíram", vagas.semComparacao ? "–" : fmt(vagas.sairam.length)],
       ["Aceitam sem experiência", fmt(vagas.agora.filter(v => /^sem experi/i.test(v.experiencia || "")).length)]
-    ]) + areasTop(vagas.agora, "Áreas com mais vagas no portal", "vaga(s)"));
+    ]) + (vagas.semComparacao ? `<p style="margin:8px 0 0;font:13px Arial,sans-serif;color:#5C5B5F">Primeiro retrato completo das vagas: a comparação com a semana anterior começa no próximo.</p>` : "") + areasTop(vagas.agora, "Áreas com mais vagas no portal", "vaga(s)"));
     resumoTexto.push(`${fmt(vagas.agora.length)} vagas no portal`);
   }
 
