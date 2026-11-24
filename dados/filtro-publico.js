@@ -126,7 +126,9 @@ const TITULOS_PERMITIDOS = {
   "reciclagem e organizacao da limpeza publica",
   "redes sociais e informacao na internet",
   "seguranca no trabalho e eletricidade basica",
-  "tecnicas de armazenagem de mercadorias"
+  "tecnicas de armazenagem de mercadorias",
+  "inteligencia artificial: fundamentos, aplicacoes e criatividade",
+  "conceito de logistica reversa"
  ],
  bradesco: [
   "comunicacao escrita: ortografia, gramatica e texto",
@@ -151,6 +153,7 @@ const TITULOS_PERMITIDOS = {
   "introducao ao excel",
   "midias digitais e saude mental de criancas e adolescentes",
   "portugues - interpretacao de texto e emprego de regras gramaticais",
-  "producao e edicao de video pelo celular"
+  "producao e edicao de video pelo celular",
+  "metrologia basica"
  ]
 };
