@@ -401,7 +401,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="cartao" style="margin-top:14px">
       <h3>Preparação para o mundo do trabalho</h3>
-      <p class="sub">Cliques nos 4 passos (cursos de Conceitos e de Habilidades socioemocionais, currículo e entrevista no Trampolim). Não entram em "Cursos mais procurados".</p>
+      <p class="sub">Cliques nos 4 passos (cursos de Estratégia de inserção e de Habilidades socioemocionais, currículo e entrevista no Trampolim). Não entram em "Cursos mais procurados".</p>
       <div class="rolagem"><table class="simples">
         <thead><tr><th>Passo</th><th class="direita">Cliques</th></tr></thead>
         <tbody id="tb-prep"></tbody>
@@ -923,7 +923,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       : '<tr><td colspan="2" class="vazio">Nenhuma cidade pesquisada no período.</td></tr>';
 
     var cursosSemPrep = (j.cursos || []).filter(function(c){ return c.fonte !== 'preparacao'; });
-    var PASSOS = ['Conceitos', 'Habilidades socioemocionais', 'Monte seu currículo', 'Treine a entrevista'];
+    var PASSOS = ['Estratégia de inserção', 'Habilidades socioemocionais', 'Monte seu currículo', 'Treine a entrevista'];
     var cliquesPasso = {};
     (j.cursos || []).forEach(function(c){
       if(c.fonte === 'preparacao') cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] = (cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] || 0) + (c.cliques || 0);

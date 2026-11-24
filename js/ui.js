@@ -556,7 +556,7 @@ function cartoesPreparacao(){
       '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
     '<div class="prep-progresso" aria-live="polite"><b id="prepProgTxt">0 de 4</b> <span>passos feitos</span><div class="prep-barra"><i id="prepProgBarra"></i></div></div></div>'+
     '<h4 class="prep-fase-t">Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
-      passo(1,"Conceitos","SENAI · online e gratuito · 14 horas","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
+      passo(1,"Estratégia de inserção","SENAI · online e gratuito · 14 horas","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
       passo(2,"Habilidades socioemocionais","Escola Virtual de Governo · online e gratuito · 50 horas","Comunicação, autocontrole e convivência no trabalho.",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
     '</ol>'+
     '<h4 class="prep-fase-t">Depois, com a família, no Trampolim SP <small>o agente acompanha</small></h4><ol class="prep-passos">'+
