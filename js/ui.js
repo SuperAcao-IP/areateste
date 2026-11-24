@@ -135,6 +135,7 @@ function renderAreasGrade(cidade){
   });
   /* as fontes chegam em etapas; com busca aberta, refaz com o que ja veio */
   if(typeof renderBusca === "function") renderBusca();
+  if(typeof atualizarResumo === "function") atualizarResumo();
   /* o mapa também precisa saber dos cursos que chegam em etapas (endereço do Trampolim, planilha) */
   if(typeof atualizarCamadasMapa === "function") atualizarCamadasMapa();
 }
@@ -205,6 +206,7 @@ function renderCidade(cidade){
   renderVagas();
   ligarBusca();
   initMapa(cidade);
+  montarResumoETrilha(cidade);
 }
 
 /* ============================================================
@@ -435,16 +437,95 @@ function opcoesFiltroVagas(vagas){
   if(areas.length>=2) areas.forEach(([id,n])=>ops.push(["area:"+id,areaInfo(id).nome,n]));
   return ops;
 }
+/* ===== Resumo da cidade e trilha de etapas (cursos > preparação > vagas) ===== */
+function totalCursosDaCidade(){
+  let n=0;
+  Object.keys(DADOS_CIDADE).forEach(id=>{ const c=DADOS_CIDADE[id]; if(c&&c.cursos) n+=c.cursos.length; });
+  return n;
+}
+function montarResumoETrilha(cidade){
+  const cab=document.querySelector("#painelCidade .cidade-cabec");
+  if(!cab) return;
+  cab.insertAdjacentHTML("afterend",
+    '<div class="resumo-cidade" id="resumoCidade">'+
+      '<a href="#secaoQualificacao" data-ir="secaoQualificacao"><b id="resNCursos">–</b><span>cursos para fazer</span></a>'+
+      '<a href="#mapaSuspenso" data-ir="mapaSuspenso"><b>Mapa</b><span>serviços e escolas por perto</span></a>'+
+      '<a href="#secaoVagas" data-ir="secaoVagas" class="v"><b id="resNVagas">–</b><span>vagas abertas</span></a>'+
+    '</div>'+
+    '<nav class="trilha" id="trilhaEtapas" aria-label="Etapas do portal"><ol>'+
+      '<li><a href="#secaoQualificacao" data-etapa="secaoQualificacao" aria-current="step"><span class="n">1</span>Cursos <small id="trCursos"></small></a></li>'+
+      '<li><a href="#secaoPreparacao" data-etapa="secaoPreparacao"><span class="n">2</span>Preparação <small id="trPrep"></small></a></li>'+
+      '<li><a href="#secaoVagas" data-etapa="secaoVagas"><span class="n">3</span>Vagas <small id="trVagas"></small></a></li>'+
+    '</ol></nav>');
+  const raiz=document.getElementById("painelCidade");
+  raiz.querySelectorAll("[data-ir],[data-etapa]").forEach(a=>{
+    a.addEventListener("click",e=>{
+      e.preventDefault();
+      const alvo=document.getElementById(a.dataset.ir||a.dataset.etapa); if(!alvo) return;
+      if(alvo.tagName==="DETAILS") alvo.open=true;
+      const topo=(document.getElementById("trilhaEtapas")||{offsetHeight:0}).offsetHeight;
+      const y=alvo.getBoundingClientRect().top+window.scrollY-topo-8;
+      window.scrollTo({top:y,behavior:"smooth"});
+    });
+  });
+  if(window._trilhaObs){ window._trilhaObs.disconnect(); }
+  if("IntersectionObserver" in window){
+    const ids=["secaoQualificacao","secaoPreparacao","secaoVagas"];
+    window._trilhaObs=new IntersectionObserver(es=>{
+      es.forEach(e=>{ if(!e.isIntersecting) return;
+        document.querySelectorAll("#trilhaEtapas a").forEach(a=>{
+          if(a.dataset.etapa===e.target.id) a.setAttribute("aria-current","step"); else a.removeAttribute("aria-current");
+        });
+      });
+    },{rootMargin:"-25% 0px -65% 0px"});
+    ids.forEach(id=>{ const el=document.getElementById(id); if(el) window._trilhaObs.observe(el); });
+  }
+  atualizarResumo();
+  prepPintar();
+}
+function atualizarResumo(){
+  const nC=totalCursosDaCidade(), nV=todasVagasDaCidade().length;
+  const set=(id,t)=>{ const el=document.getElementById(id); if(el) el.textContent=t; };
+  set("resNCursos",nC); set("resNVagas",vagasPendentes>0&&!nV?"…":nV);
+  set("trCursos",nC); set("trVagas",vagasPendentes>0&&!nV?"…":nV);
+}
+
+/* ===== Progresso da preparação: guardado só neste navegador ===== */
+const PREP_CHAVE="superacao_preparacao_feitos";
+function prepLer(){ try{ const v=JSON.parse(localStorage.getItem(PREP_CHAVE)||"[]"); return Array.isArray(v)?v:[]; }catch(e){ return []; } }
+function prepGravar(v){ try{ localStorage.setItem(PREP_CHAVE,JSON.stringify(v)); }catch(e){} }
+function prepPintar(){
+  const feitos=prepLer(); let n=0;
+  document.querySelectorAll("[data-prep]").forEach(li=>{
+    const ok=feitos.indexOf(li.dataset.prep)>-1; if(ok) n++;
+    li.classList.toggle("feito",ok);
+    const b=li.querySelector(".prep-fiz"); if(b){ b.setAttribute("aria-pressed",ok?"true":"false"); b.textContent=ok?"Feito":"Marcar como feito"; }
+  });
+  const t=document.getElementById("prepProgTxt"), br=document.getElementById("prepProgBarra"), tr=document.getElementById("trPrep");
+  if(t) t.textContent=n+" de 4";
+  if(br) br.style.width=(n*25)+"%";
+  if(tr) tr.textContent=n+" de 4";
+  const et=document.querySelector('#trilhaEtapas [data-etapa="secaoPreparacao"]'); if(et) et.classList.toggle("feito",n===4);
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest&&e.target.closest(".prep-fiz"); if(!b) return;
+  const li=b.closest("[data-prep]"); if(!li) return;
+  const feitos=prepLer(), k=feitos.indexOf(li.dataset.prep);
+  if(k>-1) feitos.splice(k,1); else feitos.push(li.dataset.prep);
+  prepGravar(feitos); prepPintar();
+});
+
 /* ===== Preparação para o mundo do trabalho: texto de orientação + 4 passos em sequência ===== */
 function cartoesPreparacao(){
   const passo=(n,nome,quem,desc,meta,link,bt)=>
-    '<li class="prep-passo"><span class="prep-num" aria-hidden="true">'+n+'</span>'+
+    '<li class="prep-passo" data-prep="'+n+'"><span class="prep-num" aria-hidden="true">'+n+'</span>'+
     '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p>'+
     (meta?'<span class="prep-meta">'+esc(meta)+'</span>':'')+'</div>'+
-    (urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+' '+linkExterno+'</a>':'')+'</li>';
+    '<div class="prep-acoes">'+(urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+' '+linkExterno+'</a>':'')+'<button type="button" class="prep-fiz" aria-pressed="false">Marcar como feito</button></div></li>';
   return '<div class="prep-intro"><p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo.</p>'+
     '<p>Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
     '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
+    '<div class="prep-progresso" aria-live="polite"><b id="prepProgTxt">0 de 4</b> <span>passos feitos</span><div class="prep-barra"><i id="prepProgBarra"></i></div></div>'+
     '<div class="prep-fase"><h4>Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
       passo(1,"Conceitos","SENAI","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.","Online e gratuito · 14 horas",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
       passo(2,"Habilidades socioemocionais","Escola Virtual de Governo","Inteligência Emocional: comunicação, autocontrole e convivência no trabalho.","Online e gratuito · 50 horas",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
@@ -479,7 +560,7 @@ function renderVagas(){
   /* caixinhas por área, como nos cursos */
   const porArea={};
   todas.forEach(v=>{ const id=v._areaId||"outros"; porArea[id]=(porArea[id]||0)+1; });
-  const ids=Object.keys(porArea).sort((x,y)=>porArea[y]-porArea[x]);
+  const ids=Object.keys(porArea).sort((x,y)=>(x==="outros")-(y==="outros")||porArea[y]-porArea[x]);   /* "Outros" sempre por último */
   if(areaVagasAtual && !porArea[areaVagasAtual]) areaVagasAtual=null;
   grade.innerHTML=ids.map(id=>{
     const a=areaInfo(id), n=porArea[id];
@@ -491,6 +572,7 @@ function renderVagas(){
   if(dica) dica.style.display=areaVagasAtual?"none":"";
   rodape.innerHTML=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
   if(areaVagasAtual) renderPainelVagas(); else { painel.classList.remove("aberto"); painel.innerHTML=""; }
+  atualizarResumo();
 }
 function selecionarAreaVagas(areaId){
   if(areaVagasAtual!==areaId) vagasFiltro=null;
@@ -621,7 +703,7 @@ function cartaoCurso(c){
   const badgeVizinha = c._deOutraCidade
     ? `<div class="badge-outra-cidade"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#E65100" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7Z"/><circle cx="12" cy="9" r="2.5"/></svg> Curso disponível em ${esc(c._deOutraCidade)} (município vizinho)</div>`
     : "";
-  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}${cargaNaFaixaTolerada(c.carga)?" (15–19h)":""}</span>`:""}${c.bolsa?`<span class="item">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
+  return `<div class="curso">${seloAbertura}${tagArea}${badgeVizinha}<div class="nome">${esc(c.nome)}</div>${c.inst?`<div class="inst"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 21h18M5 21V9l7-4 7 4v12M9 21v-6h6v6"/></svg> ${esc(c.inst)}</div>`:""}${c.desc?`<div class="desc">${esc(c.desc)}</div>`:""}<div class="meta">${c.modalidade?`<span class="item"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>${esc(c.modalidade)}</span>`:""}${c.turno?`<span class="item">🕗 ${esc(c.turno)}</span>`:""}${c.carga?`<span class="item">⏱ ${c.carga}${cargaNaFaixaTolerada(c.carga)?" (15–19h)":""}</span>`:""}${c.bolsa?`<span class="item destaque">🎓 Bolsa auxílio</span>`:""}</div>${acao?`<div class="rodape">${acao}</div>`:""}</div>`;
 }
 function cartaoVaga(v){
   const rotulo = ehLinkMaps(v.link) ? "Local da vaga" : "Ver vaga";
