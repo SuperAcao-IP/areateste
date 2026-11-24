@@ -4622,6 +4622,30 @@
    "ativo": true,
    "c": "20h",
    "ar": "Tecnologia da Informação"
+  },
+  "gestao de materiais": {
+   "t": "Gestão de Materiais",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "sem regra de manter (fora do perfil por padrão)",
+   "desde": "2026-11-24",
+   "pa": "estudantes de logística e empreendedores",
+   "rq": "compreensão de leitura em língua portuguesa e possuir equipamento com recursos de áudio e vídeo",
+   "ativo": true,
+   "c": "30h",
+   "ar": "Administração e Gestão"
+  },
+  "linux fundamental 1": {
+   "t": "Linux Fundamental 1",
+   "d": "ocultar",
+   "o": "auto",
+   "m": "TI técnica (programação, redes, dados, IA)",
+   "desde": "2026-11-24",
+   "pa": "estudantes e profissionais que atuam na área de tecnologia",
+   "rq": "conhecimentos básicos de informática e compreensão de leitura em língua portuguesa",
+   "ativo": true,
+   "c": "20h",
+   "ar": "Tecnologia da Informação"
   }
  },
  "evg": {
@@ -15066,7 +15090,7 @@
    "d": "ocultar",
    "o": "manual",
    "m": "decisão da equipe: ocultado",
-   "ativo": true,
+   "ativo": false,
    "c": "15h",
    "ar": "Tecnologia da Informação"
   },
@@ -15091,7 +15115,7 @@
    "d": "ocultar",
    "o": "manual",
    "m": "decisão da equipe: ocultado",
-   "ativo": true,
+   "ativo": false,
    "c": "4h",
    "ar": "Tecnologia da Informação"
   },
@@ -15100,7 +15124,7 @@
    "d": "manter",
    "o": "manual",
    "m": "aprovado; fica visível só com carga de 15h ou mais",
-   "ativo": true,
+   "ativo": false,
    "c": "10h",
    "ar": "Comércio e Vendas"
   },
@@ -15127,7 +15151,7 @@
    "d": "ocultar",
    "o": "manual",
    "m": "decisão da equipe: ocultado",
-   "ativo": true,
+   "ativo": false,
    "c": "12h",
    "ar": "Administração e Gestão"
   },
@@ -15188,7 +15212,7 @@
    "d": "manter",
    "o": "manual",
    "m": "aprovado; fica visível só com carga de 15h ou mais",
-   "ativo": true,
+   "ativo": false,
    "c": "6h",
    "ar": "Tecnologia da Informação"
   },
@@ -15233,7 +15257,7 @@
    "d": "manter",
    "o": "manual",
    "m": "aprovado; fica visível só com carga de 15h ou mais",
-   "ativo": true,
+   "ativo": false,
    "c": "12h",
    "ar": "Administração e Gestão"
   },
@@ -15242,7 +15266,7 @@
    "d": "ocultar",
    "o": "manual",
    "m": "decisão da equipe: ocultado",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Administração e Gestão"
   },
@@ -15285,7 +15309,7 @@
    "d": "manter",
    "o": "manual",
    "m": "aprovado; fica visível só com carga de 15h ou mais",
-   "ativo": true,
+   "ativo": false,
    "c": "7h",
    "ar": "Tecnologia da Informação"
   },
@@ -15337,7 +15361,7 @@
    "o": "auto",
    "m": "TI técnica (programação, redes, dados, IA)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "2h",
    "ar": "Outros"
   },
@@ -15407,7 +15431,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "12h",
    "ar": "Outros"
   },
@@ -15417,7 +15441,7 @@
    "o": "auto",
    "m": "TI técnica (programação, redes, dados, IA)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "5h",
    "ar": "Outros"
   },
@@ -15447,7 +15471,7 @@
    "o": "auto",
    "m": "comunicação e português",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "20h",
    "ar": "Outros"
   },
@@ -15457,7 +15481,7 @@
    "o": "auto",
    "m": "TI técnica (programação, redes, dados, IA)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "18h",
    "ar": "Outros"
   },
@@ -15597,7 +15621,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "10h",
    "ar": "Outros"
   },
@@ -15607,7 +15631,7 @@
    "o": "auto",
    "m": "sem regra de manter (fora do perfil por padrão)",
    "desde": "2026-10-21",
-   "ativo": true,
+   "ativo": false,
    "c": "8h",
    "ar": "Outros"
   },

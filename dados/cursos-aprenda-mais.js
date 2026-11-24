@@ -1,6 +1,6 @@
 /* =====================================================================
    APRENDA MAIS · MEC · cursos livres, gratuitos e 100% online
-   Coletado de aprendamais.mec.gov.br · atualizado em 2026-11-16 (419 cursos, turma 2026B).
+   Coletado de aprendamais.mec.gov.br · atualizado em 2026-11-24 (421 cursos, turma 2026B).
    Gerado por scripts/atualizar-catalogos.js: não edite à mão, a próxima coleta sobrescreve.
    O catálogo guarda TODOS os cursos; o que aparece no site está em dados/filtro-publico.js.
    Todos sao EaD, gratuitos e com certificacao do MEC. A carga horaria real de cada curso
@@ -151,6 +151,7 @@ const APRENDA_MAIS = [
  {titulo:"Gestão de Documentos e Arquivística",carga:"30h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3320"},
  {titulo:"Gestão de Estoques",carga:"30h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3321"},
  {titulo:"Gestão de Marketing",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3322"},
+ {titulo:"Gestão de Materiais",carga:"30h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=1657"},
  {titulo:"Gestão de Pessoas: conceitos e processos",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3324"},
  {titulo:"Gestão de Recursos nas Empresas",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3326"},
  {titulo:"Gestão de Tempo e Organização",carga:"20h",area:"Administração e Gestão",link:"https://aprendamais.mec.gov.br/course/view.php?id=3328"},
@@ -259,6 +260,7 @@ const APRENDA_MAIS = [
  {titulo:"HTML5: Fundamentos para Construção de Páginas Web Modernas",carga:"40h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3572"},
  {titulo:"Inteligência Artificial I - Conhecendo as redes neurais artificiais",carga:"40h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3366"},
  {titulo:"Inteligência Artificial II - Aprofundando o estudo das redes neurais artificiais",carga:"40h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3367"},
+ {titulo:"Linux Fundamental 1",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3154"},
  {titulo:"Localização de Dispositivos Móveis em Redes Sem Fio",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3153"},
  {titulo:"Manutenção de Computadores: hardware, software e evolução",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3390"},
  {titulo:"Manutenção de Computadores: simuladores, sistemas operacionais e montagem",carga:"20h",area:"Tecnologia da Informação",link:"https://aprendamais.mec.gov.br/course/view.php?id=3391"},

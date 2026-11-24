@@ -110,10 +110,12 @@ const TITULOS_PERMITIDOS = {
   "armazenagem",
   "aspectos gerais da agropecuaria",
   "atendimento, trabalho em equipe e lideranca",
+  "conceito de logistica reversa",
   "controle e manutencao de estoque",
   "cozinha escolar: planejamento e preparo",
   "economia solidaria na agricultura familiar",
   "informatica basica",
+  "inteligencia artificial: fundamentos, aplicacoes e criatividade",
   "introducao a profissao almoxarife",
   "libras i",
   "libras ii",
@@ -126,14 +128,11 @@ const TITULOS_PERMITIDOS = {
   "reciclagem e organizacao da limpeza publica",
   "redes sociais e informacao na internet",
   "seguranca no trabalho e eletricidade basica",
-  "tecnicas de armazenagem de mercadorias",
-  "inteligencia artificial: fundamentos, aplicacoes e criatividade",
-  "conceito de logistica reversa"
+  "tecnicas de armazenagem de mercadorias"
  ],
  bradesco: [
   "comunicacao escrita: ortografia, gramatica e texto",
   "excel na pratica",
-  "lingua portuguesa sem complicacoes",
   "microsoft excel 2016 - basico",
   "microsoft excel 2016 - intermediario",
   "word na pratica"
@@ -151,9 +150,9 @@ const TITULOS_PERMITIDOS = {
   "inteligencia emocional",
   "introducao a libras",
   "introducao ao excel",
+  "metrologia basica",
   "midias digitais e saude mental de criancas e adolescentes",
   "portugues - interpretacao de texto e emprego de regras gramaticais",
-  "producao e edicao de video pelo celular",
-  "metrologia basica"
+  "producao e edicao de video pelo celular"
  ]
 };
