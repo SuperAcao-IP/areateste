@@ -339,7 +339,7 @@ function _opcoesPopup(mapa){
   return { maxWidth: largura, minWidth: Math.min(200, largura), autoPanPaddingTopLeft: [56, 16], autoPanPaddingBottomRight: [16, 16] };
 }
 function _iconeEscola(n){
-  return L.divIcon({ className: "pino-escola" + (n ? "" : " vazio"), html: "<span>" + (n || "·") + "</span>", iconSize: [28, 28], iconAnchor: [14, 14], popupAnchor: [0, -12] });
+  return L.divIcon({ className: "pino-escola" + (n ? "" : " vazio"), html: "<span><b>" + (n || "·") + "</b></span>", iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -26] });
 }
 function _popupServico(s){
   const linhas = [];
@@ -350,7 +350,7 @@ function _popupServico(s){
     (s.fonte && s.fonte !== "Mapa de campo" ? '<p class="pop-nota">Fonte: ' + _escM(s.fonte) + ". Confirme com o local antes de ir.</p>" : "") + "</div>";
 }
 function _iconeServico(){
-  return L.divIcon({ className: "pino-servico", html: "<span>S</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
+  return L.divIcon({ className: "pino-servico", html: "<span><b>S</b></span>", iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -26] });
 }
 /* ---------- camada "Vagas": posição APROXIMADA (grade de ≈ 1 km), sem rua nem número ---------- */
 function _iconeVaga(n){
@@ -387,7 +387,7 @@ function _popupVagas(g){
   return '<div class="pop-mapa"><b>' + g.vagas.length + " vaga" + (g.vagas.length > 1 ? "s" : "") + " nesta região</b><br><span>" + onde + "</span><ul>" + itens + '</ul><p class="pop-nota">' + (g.porCidade ? 'Estas vagas não informam o endereço: o pino fica no centro do município.' : 'Posição aproximada da região, não é o endereço da empresa.') + '</p></div>';
 }
 function _iconePonto(p){
-  return L.divIcon({ className: "pino-pc " + (p.computador ? "pc" : "wifi"), html: "<span>" + (p.computador ? "PC" : "Wi") + "</span>", iconSize: [26, 26], iconAnchor: [13, 13], popupAnchor: [0, -11] });
+  return L.divIcon({ className: "pino-pc " + (p.computador ? "pc" : "wifi"), html: "<span><b>" + (p.computador ? "PC" : "Wi") + "</b></span>", iconSize: [28, 28], iconAnchor: [14, 28], popupAnchor: [0, -26] });
 }
 
 function _montarControleCamadas(){

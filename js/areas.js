@@ -35,6 +35,9 @@ const AREAS = [
   { id:"jovemaprendiz", nome:"Jovem Aprendiz (14 a 24 anos)", descricao:"Programas de aprendizagem para jovens de 14 a 24 anos.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>`,
     kw:["jovem aprendiz","aprendiz","menor aprendiz","programa aprendiz","lei da aprendizagem","aprendizagem profissional","primeiro emprego","programa jovem","projov","patrulha mirim","camp ","clasa","abc aprendiz","espro","demà","renapsi","ciee","programa de aprendiz"] },
+  { id:"empreendedorismo", nome:"Empreendedorismo e Negócio Próprio", descricao:"Abrir e tocar o próprio negócio: MEI, vendas, economia solidária e cooperativas.",
+    icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2V16h5v-.1c0-.8.4-1.5 1-2A6 6 0 0 0 12 3Z"/></svg>`,
+    kw:["empreend","microempreendedor","para mei","economia solidaria","economia criativa","cooperativismo","associativismo","negocio proprio","comercio eletronico"] },
   { id:"gestao", nome:"Gestão, Negócios e Administrativo", descricao:"Administração, finanças, vendas e empreendedorismo.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>`,
     kw:["administr","gestao","secretar","escritori","recepc","financ","orcament","empreend","empresari","compliance","contabil","negoci","vend","caixa","comerci","varejo","loja","marketing","redes sociais","recursos humanos"," rh ","atendiment","pessoas","lideranc","projeto","planejament","estrategi","inovac","modelo de negocio","mei","microempreend","tribut","fiscal","juridic","leis","direito","mercado","precific","custos","lucro","fluxo de caixa","dre","processos","qualidade","produtividade","cliente","office","compras","comprador","licitac","faturament","tesouraria","cobranca","departamento pessoal","assistente administrativo","auxiliar administrativo"] }
@@ -58,6 +61,8 @@ const OUTROS = { id:"outros", nome:"Outros", descricao:"Capacitações gerais e 
 /* classificador central por palavras-chave (ignora acentos e caixa) */
 function classificar(t){
   t = normTxt(t);
+  const emp = AREAS.find(a => a.id === "empreendedorismo");
+  if(emp && emp.kw.some(k=>contemPalavra(t,k))) return "empreendedorismo";
   for(const a of AREAS){ if(a.kw.some(k=>contemPalavra(t,k))) return a.id; }
   return "outros";
 }
@@ -91,11 +96,11 @@ function areaDoCursoPeloTitulo(titulo){
   const n = normTxt(titulo);
   if(classificar(titulo) === "gastronomia") return "gastronomia";
   if(/(^|[^a-z])libras([^a-z]|$)/.test(n)) return "educacao";
-  if(/cooperativismo|associativismo/.test(n)) return "gestao";
   return areaDoCurso.apply(null, arguments);
 }
 /* area de um curso: tenta pelos rotulos/tema; se nao achar, tenta pelo nome */
 function areaDoCurso(nome){
+  if(classificar(nome) === "empreendedorismo") return "empreendedorismo";   // o titulo de empreendedorismo manda sobre o rotulo da fonte
   for(let i=1;i<arguments.length;i++){ const id=classificar(arguments[i]); if(id!=="outros") return id; }
   return classificar(nome);
 }
