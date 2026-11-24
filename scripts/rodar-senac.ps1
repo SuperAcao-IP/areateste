@@ -5,7 +5,7 @@
 #   3. publica dados/unidades.js no GitHub.
 # Os termos de uso do site do Senac proíbem acesso automatizado; a equipe decidiu coletar em 19/11/2026 (veja scripts/atualizar-mapa.js).
 # Uso: powershell -ExecutionPolicy Bypass -File scripts\rodar-senac.ps1
-$ErrorActionPreference = "Stop"
+$ErrorActionPreference = "Continue"   # o git/node escrevem avisos normais em stderr; o PowerShell 5 trataria como erro. Os erros reais são conferidos por $LASTEXITCODE.
 $Repo = Split-Path -Parent $PSScriptRoot
 Set-Location $Repo
 $hoje = Get-Date -Format "yyyy-MM-dd"

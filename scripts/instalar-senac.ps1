@@ -13,10 +13,17 @@ if (-not $v) { throw "Falta instalar o Node.js (https://nodejs.org, versão LTS)
 if ([version]($v.TrimStart("v")) -lt [version]"20.0") { throw "O Node encontrado é $v; precisa do 20 ou mais novo." }
 Write-Host "OK  Node $v"
 
-# GitHub: a tarefa faz push de dados/unidades.js. Basta o git já conseguir enviar (credencial salva no Windows).
-git -C $Repo push --dry-run origin HEAD:main 2>$null
-if ($LASTEXITCODE -ne 0) { throw "O git não conseguiu falar com o GitHub (credencial). Faça um push manual uma vez e rode este script de novo." }
-if (-not (git -C $Repo config user.name)) { throw "Falta configurar o nome no git: git config --global user.name 'Seu Nome'" }
+# GitHub: a tarefa faz push de dados/unidades.js. Confere que o git já fala com o GitHub (credencial salva no Windows).
+$ErrorActionPreference = "Continue"   # o git escreve avisos normais em stderr; o PowerShell 5 trataria como erro
+git -C $Repo ls-remote --exit-code origin main *> $null
+$gitOk = $LASTEXITCODE
+$ErrorActionPreference = "Stop"
+if ($gitOk -ne 0) { throw "O git não conseguiu falar com o GitHub (credencial). Faça um push manual uma vez e rode este script de novo." }
+$ErrorActionPreference = "Continue"
+git -C $Repo var GIT_AUTHOR_IDENT *> $null      # o git descobre o autor sozinho (nome do Windows) ou pelo user.name
+$autorOk = $LASTEXITCODE
+$ErrorActionPreference = "Stop"
+if ($autorOk -ne 0) { throw "O git não sabe quem é o autor. Rode: git config --global user.name 'Seu Nome' e git config --global user.email seu@email" }
 Write-Host "OK  GitHub (git)"
 
 if ($SemTarefa) { Write-Host "Pronto (sem tarefa agendada)."; exit 0 }
