@@ -7,10 +7,10 @@ const AREAS = [
     kw:["manicure","pedicure","cabelei","cabelo","beleza","estetic","sobrancelha","maquiag","barbeir","depilac","podolog","unha","spa","cilios","penteado","tranca","esteticista","micropigment","salao de beleza"] },
   { id:"saude", nome:"Saúde, Ambiente e Cuidados", descricao:"Cuidados, saúde, bem-estar e meio ambiente.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="16" rx="3"/><path d="M12 8v8M8 12h8"/></svg>`,
-    kw:["cuidador","saude","enfermag","clinic","idoso","farmac","primeiros socorros","meio ambiente","ambiental","sustentab","reciclag","residuo","higiene","bem-estar","bem estar","nutric","psicolog","terapeut","fisioter","odontolog","veterinari","seguranca do trabalho","saneamento","biosseguranca","autocuidado","gerontolog","socorrista","agroecolog"] },
+    kw:["cuidador","saude","enfermag","clinic","idoso","farmac","primeiros socorros","meio ambiente","ambiental","sustentab","reciclag","residuo","higiene","bem-estar","bem estar","nutric","psicolog","terapeut","fisioter","odontolog","veterinari","seguranca do trabalho","saneamento","biosseguranca","autocuidado","gerontolog","socorrista","agroecolog","laboratorio"] },
   { id:"gastronomia", nome:"Produção Alimentícia / Gastronomia", descricao:"Cozinha, panificação, confeitaria e alimentos.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3v8M5 3v4a2 2 0 0 0 4 0V3M7 11v10"/><path d="M16 3c-1.5 0-3 1.5-3 5 0 2 1 3 2 3v10"/></svg>`,
-    kw:["cozinha","cozinheir","confeit","padaria","padeir","gastronom","aliment","salgad","panific","culinari","restaurante","barista","doceir","quitut","pizzai","churrasc","cervej","cafeteria","food truck","manipulacao de alimento"] },
+    kw:["cozinha","cozinheir","confeit","padaria","padeir","gastronom","aliment","salgad","panific","culinari","restaurante","barista","doceir","quitut","pizzai","churrasc","cervej","cafeteria","food truck","manipulacao de alimento","acougue","sushi","hamburguer","lanchonete","sorveteria"] },
   { id:"construcao", nome:"Construção civil", descricao:"Obras, acabamento e instalações prediais.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16a8 8 0 0 1 16 0"/><path d="M2 16h20"/><path d="M9 8.5 12 3l3 5.5"/></svg>`,
     kw:["pedreiro","obras","canteiro de obra","construc","alvenaria","pintor","pintura predial","hidraulic","encanad","gesso","gesseir","azulej","acabamento","telhad","revestimento","reforma predial","marcenaria","marceneir","betoneira","assentamento","impermeabiliz","eletrica predial"] },
@@ -22,13 +22,13 @@ const AREAS = [
     kw:["artesanat","artesa","design","producao cultural","gestao cultural","cultura popular","patrimonio cultural","artes visuais","artes plastic","artistic","bordad","ceramic","fotograf","audiovisual","edicao de video","producao musical","musica","ilustrac","serigrafia","joalheria","bijuteria","macrame","cenograf"] },
   { id:"tech", nome:"Tecnologia da Informação e Comunicação", descricao:"Informática, dados, sistemas e suporte.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="12" rx="1.5"/><path d="M8 20h8M12 16v4"/></svg>`,
-    kw:["informat","tecnolog","programac","software","computad","geoinform","banco de dados","power bi","analise de dados","ciencia de dados","inteligencia artificial","machine learning","desenvolvimento de sistemas","desenvolvimento web","sistemas de informacao","suporte tecnico","help desk","seguranca da informacao","ciberseg","cybersec","cloud","nuvem","azure","aws","python","java ","javascript","robotica","internet das coisas","redes de computador"] },
+    kw:["informat","tecnolog","programac","software","computad","geoinform","banco de dados","power bi","analise de dados","ciencia de dados","inteligencia artificial","machine learning","desenvolvimento de sistemas","desenvolvimento web","sistemas de informacao","suporte tecnico","help desk","seguranca da informacao","ciberseg","cybersec","cloud","nuvem","azure","aws","python","java ","javascript","robotica","internet das coisas","redes de computador","suporte ti"] },
   { id:"logistica", nome:"Logística / Operações", descricao:"Estoque, almoxarifado, transporte e operações.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h11v9H3z"/><path d="M14 9h4l3 3v3h-7z"/><circle cx="7" cy="18" r="1.8"/><circle cx="17" cy="18" r="1.8"/></svg>`,
-    kw:["logistic","estoque","almoxarif","empilhad","transporte","entrega","motorist","frota","supply chain","cadeia de suprimento","expedic","armazen","armazem","distribuic","recebimento de mercadoria","inventario","gestao de estoque","carga e descarga","abastecimento","motoboy"] },
+    kw:["logistic","estoque","almoxarif","empilhad","transporte","entrega","motorist","frota","supply chain","cadeia de suprimento","expedic","armazen","armazem","distribuic","recebimento de mercadoria","inventario","gestao de estoque","carga e descarga","abastecimento","motoboy","estoquista","camara fria","patio","auxiliar de movimentacao","operador de terminal","operador de balanca"] },
   { id:"mecanica", nome:"Mecânica e Serviços Gerais", descricao:"Mecânica, elétrica, manutenção e serviços gerais.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 5.5a3.5 3.5 0 0 0-4.9 4.4L4 15.5 8.5 20l5.6-5.6a3.5 3.5 0 0 0 4.4-4.9l-2.5 2.5-2-2 2.5-2.5Z"/></svg>`,
-    kw:["mecanic","automot","automovel","veicul","motocicl","injecao eletronic","solda","soldagem","montagem","manutenc","industr","producao industrial","linha de producao","operador de producao","auxiliar de producao","metalurg","usinag","fabricac","maquinas","torneiro","fresad","refrigerac","ar-condicionado","ar condicionado","eletric","eletrotecnic","eletronic","servicos gerais","limpeza","jardinag","zelador","portaria","conservac","manutencao predial","chaveiro"] },
+    kw:["mecanic","automot","automovel","veicul","motocicl","injecao eletronic","solda","soldagem","montagem","manutenc","industr","producao industrial","linha de producao","operador de producao","auxiliar de producao","metalurg","usinag","fabricac","maquinas","torneiro","fresad","refrigerac","ar-condicionado","ar condicionado","eletric","eletrotecnic","eletronic","servicos gerais","limpeza","jardinag","zelador","portaria","conservac","manutencao predial","chaveiro","ajudante","auxiliar operacional","auxiliar de operac","auxiliar operac","assistente de operac","operador de maquina","operador de impressao","operador de laminacao","operador de extrusao","operador troquel","operador de troquel","operador de retroescavadeira","operador de guincho","troquel","extrusao","laminacao","flexograf","galvano","envase","embalagem","movimentacao de material","movimentacao de materiais","operador (a) de producao","operador(a) de producao","operador de producao","operadora de producao","operador multifuncional","extrusora","transpaleteira","tecelao","rotomoldagem","operador de forno","operador mantenedor","operador de utilidades","tingimento","manipulacao"] },
   { id:"educacao", nome:"Desenvolvimento Educacional e Social", descricao:"Educação, idiomas, ação social e cidadania.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 5a2 2 0 0 1 2-2h13v15H6a2 2 0 0 0-2 2Z"/><path d="M19 18H6a2 2 0 0 0-2 2"/><path d="M9 7h6"/></svg>`,
     kw:["educac","pedagog","professor","docente","ensino","escolar","alfabetiz","assistencia social","acao social","servico social","projeto social","desenvolvimento social","impacto social","inclusao","libras","idioma","ingles","espanhol","monitoria","recreac","socioeducativ","socioemocional","primeira infancia","educacao infantil","cidadania","direitos humanos","terceiro setor","orientac educacional"] },
@@ -37,7 +37,20 @@ const AREAS = [
     kw:["jovem aprendiz","aprendiz","menor aprendiz","programa aprendiz","lei da aprendizagem","aprendizagem profissional","primeiro emprego","programa jovem","projov","patrulha mirim","camp ","clasa","abc aprendiz","espro","demà","renapsi","ciee","programa de aprendiz"] },
   { id:"gestao", nome:"Gestão, Negócios e Administrativo", descricao:"Administração, finanças, vendas e empreendedorismo.",
     icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg>`,
-    kw:["administr","gestao","secretar","escritori","recepc","financ","orcament","empreend","empresari","compliance","contabil","negoci","vend","caixa","comerci","varejo","loja","marketing","redes sociais","recursos humanos"," rh ","atendiment","pessoas","lideranc","projeto","planejament","estrategi","inovac","modelo de negocio","mei","microempreend","tribut","fiscal","juridic","leis","direito","mercado","precific","custos","lucro","fluxo de caixa","dre","processos","qualidade","produtividade","cliente","office"] }
+    kw:["administr","gestao","secretar","escritori","recepc","financ","orcament","empreend","empresari","compliance","contabil","negoci","vend","caixa","comerci","varejo","loja","marketing","redes sociais","recursos humanos"," rh ","atendiment","pessoas","lideranc","projeto","planejament","estrategi","inovac","modelo de negocio","mei","microempreend","tribut","fiscal","juridic","leis","direito","mercado","precific","custos","lucro","fluxo de caixa","dre","processos","qualidade","produtividade","cliente","office","compras","comprador","licitac","faturament","fiscal","tesouraria","cobranca","departamento pessoal","assistente administrativo","auxiliar administrativo"] }
+];
+/* Áreas que só existem nas vagas (cursos não usam). Entram na ordem antes de "logística". */
+const svgV = d => '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">' + d + '</svg>';
+const AREAS_VAGAS_EXTRA = [
+  { id:"v-limpeza", nome:"Limpeza e Conservação", descricao:"Limpeza, higienização, zeladoria e conservação.",
+    icone:svgV('<path d="M12 3l1.8 4.2L18 9l-4.2 1.8L12 15l-1.8-4.2L6 9l4.2-1.8L12 3Z"/><path d="M19 15l.8 1.9 1.9.8-1.9.8-.8 1.9-.8-1.9-1.9-.8 1.9-.8.8-1.9Z"/>'),
+    kw:["rouparia","limpeza","higieniz","faxin","zelador","governanca","conservacao","copeir","jardin","lavagem","lavador"] },
+  { id:"v-seguranca", nome:"Segurança e Portaria", descricao:"Vigilância, portaria e controle de acesso.",
+    icone:svgV('<path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6l8-3Z"/><path d="m9 12 2 2 4-4"/>'),
+    kw:["vigilante","porteiro","portaria","seguranca","vigia","controlador de acesso","ronda"] },
+  { id:"v-atendimento", nome:"Atendimento e Vendas", descricao:"Atendimento ao público, balcão, caixa, reposição e vendas.",
+    icone:svgV('<path d="M4 14v-2a8 8 0 0 1 16 0v2"/><rect x="3" y="14" width="4" height="6" rx="1.5"/><rect x="17" y="14" width="4" height="6" rx="1.5"/>'),
+    kw:["atendente","atendimento","repositor","balconista","vendedor","vendedora","vendas","caixa","promotor","sac","telemarketing","call center","operador de loja","e-commerce","ecommerce","frios","perecivel","pereciveis","mercearia","hortifrut"] }
 ];
 const OUTROS = { id:"outros", nome:"Outros", descricao:"Capacitações gerais e cursos que não se encaixam nas demais áreas.",
   icone:`<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="12" r="1.6"/><circle cx="12" cy="12" r="1.6"/><circle cx="19" cy="12" r="1.6"/></svg>` };
@@ -67,9 +80,24 @@ function areaDoCurso(nome){
   return classificar(nome);
 }
 
+/* area de uma vaga: mesma ideia, mas com as areas so de vagas na ordem certa (antes de "logistica") */
+function _areasParaVagas(){
+  const i = AREAS.findIndex(a => a.id === "logistica");
+  return AREAS.slice(0, i).concat(AREAS_VAGAS_EXTRA).concat(AREAS.slice(i));
+}
+function classificarVaga(t){
+  t = normTxt(t);
+  for(const a of _areasParaVagas()){ if(a.kw.some(k=>contemPalavra(t,k))) return a.id; }
+  return "outros";
+}
+function areaDaVaga(cargo){
+  for(let i=1;i<arguments.length;i++){ const id=classificarVaga(arguments[i]); if(id!=="outros") return id; }
+  return classificarVaga(cargo);
+}
+
 /* registro das areas que chegam do Trampolim (chave = nome normalizado) */
 const AREAS_DINAMICAS = new Map();
 function normTxt(s){ return (s||"").normalize("NFD").replace(/[\u0300-\u036f]/g,"").replace(/[\u00b4\u0060\u2019\u2018]/g,"'").trim().toLowerCase(); }
-function todasAreas(){ return AREAS.concat([...AREAS_DINAMICAS.values()]).concat([OUTROS]); }
+function todasAreas(){ return AREAS.concat(AREAS_VAGAS_EXTRA).concat([...AREAS_DINAMICAS.values()]).concat([OUTROS]); }
 
 function areaInfo(id){ return todasAreas().find(a=>a.id===id) || OUTROS; }

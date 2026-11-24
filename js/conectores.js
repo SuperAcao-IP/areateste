@@ -424,7 +424,7 @@ function mesclarTrampolimVagas(vagas){
   Object.values(DADOS_CIDADE).forEach(a => (a.oportunidades || []).forEach(x => { if(x._trampolim && x._id != null) vistos.add(x._id); }));
   vagas.forEach(v=>{
     if(v._id != null){ if(vistos.has(v._id)) return; vistos.add(v._id); }
-    const id = areaDoCurso(v.cargo, ...(v._rotulos || []));
+    const id = areaDaVaga(v.cargo, ...(v._rotulos || []));
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(v);
   });
 }
@@ -930,7 +930,7 @@ function mesclarPlanilhaVagas(vagas, cidade){
     const ehGeral = (mun==="" || mun.startsWith("online") || mun.startsWith("todos"));
     const deVizinha = !ehGeral && mun!==cidNorm && vizinhas.some(x=>normTxt(x)===mun);   // vaga cadastrada numa cidade vizinha (ex.: Rio Claro)
     if(!ehGeral && mun!==cidNorm && !deVizinha) return;
-    const id = v._area ? classificar(v._area) : classificar(v.cargo);
+    const id = v._area ? classificar(v._area) : areaDaVaga(v.cargo);
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(v);
   });
 }
@@ -966,7 +966,7 @@ function mesclarVagasRobo(cidade, vagas){
     const deVizinha = !daCidade && vizinhas.some(x=>normTxt(x)===mun);
     if(!daCidade && !deVizinha) return;
     const obj = Object.assign({}, v, { _id:"robo:"+v.id, _robo:true, _via:v.fonte, _deOutraCidade: deVizinha ? v.municipio : null });
-    const id = areaDoCurso(v.cargo);
+    const id = areaDaVaga(v.cargo);
     (DADOS_CIDADE[id] = DADOS_CIDADE[id] || {cursos:[],oportunidades:[]}).oportunidades.push(obj);
     n++;
   });

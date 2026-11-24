@@ -68,7 +68,7 @@ async function montarDados(cidade){
   (DADOS.vagas||[]).forEach(v=>{
     if(!ehDaCidade(v.municipio,cidade)) return;
     if(!aberto(v.status,v.validade)) return;
-    add(areaDoCurso(v.cargo, v.area),"oportunidades",{cargo:v.cargo, empresa:[v.empresa,v.cidade].filter(Boolean).join(" · "), tipo:v.tipo, link:v.link});
+    add(areaDaVaga(v.cargo, v.area),"oportunidades",{cargo:v.cargo, empresa:[v.empresa,v.cidade].filter(Boolean).join(" · "), tipo:v.tipo, link:v.link});
   });
   /* cursos presenciais das unidades do Senai e do Senac (dados/unidades.js, atualizado todo domingo pelo robô do mapa):
      cursos livres gratuitos do Senai e cursos com bolsa do Senac, já filtrados pelas regras de público. O curso que a
@@ -124,7 +124,7 @@ async function selecionarCidade(cidade){
 function renderAreasGrade(cidade){
   const wrap = document.getElementById("areasGrade");
   if(!wrap) return;
-  const areas = areasComConteudo();
+  const areas = areasComConteudo().filter(a=>conteudoDaArea(a.id).cursos.length>0);
   wrap.innerHTML = areas.map(a=>{
     const c=conteudoDaArea(a.id), nC=c.cursos.length;
     return `<button class="area-btn" role="tab" aria-selected="false" data-area="${a.id}"><span class="ico">${a.icone}</span><span class="titulo">${a.nome}</span><span class="conta">${nC} curso${nC!==1?"s":""}</span></button>`;

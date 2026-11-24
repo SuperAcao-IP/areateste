@@ -564,7 +564,9 @@ footer{padding-bottom:110px}
 /* caixinhas de área compactas, só nome e quantidade */
 .areas-grade{ grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:.65rem; }
 .area-btn{ padding:.8rem .9rem; gap:.15rem; }
-.area-btn .ico{ display:none; }
+.area-btn .ico{ display:grid; place-items:center; width:34px; height:34px; border-radius:10px; margin-bottom:4px; background:var(--azul-suave); color:var(--azul); }
+#areasGradeVagas .area-btn .ico{ background:var(--verde-suave); color:var(--verde); }
+.area-btn[aria-selected="true"] .ico, #areasGradeVagas .area-btn[aria-selected="true"] .ico{ background:rgba(255,255,255,.2); color:#fff; }
 .area-btn .titulo{ font-size:.95rem; }
 #areasGradeVagas .area-btn .titulo{ color:var(--verde); }
 #areasGradeVagas .area-btn[aria-selected="true"]{ background:var(--verde); border-color:var(--verde); }
