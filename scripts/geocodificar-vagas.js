@@ -7,7 +7,7 @@
    - só vagas que ainda estão em dados/vagas-robo.json (as fechadas saem do arquivo);
    - cada vaga é consultada uma vez; as que falham são tentadas de novo depois de 30 dias;
    - no máximo LIMITE vagas novas por rodada (padrão 400), o resto fica para a semana seguinte;
-   - coordenadas com 3 casas (≈ 100 m): é a posição do local de trabalho informado pela empresa, mostrada como "aproximada".
+   - coordenadas com 2 casas (≈ 1 km), como as do Trampolim: a posição é sempre APROXIMADA, nunca a rua exata.
    Uso: node scripts/geocodificar-vagas.js            (LIMITE=2000 para uma carga inicial grande) */
 const fs = require("fs");
 const path = require("path");
@@ -22,7 +22,7 @@ const REPETIR_FALHA_DIAS = 30;
 const UA_PAGINA = "Mozilla/5.0 (compatible; leitor-de-vagas/1.0)";
 
 function lerJson(f, padrao){ try{ return JSON.parse(fs.readFileSync(f, "utf8")); }catch(_){ return padrao; } }
-function arred(n){ return +(+n).toFixed(3); }
+function arred(n){ return +(+n).toFixed(2); }
 
 /* "Rua X, 123, Cidade, São Paulo, Brasil, 07700-135" -> {rua, numero} (ou null se só vier cidade e CEP) */
 function separarEndereco(linha, cidade){

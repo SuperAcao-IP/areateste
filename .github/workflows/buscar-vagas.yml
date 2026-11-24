@@ -58,6 +58,12 @@ jobs:
         continue-on-error: true
         run: node scripts/geocodificar-vagas.js
 
+      # Check das vagas novas: bate com os requisitos? Está localizada no mapa? O resultado entra no relatório (issue da semana).
+      - name: Checar as vagas novas
+        working-directory: robo-vagas
+        continue-on-error: true
+        run: python -m robo.checar --novas 7 --relatorio ../relatorio-vagas.md
+
       # Grava mesmo se algo falhou no meio: o histórico (vagas.csv) evita repetir vaga na semana seguinte.
       - name: Publicar na main
         if: always()
