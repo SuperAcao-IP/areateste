@@ -179,7 +179,7 @@ function renderCidade(cidade){
     </div>
     <div class="bloco">
       <details class="secao-suspenso" id="secaoQualificacao" open>
-        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><div><h3>Escolha uma área de qualificação</h3></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
+        <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span><div><h3>Escolha uma área de qualificação</h3><p id="cursosSub"></p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
           ${chipsModalidade("cursos")}
           <div class="busca-cursos">
@@ -485,6 +485,15 @@ function atualizarChipsModalidade(){
   const n = { "cursos:todos": cs.length, "cursos:online": cs.filter(cursoEhOnline).length, "cursos:presencial": cs.filter(cursoEhPresencial).length,
               "vagas:todas": vs.length, "vagas:presencial": vs.filter(v => !vagaEhRemota(v)).length, "vagas:remoto": vs.filter(vagaEhRemota).length };
   document.querySelectorAll("[data-mod-conta]").forEach(el => { el.textContent = n[el.dataset.modConta]; });
+  const poe = (id, txt) => { const el = document.getElementById(id); if(el) el.textContent = txt; };
+  const pl = (k, s, p) => k + " " + (k === 1 ? s : p);
+  if(cs.length){
+    const sem = cs.length - n["cursos:online"] - n["cursos:presencial"];
+    poe("cursosSub", pl(cs.length, "curso", "cursos") + ": " + n["cursos:online"] + " online e " + n["cursos:presencial"] + " presenciais" + (sem > 0 ? " (" + sem + " sem modalidade informada)" : "") + ".");
+  }
+  if(vs.length && cidadeAtual){
+    poe("vagasSub", pl(vs.length, "vaga", "vagas") + " em " + cidadeAtual + " e até " + raioDoMunicipio(cidadeAtual) + " km: " + n["vagas:presencial"] + " presenciais e " + n["vagas:remoto"] + " remotas ou híbridas.");
+  }
   document.querySelectorAll("[data-mod-tipo]").forEach(b => { const atual = b.dataset.modTipo === "cursos" ? modCursos : modVagas; b.setAttribute("aria-pressed", String(b.dataset.mod === atual)); });
 }
 document.addEventListener("click", e => {
@@ -555,7 +564,6 @@ function atualizarResumo(){
   const set=(id,t)=>{ const el=document.getElementById(id); if(el) el.textContent=t; };
   const nM=(typeof CAMADAS_MAPA!=="undefined"&&CAMADAS_MAPA&&CAMADAS_MAPA.nServicos!=null)?CAMADAS_MAPA.nServicos:"…";
   set("resNCursos",nC); set("resNMapa",nM); set("resNVagas",vagasPendentes>0&&!nV?"…":nV);
-  if(nV&&cidadeAtual) set("vagasSub",nV+" vaga"+(nV!==1?"s":"")+" em "+cidadeAtual+" e até "+raioDoMunicipio(cidadeAtual)+" km, as da cidade primeiro.");
   set("trCursos",nC); set("trVagas",vagasPendentes>0&&!nV?"…":nV);
 }
 
