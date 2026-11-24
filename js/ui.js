@@ -143,7 +143,7 @@ function renderAreasGrade(cidade){
   }).join("");
   wrap.querySelectorAll(".area-btn").forEach(btn=>{
     if(btn.dataset.area===areaAtual) btn.setAttribute("aria-selected","true");
-    btn.addEventListener("click",()=>selecionarArea(cidade,btn.dataset.area,btn));
+    btn.addEventListener("click",()=>selecionarArea(cidade,btn.dataset.area,btn,true));
   });
   /* as fontes chegam em etapas; com busca aberta, refaz com o que ja veio */
   if(typeof renderBusca === "function") renderBusca();
@@ -384,7 +384,14 @@ function initMapa(cidade){
   },80);
 }
 
-function selecionarArea(cidade,areaId,btn){
+function selecionarArea(cidade,areaId,btn,alternar){
+  if(alternar && areaAtual===areaId){            // segundo clique na mesma caixinha: fecha a lista
+    areaAtual=null;
+    document.querySelectorAll("#areasGrade .area-btn").forEach(x=>x.setAttribute("aria-selected","false"));
+    const d=document.getElementById("dicaArea"); if(d) d.style.display="";
+    const p=document.getElementById("painelArea"); if(p){ p.classList.remove("aberto"); p.innerHTML=""; }
+    return;
+  }
   areaAtual=areaId;
   document.querySelectorAll("#areasGrade .area-btn").forEach(x=>x.setAttribute("aria-selected",x===btn?"true":"false"));
   const dica=document.getElementById("dicaArea"); if(dica) dica.style.display="none";
@@ -658,6 +665,13 @@ function ligarBuscaVagas(){
   renderBuscaVagas();
 }
 function selecionarAreaVagas(areaId){
+  if(areaVagasAtual===areaId){                   // segundo clique na mesma caixinha: fecha a lista
+    areaVagasAtual=null; vagasFiltro=null;
+    document.querySelectorAll("#areasGradeVagas .area-btn").forEach(x=>x.setAttribute("aria-selected","false"));
+    const d=document.getElementById("dicaAreaVagas"); if(d) d.style.display="";
+    const p=document.getElementById("painelVagas"); if(p){ p.classList.remove("aberto"); p.innerHTML=""; }
+    return;
+  }
   if(areaVagasAtual!==areaId) vagasFiltro=null;
   areaVagasAtual=areaId;
   document.querySelectorAll("#areasGradeVagas .area-btn").forEach(x=>x.setAttribute("aria-selected",x.dataset.area===areaId?"true":"false"));
