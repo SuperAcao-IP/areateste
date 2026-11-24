@@ -53,10 +53,17 @@ class TestFiltro(unittest.TestCase):
         self.assertTrue(filtro.avaliar(x, CFG, HOJE), x.motivos)
         self.assertEqual(x.municipio, "Rio Claro")
 
+    def test_remoto_passa_e_fica_marcado(self):
+        x = v("Atendente", modelo="remote")
+        self.assertTrue(filtro.avaliar(x, CFG, HOJE), x.motivos)
+        self.assertEqual(x.modelo, "remote")
+        y = v("Atendente", "Vaga 100% home office.")
+        self.assertTrue(filtro.avaliar(y, CFG, HOJE), y.motivos)
+        self.assertEqual(y.modelo, "remote")
+
     def test_cortes(self):
         casos = {
             "fora da região": v("Auxiliar de Cozinha", cidade="São Paulo"),
-            "trabalho remoto": v("Atendente", modelo="remote"),
             "contrato": v("Auxiliar Administrativo", tipo="vacancy_type_internship"),
             "título acima da entrada": v("Analista de Logística Júnior"),
             "cargo fora das funções de entrada": v("Designer Gráfico"),

@@ -4,7 +4,7 @@ Fonte da verdade: `config.toml` e `robo/filtro.py`. Este texto só explica a ord
 1. `excluir_sempre`: empresa, título, descrição ou link com o termo → "excluída".
 2. `sinais_de_golpe` no título ou na descrição → "sinal de golpe".
 3. Cidade fora dos municípios do programa e das vizinhas → "fora da região". A cidade aceita "Campinas - SP", "Campinas/SP", "Campinas (SP)".
-4. Modelo remoto (ou "100% home office" na descrição) → "trabalho remoto".
+4. Trabalho remoto, híbrido e home office **não cortam**: a vaga entra marcada ("Remoto"/"Híbrido") e o portal mostra o aviso "pode exigir computador e internet próprios".
 5. Título com termo de `titulo_acima_da_entrada` (salvo `titulo_acima_excecoes`) → "título acima da entrada".
 6. Título sem termo de `titulo_entrada` → "cargo fora das funções de entrada".
 7. Contrato: estágio, trainee, PJ, autônomo, freelancer, banco de talentos → "contrato". Gupy: `vacancy_type_effective` = CLT, `_apprentice` = Jovem Aprendiz, `_temporary` = Temporário.

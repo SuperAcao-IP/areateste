@@ -367,6 +367,7 @@ function vagasParaMapa(){
     if(v._aprox){
       lat = v._aprox.lat; lon = v._aprox.lon; k = lat.toFixed(2) + "," + lon.toFixed(2);
     } else {
+      if(/remot|home office/i.test(v.modalidade || "")) return;      // trabalho remoto não tem lugar no mapa
       const nome = v.municipio || v._municipio || v.cidade || cidadeAtual;
       const c = (typeof _centroDaCidade === "function") ? (_centroDaCidade(nome) || _centroDaCidade(cidadeAtual)) : null;
       if(!c) return;

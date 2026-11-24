@@ -5,7 +5,7 @@ Ordem (o primeiro corte vale; a lista de motivos explica no relatório):
   1. excluir_sempre (empresa, título, descrição ou link com o termo)
   2. sinal de golpe (taxa, investimento inicial, kit, marketing multinível...)
   3. cidade fora dos municípios do programa e das cidades vizinhas
-  4. trabalho remoto (fora: maior risco de golpe e não é o perfil)
+  4. trabalho remoto NÃO é cortado: a vaga entra marcada como "Remoto" e o portal avisa que pode exigir computador e internet próprios
   5. contrato: estágio, trainee, PJ, autônomo, banco de talentos, freelancer
   6. título de nível acima da entrada (analista, gerente, sênior, técnico...)
   7. exige ensino superior ou muitos anos de experiência
@@ -103,8 +103,6 @@ def precorte(vaga, cfg):
         return f.get("excluir_sempre_motivo", "excluída")
     if not municipios.cidade_alvo(vaga.cidade):
         return f"fora da região ({vaga.cidade or 'cidade não informada'})"
-    if vaga.modelo == "remote":
-        return "trabalho remoto"
     nivel = _primeiro(titulo_n, f.get("titulo_acima_da_entrada", []))
     if nivel and not _tem(titulo_n, f.get("titulo_acima_excecoes", [])):
         return f"título acima da entrada ({nivel})"
@@ -132,9 +130,8 @@ def avaliar(vaga, cfg, hoje=None):
     if corte:
         vaga.motivos.append(corte)
         return False
-    if _REMOTO_TEXTO.search(texto_n):
-        vaga.motivos.append("trabalho remoto")
-        return False
+    if _REMOTO_TEXTO.search(texto_n) and not vaga.modelo.startswith("remote"):
+        vaga.modelo = "remote"      # a descrição diz que é 100% remoto: marca (o portal mostra o aviso)
     rotulo, motivo = contrato(vaga)
     if motivo:
         vaga.motivos.append(motivo)
@@ -185,7 +182,7 @@ def avaliar(vaga, cfg, hoje=None):
     return True
 
 
-CATEGORIAS_CORTE = ["fora da região", "trabalho remoto", "contrato", "título acima da entrada", "cargo fora das funções de entrada",
+CATEGORIAS_CORTE = ["fora da região", "contrato", "título acima da entrada", "cargo fora das funções de entrada",
                     "exige ensino superior", "exige anos de experiência", "sinal de golpe", "inscrições encerradas", "nota abaixo"]
 
 

@@ -772,7 +772,7 @@ function _dataCurta(d){
 }
 
 /* cor da etiqueta de modalidade: presencial, online ou outra */
-function classeModalidade(m){ return /presencial/i.test(m||"") ? "mod-presencial" : /online|ead|dist[aâ]ncia/i.test(m||"") ? "mod-online" : "mod-outra"; }
+function classeModalidade(m){ return /presencial/i.test(m||"") ? "mod-presencial" : /online|ead|dist[aâ]ncia|remot|home office/i.test(m||"") ? "mod-online" : "mod-outra"; }
 function cartaoCurso(c){
   const rotulo = ehLinkMaps(c.link) ? "Local de inscrição" : "Como se inscrever";
   const abreEm = aindaNaoAbriu(c);
@@ -814,10 +814,13 @@ function cartaoVaga(v){
     v.turno ? pill("Turno: "+v.turno,"turno") : (v.modalidade ? pill(v.modalidade,classeModalidade(v.modalidade)) : "")
   ].filter(Boolean).join("");
   const linha = [v.cidade, publicada ? "publicada em "+publicada : "", (v.telefone && !v.anonima) ? v.telefone : ""].filter(Boolean).join(" · ");
+  const remoto = /remot|home office/i.test(v.modalidade||""), hibrido = /h[ií]brid/i.test(v.modalidade||"");
+  const avisoRemoto = remoto ? "Trabalho remoto: pode exigir computador e internet próprios." : (hibrido ? "Trabalho híbrido: parte dos dias é remota e pode exigir computador e internet próprios." : "");
   const empresa = v.empresa ? '<div class="empresa"><span>'+esc(v.empresa)+(v._trampolim ? ' · via Trampolim SP' : (v._via ? ' · via '+esc(v._via) : ""))+'</span></div>' : "";
   return '<div class="vaga"><div class="curso-topo"><div class="curso-tit"><div class="cargo">'+esc(v.cargo||"")+'</div>'+empresa+'</div>'+num+'</div>'+
     (v.desc ? '<div class="desc">'+esc(v.desc)+'</div>' : "")+
     (pills ? '<div class="meta">'+pills+'</div>' : "")+
     (linha ? '<div class="vaga-linha">'+esc(linha)+'</div>' : "")+
+    (avisoRemoto ? '<div class="vaga-aviso-remoto">'+esc(avisoRemoto)+'</div>' : "")+
     (acao ? '<div class="rodape">'+acao+'</div>' : "")+'</div>';
 }

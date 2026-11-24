@@ -715,3 +715,6 @@ header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px;
 /* lâmpada do Empreendedorismo em dourado (amarelo FGV) */
 .area-btn[data-area="empreendedorismo"] .ico{ background:#fff3c4; color:#BDA132; }
 .area-btn[data-area="empreendedorismo"][aria-selected="true"] .ico{ background:rgba(255,255,255,.2); color:#FDDB51; }
+
+/* aviso de trabalho remoto/híbrido nos cartões de vaga */
+.vaga-aviso-remoto{ font-size:.8rem; font-weight:700; color:#78487F; background:#f1e6f1; border-radius:8px; padding:6px 10px; }
