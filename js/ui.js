@@ -142,6 +142,7 @@ function renderAreasGrade(cidade){
 function renderCidade(cidade){
   vagasFiltro=null;
   areaVagasAtual=null;
+  buscaVagasTermo="";
   vagasRaioAmpliado=0;
   vagasPendentes=(TRAMPOLIM_VAGAS_ATIVO?1:0)+(PLANILHA_VAGAS_ATIVA?1:0);
   const alvo=document.getElementById("painelCidade");
@@ -194,6 +195,14 @@ function renderCidade(cidade){
         <summary class="bloco-titulo secao-summary"><span class="ic verde"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="7" width="18" height="13" rx="2"/><path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/><path d="M3 12h18"/></svg></span><div><h3>Veja as vagas disponíveis</h3><p>Vagas de emprego na região de ${cidade}.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
           <div id="vagasAviso"></div>
+          <div id="buscaVagasWrap">
+            <div class="busca-cursos">
+              <svg class="busca-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.6-3.6"/></svg>
+              <input type="search" id="buscaVagas" autocomplete="off" aria-label="Buscar vaga por palavra-chave" placeholder="Buscar vaga por palavra-chave — ex.: atendente, motorista, auxiliar">
+              <button type="button" class="busca-limpar" id="buscaVagasLimpar" aria-label="Limpar busca" hidden>&times;</button>
+            </div>
+            <div id="resultadoBuscaVagas" hidden></div>
+          </div>
           <div class="areas-grade" id="areasGradeVagas" role="tablist"></div>
           <p class="dica-area" id="dicaAreaVagas">Selecione uma área acima para ver as vagas disponíveis.</p>
           <p class="dica-area" id="statusPlanilhaVagas" style="margin-top:.35rem"></p>
@@ -206,6 +215,7 @@ function renderCidade(cidade){
   renderVagas();
   ligarBusca();
   initMapa(cidade);
+  ligarBuscaVagas();
   montarResumoETrilha(cidade);
 }
 
@@ -387,6 +397,8 @@ function urlVagasTrampolimSite(cidade){
   return "https://www.trampolim.sp.gov.br/pt/busca/?smart_filter=false&q=&type=vacancy&order_by=latest&page=1&page_limit=10&status=available&status=extended&locale="+encodeURIComponent(cidade)+"&operation_range="+raioDoMunicipio(cidade);
 }
 const VAGAS_MIN_FILTROS = 8;      // com menos vagas que isso a lista aparece direta, sem botões de filtro
+let buscaVagasTermo = "";          // texto da busca de vagas
+let buscaVagasTimer = null;
 let areaVagasAtual = null;        // área de vagas aberta no momento (id) ou null
 let vagasFiltro = null;           // null | "semexp" | "fund" | "area:<id>"
 let vagasRaioAmpliado = 0;        // 0 = raio normal; senão, o raio (km) usado quando a busca foi ampliada
@@ -550,7 +562,7 @@ function renderVagas(){
   }
   const todas=todasVagasDaCidade();
   if(!todas.length){
-    grade.innerHTML=""; painel.classList.remove("aberto"); painel.innerHTML=""; rodape.innerHTML="";
+    grade.innerHTML=""; painel.classList.remove("aberto"); painel.innerHTML=""; rodape.innerHTML=""; renderBuscaVagas();
     if(dica) dica.style.display="none";
     if(vagasPendentes>0){ aviso.innerHTML='<div class="vazio-area">Buscando vagas…</div>'; return; }
     aviso.innerHTML=`<div class="vazio-area vagas-vazio"><strong>Ainda não há vagas abertas em ${esc(cidadeAtual||"esta cidade")} neste momento.</strong><p>As vagas mudam com frequência. Veja as mais atuais nos sites oficiais:</p><div class="vagas-vazio-links"><a class="btn-trampolim" href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Vagas no Trampolim SP ${linkExterno}</a><a class="btn-trampolim" style="background:var(--azul);" href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Vagas no SINE — Emprega Brasil ${linkExterno}</a></div>${AVISO_GOLPE_VAGAS}</div>`;
@@ -573,6 +585,67 @@ function renderVagas(){
   rodape.innerHTML=`<p class="vagas-mais"><a href="${esc(urlVagasTrampolimSite(cidadeAtual||""))}" target="_blank" rel="noopener noreferrer">Ver todas as vagas no Trampolim SP ${linkExterno}</a><a href="${URL_SINE}" target="_blank" rel="noopener noreferrer">Mais vagas no SINE – Emprega Brasil ${linkExterno}</a></p>${AVISO_GOLPE_VAGAS}`;
   if(areaVagasAtual) renderPainelVagas(); else { painel.classList.remove("aberto"); painel.innerHTML=""; }
   atualizarResumo();
+  renderBuscaVagas();
+}
+/* ===== Busca de vagas por palavra-chave (mesmo jeito da busca de cursos) ===== */
+function pontuarVaga(v,palavras){
+  const nome=normTxt(v.cargo||"");
+  const resto=normTxt([v.empresa,v.cidade,v.tipo,v.modalidade,v.escolaridade,v.experiencia,v.desc,(v._areaId&&v._areaId!=="outros")?areaInfo(v._areaId).nome:""].filter(Boolean).join(" "));
+  let total=0;
+  for(const p of palavras){
+    const i=nome.indexOf(p);
+    if(i!==-1){
+      if(i===0) total+=100;
+      else if(/[^a-z0-9]/.test(nome.charAt(i-1))) total+=60;
+      else total+=25;
+      continue;
+    }
+    if(resto.indexOf(p)!==-1){ total+=8; continue; }
+    return 0;
+  }
+  return total;
+}
+function renderBuscaVagas(){
+  const wrap=document.getElementById("resultadoBuscaVagas");
+  if(!wrap) return;
+  const caixa=document.getElementById("buscaVagasWrap"), grade=document.getElementById("areasGradeVagas");
+  const painel=document.getElementById("painelVagas"), dica=document.getElementById("dicaAreaVagas");
+  const limpar=document.getElementById("buscaVagasLimpar");
+  const todas=todasVagasDaCidade();
+  if(caixa) caixa.style.display=todas.length?"":"none";      // sem vagas, a busca some junto
+  if(limpar) limpar.hidden=!buscaVagasTermo;
+  const termo=normTxt(buscaVagasTermo);
+  const ativo=termo.length>=2 && todas.length>0;
+  if(grade) grade.style.display=ativo?"none":"";
+  if(painel) painel.style.display=ativo?"none":"";
+  if(dica) dica.style.display=(ativo||areaVagasAtual)?"none":"";
+  if(!ativo){ wrap.hidden=true; wrap.innerHTML=""; return; }
+  const palavras=termo.split(/\s+/).filter(Boolean);
+  const achadas=todas.map((v,i)=>({v,i,nota:pontuarVaga(v,palavras)})).filter(x=>x.nota>0)
+    .sort((a,b)=>b.nota-a.nota||a.i-b.i).map(x=>x.v);
+  wrap.hidden=false;
+  if(!achadas.length){
+    if(grade) grade.style.display="";
+    wrap.innerHTML='<div class="vazio-area">Nenhuma vaga com \u201c'+esc(buscaVagasTermo)+'\u201d nesta cidade. Tente outra palavra ou escolha uma área abaixo.</div>';
+    return;
+  }
+  const LIMITE=48, mostrar=achadas.slice(0,LIMITE);
+  const aviso=achadas.length>LIMITE ? '<p class="dica-area" style="margin:.8rem 0 0;text-align:left">Mostrando as '+LIMITE+' primeiras. Acrescente outra palavra para afinar a busca.</p>' : "";
+  wrap.innerHTML='<div class="sub-cabec"><span class="tag vagas">Busca</span><h4>Resultados para \u201c'+esc(buscaVagasTermo)+'\u201d</h4><span class="qtd">'+achadas.length+' vaga'+(achadas.length!==1?"s":"")+'</span></div>'
+    +'<div class="lista">'+mostrar.map(cartaoVaga).join("")+'</div>'+aviso;
+}
+function ligarBuscaVagas(){
+  const campo=document.getElementById("buscaVagas"), limpar=document.getElementById("buscaVagasLimpar");
+  if(!campo) return;
+  campo.value=buscaVagasTermo;
+  campo.addEventListener("input",()=>{
+    buscaVagasTermo=campo.value;
+    clearTimeout(buscaVagasTimer);
+    buscaVagasTimer=setTimeout(renderBuscaVagas,120);
+  });
+  campo.addEventListener("keydown",e=>{ if(e.key==="Escape"){ buscaVagasTermo=""; campo.value=""; renderBuscaVagas(); } });
+  if(limpar) limpar.addEventListener("click",()=>{ buscaVagasTermo=""; campo.value=""; campo.focus(); renderBuscaVagas(); });
+  renderBuscaVagas();
 }
 function selecionarAreaVagas(areaId){
   if(areaVagasAtual!==areaId) vagasFiltro=null;
