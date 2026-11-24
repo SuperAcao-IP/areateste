@@ -184,7 +184,7 @@ function renderCidade(cidade){
       <details class="secao-suspenso" id="secaoPreparacao" open>
         <summary class="bloco-titulo secao-summary"><span class="ic azul"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9l9-5 9 5-9 5-9-5Z"/><path d="M7 11.5V16c0 1 2.2 2 5 2s5-1 5-2v-4.5"/></svg></span><div><h3>Preparação para o mundo do trabalho</h3><p>Conceitos, habilidades socioemocionais, currículo e entrevista: o caminho antes de se candidatar.</p></div><span class="toggle-lbl"></span><svg class="chev" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg></summary>
         <div class="secao-conteudo">
-          <div class="lista">${cartoesPreparacao()}</div>
+          ${cartoesPreparacao()}
         </div>
       </details>
     </div>
@@ -435,17 +435,23 @@ function opcoesFiltroVagas(vagas){
   if(areas.length>=2) areas.forEach(([id,n])=>ops.push(["area:"+id,areaInfo(id).nome,n]));
   return ops;
 }
-/* ===== Preparação para o mundo do trabalho: 4 cartões com link ===== */
+/* ===== Preparação para o mundo do trabalho: texto de orientação + 4 passos em sequência ===== */
 function cartoesPreparacao(){
-  const itens=[
-    {n:"1",nome:"Conceitos",inst:"SENAI",desc:"Curso online e gratuito Preparação para o Mundo do Trabalho (14 horas): o que as empresas esperam e como funciona a busca por emprego.",carga:"14h",link:PREPARACAO_LINKS.conceitos,bt:"Fazer o curso"},
-    {n:"2",nome:"Habilidades socioemocionais",inst:"Escola Virtual de Governo (EVG)",desc:"Curso Inteligência Emocional: comunicação, autocontrole e convivência, o que mais pesa em uma contratação.",carga:"50h",link:PREPARACAO_LINKS.socioemocional,bt:"Fazer o curso"},
-    {n:"3",nome:"Monte seu currículo",inst:"Trampolim SP",desc:"Crie o seu currículo direto no Trampolim, passo a passo, e baixe pronto para enviar.",carga:"",link:PREPARACAO_LINKS.curriculo,bt:"Montar currículo"},
-    {n:"4",nome:"Treine a entrevista",inst:"Trampolim SP",desc:"Simule uma entrevista de emprego com perguntas comuns e receba dicas para melhorar as respostas.",carga:"",link:PREPARACAO_LINKS.entrevista,bt:"Treinar entrevista"}
-  ];
-  return itens.map(i=>'<div class="curso"><div class="nome">'+i.n+'. '+esc(i.nome)+'</div><div class="inst">'+esc(i.inst)+'</div><div class="desc">'+esc(i.desc)+'</div>'+
-    (i.carga?'<div class="meta"><span class="item">Carga horária: '+i.carga+'</span></div>':'')+
-    (urlValida(i.link)?'<div class="rodape"><a class="btn-curso" href="'+esc(i.link)+'" target="_blank" rel="noopener noreferrer">'+i.bt+' '+linkExterno+'</a></div>':'')+'</div>').join("");
+  const passo=(n,nome,quem,desc,meta,link,bt)=>
+    '<li class="prep-passo"><span class="prep-num" aria-hidden="true">'+n+'</span>'+
+    '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p>'+
+    (meta?'<span class="prep-meta">'+esc(meta)+'</span>':'')+'</div>'+
+    (urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+' '+linkExterno+'</a>':'')+'</li>';
+  return '<div class="prep-intro"><p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo. Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
+    '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
+    '<div class="prep-fase"><h4>Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
+      passo(1,"Conceitos","SENAI","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.","Online e gratuito · 14 horas",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
+      passo(2,"Habilidades socioemocionais","Escola Virtual de Governo","Inteligência Emocional: comunicação, autocontrole e convivência no trabalho.","Online e gratuito · 50 horas",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
+    '</ol></div>'+
+    '<div class="prep-fase"><h4>Depois, com a família, no Trampolim SP <small>o agente acompanha</small></h4><ol class="prep-passos">'+
+      passo(3,"Monte seu currículo","Trampolim SP","Crie o currículo da família passo a passo no site e baixe pronto para enviar.","Direto no site do Trampolim",PREPARACAO_LINKS.curriculo,"Montar currículo")+
+      passo(4,"Treine a entrevista","Trampolim SP","Simule uma entrevista com perguntas comuns e veja dicas para melhorar as respostas.","Direto no site do Trampolim",PREPARACAO_LINKS.entrevista,"Treinar entrevista")+
+    '</ol></div>';
 }
 function renderVagas(){
   const aviso=document.getElementById("vagasAviso"), grade=document.getElementById("areasGradeVagas");
