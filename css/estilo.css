@@ -676,3 +676,11 @@ header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px;
 .curso .meta .item.esc, .vaga .meta .item.esc{ background:#eaf1db; color:#566b34; }
 .curso .meta .item.exp, .vaga .meta .item.exp, .curso .meta .item.turno, .vaga .meta .item.turno{ background:#eceef1; color:#5C5B5F; }
 .curso .meta .item.tipo, .vaga .meta .item.tipo{ background:#dff0fa; color:#0C63AA; }
+
+/* capa: ilustração dos agentes ao lado do título */
+.hero-topo{ display:grid; grid-template-columns:minmax(0,1fr) minmax(0,400px); gap:24px; align-items:center; }
+.hero-img{ width:100%; height:auto; max-height:300px; object-fit:contain; }
+@media (max-width:820px){
+  .hero-topo{ grid-template-columns:1fr; }
+  .hero-img{ max-width:320px; margin:0 auto; }
+}
