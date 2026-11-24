@@ -392,7 +392,7 @@ function selecionarArea(cidade,areaId,btn){
   const cursosHTML=c.cursos.length?`<div class="lista">${ordenarPorCarga(c.cursos).map(cartaoCurso).join("")}</div>`:`<div class="vazio-area">Sem cursos nesta área.</div>`;
   const painel=document.getElementById("painelArea");
   painel.innerHTML=cursosHTML;
-  painel.classList.add("aberto"); painel.scrollIntoView({behavior:"smooth",block:"start"});
+  painel.classList.add("aberto");   /* a tela não rola ao clicar na área */
 }
 
 /* --- renderiza a seção de vagas (separada das áreas de qualificação) --- */
@@ -663,7 +663,6 @@ function selecionarAreaVagas(areaId){
   document.querySelectorAll("#areasGradeVagas .area-btn").forEach(x=>x.setAttribute("aria-selected",x.dataset.area===areaId?"true":"false"));
   const dica=document.getElementById("dicaAreaVagas"); if(dica) dica.style.display="none";
   renderPainelVagas();
-  document.getElementById("painelVagas").scrollIntoView({behavior:"smooth",block:"start"});
 }
 function renderPainelVagas(){
   const painel=document.getElementById("painelVagas");
