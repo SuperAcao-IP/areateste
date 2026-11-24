@@ -49,17 +49,17 @@ function montar(){
 
   const linhas = [], resumoTexto = [];
   const bloco = (titulo, corpo) => linhas.push(
-    `<tr><td style="padding:18px 24px 6px"><h2 style="margin:0 0 8px;font:600 17px Arial,sans-serif;color:#0D5A94">${esc(titulo)}</h2>${corpo}</td></tr>`);
-  const tabela = pares => `<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font:14px Arial,sans-serif;color:#0E2338">` +
-    pares.map(([r, v, destaque]) => `<tr><td style="padding:4px 18px 4px 0;color:#4A5B6E">${esc(r)}</td><td style="padding:4px 0;font-weight:700${destaque ? ";color:#A85B0B" : ""}">${v}</td></tr>`).join("") + "</table>";
+    `<tr><td style="padding:18px 24px 6px"><h2 style="margin:0 0 8px;font:600 17px Arial,sans-serif;color:#003A79">${esc(titulo)}</h2>${corpo}</td></tr>`);
+  const tabela = pares => `<table cellpadding="0" cellspacing="0" style="border-collapse:collapse;font:14px Arial,sans-serif;color:#002D4D">` +
+    pares.map(([r, v, destaque]) => `<tr><td style="padding:4px 18px 4px 0;color:#5C5B5F">${esc(r)}</td><td style="padding:4px 0;font-weight:700${destaque ? ";color:#B06F0B" : ""}">${v}</td></tr>`).join("") + "</table>";
   /* as 3 áreas com mais itens (sem "Outros"), em vez da lista item por item: a lista completa fica no painel */
   const areasTop = (itens, titulo, unidade) => {
     const conta = {};
     itens.forEach(c => { const a = c.area || "Outros"; if(a !== "Outros") conta[a] = (conta[a] || 0) + 1; });
     const top = Object.entries(conta).sort((a, b) => b[1] - a[1]).slice(0, 3);
     if(!top.length) return "";
-    return `<p style="margin:12px 0 4px;font:600 13px Arial,sans-serif;color:#4A5B6E">${esc(titulo)}</p>` +
-      `<ol style="margin:0;padding-left:20px;font:13.5px Arial,sans-serif;color:#0E2338">` +
+    return `<p style="margin:12px 0 4px;font:600 13px Arial,sans-serif;color:#5C5B5F">${esc(titulo)}</p>` +
+      `<ol style="margin:0;padding-left:20px;font:13.5px Arial,sans-serif;color:#002D4D">` +
       top.map(([a, n]) => `<li style="margin:2px 0">${esc(a)}: <b>${fmt(n)}</b> ${esc(unidade)}</li>`).join("") + "</ol>";
   };
 
@@ -74,10 +74,10 @@ function montar(){
       ["Cliques em cursos e vagas", fmt(Math.max(0, ev("clique_curso") - cliquesPrep) + ev("clique_vaga"))],
       ["Cliques na preparação para o trabalho", `${fmt(cliquesPrep)} (${fmt(ev("preparacao_feito"))} passos marcados como feitos)`],
       ["Municípios que buscaram", `${fmt(municipios.length - semBusca.length)} de ${municipios.length}`]
-    ]) + (semBusca.length ? `<p style="margin:10px 0 0;font:13.5px Arial,sans-serif;color:#4A5B6E">Sem nenhuma busca na semana: <b style="color:#A85B0B">${esc(semBusca.join(", "))}</b></p>` : ""));
+    ]) + (semBusca.length ? `<p style="margin:10px 0 0;font:13.5px Arial,sans-serif;color:#5C5B5F">Sem nenhuma busca na semana: <b style="color:#B06F0B">${esc(semBusca.join(", "))}</b></p>` : ""));
     resumoTexto.push(`${fmt(semana.sessoes)} sessões, ${fmt(buscas)} buscas`);
   }else{
-    bloco("Uso do portal", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#4A5B6E">Os números de uso entram aqui quando o Secret PAINEL_CHAVE estiver cadastrado no GitHub.</p>`);
+    bloco("Uso do portal", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#5C5B5F">Os números de uso entram aqui quando o Secret PAINEL_CHAVE estiver cadastrado no GitHub.</p>`);
   }
 
   /* cursos */
@@ -100,28 +100,33 @@ function montar(){
   /* cobertura */
   if(cob){
     const semNada = municipios.filter(m => !Object.values(cob.municipios[m] || {}).some(([n]) => n));
-    bloco("Cursos presenciais", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#0E2338">${semNada.length
-      ? `<b style="color:#A85B0B">${semNada.length} municípios</b> sem nenhum curso presencial na própria cidade: ${esc(semNada.join(", "))}.`
+    bloco("Cursos presenciais", `<p style="margin:0;font:13.5px Arial,sans-serif;color:#002D4D">${semNada.length
+      ? `<b style="color:#B06F0B">${semNada.length} municípios</b> sem nenhum curso presencial na própria cidade: ${esc(semNada.join(", "))}.`
       : "Todos os municípios têm pelo menos um curso presencial."}</p>`);
   }
 
-  const titulo = `SuperAção SP · resumo da semana · ${dataBR(HOJE)}`;
+  let edicao = "";
+  try{
+    const [dia, ...txt] = fs.readFileSync(path.join(DADOS, "resumo-edicao.txt"), "utf8").trim().split("|");
+    if(dia.trim() === HOJE) edicao = txt.join("|").trim();
+  }catch(_){}
+  const titulo = `SuperAção SP · resumo da semana · ${dataBR(HOJE)}${edicao ? " (" + edicao + ")" : ""}`;
   const html = `<!DOCTYPE html><html lang="pt-BR"><head><meta charset="utf-8"><title>${esc(titulo)}</title></head>
-<body style="margin:0;padding:0;background:#EAF0FB">
-<table width="100%" cellpadding="0" cellspacing="0" style="background:#EAF0FB"><tr><td align="center" style="padding:20px 10px">
-<table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border:1px solid #D9E0E8;border-radius:10px">
-<tr><td style="padding:20px 24px 4px;border-bottom:3px solid #0D5A94">
-  <p style="margin:0;font:600 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#0D5A94">SuperAção SP · apoio técnico FGV</p>
-  <h1 style="margin:4px 0 12px;font:700 21px Arial,sans-serif;color:#0E2338">Resumo da semana · ${dataBR(HOJE)}</h1>
+<body style="margin:0;padding:0;background:#f2f5f9">
+<table width="100%" cellpadding="0" cellspacing="0" style="background:#f2f5f9"><tr><td align="center" style="padding:20px 10px">
+<table width="640" cellpadding="0" cellspacing="0" style="max-width:640px;background:#ffffff;border:1px solid #D7D9DD;border-radius:10px">
+<tr><td style="padding:20px 24px 4px;border-bottom:3px solid #0C63AA">
+  <p style="margin:0;font:600 11px Arial,sans-serif;letter-spacing:.12em;text-transform:uppercase;color:#003A79">SuperAção SP · apoio técnico FGV</p>
+  <h1 style="margin:4px 0 12px;font:700 21px Arial,sans-serif;color:#002D4D">Resumo da semana · ${dataBR(HOJE)}</h1>
 </td></tr>
 ${linhas.join("\n")}
 <tr><td style="padding:20px 24px 24px">
-  <a href="${SITE}/painel.html" style="display:inline-block;background:#0D5A94;color:#ffffff;text-decoration:none;font:600 14px Arial,sans-serif;padding:10px 18px;border-radius:8px">Abrir o painel de acompanhamento</a>
-  <p style="margin:14px 0 0;font:12px Arial,sans-serif;color:#7B8A9B">Resumo automático feito todo domingo pelos robôs do portal, só com números agregados (sem dados pessoais).</p>
+  <a href="${SITE}/painel.html" style="display:inline-block;background:#0C63AA;color:#ffffff;text-decoration:none;font:600 14px Arial,sans-serif;padding:10px 18px;border-radius:8px">Abrir o painel de acompanhamento</a>
+  <p style="margin:14px 0 0;font:12px Arial,sans-serif;color:#88868B">Resumo automático feito todo domingo pelos robôs do portal, só com números agregados (sem dados pessoais).</p>
 </td></tr>
 </table></td></tr></table></body></html>
 `;
-  return { titulo, html, resumo: resumoTexto.join(" · ") };
+  return { titulo, html, resumo: resumoTexto.join(" · "), guid: "resumo-" + HOJE + (edicao ? "-" + edicao.normalize("NFD").replace(/[̀-ͯ]/g, "").toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") : "") };
 }
 
 /* feed RSS: guarda os últimos 12 resumos; o item novo da semana é o que dispara o Power Automate */
@@ -130,13 +135,13 @@ function atualizarFeed(r){
   const antigos = [];
   if(fs.existsSync(arq)){
     for(const m of fs.readFileSync(arq, "utf8").matchAll(/<item>[\s\S]*?<\/item>/g)){
-      if(!m[0].includes(`<guid isPermaLink="false">resumo-${HOJE}</guid>`)) antigos.push(m[0]);   // refeito no mesmo dia: troca o item
+      if(!m[0].includes(`<guid isPermaLink="false">${r.guid}</guid>`)) antigos.push(m[0]);   // refeito no mesmo dia: troca o item
     }
   }
   const item = `<item>
   <title>${esc(r.titulo)}</title>
   <link>${SITE}/dados/resumo-semanal.html</link>
-  <guid isPermaLink="false">resumo-${HOJE}</guid>
+  <guid isPermaLink="false">${r.guid}</guid>
   <pubDate>${new Date().toUTCString()}</pubDate>
   <description><![CDATA[${r.html.replace(/]]>/g, "]]]]><![CDATA[>")}]]></description>
 </item>`;
