@@ -44,12 +44,12 @@ Em 23/11 a cadeia não rodou: o GitHub não disparou os agendamentos novos, e o 
 O que existe agora:
 - **O resumo tem agendamento próprio** (domingo 11h11), além de rodar quando o histórico termina. Se o mesmo dia roda duas vezes,
   o item do dia é substituído e o e-mail não sai duas vezes.
-- **Vigia semanal** (`.github/workflows/vigia-semanal.yml`, segunda e quarta às 9h07): se algum robô semanal ou o resumo não teve
-  execução bem-sucedida nos últimos 4 dias, dispara de novo e abre uma issue "Vigia ...".
-- **Ensaios agendados para 25/11/2026** (rodam sozinhos, uma vez):
-  - 08h17: o resumo roda e publica um item novo no feed; o Power Automate deve mandar o e-mail de teste (pode levar até ~30 min).
-  - 08h29: o vigia roda em modo real: o que não rodou na semana de 23/11 (catálogos, mapa, vagas, histórico) é disparado de novo, e o quadro
-    fica no resumo da execução (Actions → Vigia semanal). Quando o histórico termina, o resumo roda de novo (mesmo dia: item substituído, sem e-mail duplicado).
-  Depois de conferir, apague as linhas de cron "ENSAIO"/"ÚNICO" desses dois arquivos.
-- Se o e-mail de teste não chegar até ~09h30, o problema está depois do GitHub: confira se o fluxo está **Ativado** e o histórico de
+- **Vigia semanal** (`.github/workflows/vigia-semanal.yml`): confere se cada robô semanal teve execução bem-sucedida nos últimos 4 dias e
+  dispara o que faltou, **na ordem certa** (primeiro os que coletam; depois o histórico; o resumo e o e-mail saem quando o histórico termina).
+  Roda segunda e quarta às 9h07 (agendamento, que pode atrasar) e **sempre que o arquivo `.github/disparar-vigia.txt` muda num push**, que roda
+  na hora. A tarefa de segunda do computador da equipe (`scripts/rodar-senac.ps1`) faz esse push, então a semana é conferida mesmo que o
+  GitHub falhe. Se algo foi disparado, abre uma issue "Vigia ...".
+- **Recuperação de 23/11:** o push que criou o vigia já o rodou na hora (modo real), disparando a coleta da semana que faltou e, depois, o histórico e o e-mail.
+  Em 25/11, 08h29, o vigia roda uma vez só para conferir (apague a linha de cron "ÚNICO" depois).
+- Se o e-mail não chegar algumas horas depois de o histórico terminar, o problema está depois do GitHub: confira se o fluxo está **Ativado** e o histórico de
   execuções dele em make.powerautomate.com (conta coordcampo). Dá para rodar o fluxo na mão pelo botão **Testar**.

@@ -37,4 +37,11 @@ if ($LASTEXITCODE -ne 0) {
 } else {
     Write-Log "Nada novo para publicar."
 }
+# Dispara o vigia do GitHub (push de um arquivo-gatilho): ele confere se os robôs semanais rodaram e dispara o que faltou.
+# Funciona mesmo se o agendamento do GitHub falhar; se está tudo em dia, o vigia não faz nada.
+Set-Content -Path (Join-Path $Repo ".githubdisparar-vigia.txt") -Value "disparo $(Get-Date -Format s) (computador da equipe)" -Encoding utf8
+git add .github/disparar-vigia.txt
+git commit -m "Vigia: conferência semanal ($hoje)" 2>&1 | ForEach-Object { Write-Log "$_" }
+git pull --rebase origin main 2>&1 | ForEach-Object { Write-Log "$_" }
+git push origin HEAD:main 2>&1 | ForEach-Object { Write-Log "$_" }
 Write-Log "Fim. Log em $log"

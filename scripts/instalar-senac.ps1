@@ -13,19 +13,11 @@ if (-not $v) { throw "Falta instalar o Node.js (https://nodejs.org, versão LTS)
 if ([version]($v.TrimStart("v")) -lt [version]"20.0") { throw "O Node encontrado é $v; precisa do 20 ou mais novo." }
 Write-Host "OK  Node $v"
 
-# GitHub: a tarefa faz push de dados/unidades.js
-gh auth status 2>$null
-if ($LASTEXITCODE -ne 0) {
-    Write-Host "Falta entrar no GitHub. Rode 'gh auth login' (GitHub.com, HTTPS, login pelo navegador) e depois rode este script de novo."
-    exit 1
-}
-gh auth setup-git
-if (-not (git -C $Repo config user.name)) {
-    $login = (gh api user --jq .login).Trim()
-    git -C $Repo config user.name $login
-    git -C $Repo config user.email "$login@users.noreply.github.com"
-}
-Write-Host "OK  GitHub"
+# GitHub: a tarefa faz push de dados/unidades.js. Basta o git já conseguir enviar (credencial salva no Windows).
+git -C $Repo push --dry-run origin HEAD:main 2>$null
+if ($LASTEXITCODE -ne 0) { throw "O git não conseguiu falar com o GitHub (credencial). Faça um push manual uma vez e rode este script de novo." }
+if (-not (git -C $Repo config user.name)) { throw "Falta configurar o nome no git: git config --global user.name 'Seu Nome'" }
+Write-Host "OK  GitHub (git)"
 
 if ($SemTarefa) { Write-Host "Pronto (sem tarefa agendada)."; exit 0 }
 

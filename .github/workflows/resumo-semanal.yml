@@ -12,7 +12,6 @@ on:
     types: [completed]
   schedule:
     - cron: "11 14 * * 0"       # domingo 11h11 em Brasília: não depende mais só do robô do histórico terminar
-    - cron: "17 11 25 11 *"    # ENSAIO único: 25/11/2026 08h17. Publica o resumo e o Power Automate manda o e-mail de teste. Depois de conferir, apague esta linha.
   workflow_dispatch:
 
 permissions:
