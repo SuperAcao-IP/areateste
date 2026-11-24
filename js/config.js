@@ -255,6 +255,13 @@ const CENTROS_VIZINHAS_EXTERNAS = {
   "Ribeirão Pires":[-23.7106,-46.4136], "Suzano":[-23.5425,-46.3112], "Poá":[-23.5286,-46.3447], "Arujá":[-23.3964,-46.3208],
   "Santos":[-23.9608,-46.3336], "Praia Grande":[-24.0058,-46.4028], "Cubatão":[-23.8950,-46.4256]
 };
+/* Cursos buscam mais longe que vagas (a família se desloca menos para trabalhar do que para um curso): mesmo porte, teto de 20 km. */
+const RAIO_CURSOS_MAX_KM = 20;
+const RAIO_CURSOS_POR_PORTE = { grande: 10, medio: 15, pequeno: 20 };
+function raioCursosDoMunicipio(cidade){
+  const porte = PORTE_MUNICIPIO[cidade] || "pequeno";
+  return Math.min(RAIO_CURSOS_POR_PORTE[porte], RAIO_CURSOS_MAX_KM);
+}
 function _centroDaCidade(nome){
   const c = (typeof CENTROS_MUNICIPIOS!=="undefined") && CENTROS_MUNICIPIOS[nome];
   if(c) return [c.lat, c.lon];
@@ -268,8 +275,8 @@ function _kmEntreCidades(a, b){
   return 2*R*Math.asin(Math.sqrt(h));
 }
 /* vizinhas (CIDADES_VIZINHAS) que estão dentro do raio da cidade escolhida; sem coordenada, fica de fora */
-function vizinhasNoRaio(cidade){
-  const raio = raioDoMunicipio(cidade);
+function vizinhasNoRaio(cidade, tipo){
+  const raio = tipo === "cursos" ? raioCursosDoMunicipio(cidade) : raioDoMunicipio(cidade);
   return (CIDADES_VIZINHAS[cidade] || []).filter(v => _kmEntreCidades(cidade, v) <= raio);
 }
 

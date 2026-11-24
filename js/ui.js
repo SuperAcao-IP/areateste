@@ -57,7 +57,7 @@ async function montarDados(cidade){
   /* cursos manuais (dados.json) */
   (DADOS.cursos||[]).forEach(c=>{
     const daCidade = ehDaCidade(c.municipio,cidade) || ehOnline(c.municipio);
-    const vizinhas = vizinhasNoRaio(cidade);
+    const vizinhas = vizinhasNoRaio(cidade,"cursos");
     const deVizinha = !daCidade && vizinhas.some(v=>ehDaCidade(c.municipio,v));
     if(!daCidade && !deVizinha) return;
     if(!aberto(c.status,c.inscricoes_ate)) return;
@@ -74,7 +74,7 @@ async function montarDados(cidade){
      cursos livres gratuitos do Senai e cursos com bolsa do Senac, já filtrados pelas regras de público. O curso que a
      equipe cadastrou na planilha vence este (mesclarPlanilha tira a cópia). */
   if(typeof UNIDADES!=="undefined" && Array.isArray(UNIDADES)){
-    const vizU = vizinhasNoRaio(cidade);
+    const vizU = vizinhasNoRaio(cidade,"cursos");
     UNIDADES.forEach(u=>{
       const daCidade = normTxt(u.cidade)===normTxt(cidade);
       const deVizinha = !daCidade && vizU.some(v=>normTxt(v)===normTxt(u.cidade));
@@ -148,7 +148,7 @@ function renderCidade(cidade){
   const alvo=document.getElementById("painelCidade");
   alvo.innerHTML=`
     <div class="cidade-cabec">
-      <div class="cidade-info"><h2>${cidade}</h2><p class="sub">Tudo o que a família pode usar a até ${raioDoMunicipio(cidade)} km de ${cidade}.</p>
+      <div class="cidade-info"><h2>${cidade}</h2><p class="sub">Cursos a até ${raioCursosDoMunicipio(cidade)} km e vagas a até ${raioDoMunicipio(cidade)} km de ${cidade}.</p>
       <div class="acoes">
         <button class="btn-sec" onclick="window.print()"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 9V2h12v7M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><path d="M6 14h12v8H6z"/></svg> Imprimir</button>
         <button class="btn-sec" onclick="document.getElementById('topo').scrollIntoView({behavior:'smooth'})"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg> Trocar cidade</button>

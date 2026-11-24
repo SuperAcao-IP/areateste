@@ -32,7 +32,7 @@ function localeTrampolim(cidade){ return (cidade||"").trim().replace(/\s+/g,"+")
 function urlTrampolim(cidade,pagina,limite){
   return TRAMPOLIM_BASE+"/api/v1/courses/search/?smart_filter=false&q=&type=course"
     +"&order_by=more_popular&page="+pagina+"&page_limit="+limite
-    +"&status=available&locale="+localeTrampolim(cidade)+"&operation_range="+raioDoMunicipio(cidade);
+    +"&status=available&locale="+localeTrampolim(cidade)+"&operation_range="+raioCursosDoMunicipio(cidade);
 }
 
 /* --- leitura defensiva da resposta paginada --- */
@@ -302,7 +302,7 @@ async function carregarTrampolimEAtualizar(cidade, token){
     /* cursos 100% online valem para qualquer município */
     if(estado) mesclarTrampolim(estado.online, estado);
     /* busca tambem nas cidades vizinhas */
-    const vizinhas = vizinhasNoRaio(cidade);
+    const vizinhas = vizinhasNoRaio(cidade,"cursos");
     for(const viz of vizinhas){
       try{
         const cursosViz = await buscarCursosTrampolim(viz);
@@ -808,7 +808,7 @@ async function buscarCursosPlanilha(){
 }
 
 function mesclarPlanilha(cursos, cidade){
-  const vizinhas = vizinhasNoRaio(cidade);
+  const vizinhas = vizinhasNoRaio(cidade,"cursos");
   cursos.forEach(c=>{
     const mun = normTxt(c._municipio);
     const cidNorm = normTxt(cidade);
