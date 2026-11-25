@@ -69,11 +69,20 @@ jobs:
             if [ -z "$ult" ]; then echo 999; else echo $(( (AGORA - $(date -u -d "$ult" +%s)) / 86400 )); fi
           }
           registrar() { echo "$1: $2"; echo "| $1 | $3 | $2 |" | tee -a "$GITHUB_STEP_SUMMARY" >> .github/vigia-ultimo.md; }
-          esperar() {   # espera o disparo manual mais recente do workflow $1 terminar
+          esperar() {   # espera o disparo manual mais recente do workflow $1 terminar (consulta de 60 em 60 s; falha da API do GitHub não encerra a espera)
             sleep 20
-            local rid
-            rid=$(gh run list --workflow "$1.yml" --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId')
-            [ -n "$rid" ] && gh run watch "$rid" --interval 30 --exit-status > /dev/null 2>&1 || true
+            local rid st
+            rid=$(gh run list --workflow "$1.yml" --event workflow_dispatch --limit 1 --json databaseId --jq '.[0].databaseId' 2>/dev/null)
+            [ -z "$rid" ] && return 0
+            while true; do
+              st=$(gh run view "$rid" --json status --jq .status 2>/dev/null) || st=""
+              [ "$st" = "completed" ] && return 0
+              sleep 60
+            done
+          }
+          disparar() {   # tenta de novo se a API do GitHub responder erro (já deu HTTP 500)
+            for i in 1 2 3 4 5; do gh workflow run "$1" && return 0; sleep 30; done
+            return 1
           }
 
           # 1) os que coletam, juntos
@@ -83,7 +92,7 @@ jobs:
             if [ "$d" -gt "$LIMITE_DIAS" ]; then
               FALTOU="$FALTOU $w"
               if [ "$ENSAIO" = "1" ]; then registrar "$w" "FALTOU: no modo normal eu dispararia" "$q"
-              else gh workflow run "$w.yml" && { registrar "$w" "FALTOU: disparei" "$q"; DISPARADOS="$DISPARADOS $w"; } || registrar "$w" "FALTOU: não consegui disparar" "$q"; fi
+              else disparar "$w.yml" && { registrar "$w" "FALTOU: disparei" "$q"; DISPARADOS="$DISPARADOS $w"; } || registrar "$w" "FALTOU: não consegui disparar" "$q"; fi
             else registrar "$w" "ok" "$q"; fi
           done
           for w in $DISPARADOS; do echo "Esperando $w terminar..."; esperar "$w"; done
@@ -94,7 +103,7 @@ jobs:
           if [ "$d" -gt "$LIMITE_DIAS" ] || [ -n "$DISPARADOS" ]; then
             FALTOU="$FALTOU atualizar-historico"
             if [ "$ENSAIO" = "1" ]; then registrar atualizar-historico "FALTOU: no modo normal eu dispararia (depois da coleta)" "$q"
-            else gh workflow run atualizar-historico.yml && { registrar atualizar-historico "FALTOU: disparei (depois da coleta)" "$q"; HIST=1; } || registrar atualizar-historico "FALTOU: não consegui disparar" "$q"; fi
+            else disparar atualizar-historico.yml && { registrar atualizar-historico "FALTOU: disparei (depois da coleta)" "$q"; HIST=1; } || registrar atualizar-historico "FALTOU: não consegui disparar" "$q"; fi
           else registrar atualizar-historico "ok" "$q"; fi
 
           # 3) o resumo (e o e-mail) roda sozinho quando o histórico termina; se o histórico não foi disparado e o resumo está atrasado, dispara
@@ -102,11 +111,11 @@ jobs:
           if [ "$HIST" = "1" ]; then
             # execução disparada pelo GITHUB_TOKEN não aciona o "workflow_run": espera o histórico e dispara o resumo de propósito
             echo "Esperando o histórico terminar..."; esperar atualizar-historico
-            gh workflow run resumo-semanal.yml && registrar resumo-semanal "disparei (depois do histórico)" "$q" || registrar resumo-semanal "não consegui disparar" "$q"
+            disparar resumo-semanal.yml && registrar resumo-semanal "disparei (depois do histórico)" "$q" || registrar resumo-semanal "não consegui disparar" "$q"
           elif [ "$d" -gt "$LIMITE_DIAS" ]; then
             FALTOU="$FALTOU resumo-semanal"
             if [ "$ENSAIO" = "1" ]; then registrar resumo-semanal "FALTOU: no modo normal eu dispararia" "$q"
-            else gh workflow run resumo-semanal.yml && registrar resumo-semanal "FALTOU: disparei" "$q" || registrar resumo-semanal "FALTOU: não consegui disparar" "$q"; fi
+            else disparar resumo-semanal.yml && registrar resumo-semanal "FALTOU: disparei" "$q" || registrar resumo-semanal "FALTOU: não consegui disparar" "$q"; fi
           else registrar resumo-semanal "ok" "$q"; fi
 
           if [ -n "$FALTOU" ] && [ "$ENSAIO" = "0" ]; then
