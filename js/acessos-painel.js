@@ -119,7 +119,9 @@
        Enquanto isso, mostra a semana do ÚLTIMO acesso de cada pessoa, que existe para todo o período. */
     var inicioLog = Object.keys(loginsPorSemana).sort()[0] || null;
     var ddmm = function(s){ return s.slice(8, 10) + '/' + s.slice(5, 7); };
-    if(Object.keys(loginsPorSemana).length >= 4){
+    /* o que conta é há quanto tempo o registro existe (semanas desde o primeiro login), não quantas semanas tiveram login */
+    var semanasDeRegistro = inicioLog ? Math.round((inicioSemana(new Date()) - new Date(+inicioLog.slice(0, 4), +inicioLog.slice(5, 7) - 1, +inicioLog.slice(8, 10))) / (7 * 864e5)) + 1 : 0;
+    if(inicioLog && semanasDeRegistro >= 4){
       $('acAtivasTitulo').textContent = 'Pessoas que entraram por semana';
       $('acAtivasSub').textContent = 'Pessoas diferentes com login em cada semana. O registro começou na semana de ' + ddmm(inicioLog) + '.';
       $('acAtivas').innerHTML = colunasSemana(loginsPorSemana, 'pessoas que entraram', inicioLog);
