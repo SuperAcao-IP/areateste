@@ -191,7 +191,7 @@
     $('vgPeriodo').textContent = (j ? 'Uso dos últimos ' + dias + ' dias' : 'Uso do portal ainda carregando (ou indisponível: veja a aba Uso do portal)') +
       (estado.cursos ? ' · cursos e vagas do retrato de ' + dataBR(estado.cursos.atualizado) : '');
     $('vgKpis').innerHTML =
-      kpi('Pessoas que usaram', j ? fmt(ses('visitou')) : '–', 'sessões no período') +
+      kpi('Visitas ao portal', j ? fmt(ses('visitou')) : '–', 'sessões; a mesma pessoa pode voltar') +
       kpi('Municípios alcançados', j ? fmt(alcancados.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–', 'pesquisaram no período') +
       kpi('Cliques em cursos e vagas', j ? fmt(cliquesCursos + tot('clique_vaga')) : '–', j ? fmt(cliquesCursos) + ' em cursos · ' + fmt(tot('clique_vaga')) + ' em vagas' : 'encaminhamentos gerados') +
       kpi('Preparação para o trabalho', j ? fmt(cliquesPrep) : '–', j ? 'cliques nos 4 passos' : '') +
