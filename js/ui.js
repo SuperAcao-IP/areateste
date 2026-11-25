@@ -577,8 +577,7 @@ function cartoesPreparacao(){
       '<p><strong>Sua família já está buscando emprego?</strong></p>'+
       '<p>Aqui reunimos estratégias de inserção e habilidades socioemocionais que podem ajudá-la.</p>'+
       '<p>Indicamos que você, agente, faça os dois cursos também, e compartilhe com a família!</p>'+
-      '<p>Além disso, a família pode montar o currículo e treinar a entrevista pelo Trampolim SP.</p>'+
-      '<p>É só compartilhar o link abaixo com ela.</p></div></div>'+
+      '<p>Além disso, a família pode montar o currículo e treinar a entrevista pelo Trampolim SP.</p></div></div>'+
     '<h4 class="prep-fase-t">Dois cursos <small>para o agente e para a família</small></h4><ol class="prep-passos">'+
       passo(1,"Estratégia de inserção","SENAI · online e gratuito · 14 horas","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
       passo(2,"Habilidades socioemocionais","Escola Virtual de Governo · online e gratuito · 50 horas","Comunicação, autocontrole e convivência no trabalho.",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
