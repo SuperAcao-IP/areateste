@@ -110,7 +110,9 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   table.simples{width:100%;border-collapse:collapse;font-size:14px}
   table.simples th{text-align:left;font-size:11px;font-weight:600;letter-spacing:.08em;
     text-transform:uppercase;color:var(--tinta3);padding:0 0 6px;border-bottom:1px solid var(--linha)}
-  table.simples td{padding:8px 0;border-bottom:1px solid #EEF1F5}
+  table.simples td{padding:8px 14px 8px 0;border-bottom:1px solid #EEF1F5;overflow-wrap:anywhere}
+  table.simples td:last-child,table.simples th:last-child{padding-right:0}
+  table.simples td:nth-child(2):not(:last-child){white-space:nowrap}
   table.simples tr:last-child td{border-bottom:0}
   td.direita,th.direita{text-align:right}
   .rolagem{max-height:340px;overflow-y:auto}
@@ -440,7 +442,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       </div>
       <div class="cartao">
         <h3>Áreas mais clicadas</h3>
-        <p class="sub">A área do curso ou da vaga aberta.</p>
+        <p class="sub">A área do curso ou da vaga aberta. "Fora do histórico": vaga ou curso que já saiu do portal.</p>
         <p class="eyebrow" style="margin:6px 0 0">Cursos</p><div id="ar-cursos"></div>
         <p class="eyebrow" style="margin:10px 0 0">Vagas</p><div id="ar-vagas"></div>
       </div>
@@ -917,7 +919,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     };
     var porAreaClique = function(lista, mapa){
       var c = {};
-      (lista || []).forEach(function(x){ var a = mapa[normal(x.item)] || 'Sem área identificada'; c[a] = (c[a] || 0) + (x.cliques || 0); });
+      (lista || []).forEach(function(x){ if(/^\[atalho\]/i.test(x.item || '')) return; var a = mapa[normal(x.item)] || 'Fora do histórico'; c[a] = (c[a] || 0) + (x.cliques || 0); });
       return Object.keys(c).map(function(a){ return { rotulo: a, valor: c[a] }; }).sort(function(a, b){ return b.valor - a.valor; }).slice(0, 8);
     };
     var barrasArea = function(itens, vazio){
@@ -925,7 +927,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       var max = Math.max.apply(null, itens.map(function(i){ return i.valor; })) || 1;
       return '<div class="vg-barras">' + itens.map(function(i){
         return '<div class="vg-barra"><span class="vg-rot" title="' + esc(i.rotulo) + '">' + esc(i.rotulo) + '</span><span class="vg-trilho"><span class="vg-preenche" style="width:' + Math.max(2, i.valor / max * 100) +
-          '%;background:' + (i.rotulo === 'Sem área identificada' ? '#B7C0CB' : '#0C63AA') + '"></span></span><span class="vg-val num">' + fmt(i.valor) + '</span></div>';
+          '%;background:' + (i.rotulo === 'Fora do histórico' ? '#B7C0CB' : '#0C63AA') + '"></span></span><span class="vg-val num">' + fmt(i.valor) + '</span></div>';
       }).join('') + '</div>';
     };
     var pintarAreas = function(){
