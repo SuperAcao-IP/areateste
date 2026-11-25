@@ -115,10 +115,21 @@
     var vistos = {};
     D.logins.forEach(function(l){ var s = isoLocal(inicioSemana(l.quando)); var k = s + '|' + l.email; if(!vistos[k]){ vistos[k] = 1; loginsPorSemana[s] = (loginsPorSemana[s] || 0) + 1; } });
     $('acNovas').innerHTML = colunasSemana(novasPorSemana, 'pessoas novas', Object.keys(novasPorSemana).sort()[0]);
+    /* Com menos de 4 semanas de registro de logins o gráfico "quem entrou em cada semana" não diz nada (uma semana com 2 e outra com 95).
+       Enquanto isso, mostra a semana do ÚLTIMO acesso de cada pessoa, que existe para todo o período. */
     var inicioLog = Object.keys(loginsPorSemana).sort()[0] || null;
-    if($('acAtivasNota')) $('acAtivasNota').textContent = inicioLog ? 'O registro de logins começou na semana de ' + inicioLog.slice(8, 10) + '/' + inicioLog.slice(5, 7) + ': antes disso aparece –.' : '';
-    $('acAtivas').innerHTML = D.logins.length ? colunasSemana(loginsPorSemana, 'pessoas que entraram', inicioLog)
-      : '<p class="vazio">Aparece depois da atualização do Apps Script para a v8: a partir dela, cada login é registrado na aba "acessos_log".</p>';
+    var ddmm = function(s){ return s.slice(8, 10) + '/' + s.slice(5, 7); };
+    if(Object.keys(loginsPorSemana).length >= 4){
+      $('acAtivasTitulo').textContent = 'Pessoas que entraram por semana';
+      $('acAtivasSub').textContent = 'Pessoas diferentes com login em cada semana. O registro começou na semana de ' + ddmm(inicioLog) + '.';
+      $('acAtivas').innerHTML = colunasSemana(loginsPorSemana, 'pessoas que entraram', inicioLog);
+    }else{
+      var ultimaPorSemana = {};
+      P.forEach(function(p){ if(p.ultimo){ var s = isoLocal(inicioSemana(p.ultimo)); ultimaPorSemana[s] = (ultimaPorSemana[s] || 0) + 1; } });
+      $('acAtivasTitulo').textContent = 'Última vez que cada pessoa entrou';
+      $('acAtivasSub').textContent = 'Cada pessoa conta uma vez, na semana do último acesso. O registro semanal de logins só começou em ' + (inicioLog ? ddmm(inicioLog) : 'breve') + '.';
+      $('acAtivas').innerHTML = colunasSemana(ultimaPorSemana, 'pessoas (último acesso)', Object.keys(ultimaPorSemana).sort()[0]);
+    }
     var porMun = {};
     P.forEach(function(p){ var m = p.municipio || 'Sem município'; porMun[m] = (porMun[m] || 0) + 1; });
     $('acMunicipios').innerHTML = barras(Object.keys(porMun).map(function(m){ return { rotulo: m, valor: porMun[m] }; }).sort(function(a, b){ return b.valor - a.valor; }).slice(0, 20), 'pessoas');

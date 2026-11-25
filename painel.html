@@ -665,7 +665,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     <div id="acResultados" class="oculto">
       <div class="vg-grade">
         <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso, nas últimas 16 semanas.</p><div id="acNovas"></div></div>
-        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub livre">Pessoas diferentes com login em cada semana. <span id="acAtivasNota"></span></p><div id="acAtivas"></div></div>
+        <div class="cartao fundo"><h3 id="acAtivasTitulo">Última vez que cada pessoa entrou</h3><p class="sub livre" id="acAtivasSub">Cada pessoa conta uma vez, na semana do último acesso.</p><div id="acAtivas"></div></div>
       </div>
       <div class="vg-grade">
         <div class="cartao fundo"><h3>Pessoas por município</h3><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
@@ -806,7 +806,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     clique_pin_computador:'Clicaram nos pins de computador e internet',
     cadastro_curso:'Cursos cadastrados no portal',
     cadastro_vaga:'Vagas cadastradas no portal',
-    cadastro_manual:'Cadastros no portal (antes de separar curso e vaga)'
   };
   /* o caminho até a oportunidade, em partes. "sempre": mostra a linha mesmo com zero. */
   var PARTES = [
@@ -814,7 +813,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       evs: ['visitou','selecionou_municipio','selecionou_area','viu_resultados','clique_curso','clique_vaga','viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp'] },
     { titulo: 'O mapa', nota: 'Cliques nos pins, um por tipo (conta cada clique).', evs: ['clique_pin_vaga','clique_pin_escola','clique_pin_servico','clique_pin_computador'], sempre: true },
     { titulo: 'Preparação para o mundo do trabalho', nota: 'Cliques nos 4 passos. Não entram em "Cursos mais procurados".', prep: true },
-    { titulo: 'Cadastros no próprio portal', nota: 'Feitos pela equipe no portal e confirmados na planilha.', evs: ['cadastro_curso','cadastro_vaga','cadastro_manual'], sempre: ['cadastro_curso','cadastro_vaga'] }
+    { titulo: 'Cadastros no próprio portal', nota: 'Feitos pela equipe no portal e confirmados na planilha.', evs: ['cadastro_curso','cadastro_vaga'], sempre: ['cadastro_curso','cadastro_vaga'] }
   ];
   var ETAPAS_FUNIL = ['selecionou_municipio', 'selecionou_area', 'viu_resultados'];
   var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
@@ -954,6 +953,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     resumo.forEach(function(r){ porEv[r.ev] = usaSessoes ? r.sessoes : r.total; });
     var totEv = {};
     resumo.forEach(function(r){ totEv[r.ev] = r.total; });
+    totEv.cadastro_curso = (totEv.cadastro_curso || 0) + (totEv.cadastro_manual || 0);   // os cadastros de antes da separação eram todos de cursos
     var contagem = function(ev){ return porEv[ev] || 0; };
     var base = contagem('visitou');
     var jbox = $('lista-jornada');
