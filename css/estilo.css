@@ -640,7 +640,7 @@ header.topo .container{ width:auto; max-width:none; padding:10px 18px; gap:12px;
 
 /* preparação para o mundo do trabalho */
 .prep-topo{ display:grid; grid-template-columns:minmax(0,1fr) auto; gap:14px 24px; align-items:end; margin-bottom:16px; }
-.prep-texto p{ margin:0; color:var(--texto); max-width:80ch; }
+.prep-texto p{ margin:0; color:var(--texto); max-width:none; }
 .prep-progresso{ min-width:210px; max-width:none; margin:0; }
 .prep-progresso b{ font-size:1.5rem; }
 .prep-progresso span{ font-size:.86rem; }
