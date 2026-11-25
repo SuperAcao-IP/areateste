@@ -32,7 +32,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 <link href="https://fonts.googleapis.com/css2?family=Google+Sans+Flex:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500;600&display=swap" rel="stylesheet">
 <style>
   :root{
-    --papel:#f2f5f9; --carta:#FFFFFF; --tinta:#002D4D; --tinta2:#5C5B5F; --tinta3:#88868B;
+    --papel:#f2f5f9; --carta:#FFFFFF; --tinta:#002D4D; --tinta2:#5C5B5F; --tinta3:#6B6A70;
     --azul:#0C63AA; --azul-claro:#e6f1fa;
     --ambar:#B06F0B; --ambar-fundo:#FFF1C9; --ambar-borda:#f0cf86; --ambar-barra:#E29200;
     --verde:#2B8671; --verde-fundo:#e2f3ef;
@@ -44,13 +44,15 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
        font-size:15px;line-height:1.5;-webkit-font-smoothing:antialiased}
   .num{font-family:'Google Sans Flex',Arial,sans-serif;font-variant-numeric:tabular-nums;font-weight:600}
   .wrap{max-width:1200px;margin:0 auto;padding:0 20px 64px}
+  .subtit{font-size:14px;font-weight:600;color:var(--tinta);margin:8px 0 2px}
   .eyebrow{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
            color:var(--azul);margin:0 0 6px}
 
   header{background:var(--carta);border-bottom:1px solid var(--linha)}
   .topo{max-width:1200px;margin:0 auto;padding:18px 20px 0;
         display:flex;flex-wrap:wrap;gap:16px;align-items:flex-end;justify-content:space-between}
-  .marca h1{font-size:20px;font-weight:700;letter-spacing:-.01em;margin:0}
+  .marca h1{font-size:22px;font-weight:700;letter-spacing:-.015em;margin:0}
+  .marca .credito{margin:2px 0 0;font-size:13px;color:var(--tinta2)}
   .marca p{margin:2px 0 0;font-size:13px;color:var(--tinta2)}
   .controles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 
@@ -77,6 +79,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .btn-fantasma:hover{background:transparent;color:var(--azul);text-decoration:underline}
   .linha-btn{display:flex;gap:8px;flex-wrap:wrap;align-items:center}
   :focus-visible{outline:2px solid var(--azul);outline-offset:2px}
+  ::selection{background:#CFE4F5;color:var(--tinta)}
+  .rolagem,.matriz-wrap,.log{scrollbar-width:thin;scrollbar-color:#BFC9D6 transparent}
+  .rolagem::-webkit-scrollbar,.matriz-wrap::-webkit-scrollbar{width:8px;height:8px}
+  .rolagem::-webkit-scrollbar-thumb,.matriz-wrap::-webkit-scrollbar-thumb{background:#BFC9D6;border-radius:99px}
+  input[type=date],select{accent-color:var(--azul)}
 
   .lacunas{background:var(--ambar-fundo);border:1px solid var(--ambar-borda);border-radius:var(--raio);
            padding:24px;margin-top:28px}
@@ -94,16 +101,18 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .barra-valor{font-size:14px;color:var(--ambar)}
 
   .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
-  .kpi{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:16px 18px}
+  .kpi{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:16px 18px;box-shadow:0 1px 2px rgba(0,45,77,.04)}
   .kpi .rotulo{font-size:12px;font-weight:500;color:var(--tinta2);margin:0 0 6px}
   .kpi .valor{font-size:30px;line-height:1.1;letter-spacing:-.02em;margin:0}
   .kpi .nota{font-size:12px;color:var(--tinta3);margin:4px 0 0}
 
   .colunas{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
-  .cartao{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:18px 20px 8px}
+  .cartao{background:var(--carta);border:1px solid var(--linha);border-radius:var(--raio);padding:18px 20px 8px;box-shadow:0 1px 2px rgba(0,45,77,.04)}
   .cartao.fundo{padding-bottom:20px}
   .cartao h2{font-size:17px;font-weight:600;margin:0 0 2px}
   .cartao h3{font-size:16px;font-weight:600;margin:0 0 2px}
+  .cartao h2.h-cartao{font-size:16px;font-weight:600;margin:0 0 2px;letter-spacing:0}
+  .cartao h3.subtit{font-size:14px;font-weight:600;margin:8px 0 2px}
   .cartao .sub{font-size:13px;color:var(--tinta2);margin:0 0 12px;max-width:none}
   @media (min-width:900px){ .cartao .sub:not(.livre){white-space:nowrap} }
   .sub.livre{white-space:normal}
@@ -114,14 +123,14 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   table.simples td:last-child,table.simples th:last-child{padding-right:0}
   table.simples td:nth-child(2):not(:last-child){white-space:nowrap}
   table.simples tr:last-child td{border-bottom:0}
-  td.direita,th.direita{text-align:right}
+  td.direita,th.direita,table.simples th.direita,table.simples td.direita{text-align:right}
   .rolagem{max-height:340px;overflow-y:auto}
 
   .jornada-linha{display:grid;grid-template-columns:minmax(160px,1.4fr) minmax(0,3fr) 48px 48px;
     gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid #EEF1F5;font-size:14px}
   .jornada-linha:last-child{border-bottom:0}
   .jornada-trilho{height:9px;background:#EDF1F6;border-radius:99px;overflow:hidden}
-  .jornada-preenche{height:100%;background:var(--azul);border-radius:99px;width:0;transition:width .5s ease}
+  .jornada-preenche{height:100%;background:var(--azul);border-radius:0 4px 4px 0;width:0;transition:width .5s ease}
   .jornada-pct{font-size:13px;color:var(--tinta3);min-width:46px;text-align:right}
   .jornada-linha.alerta .jornada-preenche{background:var(--ambar-barra)}
   .jornada-linha.alerta .num{color:var(--ambar)}
@@ -212,15 +221,17 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
   /* visão geral: gráficos */
   .kpis.oito{grid-template-columns:repeat(4,1fr)}
+  .kpis.oito .kpi:nth-child(n+5){background:#FAFBFD;padding:13px 18px}
+  .kpis.oito .kpi:nth-child(n+5) .valor{font-size:24px}
   .kpi .valor small{font-size:15px;color:var(--tinta3);font-weight:500}
-  .vg-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px}
+  .vg-grade{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:14px;align-items:start}
   .vg-grade.tres{grid-template-columns:repeat(3,1fr)}
   .vg-barras{display:flex;flex-direction:column;gap:2px;padding:2px 0 8px}
   .vg-barra{display:grid;grid-template-columns:minmax(110px,1.1fr) minmax(0,2fr) auto;gap:10px;align-items:center;padding:5px 0;font-size:13.5px;cursor:default}
   .vg-barra:hover .vg-rot{color:var(--azul)}
   .vg-rot{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
   .vg-trilho{height:10px;background:#EEF2F7;border-radius:99px;overflow:hidden}
-  .vg-preenche{display:block;height:100%;border-radius:4px}
+  .vg-preenche{display:block;height:100%;border-radius:0 4px 4px 0}
   .vg-val{font-size:13px;color:var(--tinta2);min-width:28px;text-align:right}
   .vg-linha{width:100%;height:auto;display:block}
   .vg-eixo{font:11px 'IBM Plex Mono',monospace;fill:var(--tinta3)}
@@ -254,10 +265,14 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .r-pct{color:var(--tinta3);font-size:12.5px;text-align:right}
   #ar-cursos .vg-barra,#ar-vagas .vg-barra{grid-template-columns:minmax(170px,1.7fr) minmax(0,1.3fr) auto}
   .zero-suave{color:#B7C0CB}
+  table.matriz tbody tr:hover td,table.simples tbody tr:hover td{background:#F4F8FC}
+  table.matriz tbody tr:hover td:first-child{background:#F4F8FC}
+  .vg-fim{font:700 11.5px 'Google Sans Flex',Arial,sans-serif;fill:var(--tinta);paint-order:stroke;stroke:#fff;stroke-width:4px;stroke-linejoin:round}
+  .vg-trilho,.jornada-trilho{box-shadow:inset 0 0 0 1px #E6EBF2}
   table.matriz tr.total td{font-weight:700;border-top:2px solid var(--linha);background:#F7F9FC}
   .vg-grade.dois{grid-template-columns:1fr 1fr}
-  .sec-titulo{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--azul);margin:22px 0 4px;padding-top:14px;border-top:1px solid #EEF1F5}
-  .sec-titulo:first-of-type{margin-top:6px;border-top:0;padding-top:0}
+  .sec-titulo{font-size:15px;font-weight:600;color:var(--tinta);margin:24px 0 2px;padding-top:16px;border-top:1px solid #EEF1F5}
+  .sec-titulo:first-of-type{margin-top:8px;border-top:0;padding-top:0}
   .sec-nota{font-size:12.5px;color:var(--tinta3);margin:0 0 6px}
   select.campo-sel{font-family:inherit;font-size:13.5px;padding:8px 10px;border:1px solid var(--linha);border-radius:8px;background:var(--carta);color:var(--tinta);min-width:200px}
 
@@ -272,12 +287,15 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .ac-barra{display:block;width:100%;max-width:34px;background:#0C63AA;border-radius:4px 4px 0 0}
   .ac-barra.parcial{background:#7DB2DE}
   .ac-barra.zero,.ac-barra.vazia{background:#D7DEE8}
-  .ac-barra.vazia{background:repeating-linear-gradient(90deg,#D7DEE8 0 3px,transparent 3px 6px)}
+  .ac-barra.vazia{background:#E8ECF2}
   .ac-num{font-size:11px;color:var(--tinta2);margin-bottom:3px}
   .ac-rot{font-size:10.5px;color:var(--tinta3);margin-top:4px}
 
   @media (max-width:820px){
     .vg-grade,.vg-grade.tres,.vg-grade.dois{grid-template-columns:1fr}
+    .kpis.oito,#cobKpis{grid-template-columns:repeat(2,1fr) !important}
+    .kpi .valor{font-size:26px}
+    .cartao{padding-left:16px;padding-right:16px}
     .logos .l-fgv,.logos .divisor{display:none}
   }
   @media print{
@@ -311,8 +329,8 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     <div class="topo">
       <div class="marca">
         <div class="logos" style="margin-bottom:10px"><img class="l-prog" src="img/logo-superacao.png" alt="SuperAção SP"><span class="divisor"></span><img class="l-fgv" src="img/logo-fgv.png" alt="FGV"></div>
-        <p class="eyebrow">Governo do Estado de São Paulo · SEDS · apoio técnico FGV</p>
         <h1>Painel de acompanhamento</h1>
+        <p class="credito">Governo do Estado de São Paulo · SEDS · apoio técnico FGV</p>
         <p id="atualizado">Carregando dados</p>
       </div>
       <div class="controles" id="controlesUso">
@@ -344,12 +362,12 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     <div class="kpis oito" id="vgKpis"></div>
 
     <div class="cartao fundo" style="margin-top:14px">
-      <h3>Municípios sem nenhuma busca</h3>
+      <h2 class="h-cartao">Municípios sem nenhuma busca</h2>
       <div id="vgSemBusca"></div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
-      <h3>Mapa dos municípios do programa</h3>
+      <h2 class="h-cartao">Mapa dos municípios do programa</h2>
       <p class="sub">Passe o mouse para ver os números de cada cidade.</p>
       <div id="vgMapa" role="img" aria-label="Mapa dos municípios do programa com o número de buscas"></div>
       <p class="vg-legenda"><span><i style="background:#0C63AA"></i>buscas no período (tamanho = quantidade)</span>
@@ -358,34 +376,34 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </div>
 
     <div class="vg-grade">
-      <div class="cartao fundo"><h3>Buscas por município</h3><p class="sub">Os 15 que mais buscaram no período.</p><div id="vgCidades"></div></div>
-      <div class="cartao fundo"><h3>Cliques por origem</h3><p class="sub">De onde vieram os cursos e as vagas abertos no período.</p>
-        <p class="eyebrow" style="margin:6px 0 0">Cursos</p><div id="vgFontesCursos"></div>
-        <p class="eyebrow" style="margin:6px 0 0">Vagas</p><div id="vgFontesVagas"></div>
+      <div class="cartao fundo"><h2 class="h-cartao">Buscas por município</h2><p class="sub">Os 15 que mais buscaram no período.</p><div id="vgCidades"></div></div>
+      <div class="cartao fundo"><h2 class="h-cartao">Cliques por origem</h2><p class="sub">De onde vieram os cursos e as vagas abertos no período.</p>
+        <h3 class="subtit" style="margin-top:6px">Cursos</h3><div id="vgFontesCursos"></div>
+        <h3 class="subtit" style="margin-top:6px">Vagas</h3><div id="vgFontesVagas"></div>
       </div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
-      <h3>Uso por semana</h3>
+      <h2 class="h-cartao">Uso por semana</h2>
       <p class="sub">Cada ponto é uma semana. <span id="vgNotaAprox" class="oculto">Pontos vazados são semanas reconstruídas (aproximadas).</span></p>
       <div class="vg-grade dois" style="margin-top:0">
-        <div><p class="eyebrow">Sessões</p><div id="vgTempoSessoes"></div></div>
-        <div><p class="eyebrow">Buscas</p><div id="vgTempoBuscas"></div></div>
+        <div><h3 class="subtit">Sessões</h3><div id="vgTempoSessoes"></div></div>
+        <div><h3 class="subtit">Buscas</h3><div id="vgTempoBuscas"></div></div>
       </div>
       <div class="vg-grade dois" style="margin-top:6px">
-        <div><p class="eyebrow">Cliques em cursos</p><div id="vgTempoCliquesCursos"></div></div>
-        <div><p class="eyebrow">Cliques em vagas</p><div id="vgTempoCliquesVagas"></div></div>
+        <div><h3 class="subtit">Cliques em cursos</h3><div id="vgTempoCliquesCursos"></div></div>
+        <div><h3 class="subtit">Cliques em vagas</h3><div id="vgTempoCliquesVagas"></div></div>
       </div>
     </div>
 
     <div class="vg-grade">
-      <div class="cartao fundo"><h3>Cursos no portal por semana</h3><p class="sub">Todos os cursos, de todas as origens, em cada retrato semanal.</p><div id="vgTempoCursos"></div></div>
-      <div class="cartao fundo"><h3>Vagas no portal por semana</h3><p class="sub">Trampolim SP, planilha da equipe e robô de vagas.</p><div id="vgTempoVagas"></div></div>
+      <div class="cartao fundo"><h2 class="h-cartao">Cursos no portal por semana</h2><p class="sub">Todos os cursos, de todas as origens, em cada retrato semanal.</p><div id="vgTempoCursos"></div></div>
+      <div class="cartao fundo"><h2 class="h-cartao">Vagas no portal por semana</h2><p class="sub">Trampolim SP, planilha da equipe e robô de vagas.</p><div id="vgTempoVagas"></div></div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
       <div class="titulo-linha">
-        <div><h3>Cursos e vagas por município</h3><p class="sub">Todos os municípios, ou escolha um para ver o detalhe por área.</p></div>
+        <div><h2 class="h-cartao">Cursos e vagas por município</h2><p class="sub">Todos os municípios, ou escolha um para ver o detalhe por área.</p></div>
         <div class="linha-btn no-print">
           <select id="vgFiltroMun" class="campo-sel" aria-label="Filtrar por município"><option value="">Todos os municípios</option></select>
           <button class="btn" id="vgCsvMun">Baixar tabela (CSV)</button>
@@ -410,7 +428,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="colunas">
       <div class="cartao">
-        <h3>Cidades que mais buscaram</h3>
+        <h2 class="h-cartao">Cidades que mais buscaram</h2>
         <p class="sub">Município escolhido pelo visitante.</p>
         <div class="rolagem"><table class="simples">
           <thead><tr><th>Município</th><th class="direita">Buscas</th></tr></thead>
@@ -418,7 +436,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         </table></div>
       </div>
       <div class="cartao">
-        <h3>Cursos mais procurados</h3>
+        <h2 class="h-cartao">Cursos mais procurados</h2>
         <p class="sub">Cliques para abrir o curso na plataforma de origem.</p>
         <div class="rolagem"><table class="simples">
           <thead><tr><th>Curso</th><th>Origem</th><th class="direita">Cliques</th></tr></thead>
@@ -429,7 +447,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="colunas">
       <div class="cartao">
-        <h3>Vagas mais procuradas</h3>
+        <h2 class="h-cartao">Vagas mais procuradas</h2>
         <p class="sub">Cliques para abrir a vaga no site de origem.</p>
         <div class="rolagem"><table class="simples">
           <thead><tr><th>Vaga</th><th>Origem</th><th class="direita">Cliques</th></tr></thead>
@@ -437,15 +455,15 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         </table></div>
       </div>
       <div class="cartao">
-        <h3>Áreas mais clicadas</h3>
+        <h2 class="h-cartao">Áreas mais clicadas</h2>
         <p class="sub">A área do curso ou da vaga aberta. "Fora do histórico": vaga ou curso que já saiu do portal.</p>
-        <p class="eyebrow" style="margin:6px 0 0">Cursos</p><div id="ar-cursos"></div>
-        <p class="eyebrow" style="margin:10px 0 0">Vagas</p><div id="ar-vagas"></div>
+        <h3 class="subtit" style="margin-top:6px">Cursos</h3><div id="ar-cursos"></div>
+        <h3 class="subtit" style="margin-top:10px">Vagas</h3><div id="ar-vagas"></div>
       </div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
-      <h3>O caminho até a oportunidade</h3>
+      <h2 class="h-cartao">O caminho até a oportunidade</h2>
       <p class="sub" id="jornada-sub">Do primeiro acesso ao clique, em quatro partes: a visita, o mapa, a preparação e os cadastros no portal.</p>
       <div id="lista-jornada"></div>
     </div>
@@ -471,10 +489,10 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         </div>
       </div>
       <div class="kpis" id="cobKpis" style="grid-template-columns:repeat(3,1fr)"></div>
-      <h3 style="margin:18px 0 6px">Municípios sem nenhum curso presencial</h3>
+      <h2 class="h-cartao" style="margin:18px 0 6px">Municípios sem nenhum curso presencial</h2>
       <div id="cobSemNada"></div>
       <div id="cobAuto" style="margin-top:18px">
-        <h3 style="margin:0 0 4px">Cursos presenciais por município e área</h3>
+        <h2 class="h-cartao" style="margin:0 0 4px">Cursos presenciais por município e área</h2>
         <p class="sub" style="margin:0 0 8px">Verde: cursos presenciais na cidade. Âmbar claro: nenhum, mas há nas vizinhas (+n). Âmbar: nenhum.</p>
         <div class="matriz-wrap"><table class="matriz" id="cobTabela"></table></div>
         <div class="linha-btn no-print" style="margin-top:14px">
@@ -523,7 +541,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </div>
 
     <div class="cartao fundo oculto" id="cxManual" style="margin-top:14px">
-      <h3>Lista de municípios</h3>
+      <h2 class="h-cartao">Lista de municípios</h2>
       <p class="sub">Não consegui ler a lista do portal. Cole os municípios, um por linha, como no seletor da página inicial.</p>
       <textarea id="manual" placeholder="Osasco&#10;Rio Claro&#10;Santa Gertrudes"></textarea>
       <div class="linha-btn" style="margin-top:10px">
@@ -542,7 +560,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <div class="cartao fundo" style="margin-top:14px">
         <div class="linha-btn" style="justify-content:space-between;margin-bottom:12px">
           <div>
-            <h3 style="margin:0">Matriz de cobertura</h3>
+            <h2 class="h-cartao" style="margin:0">Matriz de cobertura</h2>
             <p class="sub" style="margin:2px 0 0">Cursos presenciais por município e área. Células em âmbar são vazios.</p>
           </div>
           <div class="linha-btn">
@@ -664,16 +682,16 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </div>
     <div id="acResultados" class="oculto">
       <div class="vg-grade">
-        <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso, nas últimas 16 semanas.</p><div id="acNovas"></div></div>
+        <div class="cartao fundo"><h2 class="h-cartao">Pessoas novas por semana</h2><p class="sub">Pelo primeiro acesso, nas últimas 16 semanas.</p><div id="acNovas"></div></div>
         <div class="cartao fundo"><h3 id="acAtivasTitulo">Última vez que cada pessoa entrou</h3><p class="sub livre" id="acAtivasSub">Cada pessoa conta uma vez, na semana do último acesso.</p><div id="acAtivas"></div></div>
       </div>
       <div class="vg-grade">
-        <div class="cartao fundo"><h3>Pessoas por município</h3><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
-        <div class="cartao fundo"><h3>Municípios do programa sem ninguém cadastrado</h3><p class="sub">Nenhuma pessoa com esse município na planilha.</p><div id="acSemNinguem"></div></div>
+        <div class="cartao fundo"><h2 class="h-cartao">Pessoas por município</h2><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
+        <div class="cartao fundo"><h2 class="h-cartao">Municípios do programa sem ninguém cadastrado</h2><p class="sub">Nenhuma pessoa com esse município na planilha.</p><div id="acSemNinguem"></div></div>
       </div>
       <div class="cartao fundo" style="margin-top:14px">
         <div class="titulo-linha">
-          <div><h3>Pessoas</h3><p class="sub">Uso interno: contém e-mails. O download respeita os filtros.</p></div>
+          <div><h2 class="h-cartao">Pessoas</h2><p class="sub">Uso interno: contém e-mails. O download respeita os filtros.</p></div>
           <button class="btn btn-principal" id="acCsv">Baixar lista (CSV)</button>
         </div>
         <div class="filtros">

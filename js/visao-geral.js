@@ -22,7 +22,8 @@
   var diaMes = function(iso){ return iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) : ''; };
   var COR = '#0C63AA', COR_SUAVE = '#cfe4f5', CINZA = '#B7C0CB', AMBAR = '#C26A0B';
   /* paleta FGV: azuis do programa + verde, âmbar e roxo de apoio (sempre com rótulo e número, nunca só a cor) */
-  var PALETA = ['#003A79', '#0C63AA', '#2B8671', '#E29200', '#6F5CB5', '#7DB2DE', '#B7C0CB'];
+  var PALETA = ['#0C63AA', '#EB6834', '#1BAF7A', '#EDA100', '#6250D6'];   // azul FGV, laranja, verde-água, amarelo, violeta (validada: scripts/validate_palette.js)
+  var COR_OUTRAS = '#B7C0CB';
   var FONTES_CURSO = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
                        ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos', spme:'Emprega Brasil' };
   var FONTES_VAGA = { trampolim:'Trampolim SP', robo:'Robô de vagas', planilha:'Planilha de vagas', manual:'Planilha de vagas', spme:'Emprega Brasil (SINE)' };
@@ -104,23 +105,29 @@
     return '<svg class="vg-linha" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + esc(opts.titulo || 'linha do tempo') + '">' + grade +
       '<path d="' + d + '" fill="none" stroke="' + COR + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
       '<circle cx="' + X(pontos.length - 1) + '" cy="' + Y(ult.y) + '" r="4" fill="' + COR + '" stroke="#fff" stroke-width="2"/>' +
+      '<text x="' + (X(pontos.length - 1) - 8) + '" y="' + (Y(ult.y) - 9) + '" text-anchor="end" class="vg-fim">' + fmt(ult.y) + '</text>' +
       rotulosX + alvos + '</svg>';
   }
   /* rosca: [{rotulo, valor}] -> círculo com o total no centro e legenda com número e % */
   function rosca(itens, opts){
     opts = opts || {};
     itens = itens.filter(function(i){ return i.valor > 0; });
+    if(itens.length > PALETA.length + 1){   // 5 cores + "Outras"
+      var resto = itens.slice(PALETA.length), soma = resto.reduce(function(s, i){ return s + i.valor; }, 0);
+      itens = itens.slice(0, PALETA.length).concat([{ rotulo: 'Outras (' + resto.length + ')', valor: soma, outras: true }]);
+    }
+    var cor = function(i, k){ return i.outras ? COR_OUTRAS : PALETA[k % PALETA.length]; };
     var total = itens.reduce(function(s, i){ return s + i.valor; }, 0);
     if(!total) return '<p class="vazio">' + esc(opts.vazio || 'Sem dados no período.') + '</p>';
     var R = 44, C = 2 * Math.PI * R, acum = 0;
     var arcos = itens.map(function(i, k){
-      var cor = PALETA[k % PALETA.length], len = i.valor / total * C;
-      var s = '<circle cx="60" cy="60" r="' + R + '" fill="none" stroke="' + cor + '" stroke-width="22" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) +
-        '" stroke-dashoffset="' + (-acum).toFixed(2) + '" transform="rotate(-90 60 60)" data-dica="' + dicaTxt([i.rotulo, fmt(i.valor) + ' ' + (opts.unidade || '') + ' (' + Math.round(i.valor / total * 100) + '%)']) + '"/>';
+      var len = i.valor / total * C, gap = itens.length > 1 ? 2 : 0, desenho = Math.max(0.6, len - gap);   // 2px de respiro entre as fatias
+      var s = '<circle cx="60" cy="60" r="' + R + '" fill="none" stroke="' + cor(i, k) + '" stroke-width="22" stroke-dasharray="' + desenho.toFixed(2) + ' ' + (C - desenho).toFixed(2) +
+        '" stroke-dashoffset="' + (-(acum + gap / 2)).toFixed(2) + '" transform="rotate(-90 60 60)" data-dica="' + dicaTxt([i.rotulo, fmt(i.valor) + ' ' + (opts.unidade || '') + ' (' + Math.round(i.valor / total * 100) + '%)']) + '"/>';
       acum += len; return s;
     }).join('');
     var legenda = itens.map(function(i, k){
-      return '<li><i style="background:' + PALETA[k % PALETA.length] + '"></i><span class="r-rot">' + esc(i.rotulo) + '</span><b class="num">' + fmt(i.valor) +
+      return '<li><i style="background:' + cor(i, k) + '"></i><span class="r-rot">' + esc(i.rotulo) + '</span><b class="num">' + fmt(i.valor) +
         '</b><span class="r-pct">' + Math.round(i.valor / total * 100) + '%</span></li>';
     }).join('');
     return '<div class="vg-rosca"><svg viewBox="0 0 120 120" role="img" aria-label="' + esc(opts.titulo || 'gráfico de rosca') + '">' + arcos +
