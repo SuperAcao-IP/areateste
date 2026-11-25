@@ -1,1 +1,1 @@
-disparo 2026-11-24T15:47:32 (3ª tentativa: limite de 3 dias, recupera a semana de 23/11)
+disparo 2026-11-25T10:22:22 (4ª tentativa: robô de vagas estourou 120 min; teto 340 e resumo disparado de propósito)

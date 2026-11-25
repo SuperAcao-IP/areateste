@@ -39,7 +39,7 @@ jobs:
   vigia:
     if: ${{ !github.event.repository.fork }}
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    timeout-minutes: 355
     env:
       GH_TOKEN: ${{ github.token }}
       GH_REPO: ${{ github.repository }}
@@ -99,7 +99,10 @@ jobs:
 
           # 3) o resumo (e o e-mail) roda sozinho quando o histórico termina; se o histórico não foi disparado e o resumo está atrasado, dispara
           d=$(idade resumo-semanal); q="há $d dia(s)"; [ "$d" = "999" ] && q="nunca"
-          if [ "$HIST" = "1" ]; then registrar resumo-semanal "roda sozinho quando o histórico terminar" "$q"
+          if [ "$HIST" = "1" ]; then
+            # execução disparada pelo GITHUB_TOKEN não aciona o "workflow_run": espera o histórico e dispara o resumo de propósito
+            echo "Esperando o histórico terminar..."; esperar atualizar-historico
+            gh workflow run resumo-semanal.yml && registrar resumo-semanal "disparei (depois do histórico)" "$q" || registrar resumo-semanal "não consegui disparar" "$q"
           elif [ "$d" -gt "$LIMITE_DIAS" ]; then
             FALTOU="$FALTOU resumo-semanal"
             if [ "$ENSAIO" = "1" ]; then registrar resumo-semanal "FALTOU: no modo normal eu dispararia" "$q"
