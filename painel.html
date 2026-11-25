@@ -815,7 +815,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   ];
   var ETAPAS_FUNIL = ['selecionou_municipio', 'selecionou_area', 'viu_resultados'];
   var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
-                 ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos e outras origens', spme:'Emprega Brasil', preparacao:'Preparação para o trabalho' };
+                 ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos', spme:'Emprega Brasil', preparacao:'Preparação para o trabalho' };
   var FONTES_VAGAS = { trampolim:'Trampolim SP', robo:'Robô de vagas', planilha:'Planilha de vagas', manual:'Planilha de vagas', spme:'Emprega Brasil (SINE)' };
 
   Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function(b){
@@ -906,12 +906,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       var nome = String(c.item || '').replace(/^Preparação · /, '');
       cliquesPasso[nome] = (cliquesPasso[nome] || 0) + (c.cliques || 0);
     });
-    $('tb-cursos').innerHTML = cursosSemPrep.length
-      ? cursosSemPrep.map(function(c){
-          return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
-            esc(FONTES[c.fonte] || c.fonte || '–') + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
-        }).join('')
-      : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
     var temVagas = Array.isArray(j.vagas);
     $('tb-vagas').innerHTML = !temVagas
       ? '<tr><td colspan="3" class="vazio">A lista de vagas clicadas ainda não chega do servidor de estatísticas (veja docs/PEDIDO-WORKER.md). Cliques em vagas no período: <b>' + fmt(total(j, 'clique_vaga')) + '</b>.</td></tr>'
@@ -941,6 +935,12 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       }).join('') + '</div>';
     };
     var pintarAreas = function(){
+      $('tb-cursos').innerHTML = cursosSemPrep.length
+        ? cursosSemPrep.map(function(c){
+            return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
+              esc(window.VisaoGeral && window.VisaoGeral.origemCurso ? window.VisaoGeral.origemCurso(c.item, c.fonte) : (FONTES[c.fonte] || c.fonte || '–')) + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
+          }).join('')
+        : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
       var hc = window.VisaoGeral && window.VisaoGeral.historicos ? window.VisaoGeral.historicos() : {};
       $('ar-cursos').innerHTML = barrasArea(porAreaClique(cursosSemPrep, areaPorNome(hc.cursos, 'curso')), 'Nenhum clique em curso no período.');
       $('ar-vagas').innerHTML = temVagas ? barrasArea(porAreaClique(j.vagas, areaPorNome(hc.vagas, 'cargo')), 'Nenhum clique em vaga no período.')

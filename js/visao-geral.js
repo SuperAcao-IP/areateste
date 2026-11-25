@@ -24,7 +24,7 @@
   /* paleta FGV: azuis do programa + verde, âmbar e roxo de apoio (sempre com rótulo e número, nunca só a cor) */
   var PALETA = ['#003A79', '#0C63AA', '#2B8671', '#E29200', '#6F5CB5', '#7DB2DE', '#B7C0CB'];
   var FONTES_CURSO = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
-                       ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos e outras origens', spme:'Emprega Brasil' };
+                       ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos', spme:'Emprega Brasil' };
   var FONTES_VAGA = { trampolim:'Trampolim SP', robo:'Robô de vagas', planilha:'Planilha de vagas', manual:'Planilha de vagas', spme:'Emprega Brasil (SINE)' };
 
   var MUNICIPIOS = (typeof CENTROS_MUNICIPIOS !== 'undefined') ? Object.keys(CENTROS_MUNICIPIOS).sort(function(a, b){ return a.localeCompare(b, 'pt-BR'); }) : [];
@@ -127,6 +127,18 @@
       '<text x="60" y="58" text-anchor="middle" class="r-total">' + fmt(total) + '</text><text x="60" y="73" text-anchor="middle" class="r-un">' + esc(opts.unidade || '') + '</text></svg>' +
       '<ul class="r-legenda">' + legenda + '</ul></div>';
   }
+  /* origem do curso clicado. Cliques antigos de Senai, IFMG, Mundi e Aprenda Mais caíam em "manual" (planilha); o nome do
+     curso é procurado no histórico para devolver a origem verdadeira. O que não for achado fica como planilha de cursos. */
+  var INDICE_CURSOS = null;
+  function origemCurso(item, fonte){
+    if(fonte && fonte !== 'manual') return FONTES_CURSO[fonte] || fonte;
+    if(!INDICE_CURSOS && estado.cursos){
+      INDICE_CURSOS = {};
+      (estado.cursos.cursos || []).forEach(function(c){ var k = norm(c.curso); if(k && !INDICE_CURSOS[k]) INDICE_CURSOS[k] = c.fonte; });
+    }
+    var f = INDICE_CURSOS && INDICE_CURSOS[norm(item)];
+    return (f && f !== 'Cadastro do programa') ? f : FONTES_CURSO.manual;
+  }
   function kpi(rotulo, valor, nota, cor){
     return '<div class="kpi"><p class="rotulo">' + esc(rotulo) + '</p><p class="valor num"' + (cor ? ' style="color:' + cor + '"' : '') + '>' + valor + '</p>' +
            (nota ? '<p class="nota">' + nota + '</p>' : '') + '</div>';
@@ -200,7 +212,7 @@
     $('vgCidades').innerHTML = barras(topCidades, { unidade: 'buscas', vazio: 'Nenhuma busca no período.' });
     var porOrigem = function(lista, nomes, semPrep){
       var m = {};
-      (lista || []).forEach(function(c){ if(semPrep && c.fonte === 'preparacao') return; var f = nomes[c.fonte] || c.fonte || 'Sem origem'; m[f] = (m[f] || 0) + (c.cliques || 0); });
+      (lista || []).forEach(function(c){ if(semPrep && c.fonte === 'preparacao') return; var f = (nomes === FONTES_CURSO ? origemCurso(c.item, c.fonte) : (nomes[c.fonte] || c.fonte || 'Sem origem')); m[f] = (m[f] || 0) + (c.cliques || 0); });
       return Object.keys(m).map(function(f){ return { rotulo: f, valor: m[f] }; }).sort(function(a, b){ return b.valor - a.valor; });
     };
     $('vgFontesCursos').innerHTML = rosca(porOrigem(j && j.cursos, FONTES_CURSO, true), { unidade: 'cliques', titulo: 'Cliques em cursos por origem', vazio: 'Nenhum clique em curso no período.' });
@@ -388,5 +400,5 @@
   }
 
   window.VisaoGeral = { abrir: abrirVisao, abrirVazios: abrirVazios, linhasResumo: linhasResumo, carregarArquivos: carregarArquivos,
-                        historicos: function(){ return { cursos: estado.cursos, vagas: estado.vagas }; } };
+                        origemCurso: origemCurso, historicos: function(){ return { cursos: estado.cursos, vagas: estado.vagas }; } };
 })();
