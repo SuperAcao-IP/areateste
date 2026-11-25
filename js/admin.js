@@ -218,6 +218,7 @@ async function salvarAdm(){
         if(!cachePlanilhaVagas.vagas) cachePlanilhaVagas.vagas = [];
         cachePlanilhaVagas.vagas.push(novoItem);
       }
+      if(window.saTrack) window.saTrack(abaAdm==="cursos"?"cadastro_curso":"cadastro_vaga", {cidade:obj.municipio||null, area:obj.area||null});   // contagem de uso (painel)
       editIdx=-1;
       renderAdmin();
       alert((abaAdm==="cursos"?"Curso":"Vaga")+" adicionado(a) com sucesso!");

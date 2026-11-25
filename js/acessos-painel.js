@@ -76,15 +76,23 @@
         Math.max(1.5, i.valor / max * 100) + '%;background:' + COR + '"></span></span><span class="vg-val num">' + fmt(i.valor) + '</span></div>';
     }).join('') + '</div>';
   }
-  /* colunas por semana (as 16 últimas): uma série */
+  /* colunas por semana: sempre as 16 últimas semanas seguidas (semana sem registro = 0, em vez de sumir do gráfico).
+     A semana em andamento fica em azul claro, porque ainda não terminou. Alturas em pixels (a altura em % dependia
+     do tamanho das outras peças da coluna e estourava para cima). */
+  var isoLocal = function(d){ return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
   function colunasSemana(contagem, unidade){
-    var semanas = Object.keys(contagem).sort().slice(-16);
-    if(!semanas.length) return '<p class="vazio">Ainda não há registros.</p>';
-    var max = Math.max.apply(null, semanas.map(function(s){ return contagem[s]; })) || 1;
+    var atual = inicioSemana(new Date()), semanas = [];
+    for(var k = 15; k >= 0; k--){ var d = new Date(atual); d.setDate(d.getDate() - 7 * k); semanas.push(isoLocal(d)); }
+    var chaves = Object.keys(contagem);
+    if(!chaves.length) return '<p class="vazio">Ainda não há registros.</p>';
+    var primeira = chaves.sort()[0];
+    semanas = semanas.filter(function(s){ return s >= primeira || semanas.indexOf(s) >= semanas.length - 4; });   // não mostra meses de nada antes do primeiro registro
+    var max = Math.max.apply(null, semanas.map(function(s){ return contagem[s] || 0; })) || 1;
+    var ultima = semanas[semanas.length - 1];
     return '<div class="ac-colunas">' + semanas.map(function(s){
-      var d = s.slice(8, 10) + '/' + s.slice(5, 7);
-      return '<div class="ac-col" title="Semana de ' + d + ': ' + contagem[s] + ' ' + unidade + '"><span class="ac-num num">' + contagem[s] + '</span>' +
-        '<span class="ac-barra" style="height:' + Math.max(3, contagem[s] / max * 100) + '%"></span><span class="ac-rot">' + d + '</span></div>';
+      var n = contagem[s] || 0, d = s.slice(8, 10) + '/' + s.slice(5, 7);
+      return '<div class="ac-col" title="Semana de ' + d + (s === ultima ? ' (em andamento)' : '') + ': ' + n + ' ' + unidade + '"><span class="ac-num num">' + n + '</span>' +
+        '<span class="ac-barra' + (s === ultima ? ' parcial' : '') + (n ? '' : ' zero') + '" style="height:' + (n ? Math.max(4, Math.round(n / max * 110)) : 2) + 'px"></span><span class="ac-rot">' + d + '</span></div>';
     }).join('') + '</div>';
   }
 
@@ -103,9 +111,9 @@
       '<div class="kpi"><p class="rotulo">Municípios com alguém</p><p class="valor num">' + (temMun ? fmt(MUNICIPIOS.length - semNinguem.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–') + '</p><p class="nota">' + (temMun ? 'pela coluna município da planilha' : 'a aba "emails" não tem coluna de município') + '</p></div>';
 
     var novasPorSemana = {}, loginsPorSemana = {};
-    P.forEach(function(p){ if(p.primeiro){ var s = inicioSemana(p.primeiro).toISOString().slice(0, 10); novasPorSemana[s] = (novasPorSemana[s] || 0) + 1; } });
+    P.forEach(function(p){ if(p.primeiro){ var s = isoLocal(inicioSemana(p.primeiro)); novasPorSemana[s] = (novasPorSemana[s] || 0) + 1; } });
     var vistos = {};
-    D.logins.forEach(function(l){ var s = inicioSemana(l.quando).toISOString().slice(0, 10); var k = s + '|' + l.email; if(!vistos[k]){ vistos[k] = 1; loginsPorSemana[s] = (loginsPorSemana[s] || 0) + 1; } });
+    D.logins.forEach(function(l){ var s = isoLocal(inicioSemana(l.quando)); var k = s + '|' + l.email; if(!vistos[k]){ vistos[k] = 1; loginsPorSemana[s] = (loginsPorSemana[s] || 0) + 1; } });
     $('acNovas').innerHTML = colunasSemana(novasPorSemana, 'pessoas novas');
     $('acAtivas').innerHTML = D.logins.length ? colunasSemana(loginsPorSemana, 'pessoas que entraram')
       : '<p class="vazio">Aparece depois da atualização do Apps Script para a v8: a partir dela, cada login é registrado na aba "acessos_log".</p>';

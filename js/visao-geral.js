@@ -21,11 +21,14 @@
   var dataBR = function(iso){ return iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) + '/' + iso.slice(0, 4) : ''; };
   var diaMes = function(iso){ return iso ? iso.slice(8, 10) + '/' + iso.slice(5, 7) : ''; };
   var COR = '#0C63AA', COR_SUAVE = '#cfe4f5', CINZA = '#B7C0CB', AMBAR = '#C26A0B';
-  var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'EVG', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
-                 manual:'Cadastro do programa', planilha:'Cadastro do programa', robo:'Robô de vagas' };
+  /* paleta FGV: azuis do programa + verde, âmbar e roxo de apoio (sempre com rótulo e número, nunca só a cor) */
+  var PALETA = ['#003A79', '#0C63AA', '#2B8671', '#E29200', '#6F5CB5', '#7DB2DE', '#B7C0CB'];
+  var FONTES_CURSO = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
+                       ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos e outras origens', spme:'Emprega Brasil' };
+  var FONTES_VAGA = { trampolim:'Trampolim SP', robo:'Robô de vagas', planilha:'Planilha de vagas', manual:'Planilha de vagas', spme:'Emprega Brasil (SINE)' };
 
   var MUNICIPIOS = (typeof CENTROS_MUNICIPIOS !== 'undefined') ? Object.keys(CENTROS_MUNICIPIOS).sort(function(a, b){ return a.localeCompare(b, 'pt-BR'); }) : [];
-  var estado = { uso: null, dias: 30, semanal: undefined, cursos: undefined, vagas: undefined, cobertura: undefined, mapa: null };
+  var estado = { uso: null, dias: 30, semanal: undefined, cursos: undefined, vagas: undefined, cobertura: undefined, mapa: null, munFiltro: '' };
 
   /* ---------- carregamento dos arquivos (uma vez) ---------- */
   function json(arq){
@@ -78,7 +81,7 @@
   function linha(pontos, opts){
     opts = opts || {};
     if(pontos.length < 2) return '<p class="vazio">' + esc(opts.vazio || 'Ainda não há semanas suficientes para a linha do tempo.') + '</p>';
-    var W = 520, H = 170, E = 34, D = 10, T = 12, B = 26;
+    var W = 520, H = 170, E = 44, D = 10, T = 12, B = 26;
     var max = Math.max.apply(null, pontos.map(function(p){ return p.y; })); if(!max) max = 1;
     var passo = Math.pow(10, Math.floor(Math.log10(max))); var topo = Math.ceil(max / passo) * passo; if(topo / passo > 5 && passo >= 1) topo = Math.ceil(max / (passo * 2)) * passo * 2;
     var X = function(i){ return E + (i / (pontos.length - 1)) * (W - E - D); };
@@ -102,6 +105,27 @@
       '<path d="' + d + '" fill="none" stroke="' + COR + '" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>' +
       '<circle cx="' + X(pontos.length - 1) + '" cy="' + Y(ult.y) + '" r="4" fill="' + COR + '" stroke="#fff" stroke-width="2"/>' +
       rotulosX + alvos + '</svg>';
+  }
+  /* rosca: [{rotulo, valor}] -> círculo com o total no centro e legenda com número e % */
+  function rosca(itens, opts){
+    opts = opts || {};
+    itens = itens.filter(function(i){ return i.valor > 0; });
+    var total = itens.reduce(function(s, i){ return s + i.valor; }, 0);
+    if(!total) return '<p class="vazio">' + esc(opts.vazio || 'Sem dados no período.') + '</p>';
+    var R = 44, C = 2 * Math.PI * R, acum = 0;
+    var arcos = itens.map(function(i, k){
+      var cor = PALETA[k % PALETA.length], len = i.valor / total * C;
+      var s = '<circle cx="60" cy="60" r="' + R + '" fill="none" stroke="' + cor + '" stroke-width="22" stroke-dasharray="' + len.toFixed(2) + ' ' + (C - len).toFixed(2) +
+        '" stroke-dashoffset="' + (-acum).toFixed(2) + '" transform="rotate(-90 60 60)" data-dica="' + dicaTxt([i.rotulo, fmt(i.valor) + ' ' + (opts.unidade || '') + ' (' + Math.round(i.valor / total * 100) + '%)']) + '"/>';
+      acum += len; return s;
+    }).join('');
+    var legenda = itens.map(function(i, k){
+      return '<li><i style="background:' + PALETA[k % PALETA.length] + '"></i><span class="r-rot">' + esc(i.rotulo) + '</span><b class="num">' + fmt(i.valor) +
+        '</b><span class="r-pct">' + Math.round(i.valor / total * 100) + '%</span></li>';
+    }).join('');
+    return '<div class="vg-rosca"><svg viewBox="0 0 120 120" role="img" aria-label="' + esc(opts.titulo || 'gráfico de rosca') + '">' + arcos +
+      '<text x="60" y="58" text-anchor="middle" class="r-total">' + fmt(total) + '</text><text x="60" y="73" text-anchor="middle" class="r-un">' + esc(opts.unidade || '') + '</text></svg>' +
+      '<ul class="r-legenda">' + legenda + '</ul></div>';
   }
   function kpi(rotulo, valor, nota, cor){
     return '<div class="kpi"><p class="rotulo">' + esc(rotulo) + '</p><p class="valor num"' + (cor ? ' style="color:' + cor + '"' : '') + '>' + valor + '</p>' +
@@ -147,7 +171,7 @@
     var tot = function(ev){ var r = (j && j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? r.total : 0; };
     var ses = function(ev){ var r = (j && j.resumo || []).filter(function(x){ return x.ev === ev; })[0]; return r ? r.sessoes : 0; };
     var cliquesPrep = (j && j.cursos || []).filter(function(c){ return c.fonte === 'preparacao'; }).reduce(function(s, c){ return s + (c.cliques || 0); }, 0);
-    var buscas = tot('viu_resultados') + tot('busca_sem_resultado');
+    var cliquesCursos = Math.max(0, tot('clique_curso') - cliquesPrep);
     var cursosNoAr = presentes(estado.cursos, 'cursos'), vagasNoAr = presentes(estado.vagas, 'vagas');
     var vazios = municipiosComVazio();
     var semPresencial = Object.keys(vazios).filter(function(m){ return estado.cobertura && vazios[m] === estado.cobertura.areas.length; });
@@ -157,9 +181,8 @@
     $('vgKpis').innerHTML =
       kpi('Pessoas que usaram', j ? fmt(ses('visitou')) : '–', 'sessões no período') +
       kpi('Municípios alcançados', j ? fmt(alcancados.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–', 'pesquisaram no período') +
-      kpi('Cliques em cursos e vagas', j ? fmt(Math.max(0, tot('clique_curso') - cliquesPrep) + tot('clique_vaga')) : '–', 'encaminhamentos gerados') +
+      kpi('Cliques em cursos e vagas', j ? fmt(cliquesCursos + tot('clique_vaga')) : '–', j ? fmt(cliquesCursos) + ' em cursos · ' + fmt(tot('clique_vaga')) + ' em vagas' : 'encaminhamentos gerados') +
       kpi('Preparação para o trabalho', j ? fmt(cliquesPrep) : '–', j ? 'cliques nos 4 passos' : '') +
-      kpi('Buscas sem resultado', j ? fmt(tot('busca_sem_resultado')) : '–', buscas ? Math.round(tot('busca_sem_resultado') / buscas * 100) + '% das buscas' : '', AMBAR) +
       kpi('Cursos no portal', estado.cursos ? fmt(cursosNoAr.length) : '–', estado.cursos ? 'no retrato de ' + dataBR(estado.cursos.atualizado) : 'histórico não carregou') +
       kpi('Vagas no portal', estado.vagas ? fmt(vagasNoAr.length) : '–', estado.vagas ? 'no retrato de ' + dataBR(estado.vagas.atualizado) : 'o histórico de vagas começa no próximo retrato') +
       kpi('Municípios sem curso presencial', estado.cobertura ? fmt(semPresencial.length) : '–', estado.cobertura ? 'em nenhuma área, na própria cidade' : '') +
@@ -175,14 +198,15 @@
     /* barras */
     var topCidades = Object.keys(buscasCidade).map(function(c){ return { rotulo: c, valor: buscasCidade[c] }; }).sort(function(a, b){ return b.valor - a.valor; }).slice(0, 15);
     $('vgCidades').innerHTML = barras(topCidades, { unidade: 'buscas', vazio: 'Nenhuma busca no período.' });
-    var porArea = {};
-    (j && j.lacunas || []).forEach(function(l){ var a = l.area || 'Área não informada'; porArea[a] = (porArea[a] || 0) + (l.vezes || 0); });
-    $('vgLacunas').innerHTML = barras(Object.keys(porArea).map(function(a){ return { rotulo: a, valor: porArea[a] }; }).sort(function(a, b){ return b.valor - a.valor; }).slice(0, 12),
-      { unidade: 'buscas sem resultado', vazio: 'Nenhuma busca sem resultado no período.' });
-    var porFonte = {};
-    (j && j.cursos || []).forEach(function(c){ var f = FONTES[c.fonte] || c.fonte || 'Sem origem'; porFonte[f] = (porFonte[f] || 0) + (c.cliques || 0); });
-    $('vgFontes').innerHTML = barras(Object.keys(porFonte).map(function(f){ return { rotulo: f, valor: porFonte[f] }; }).sort(function(a, b){ return b.valor - a.valor; }),
-      { unidade: 'cliques', vazio: 'Nenhum clique em curso no período.' });
+    var porOrigem = function(lista, nomes, semPrep){
+      var m = {};
+      (lista || []).forEach(function(c){ if(semPrep && c.fonte === 'preparacao') return; var f = nomes[c.fonte] || c.fonte || 'Sem origem'; m[f] = (m[f] || 0) + (c.cliques || 0); });
+      return Object.keys(m).map(function(f){ return { rotulo: f, valor: m[f] }; }).sort(function(a, b){ return b.valor - a.valor; });
+    };
+    $('vgFontesCursos').innerHTML = rosca(porOrigem(j && j.cursos, FONTES_CURSO, true), { unidade: 'cliques', titulo: 'Cliques em cursos por origem', vazio: 'Nenhum clique em curso no período.' });
+    $('vgFontesVagas').innerHTML = (j && j.vagas)
+      ? rosca(porOrigem(j.vagas, FONTES_VAGA, false), { unidade: 'cliques', titulo: 'Cliques em vagas por origem', vazio: 'Nenhum clique em vaga no período.' })
+      : '<p class="vazio">A origem de cada vaga clicada ainda não chega do servidor de estatísticas (veja docs/PEDIDO-WORKER.md). Total de cliques em vagas no período: <b>' + fmt(tot('clique_vaga')) + '</b>.</p>';
 
     /* linhas do tempo */
     var sem = estado.semanal && estado.semanal.semanas || [];
@@ -191,34 +215,54 @@
     var vazioUso = estado.semanal === null ? 'A linha do tempo do uso começa quando o Secret PAINEL_CHAVE for cadastrado no GitHub (veja o README).' : undefined;
     $('vgTempoSessoes').innerHTML = linha(serie(function(s){ return s.sessoes; }), { unidade: 'sessões', titulo: 'Sessões por semana', vazio: vazioUso });
     $('vgTempoBuscas').innerHTML = linha(serie(function(s){ return ev(s, 'viu_resultados') + ev(s, 'busca_sem_resultado'); }), { unidade: 'buscas', titulo: 'Buscas por semana', vazio: vazioUso });
-    $('vgTempoCliques').innerHTML = linha(serie(function(s){ return ev(s, 'clique_curso') + ev(s, 'clique_vaga'); }), { unidade: 'cliques', titulo: 'Cliques por semana', vazio: vazioUso });
+    var prepSem = function(s){ return (s.cursos || []).filter(function(c){ return c.fonte === 'preparacao'; }).reduce(function(n, c){ return n + (c.cliques || 0); }, 0); };
+    $('vgTempoCliquesCursos').innerHTML = linha(serie(function(s){ return Math.max(0, ev(s, 'clique_curso') - prepSem(s)); }), { unidade: 'cliques em cursos', titulo: 'Cliques em cursos por semana', vazio: vazioUso });
+    $('vgTempoCliquesVagas').innerHTML = linha(serie(function(s){ return ev(s, 'clique_vaga'); }), { unidade: 'cliques em vagas', titulo: 'Cliques em vagas por semana', vazio: vazioUso });
     $('vgTempoCursos').innerHTML = linha(porSemana(estado.cursos, 'cursos'), { unidade: 'cursos', titulo: 'Cursos no portal por semana' });
     $('vgTempoVagas').innerHTML = linha(porSemana(estado.vagas, 'vagas'), { unidade: 'vagas', titulo: 'Vagas no portal por semana', vazio: 'O histórico de vagas começou agora: a linha aparece a partir da segunda semana.' });
     $('vgNotaAprox').classList.toggle('oculto', !sem.some(function(s){ return s.aproximado; }));
 
-    desenharTabelaMunicipios(cursosNoAr, vagasNoAr, buscasCidade, vazios);
+    desenharTabelaMunicipios(cursosNoAr, vagasNoAr, buscasCidade);
     desenharMapa(buscasCidade, vazios);
   }
 
-  /* cursos e vagas por município, hoje */
-  var linhasMun = [];
-  function desenharTabelaMunicipios(cursosNoAr, vagasNoAr, buscasCidade, vazios){
+  /* cursos e vagas por município, hoje. "Todos": uma linha por município. Um município escolhido: o detalhe por área. */
+  var linhasMun = [], linhasArea = [];
+  function desenharTabelaMunicipios(cursosNoAr, vagasNoAr, buscasCidade){
+    var sel = $('vgFiltroMun');
+    if(sel && sel.options.length <= 1){
+      sel.innerHTML = '<option value="">Todos os municípios</option>' + MUNICIPIOS.map(function(m){ return '<option>' + esc(m) + '</option>'; }).join('');
+    }
+    if(sel) sel.value = estado.munFiltro;
     var temOnline = function(c){ return c.municipios.indexOf('Online') >= 0; };
-    var onlineTodos = cursosNoAr.filter(function(c){ return c.classe === 'online' && temOnline(c); }).length;
+    var onlineTodos = cursosNoAr.filter(function(c){ return c.classe === 'online' && temOnline(c); });
+    var doMun = function(lista, m){ return lista.filter(function(x){ return x.municipios.indexOf(m) >= 0; }); };
+    var presDe = function(m){ return cursosNoAr.filter(function(c){ return c.classe === 'presencial' && c.municipios.indexOf(m) >= 0; }); };
+    var onlDe = function(m){ return onlineTodos.concat(cursosNoAr.filter(function(c){ return c.classe === 'online' && !temOnline(c) && c.municipios.indexOf(m) >= 0; })); };
     linhasMun = MUNICIPIOS.map(function(m){
-      var pres = cursosNoAr.filter(function(c){ return c.classe === 'presencial' && c.municipios.indexOf(m) >= 0; }).length;
-      var onl = onlineTodos + cursosNoAr.filter(function(c){ return c.classe === 'online' && !temOnline(c) && c.municipios.indexOf(m) >= 0; }).length;
-      var vag = vagasNoAr.filter(function(v){ return v.municipios.indexOf(m) >= 0; }).length;
-      return { m: m, pres: pres, onl: onl, vag: vag, buscas: buscasCidade[m] || 0, vazias: vazios[m] };
+      return { m: m, pres: presDe(m).length, onl: onlDe(m).length, vag: doMun(vagasNoAr, m).length, buscas: buscasCidade[m] || 0 };
     });
-    var nAreas = estado.cobertura ? estado.cobertura.areas.length : 0;
-    $('vgTabelaMun').innerHTML = '<thead><tr><th>Município</th><th class="direita">Cursos presenciais</th><th class="direita">Cursos online</th><th class="direita">Vagas</th>' +
-      '<th class="direita">Buscas (' + estado.dias + ' dias)</th><th class="direita">Áreas sem presencial</th></tr></thead><tbody>' +
-      linhasMun.map(function(l){
-        return '<tr><td>' + esc(l.m) + '</td><td class="direita num">' + fmt(l.pres) + '</td><td class="direita num">' + fmt(l.onl) + '</td><td class="direita num">' + (estado.vagas ? fmt(l.vag) : '–') + '</td>' +
-          '<td class="direita num">' + (estado.uso ? fmt(l.buscas) : '–') + '</td>' +
-          '<td class="direita num"' + (nAreas && l.vazias === nAreas ? ' style="color:' + AMBAR + '"' : '') + '>' + (nAreas ? l.vazias + ' de ' + nAreas : '–') + '</td></tr>';
-      }).join('') + '</tbody>';
+    var m = estado.munFiltro;
+    if(!m){
+      $('vgTabelaMun').innerHTML = '<thead><tr><th>Município</th><th class="direita">Cursos presenciais</th><th class="direita">Cursos online</th><th class="direita">Vagas</th>' +
+        '<th class="direita">Buscas (' + estado.dias + ' dias)</th></tr></thead><tbody>' +
+        linhasMun.map(function(l){
+          return '<tr><td>' + esc(l.m) + '</td><td class="direita num">' + fmt(l.pres) + '</td><td class="direita num">' + fmt(l.onl) + '</td><td class="direita num">' + (estado.vagas ? fmt(l.vag) : '–') + '</td>' +
+            '<td class="direita num">' + (estado.uso ? fmt(l.buscas) : '–') + '</td></tr>';
+        }).join('') + '</tbody>';
+      linhasArea = [];
+      return;
+    }
+    var pr = presDe(m), on = onlDe(m), vg = doMun(vagasNoAr, m);
+    var conta = function(lista, a){ return lista.filter(function(x){ return (x.area || 'Outros') === a; }).length; };
+    var nomes = estado.cobertura ? estado.cobertura.areas.slice() : [];
+    [pr, on, vg].forEach(function(l){ l.forEach(function(x){ var a = x.area || 'Outros'; if(nomes.indexOf(a) < 0) nomes.push(a); }); });
+    linhasArea = nomes.map(function(a){ return { a: a, pres: conta(pr, a), onl: conta(on, a), vag: conta(vg, a) }; });
+    var zero = function(n){ return n ? fmt(n) : '<span class="zero-suave">0</span>'; };
+    $('vgTabelaMun').innerHTML = '<thead><tr><th>Área (' + esc(m) + ')</th><th class="direita">Cursos presenciais</th><th class="direita">Cursos online</th><th class="direita">Vagas</th></tr></thead><tbody>' +
+      linhasArea.map(function(l){
+        return '<tr><td>' + esc(l.a) + '</td><td class="direita num">' + zero(l.pres) + '</td><td class="direita num">' + zero(l.onl) + '</td><td class="direita num">' + (estado.vagas ? zero(l.vag) : '–') + '</td></tr>';
+      }).join('') + '<tr class="total"><td>Total</td><td class="direita num">' + fmt(pr.length) + '</td><td class="direita num">' + fmt(on.length) + '</td><td class="direita num">' + (estado.vagas ? fmt(vg.length) : '–') + '</td></tr></tbody>';
   }
 
   /* mapa: bolha = buscas no período; cinza = ninguém buscou; contorno âmbar = nenhum curso presencial na cidade */
@@ -241,7 +285,7 @@
       L.circleMarker([CENTROS_MUNICIPIOS[m].lat, CENTROS_MUNICIPIOS[m].lon], {
         radius: raio, weight: semNenhum ? 3 : 2, color: semNenhum ? AMBAR : '#ffffff', fillColor: b ? COR : CINZA, fillOpacity: b ? 0.75 : 0.9
       }).bindTooltip('<b>' + esc(m) + '</b><br>' + (estado.uso ? fmt(b) + ' buscas em ' + estado.dias + ' dias' : '') +
-        (nAreas ? '<br>' + v + ' de ' + nAreas + ' áreas sem curso presencial' : ''), { direction: 'top' }).addTo(estado.camada);
+        (semNenhum ? '<br>nenhum curso presencial na cidade' : ''), { direction: 'top' }).addTo(estado.camada);
     });
     setTimeout(function(){ estado.mapa.invalidateSize(); }, 50);
   }
@@ -261,19 +305,22 @@
     if(!alvo) return;
     var c = estado.cobertura;
     if(!c){ alvo.innerHTML = '<p class="vazio">O retrato automático ainda não foi gerado (ele sai todo domingo, no robô "Histórico de cursos"). Use a varredura ao vivo abaixo.</p>'; return; }
-    var pares = 0, semNada = [], totalCursos = 0, soVizinha = 0;
+    var semNada = [], poucas = {};
     MUNICIPIOS.forEach(function(m){
-      var l = c.municipios[m] || {}, algum = false;
-      c.areas.forEach(function(a){ var v = l[a] || [0, 0]; totalCursos += v[0]; if(v[0]) algum = true; else { pares++; if(v[1]) soVizinha++; } });
-      if(!algum) semNada.push(m);
+      var l = c.municipios[m] || {}, vazias = 0;
+      c.areas.forEach(function(a){ var v = l[a] || [0, 0]; if(!v[0]) vazias++; });
+      poucas[m] = vazias;
+      if(vazias === c.areas.length) semNada.push(m);
     });
     $('cobKpis').innerHTML =
-      kpi('Municípios', fmt(MUNICIPIOS.length), 'do programa') +
-      kpi('Vazios', fmt(pares), 'pares município × área sem curso presencial na cidade', AMBAR) +
-      kpi('Cobertos só por vizinha', fmt(soVizinha), 'vazios que têm curso numa cidade vizinha') +
-      kpi('Sem nenhum presencial', fmt(semNada.length), semNada.length ? esc(semNada.slice(0, 4).join(', ')) + (semNada.length > 4 ? '…' : '') : 'em nenhuma área', AMBAR);
+      kpi('Municípios do programa', fmt(MUNICIPIOS.length), 'no retrato de ' + dataBR(c.atualizado)) +
+      kpi('Sem nenhum curso presencial', fmt(semNada.length), 'em nenhuma área, na própria cidade', semNada.length ? AMBAR : '') +
+      kpi('Com curso presencial', fmt(MUNICIPIOS.length - semNada.length), 'em pelo menos uma área');
+    $('cobSemNada').innerHTML = semNada.length
+      ? '<div class="vg-chips">' + semNada.map(function(m){ return '<span class="vg-chip">' + esc(m) + '</span>'; }).join('') + '</div>'
+      : '<p class="vazio">Todos os municípios têm pelo menos um curso presencial.</p>';
     $('cobData').textContent = 'Retrato automático de ' + dataBR(c.atualizado) + ' (atualiza todo domingo).';
-    var html = '<thead><tr><th>Município</th>' + c.areas.map(function(a){ return '<th title="' + esc(a) + '">' + esc(a.length > 16 ? a.slice(0, 15) + '…' : a) + '</th>'; }).join('') + '</tr></thead><tbody>';
+    var html = '<thead><tr><th>Município</th>' + c.areas.map(function(a){ return '<th title="' + esc(a) + '">' + esc(a.length > 16 ? a.slice(0, 15) + '…' : a) + '</th>'; }).join('') + '<th title="Áreas sem curso presencial na cidade">Áreas sem presencial</th></tr></thead><tbody>';
     MUNICIPIOS.forEach(function(m){
       var l = c.municipios[m] || {};
       html += '<tr><td>' + esc(m) + '</td>' + c.areas.map(function(a){
@@ -282,7 +329,7 @@
         if(v[0]) return '<td class="tem" data-dica="' + dicaTxt([t, v[0] + ' curso(s) presencial(is) na cidade', v[1] ? '+ ' + v[1] + ' nas cidades vizinhas' : '']) + '">' + v[0] + '</td>';
         if(v[1]) return '<td class="vg-viz" data-dica="' + dicaTxt([t, 'nenhum na cidade; ' + v[1] + ' nas cidades vizinhas']) + '">0 <small>+' + v[1] + '</small></td>';
         return '<td class="zero" data-dica="' + dicaTxt([t, 'nenhum curso presencial, nem nas cidades vizinhas']) + '">0</td>';
-      }).join('') + '</tr>';
+      }).join('') + '<td class="' + (poucas[m] === c.areas.length ? 'zero' : '') + '"><b>' + poucas[m] + '</b> de ' + c.areas.length + '</td></tr>';
     });
     $('cobTabela').innerHTML = html + '</tbody>';
   }
@@ -311,9 +358,14 @@
   document.addEventListener('DOMContentLoaded', function(){
     var b = $('vgImprimir'); if(b) b.addEventListener('click', function(){ window.print(); });
     var t = $('vgCsvMun'); if(t) t.addEventListener('click', function(){
-      baixarCSV('superacao-municipios', ['Municipio;Cursos presenciais;Cursos online;Vagas;Buscas no periodo;Areas sem presencial']
-        .concat(linhasMun.map(function(l){ return [l.m, l.pres, l.onl, l.vag, l.buscas, l.vazias].map(campo).join(';'); })), 'cursos e vagas do último retrato; buscas dos últimos ' + estado.dias + ' dias');
+      if(estado.munFiltro){
+        baixarCSV('superacao-' + norm(estado.munFiltro).replace(/[^a-z0-9]+/g, '-'), ['Area;Cursos presenciais;Cursos online;Vagas'].concat(linhasArea.map(function(l){ return [l.a, l.pres, l.onl, l.vag].map(campo).join(';'); })), estado.munFiltro + ' · cursos e vagas do último retrato');
+        return;
+      }
+      baixarCSV('superacao-municipios', ['Municipio;Cursos presenciais;Cursos online;Vagas;Buscas no periodo']
+        .concat(linhasMun.map(function(l){ return [l.m, l.pres, l.onl, l.vag, l.buscas].map(campo).join(';'); })), 'cursos e vagas do último retrato; buscas dos últimos ' + estado.dias + ' dias');
     });
+    var fm = $('vgFiltroMun'); if(fm) fm.addEventListener('change', function(){ estado.munFiltro = fm.value; desenhar(); });
     var c1 = $('cobCsvMatriz'); if(c1) c1.addEventListener('click', function(){ csvCobertura(false); });
     var c2 = $('cobCsvVazios'); if(c2) c2.addEventListener('click', function(){ csvCobertura(true); });
   });
@@ -335,5 +387,6 @@
     return out;
   }
 
-  window.VisaoGeral = { abrir: abrirVisao, abrirVazios: abrirVazios, linhasResumo: linhasResumo, carregarArquivos: carregarArquivos };
+  window.VisaoGeral = { abrir: abrirVisao, abrirVazios: abrirVazios, linhasResumo: linhasResumo, carregarArquivos: carregarArquivos,
+                        historicos: function(){ return { cursos: estado.cursos, vagas: estado.vagas }; } };
 })();

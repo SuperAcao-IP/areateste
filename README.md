@@ -80,7 +80,6 @@ A ordem **importa**, não embaralhe. Entre eles entram os arquivos de `dados/` e
   - **Uso do portal**: tabelas do uso no período (Worker de estatísticas);
   - **Vazios do catálogo**: retrato automático da semana (`dados/cobertura.json`) e, se quiser,
     a varredura ao vivo;
-  - **Catálogo completo**: monta ao vivo; curso online conta uma vez só;
   - **Histórico de cursos e vagas**: tudo o que passou pelo portal, com filtros e CSV
     (cursos desde setembro de 2026; vagas desde novembro de 2026);
   - **Acessos**: quem entrou (e-mail, município, primeiro e último acesso), só com a chave do

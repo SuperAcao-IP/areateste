@@ -47,8 +47,53 @@
 
   var dispositivo = window.matchMedia('(max-width: 768px)').matches ? 'mobile' : 'desktop';
 
+  /* ---------- equipe do programa (administrativo) ----------
+     Quem é da equipe não entra na contagem de uso: os cliques de teste e de conferência não são do público.
+     A lista guarda só a "impressão digital" (SHA-256 com um prefixo) dos e-mails, nunca os e-mails. Para incluir
+     alguém: node -e "console.log(require('crypto').createHash('sha256').update('superacao:'+'nome@fgv.br').digest('hex'))" */
+  var EQUIPE = [
+    '56daba22c1ed90ca8c56c1eb0bc8be59cf94d072012537fa7d55facfe8fdd38d',
+    '6ea4afb71b7b3fc6d41257488aedb32fe37e64e49b36545f0828681c916bc532',
+    '7310bf0de291c75e85b0494e951f84caf47397d98917a06f246789485ec5a488',
+    '79fecef28acb591e2706564ea5408c40a08d468373b6bee684c17c8f16cba28a',
+    '822592231e1efc80ad1fc4fa332a5bf7f2b353b53068e79c431b58b16cf14904',
+    '609cedd4b3db357812b1f4a75d34aa8d44639c38a55519f4edebf515ad17456c',
+    '6c1643740ba8dba5cfbcc70f991bdec89dc92e3b503f2591f952143dfbdea52a',
+    '11410d606a60a49105a3a441a38e93edff54e14d49ff8a9b7e81adb9fcf22aad',
+    '7e20391dd85f3c5b02ce4da9ac87017776ce2e7b93a8e7b0caf5862797c1f462',
+    'bd5b1380c8a4752fe0dc5521f1f15b523d4cc33f45fd6fb0b545a38b13284ef7',
+    '5a8ada437b06d21a3b3e04c978249609083da8f8721077f2f48474bb17f88a3b',
+    'ce0143850143a3a2a905ba3e4e6ba8447112f839090b27091f68cc38109fe3b0',
+    'ec5dfee75d409a17b4f5b310239b2d052709e6452e0d6156c613d65050677890',
+    'b11c104682c410520e7fb91714c7ccb63f3fcfa9ee5304141749e2f4b64ba8c0',
+    '0755b6bf622e456217006f7a88dbeacf5371439a67d106fe513374e43708d98e',
+    '76c7fce06808c4d2f406b055807aa841dfc5cb7a601c2bfcbd214f329e61ade2',
+    '5fe1dabc6c34dad8f9b7940542aab57be289c50248d187213af9ee209c86d070',
+    'fd1afb5042f5c194e8dec147e7df11ec6ced1e25c6d6319e6e17ed4528affd03'
+  ];
+  var ehEquipe = false, liberado = false, espera = [];
+  function liberar() {
+    if (liberado) return;
+    liberado = true;
+    var f = espera; espera = [];
+    if (!ehEquipe) f.forEach(function (a) { enviar(a[0], a[1]); });
+  }
+  (function conferirEquipe() {
+    try {
+      var email = window.Auth && Auth.usuario && Auth.usuario();
+      if (!email || !window.crypto || !crypto.subtle || !window.TextEncoder) { liberar(); return; }
+      setTimeout(liberar, 1500);   // se a conferência demorar, segue sem travar o portal
+      crypto.subtle.digest('SHA-256', new TextEncoder().encode('superacao:' + String(email).trim().toLowerCase()))
+        .then(function (buf) {
+          var hex = Array.prototype.map.call(new Uint8Array(buf), function (b) { return ('0' + b.toString(16)).slice(-2); }).join('');
+          ehEquipe = EQUIPE.indexOf(hex) !== -1;
+          liberar();
+        }, liberar);
+    } catch (e) { liberar(); }
+  })();
+
   /* ---------- envio ---------- */
-  function track(ev, p) {
+  function enviar(ev, p) {
     try {
       var corpo = JSON.stringify(Object.assign(
         { ev: ev, sid: sid, dispositivo: dispositivo }, p || {}
@@ -58,6 +103,11 @@
         fetch(API + '/ev', { method: 'POST', body: corpo, keepalive: true }).catch(function () {});
       }
     } catch (e) { /* a coleta nunca pode quebrar o portal */ }
+  }
+  function track(ev, p) {
+    if (!liberado) { espera.push([ev, p]); return; }
+    if (ehEquipe) return;
+    enviar(ev, p);
   }
   window.saTrack = track;
 
@@ -91,7 +141,8 @@
     ['sebrae', 'sebrae'],
     ['bradesco', 'bradesco'], ['ev.org.br', 'bradesco'],
     ['trampolim', 'trampolim'],
-    ['senac', 'senac'],
+    ['senac', 'senac'], ['senai', 'senai'],
+    ['ifmg', 'ifmg'], ['mundi.ifsul', 'mundi'], ['aprendamais', 'aprendamais'],
     ['mte.gov', 'spme'], ['empregabrasil', 'spme']
   ];
   function origemDe(href) {
@@ -99,7 +150,16 @@
     for (var i = 0; i < PLATAFORMAS.length; i++) {
       if (h.indexOf(PLATAFORMAS[i][0]) !== -1) return PLATAFORMAS[i][1];
     }
-    return 'manual';
+    return 'manual';   // curso cadastrado pela equipe (planilha) ou de outra origem
+  }
+  /* origem da vaga: robô (Gupy, Catho, InfoJobs, vagas.com...), Trampolim, Emprega Brasil ou planilha da equipe */
+  var SITES_ROBO = ['gupy', 'catho', 'infojobs', 'vagas.com', 'linkedin', 'indeed'];
+  function origemVagaDe(href) {
+    var h = String(href || '').toLowerCase();
+    if (h.indexOf('trampolim') !== -1) return 'trampolim';
+    if (h.indexOf('mte.gov') !== -1 || h.indexOf('empregabrasil') !== -1) return 'spme';
+    for (var i = 0; i < SITES_ROBO.length; i++) if (h.indexOf(SITES_ROBO[i]) !== -1) return 'robo';
+    return 'planilha';
   }
 
   /* ---------- 1. visita ---------- */
@@ -214,7 +274,7 @@
     if (link.classList.contains('btn-vaga')) {
       var cv = link.closest('.vaga');
       var cargo = cv ? limpar((cv.querySelector('.cargo') || {}).textContent) : '';
-      track('clique_vaga', ctx({ fonte: origemDe(href), item: cargo || 'sem nome' }));
+      track('clique_vaga', ctx({ fonte: origemVagaDe(href), item: cargo || 'sem nome' }));
       return;
     }
 
@@ -254,18 +314,22 @@
   }
 
   /* =====================================================================
-     8. Cadastro manual pelo painel administrativo
+     8. Cadastros feitos no próprio portal (cursos e vagas): o evento sai do js/admin.js,
+        depois que a planilha confirma o cadastro (cadastro_curso / cadastro_vaga).
      ===================================================================== */
-  var admin = document.getElementById('admin');
-  if (admin) {
-    admin.addEventListener('click', function (e) {
-      var b = e.target.closest('button, [type="submit"]');
-      if (!b) return;
-      var t = (b.textContent || '').toLowerCase();
-      if (t.indexOf('salvar') !== -1 || t.indexOf('cadastrar') !== -1 || t.indexOf('adicionar') !== -1) {
-        track('cadastro_manual', { cidade: cidadeAtual });
-      }
-    }, true);
-  }
+
+  /* =====================================================================
+     9. Cliques nos pins do mapa, um evento por tipo de pin
+        (vagas, cursos presenciais, serviços e computador/internet)
+     ===================================================================== */
+  var PINS = [['pino-vaga', 'clique_pin_vaga'], ['pino-escola', 'clique_pin_escola'],
+              ['pino-servico', 'clique_pin_servico'], ['pino-pc', 'clique_pin_computador']];
+  document.addEventListener('click', function (e) {
+    var m = e.target.closest && e.target.closest('.leaflet-marker-icon');
+    if (!m) return;
+    for (var i = 0; i < PINS.length; i++) {
+      if (m.classList.contains(PINS[i][0])) { track(PINS[i][1], ctx()); return; }
+    }
+  }, true);
 
 })();

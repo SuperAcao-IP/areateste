@@ -54,7 +54,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .marca p{margin:2px 0 0;font-size:13px;color:var(--tinta2)}
   .controles{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 
-  .abas{max-width:1200px;margin:0 auto;padding:14px 20px 0;display:flex;gap:4px}
+  .abas{max-width:1200px;margin:0 auto;padding:14px 20px 0;display:flex;flex-wrap:wrap;gap:0 4px}
   .abas button{border:0;background:transparent;font-family:inherit;font-size:14px;font-weight:500;
     color:var(--tinta2);padding:9px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px}
   .abas button:hover{color:var(--azul)}
@@ -104,7 +104,9 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .cartao.fundo{padding-bottom:20px}
   .cartao h2{font-size:17px;font-weight:600;margin:0 0 2px}
   .cartao h3{font-size:16px;font-weight:600;margin:0 0 2px}
-  .cartao .sub{font-size:13px;color:var(--tinta2);margin:0 0 12px;max-width:78ch}
+  .cartao .sub{font-size:13px;color:var(--tinta2);margin:0 0 12px;max-width:none}
+  @media (min-width:900px){ .cartao .sub:not(.livre){white-space:nowrap} }
+  .sub.livre{white-space:normal}
   table.simples{width:100%;border-collapse:collapse;font-size:14px}
   table.simples th{text-align:left;font-size:11px;font-weight:600;letter-spacing:.08em;
     text-transform:uppercase;color:var(--tinta3);padding:0 0 6px;border-bottom:1px solid var(--linha)}
@@ -113,7 +115,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   td.direita,th.direita{text-align:right}
   .rolagem{max-height:340px;overflow-y:auto}
 
-  .jornada-linha{display:grid;grid-template-columns:minmax(160px,1.4fr) minmax(0,3fr) auto auto;
+  .jornada-linha{display:grid;grid-template-columns:minmax(160px,1.4fr) minmax(0,3fr) 48px 48px;
     gap:14px;align-items:center;padding:9px 0;border-bottom:1px solid #EEF1F5;font-size:14px}
   .jornada-linha:last-child{border-bottom:0}
   .jornada-trilho{height:9px;background:#EDF1F6;border-radius:99px;overflow:hidden}
@@ -203,7 +205,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .logos .divisor{width:1px;height:28px;background:var(--linha)}
   .porta-caixa .logos{margin:0 0 18px}
   header{box-shadow:0 1px 0 var(--linha)}
-  .abas{overflow-x:auto}
   .abas button{white-space:nowrap}
 
   /* visão geral: gráficos */
@@ -235,20 +236,44 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   td.vg-viz small{color:var(--tinta3)}
   .titulo-linha{display:flex;justify-content:space-between;align-items:flex-start;gap:10px;flex-wrap:wrap}
 
+  /* rosca (pizza com furo) */
+  .vg-rosca{display:flex;align-items:center;gap:18px;flex-wrap:wrap;padding:4px 0 10px}
+  .vg-rosca svg{width:150px;height:150px;flex:none}
+  .vg-rosca circle{transition:opacity .15s}
+  .vg-rosca svg:hover circle{opacity:.45}
+  .vg-rosca svg circle:hover{opacity:1}
+  .r-total{font:700 19px 'Google Sans Flex',Arial,sans-serif;fill:var(--tinta)}
+  .r-un{font:500 8px 'Google Sans Flex',Arial,sans-serif;fill:var(--tinta3)}
+  .r-legenda{list-style:none;margin:0;padding:0;flex:1;min-width:210px;display:flex;flex-direction:column;gap:5px;font-size:13.5px}
+  .r-legenda li{display:grid;grid-template-columns:12px minmax(0,1fr) auto 38px;gap:9px;align-items:center}
+  .r-legenda i{width:12px;height:12px;border-radius:3px}
+  .r-rot{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+  .r-pct{color:var(--tinta3);font-size:12.5px;text-align:right}
+  #ar-cursos .vg-barra,#ar-vagas .vg-barra{grid-template-columns:minmax(170px,1.7fr) minmax(0,1.3fr) auto}
+  .zero-suave{color:#B7C0CB}
+  table.matriz tr.total td{font-weight:700;border-top:2px solid var(--linha);background:#F7F9FC}
+  .vg-grade.dois{grid-template-columns:1fr 1fr}
+  .sec-titulo{font-size:11px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--azul);margin:22px 0 4px;padding-top:14px;border-top:1px solid #EEF1F5}
+  .sec-titulo:first-of-type{margin-top:6px;border-top:0;padding-top:0}
+  .sec-nota{font-size:12.5px;color:var(--tinta3);margin:0 0 6px}
+  select.campo-sel{font-family:inherit;font-size:13.5px;padding:8px 10px;border:1px solid var(--linha);border-radius:8px;background:var(--carta);color:var(--tinta);min-width:200px}
+
   /* histórico: seletor cursos | vagas */
   .seletor{display:inline-flex;border:1px solid var(--linha);border-radius:var(--raio);overflow:hidden;margin:4px 0 12px}
   .seletor button{border:0;background:var(--carta);font-family:inherit;font-size:14px;font-weight:600;padding:8px 18px;cursor:pointer;color:var(--tinta2)}
   .seletor button[aria-pressed="true"]{background:var(--azul);color:#fff}
 
   /* acessos: colunas por semana */
-  .ac-colunas{display:flex;align-items:flex-end;gap:6px;height:170px;padding:16px 0 4px}
+  .ac-colunas{display:flex;align-items:flex-end;gap:6px;height:170px;padding:8px 0 0}
   .ac-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
-  .ac-barra{width:100%;max-width:34px;background:#0C63AA;border-radius:4px 4px 0 0}
+  .ac-barra{display:block;width:100%;max-width:34px;background:#0C63AA;border-radius:4px 4px 0 0}
+  .ac-barra.parcial{background:#7DB2DE}
+  .ac-barra.zero{background:#D7DEE8}
   .ac-num{font-size:11px;color:var(--tinta2);margin-bottom:3px}
   .ac-rot{font-size:10.5px;color:var(--tinta3);margin-top:4px}
 
   @media (max-width:820px){
-    .vg-grade,.vg-grade.tres{grid-template-columns:1fr}
+    .vg-grade,.vg-grade.tres,.vg-grade.dois{grid-template-columns:1fr}
     .logos .l-fgv,.logos .divisor{display:none}
   }
   @media print{
@@ -301,7 +326,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <button role="tab" aria-selected="true" data-aba="visao">Visão geral</button>
       <button role="tab" aria-selected="false" data-aba="uso">Uso do portal</button>
       <button role="tab" aria-selected="false" data-aba="catalogo">Vazios do catálogo</button>
-      <button role="tab" aria-selected="false" data-aba="completo">Catálogo completo</button>
       <button role="tab" aria-selected="false" data-aba="historico">Histórico de cursos e vagas</button>
       <button role="tab" aria-selected="false" data-aba="acessos">Acessos</button>
     </div>
@@ -331,16 +355,22 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="vg-grade">
       <div class="cartao fundo"><h3>Buscas por município</h3><p class="sub">Os 15 que mais buscaram no período.</p><div id="vgCidades"></div></div>
-      <div class="cartao fundo"><h3>Buscas sem resultado, por área</h3><p class="sub">Onde a pessoa procurou e não achou nenhuma oferta.</p><div id="vgLacunas"></div></div>
+      <div class="cartao fundo"><h3>Cliques por origem</h3><p class="sub">De onde vieram os cursos e as vagas abertos no período.</p>
+        <p class="eyebrow" style="margin:6px 0 0">Cursos</p><div id="vgFontesCursos"></div>
+        <p class="eyebrow" style="margin:6px 0 0">Vagas</p><div id="vgFontesVagas"></div>
+      </div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
       <h3>Uso por semana</h3>
       <p class="sub">Cada ponto é uma semana. <span id="vgNotaAprox" class="oculto">Pontos vazados são semanas reconstruídas (aproximadas).</span></p>
-      <div class="vg-grade tres" style="margin-top:0">
+      <div class="vg-grade dois" style="margin-top:0">
         <div><p class="eyebrow">Sessões</p><div id="vgTempoSessoes"></div></div>
         <div><p class="eyebrow">Buscas</p><div id="vgTempoBuscas"></div></div>
-        <div><p class="eyebrow">Cliques em cursos e vagas</p><div id="vgTempoCliques"></div></div>
+      </div>
+      <div class="vg-grade dois" style="margin-top:6px">
+        <div><p class="eyebrow">Cliques em cursos</p><div id="vgTempoCliquesCursos"></div></div>
+        <div><p class="eyebrow">Cliques em vagas</p><div id="vgTempoCliquesVagas"></div></div>
       </div>
     </div>
 
@@ -350,19 +380,18 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
-      <h3>Cliques por origem</h3><p class="sub">De onde vieram os cursos que as pessoas abriram no período.</p><div id="vgFontes"></div>
-    </div>
-
-    <div class="cartao fundo" style="margin-top:14px">
       <div class="titulo-linha">
-        <div><h3>Cursos e vagas por município</h3><p class="sub">O que cada cidade tem hoje no portal, ao lado das buscas do período.</p></div>
-        <button class="btn no-print" id="vgCsvMun">Baixar tabela (CSV)</button>
+        <div><h3>Cursos e vagas por município</h3><p class="sub">Todos os municípios, ou escolha um para ver o detalhe por área.</p></div>
+        <div class="linha-btn no-print">
+          <select id="vgFiltroMun" class="campo-sel" aria-label="Filtrar por município"><option value="">Todos os municípios</option></select>
+          <button class="btn" id="vgCsvMun">Baixar tabela (CSV)</button>
+        </div>
       </div>
       <div class="matriz-wrap"><table class="matriz" id="vgTabelaMun"></table></div>
     </div>
 
     <p class="rodape">
-      Uso do portal: anônimo (sem nome, e-mail ou IP). Cursos e vagas: retrato semanal feito todo domingo pelos robôs do repositório.
+      Cursos e vagas: retrato semanal feito todo domingo pelos robôs do repositório. Uso do portal: contagem por visita, sem a equipe do programa.
     </p>
   </div>
 
@@ -399,23 +428,31 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       </div>
     </div>
 
-    <div class="cartao" style="margin-top:14px">
-      <h3>Preparação para o mundo do trabalho</h3>
-      <p class="sub">Cliques nos 4 passos (cursos de Estratégia de inserção e de Habilidades socioemocionais, currículo e entrevista no Trampolim). Não entram em "Cursos mais procurados".</p>
-      <div class="rolagem"><table class="simples">
-        <thead><tr><th>Passo</th><th class="direita">Cliques</th></tr></thead>
-        <tbody id="tb-prep"></tbody>
-      </table></div>
+    <div class="colunas">
+      <div class="cartao">
+        <h3>Vagas mais procuradas</h3>
+        <p class="sub">Cliques para abrir a vaga no site de origem.</p>
+        <div class="rolagem"><table class="simples">
+          <thead><tr><th>Vaga</th><th>Origem</th><th class="direita">Cliques</th></tr></thead>
+          <tbody id="tb-vagas"></tbody>
+        </table></div>
+      </div>
+      <div class="cartao">
+        <h3>Áreas mais clicadas</h3>
+        <p class="sub">A área do curso ou da vaga aberta.</p>
+        <p class="eyebrow" style="margin:6px 0 0">Cursos</p><div id="ar-cursos"></div>
+        <p class="eyebrow" style="margin:10px 0 0">Vagas</p><div id="ar-vagas"></div>
+      </div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
       <h3>O caminho até a oportunidade</h3>
-      <p class="sub" id="jornada-sub">Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.</p>
+      <p class="sub" id="jornada-sub">Do primeiro acesso ao clique, em quatro partes: a visita, o mapa, a preparação e os cadastros no portal.</p>
       <div id="lista-jornada"></div>
     </div>
 
     <p class="rodape">
-      Os dados são anônimos: não guardamos nome, e-mail, telefone nem endereço de IP. A contagem de sessões usa um identificador aleatório que expira quando a pessoa fecha a aba.<br>
+      A contagem de visitas usa um identificador aleatório que expira quando a pessoa fecha a aba. A equipe do programa não entra na contagem de cliques.<br>
       Exporte os dados a cada semestre para manter o histórico do programa.
     </p>
   </div>
@@ -427,23 +464,26 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <div class="titulo-linha">
         <div>
           <h2>Vazios do catálogo · retrato automático</h2>
-          <p class="sub">Em quais áreas cada município não tem nenhum curso presencial. Sai sozinho todo domingo, do retrato semanal do portal; não precisa iniciar nada. <span id="cobData"></span></p>
+          <p class="sub">Em quais áreas cada município não tem curso presencial. Sai sozinho todo domingo. <span id="cobData"></span></p>
         </div>
         <div class="linha-btn no-print">
           <button class="btn" id="cobCsvMatriz">Baixar matriz (CSV)</button>
           <button class="btn btn-principal" id="cobCsvVazios">Baixar lista de vazios (CSV)</button>
         </div>
       </div>
-      <div class="kpis" id="cobKpis"></div>
-      <div id="cobAuto" style="margin-top:14px">
-        <p class="sub" style="margin:0 0 8px">Verde: número de cursos presenciais na cidade. Âmbar claro: nenhum na cidade, mas há nas vizinhas (+n). Âmbar: nenhum.</p>
+      <div class="kpis" id="cobKpis" style="grid-template-columns:repeat(3,1fr)"></div>
+      <h3 style="margin:18px 0 6px">Municípios sem nenhum curso presencial</h3>
+      <div id="cobSemNada"></div>
+      <div id="cobAuto" style="margin-top:18px">
+        <h3 style="margin:0 0 4px">Cursos presenciais por município e área</h3>
+        <p class="sub" style="margin:0 0 8px">Verde: cursos presenciais na cidade. Âmbar claro: nenhum, mas há nas vizinhas (+n). Âmbar: nenhum.</p>
         <div class="matriz-wrap"><table class="matriz" id="cobTabela"></table></div>
       </div>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
       <h2>Refazer agora (varredura ao vivo)</h2>
-      <p class="sub">Percorre o catálogo município por município e identifica em quais áreas de formação não existe nenhum curso presencial. Ao contrário da outra aba, não depende de ninguém ter procurado antes: encontra o vazio antes de ele ser notado.</p>
+      <p class="sub">Percorre o catálogo município por município, ao vivo, e acha as áreas sem curso presencial.</p>
 
       <div id="semScripts" class="aviso oculto">
         <strong>Não consegui carregar os arquivos do portal.</strong>
@@ -481,7 +521,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
     <div class="cartao fundo oculto" id="cxManual" style="margin-top:14px">
       <h3>Lista de municípios</h3>
-      <p class="sub">Não consegui ler a lista automaticamente do portal. Cole abaixo os municípios, um por linha, exatamente como aparecem no seletor da página inicial.</p>
+      <p class="sub">Não consegui ler a lista do portal. Cole os municípios, um por linha, como no seletor da página inicial.</p>
       <textarea id="manual" placeholder="Osasco&#10;Rio Claro&#10;Santa Gertrudes"></textarea>
       <div class="linha-btn" style="margin-top:10px">
         <button class="btn" id="btManual">Usar esta lista</button>
@@ -519,83 +559,11 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     </p>
   </div>
 
-  <!-- ============ ABA 3: CATÁLOGO COMPLETO ============ -->
-  <div class="wrap oculto" id="aba-completo">
-
-    <div class="cartao fundo" style="margin-top:28px">
-      <h2>Catálogo completo</h2>
-      <p class="sub">Reúne num único lugar todos os cursos que o portal oferece, de todas as fontes e de todos os municípios, para consulta e exportação. Serve como retrato do catálogo numa data, útil para conferência, prestação de contas e comparação ao longo do tempo.</p>
-
-      <div id="semScripts2" class="aviso oculto">
-        <strong>Não consegui carregar os arquivos do portal.</strong>
-        Esta aba precisa que o painel esteja na mesma pasta do index.html, com a pasta js ao lado.
-      </div>
-
-      <div id="controlesCompleto">
-        <div class="linha-btn">
-          <button class="btn btn-principal" id="btColetar">Montar catálogo</button>
-          <button class="btn" id="btPararColeta" disabled>Parar</button>
-          <button class="btn" id="btLimparColeta">Limpar</button>
-        </div>
-        <div class="barra-prog"><i id="progresso2"></i></div>
-        <p class="status" id="statusCompleto">Aguardando início. Percorre todos os municípios, então leva alguns minutos.</p>
-        <div class="log oculto" id="log2"></div>
-      </div>
-    </div>
-
-    <div id="resultadosCompleto" class="oculto">
-      <div class="cartao fundo" style="margin-top:14px">
-        <div class="linha-btn" style="justify-content:space-between;margin-bottom:14px">
-          <div>
-            <h3 style="margin:0">Cursos encontrados</h3>
-            <p class="sub" style="margin:2px 0 0">Use os filtros para recortar. O download em CSV respeita o que estiver filtrado.</p>
-          </div>
-          <button class="btn btn-principal" id="btCsvCatalogo">Baixar catálogo (CSV)</button>
-        </div>
-
-        <div class="filtros">
-          <div class="campo-f">
-            <label for="fMunicipio">Município</label>
-            <select id="fMunicipio"><option value="">Todos</option></select>
-          </div>
-          <div class="campo-f">
-            <label for="fModalidade">Modalidade</label>
-            <select id="fModalidade">
-              <option value="">Todas</option>
-              <option value="presencial">Presencial e híbrido</option>
-              <option value="online">Online</option>
-              <option value="sem">Sem informação</option>
-            </select>
-          </div>
-          <div class="campo-f">
-            <label for="fArea">Área</label>
-            <select id="fArea"><option value="">Todas</option></select>
-          </div>
-          <div class="campo-f">
-            <label for="fFonte">Origem</label>
-            <select id="fFonte"><option value="">Todas</option></select>
-          </div>
-          <div class="campo-f">
-            <label for="fBusca">Buscar no nome</label>
-            <input type="search" id="fBusca" placeholder="ex.: manicure">
-          </div>
-        </div>
-
-        <p class="contagem" id="contagemCatalogo"></p>
-        <div class="matriz-wrap"><table class="matriz" id="tabelaCatalogo"></table></div>
-      </div>
-    </div>
-
-    <p class="rodape">
-      Cursos marcados como online aparecem uma única vez, com município Online, e não são repetidos para cada cidade.<br>
-      A data e a hora da coleta entram na primeira linha da planilha exportada.
-    </p>
-  </div>
   <div class="wrap oculto" id="aba-historico">
 
     <div class="cartao fundo" style="margin-top:28px">
       <h2>Histórico de cursos e vagas</h2>
-      <p class="sub">Tudo o que já passou pelo portal, um por linha, com as semanas em que esteve no ar. O retrato é feito sozinho todo domingo (as planilhas semanais de cursos baixadas desde setembro já estão aqui; o histórico de vagas começa em novembro de 2026). Use os filtros e baixe só o que precisa, sem repetição.</p>
+      <p class="sub">Tudo o que já passou pelo portal, uma linha por item, com as semanas no ar. Retrato feito todo domingo.</p>
       <div class="seletor" id="hSeletor" role="group" aria-label="Cursos ou vagas"><button type="button" data-h="cursos" aria-pressed="true">Cursos</button><button type="button" data-h="vagas" aria-pressed="false">Vagas</button></div>
       <p class="status" id="hStatus">Carregando o histórico…</p>
       <div class="kpis" id="hKpis"></div>
@@ -687,14 +655,14 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   <div class="wrap oculto" id="aba-acessos">
     <div class="cartao fundo" style="margin-top:28px">
       <h2>Acessos ao portal</h2>
-      <p class="sub">Quem entrou com o e-mail institucional, de qual município (coluna da planilha), quando foi a primeira e a última vez. Os dados vêm da planilha pelo Apps Script, só com a chave deste painel, e não ficam gravados em nenhum outro lugar.</p>
+      <p class="sub">Quem entrou com o e-mail institucional, de qual município e quando. Dados da planilha, só com a chave do painel.</p>
       <p class="status" id="acStatus">Abra esta aba para carregar.</p>
       <div class="kpis" id="acKpis"></div>
     </div>
     <div id="acResultados" class="oculto">
       <div class="vg-grade">
-        <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso (últimas 16 semanas).</p><div id="acNovas"></div></div>
-        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub">Pessoas diferentes com login na semana (aba acessos_log).</p><div id="acAtivas"></div></div>
+        <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso, nas últimas 16 semanas.</p><div id="acNovas"></div></div>
+        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub">Pessoas diferentes com login em cada semana.</p><div id="acAtivas"></div></div>
       </div>
       <div class="vg-grade">
         <div class="cartao fundo"><h3>Pessoas por município</h3><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
@@ -803,7 +771,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         o.setAttribute('aria-selected', o === b ? 'true' : 'false');
       });
       var alvo = b.dataset.aba;
-      ['visao','uso','catalogo','completo','historico','acessos'].forEach(function(nome){
+      ['visao','uso','catalogo','historico','acessos'].forEach(function(nome){
         $('aba-' + nome).classList.toggle('oculto', nome !== alvo);
       });
       $('controlesUso').classList.toggle('oculto', alvo !== 'uso' && alvo !== 'visao');
@@ -821,7 +789,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   var ROTULOS = {
     visitou:'Abriram o portal',
     selecionou_municipio:'Escolheram a cidade',
-    abriu_mapa:'Abriram o mapa',
     selecionou_area:'Escolheram uma área',
     viu_resultados:'Viram cursos e vagas',
     busca_sem_resultado:'Não encontraram nada',
@@ -830,14 +797,26 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     viu_aviso_senac:'Viram o aviso de curso pago',
     prosseguiu_curso_pago:'Seguiram para o curso pago',
     clique_whatsapp:'Chamaram no WhatsApp',
-    cadastro_manual:'Cadastros feitos por supervisores',
-    preparacao_feito:'Marcaram um passo da preparação como feito'
+    clique_pin_vaga:'Clicaram nos pins de vagas',
+    clique_pin_escola:'Clicaram nos pins de cursos presenciais',
+    clique_pin_servico:'Clicaram nos pins de serviços (CRAS, PAT, Sebrae Aqui)',
+    clique_pin_computador:'Clicaram nos pins de computador e internet',
+    cadastro_curso:'Cursos cadastrados no portal',
+    cadastro_vaga:'Vagas cadastradas no portal',
+    cadastro_manual:'Cadastros no portal (antes de separar curso e vaga)'
   };
-  var ORDEM = ['visitou','selecionou_municipio','abriu_mapa','selecionou_area',
-               'viu_resultados','busca_sem_resultado','clique_curso','clique_vaga',
-               'viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp','cadastro_manual','preparacao_feito'];
-  var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'EVG',
-                 bradesco:'Fund. Bradesco', senac:'Senac', manual:'Cadastro do programa', preparacao:'Preparação para o trabalho' };
+  /* o caminho até a oportunidade, em partes. "sempre": mostra a linha mesmo com zero. */
+  var PARTES = [
+    { titulo: 'A visita', nota: 'Quantas visitas (sessões diferentes) chegaram em cada etapa; a barra compara com todas as visitas.',
+      evs: ['visitou','selecionou_municipio','selecionou_area','viu_resultados','busca_sem_resultado','clique_curso','clique_vaga','viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp'] },
+    { titulo: 'O mapa', nota: 'Cliques nos pins, um por tipo (conta cada clique).', evs: ['clique_pin_vaga','clique_pin_escola','clique_pin_servico','clique_pin_computador'], sempre: true },
+    { titulo: 'Preparação para o mundo do trabalho', nota: 'Cliques nos 4 passos. Não entram em "Cursos mais procurados".', prep: true },
+    { titulo: 'Cadastros no próprio portal', nota: 'Feitos pela equipe no portal e confirmados na planilha.', evs: ['cadastro_curso','cadastro_vaga','cadastro_manual'], sempre: ['cadastro_curso','cadastro_vaga'] }
+  ];
+  var ETAPAS_FUNIL = ['selecionou_municipio', 'selecionou_area', 'viu_resultados'];
+  var FONTES = { trampolim:'Trampolim SP', sebrae:'Sebrae SP', evg:'Escola Virtual de Governo', bradesco:'Fund. Bradesco', senac:'Senac', senai:'Senai',
+                 ifmg:'+IFMG', mundi:'Mundi · IFSul', aprendamais:'Aprenda Mais · MEC', manual:'Planilha de cursos e outras origens', spme:'Emprega Brasil', preparacao:'Preparação para o trabalho' };
+  var FONTES_VAGAS = { trampolim:'Trampolim SP', robo:'Robô de vagas', planilha:'Planilha de vagas', manual:'Planilha de vagas', spme:'Emprega Brasil (SINE)' };
 
   Array.prototype.forEach.call(document.querySelectorAll('.periodo button'), function(b){
     b.addEventListener('click', function(){
@@ -897,8 +876,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     var r = linhaResumo(j, ev);
     return r ? r.sessoes : 0;
   }
-  /* etapas que uma visita atravessa em ordem; nenhuma deveria ter mais sessões que "visitou" */
-  var ETAPAS_FUNIL = ['selecionou_municipio', 'abriu_mapa', 'selecionou_area', 'viu_resultados'];
 
   function desenharUso(j){
     var comResultado = total(j, 'viu_resultados');
@@ -925,31 +902,68 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     var PASSOS = ['Estratégia de inserção', 'Habilidades socioemocionais', 'Monte seu currículo', 'Treine a entrevista'];
     var cliquesPasso = {};
     (j.cursos || []).forEach(function(c){
-      if(c.fonte === 'preparacao') cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] = (cliquesPasso[String(c.item || '').replace(/^Preparação · /, '')] || 0) + (c.cliques || 0);
+      if(c.fonte !== 'preparacao') return;
+      var nome = String(c.item || '').replace(/^Preparação · /, '');
+      cliquesPasso[nome] = (cliquesPasso[nome] || 0) + (c.cliques || 0);
     });
-    $('tb-prep').innerHTML = PASSOS.map(function(p, i){
-      return '<tr><td>' + (i + 1) + '. ' + esc(p) + '</td><td class="direita num">' + fmt(cliquesPasso[p] || 0) + '</td></tr>';
-    }).join('');
     $('tb-cursos').innerHTML = cursosSemPrep.length
       ? cursosSemPrep.map(function(c){
           return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
             esc(FONTES[c.fonte] || c.fonte || '–') + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
         }).join('')
       : '<tr><td colspan="3" class="vazio">Nenhum clique em curso no período.</td></tr>';
+    var temVagas = Array.isArray(j.vagas);
+    $('tb-vagas').innerHTML = !temVagas
+      ? '<tr><td colspan="3" class="vazio">A lista de vagas clicadas ainda não chega do servidor de estatísticas (veja docs/PEDIDO-WORKER.md). Cliques em vagas no período: <b>' + fmt(total(j, 'clique_vaga')) + '</b>.</td></tr>'
+      : (j.vagas.length
+        ? j.vagas.map(function(c){
+            return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' + esc(FONTES_VAGAS[c.fonte] || c.fonte || '–') + '</td><td class="direita num">' + fmt(c.cliques) + '</td></tr>';
+          }).join('')
+        : '<tr><td colspan="3" class="vazio">Nenhum clique em vaga no período.</td></tr>');
 
-    /* A lista conta SESSÕES (visitas distintas), não eventos: a troca de área dispara várias vezes na mesma sessão e
-       inflava as etapas de baixo. O modo é decidido uma vez para a lista inteira: se o servidor não mandar as sessões
-       de TODAS as linhas, a lista inteira cai para eventos (com aviso), nunca misturando as duas unidades. */
+    /* áreas mais clicadas: a área vem do histórico (o nome do curso ou da vaga clicada é procurado lá) */
+    var areaPorNome = function(hist, campoNome){
+      var m = {};
+      ((hist && (hist.cursos || hist.vagas)) || []).forEach(function(x){ var k = normal(x[campoNome]); if(k && x.area && !m[k]) m[k] = x.area; });
+      return m;
+    };
+    var porAreaClique = function(lista, mapa){
+      var c = {};
+      (lista || []).forEach(function(x){ var a = mapa[normal(x.item)] || 'Sem área identificada'; c[a] = (c[a] || 0) + (x.cliques || 0); });
+      return Object.keys(c).map(function(a){ return { rotulo: a, valor: c[a] }; }).sort(function(a, b){ return b.valor - a.valor; }).slice(0, 8);
+    };
+    var barrasArea = function(itens, vazio){
+      if(!itens.length) return '<p class="vazio">' + vazio + '</p>';
+      var max = Math.max.apply(null, itens.map(function(i){ return i.valor; })) || 1;
+      return '<div class="vg-barras">' + itens.map(function(i){
+        return '<div class="vg-barra"><span class="vg-rot" title="' + esc(i.rotulo) + '">' + esc(i.rotulo) + '</span><span class="vg-trilho"><span class="vg-preenche" style="width:' + Math.max(2, i.valor / max * 100) +
+          '%;background:' + (i.rotulo === 'Sem área identificada' ? '#B7C0CB' : '#0C63AA') + '"></span></span><span class="vg-val num">' + fmt(i.valor) + '</span></div>';
+      }).join('') + '</div>';
+    };
+    var pintarAreas = function(){
+      var hc = window.VisaoGeral && window.VisaoGeral.historicos ? window.VisaoGeral.historicos() : {};
+      $('ar-cursos').innerHTML = barrasArea(porAreaClique(cursosSemPrep, areaPorNome(hc.cursos, 'curso')), 'Nenhum clique em curso no período.');
+      $('ar-vagas').innerHTML = temVagas ? barrasArea(porAreaClique(j.vagas, areaPorNome(hc.vagas, 'cargo')), 'Nenhum clique em vaga no período.')
+        : '<p class="vazio">Entra junto com a lista de vagas clicadas.</p>';
+    };
+    pintarAreas();
+    if(window.VisaoGeral) window.VisaoGeral.carregarArquivos().then(pintarAreas);   // o histórico (nome → área) pode chegar depois
+
+    /* O caminho até a oportunidade. A lista conta SESSÕES (visitas distintas), não eventos: a troca de área dispara várias vezes na
+       mesma sessão e inflava as etapas de baixo. O modo é decidido uma vez: se o servidor não mandar as sessões de TODAS as linhas,
+       cai para eventos (com aviso), nunca misturando as duas unidades. */
     var resumo = j.resumo || [];
     var usaSessoes = resumo.length > 0 && resumo.every(function(r){ return r.sessoes != null; });
     var porEv = {};
     resumo.forEach(function(r){ porEv[r.ev] = usaSessoes ? r.sessoes : r.total; });
+    var totEv = {};
+    resumo.forEach(function(r){ totEv[r.ev] = r.total; });
     var contagem = function(ev){ return porEv[ev] || 0; };
     var base = contagem('visitou');
     var jbox = $('lista-jornada');
     var avisos = [];
     if(resumo.length && !usaSessoes){
-      avisos.push('O servidor não informou as sessões: os números abaixo são eventos e podem contar a mesma visita mais de uma vez.');
+      avisos.push('O servidor não informou as sessões: os números da primeira parte são eventos e podem contar a mesma visita mais de uma vez.');
     }
     if(resumo.length && !base){
       avisos.push('Sem o número de visitas ao portal, não dá para comparar as etapas.');
@@ -961,22 +975,35 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         avisos.push('Alguma etapa tem mais ' + (usaSessoes ? 'sessões' : 'eventos') + ' que as visitas: o registro de eventos pode estar incompleto.');
       }
     }
-    $('jornada-sub').textContent = usaSessoes
-      ? 'Em quantas visitas (sessões distintas) cada etapa aconteceu, uma vez por visita, mesmo que a pessoa troque de área várias vezes. A barra compara com o total de visitas ao portal.'
-      : 'Quantas vezes cada etapa aconteceu. A barra compara com o total de aberturas do portal.';
-    var linhas = ORDEM.filter(function(ev){ return contagem(ev) > 0; });
-    jbox.innerHTML = (avisos.length ? '<p class="sub" style="color:var(--ambar,#b45309)">' + avisos.map(esc).join('<br>') + '</p>' : '') + (linhas.length
-      ? linhas.map(function(ev){
-          var t = contagem(ev);
-          var pct = base ? Math.round((t / base) * 100) : null;
-          var larg = pct == null ? 0 : Math.min(pct, 100);
-          return '<div class="jornada-linha' + (ev === 'busca_sem_resultado' || acimaDaBase[ev] ? ' alerta' : '') + '">' +
-            '<div>' + esc(ROTULOS[ev] || ev) + '</div>' +
-            '<div class="jornada-trilho"><div class="jornada-preenche" data-p="' + larg + '"></div></div>' +
-            '<div class="num">' + fmt(t) + '</div>' +
-            '<div class="jornada-pct">' + (pct == null ? '–' : pct + '%') + '</div></div>';
-        }).join('')
-      : '<p class="vazio">Ainda não há eventos registrados neste período.</p>');
+    var linhaJ = function(rot, t, pct, larg, alerta){
+      return '<div class="jornada-linha' + (alerta ? ' alerta' : '') + '"><div>' + esc(rot) + '</div>' +
+        '<div class="jornada-trilho"><div class="jornada-preenche" data-p="' + larg + '"></div></div>' +
+        '<div class="num">' + fmt(t) + '</div><div class="jornada-pct">' + (pct == null ? '' : pct + '%') + '</div></div>';
+    };
+    var html = avisos.length ? '<p class="sub livre" style="color:var(--ambar)">' + avisos.map(esc).join('<br>') + '</p>' : '';
+    PARTES.forEach(function(p){
+      var corpo = '';
+      if(p.prep){
+        var maxP = Math.max.apply(null, PASSOS.map(function(n){ return cliquesPasso[n] || 0; })) || 1;
+        corpo = PASSOS.map(function(n, i){ var v = cliquesPasso[n] || 0; return linhaJ((i + 1) + '. ' + n, v, null, Math.round(v / maxP * 100), false); }).join('');
+      }else{
+        var mostrar = p.evs.filter(function(ev){
+          var v = p.evs === PARTES[0].evs ? contagem(ev) : (totEv[ev] || 0);
+          return v > 0 || p.sempre === true || (Array.isArray(p.sempre) && p.sempre.indexOf(ev) >= 0);
+        });
+        var visita = p === PARTES[0];
+        var maxL = Math.max.apply(null, mostrar.map(function(ev){ return visita ? contagem(ev) : (totEv[ev] || 0); })) || 1;
+        corpo = mostrar.map(function(ev){
+          var v = visita ? contagem(ev) : (totEv[ev] || 0);
+          var pct = visita && base ? Math.round(v / base * 100) : null;
+          var larg = visita ? (pct == null ? 0 : Math.min(pct, 100)) : Math.round(v / maxL * 100);
+          return linhaJ(ROTULOS[ev] || ev, v, pct, larg, visita && (ev === 'busca_sem_resultado' || acimaDaBase[ev]));
+        }).join('');
+      }
+      html += '<p class="sec-titulo">' + esc(p.titulo) + '</p><p class="sec-nota">' + esc(p.nota) + '</p>' + (corpo || '<p class="vazio">Ainda não há registros neste período.</p>');
+    });
+    if(!resumo.length) html = '<p class="vazio">Ainda não há eventos registrados neste período.</p>';
+    jbox.innerHTML = html;
     requestAnimationFrame(function(){
       Array.prototype.forEach.call(jbox.querySelectorAll('.jornada-preenche'), function(el){
         el.style.width = el.dataset.p + '%';
@@ -1271,294 +1298,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     $('cxManual').classList.add('oculto');
     indice = 0; resultado = {};
     rodar();
-  });
-
-  /* ================= ABA 3 · CATÁLOGO COMPLETO ================= */
-  var catalogo = [];
-  var cidadesCat = [];
-  var indiceCat = 0;
-  var coletando = false;
-  var onlineJaColetado = false;
-
-  function log2(msg){
-    var el = $('log2');
-    el.classList.remove('oculto');
-    el.textContent += msg + '\n';
-    el.scrollTop = el.scrollHeight;
-  }
-
-  function classeModalidade(mod){
-    var m = normal(mod);
-    if(!m) return 'sem';
-    if(m.indexOf('presencial') !== -1 || m.indexOf('hibrid') !== -1) return 'presencial';
-    return 'online';
-  }
-
-  function nomeArea(id){
-    var a = COLS.filter(function(c){ return c.id === id; })[0];
-    return a ? a.nome : 'Outros';
-  }
-
-  function addCurso(o){
-    if(!o.curso) return;
-    catalogo.push(o);
-  }
-
-  /* fontes que não dependem de município, coletadas uma única vez */
-  async function coletarOnline(){
-    if(onlineJaColetado) return;
-    onlineJaColetado = true;
-
-    /* Sebrae SP */
-    if(typeof SEBRAE_ATIVO !== 'undefined' && SEBRAE_ATIVO && typeof buscarCursosSebrae === 'function'){
-      try{
-        var s = await buscarCursosSebrae();
-        s.forEach(function(c){
-          addCurso({
-            municipio:'Online', curso:c.nome, inst:c.inst || 'Sebrae SP',
-            modalidade:c.modalidade || 'Online', carga:c.carga || '',
-            area:nomeArea(classificar(c.nome)), fonte:'Sebrae SP',
-            link:c.link || '', ate:''
-          });
-        });
-        log2('Sebrae SP: ' + s.length + ' cursos');
-      }catch(e){ log2('falha no Sebrae: ' + (e && e.message)); }
-    }
-
-    /* catálogos estáticos embutidos no portal (EVG, Fundação Bradesco).
-       Eles são declarados com const, então não aparecem em window: a busca
-       precisa ser por nome, avaliando cada candidato no escopo global.     */
-    try{
-      var CANDIDATOS = [
-        ['CURSOS_EVG','Escola Virtual de Governo'], ['EVG_CURSOS','Escola Virtual de Governo'],
-        ['cursosEVG','Escola Virtual de Governo'], ['CURSOS_ONLINE_EVG','Escola Virtual de Governo'],
-        ['CURSOS_BRADESCO','Fundação Bradesco'], ['BRADESCO_CURSOS','Fundação Bradesco'],
-        ['cursosBradesco','Fundação Bradesco'], ['CURSOS_ONLINE_BRADESCO','Fundação Bradesco'],
-        ['EVG','Escola Virtual de Governo'], ['EV','Fundação Bradesco'],
-        ['APRENDA_MAIS','Aprenda Mais · MEC'],
-        ['IFMG','+IFMG'], ['MUNDI','Mundi · IFSul']
-      ];
-      var vistos = {};
-      CANDIDATOS.forEach(function(par){
-        var v;
-        try{ v = new Function('try{return typeof ' + par[0] + '!=="undefined"?' + par[0] + ':null}catch(e){return null}')(); }
-        catch(e){ return; }
-        if(!Array.isArray(v) || !v.length || typeof v[0] !== 'object') return;
-        if(vistos[par[1]]) return;
-        vistos[par[1]] = 1;
-        var n = 0;
-        var fonteFiltro = {EVG:'evg', EV:'bradesco', APRENDA_MAIS:'aprendaMais', IFMG:'ifmg', MUNDI:'mundi'}[par[0]];
-        if(fonteFiltro && typeof catalogoPermitido === 'function') v = catalogoPermitido(v, fonteFiltro);   // filtro de público (famílias)
-        v.forEach(function(c){
-          var nome = c.nome || c.curso || c.name || c.titulo || '';
-          if(!nome) return;
-          addCurso({
-            municipio:'Online', curso:nome, inst:c.inst || c.instituicao || par[1],
-            modalidade:c.modalidade || 'Online', carga:c.carga || c.carga_horaria || '',
-            area:nomeArea(areaDoCurso(nome, c._area || c.area)),
-            fonte:par[1], link:c.link || c.url || '', ate:c.inscricoes_ate || ''
-          });
-          n++;
-        });
-        if(n) log2(par[1] + ': ' + n + ' cursos');
-      });
-    }catch(e){ log2('falha nos catálogos embutidos: ' + (e && e.message)); }
-
-    /* planilha da equipe: entra inteira, com o município que estiver na linha */
-    if(typeof PLANILHA_ATIVA !== 'undefined' && PLANILHA_ATIVA){
-      try{
-        var p = await buscarCursosPlanilha();
-        p.forEach(function(c){
-          var mun = normal(c._municipio);
-          var ehOnline = (!mun || mun.indexOf('online') === 0 || mun.indexOf('todos') === 0);
-          addCurso({
-            municipio: ehOnline ? 'Online' : c._municipio,
-            curso:c.nome, inst:c.inst || '', modalidade:c.modalidade || '',
-            carga:c.carga || '',
-            area:nomeArea(c._area ? classificar(c._area) : classificar(c.nome)),
-            fonte:'Cadastro do programa', link:c.link || '', ate:c._ate || ''
-          });
-        });
-        log2('Planilha da equipe: ' + p.length + ' cursos');
-      }catch(e){ log2('falha na planilha: ' + (e && e.message)); }
-    }
-  }
-
-  /* cursos 100% online do Trampolim valem para todos os municípios: entram UMA vez, como "Online"
-     (antes entravam uma vez por município e um curso virava 47 linhas) */
-  var trampolimOnlineVistos = {};
-  async function coletarCidade(cidade){
-    try{
-      var cursos = await buscarCursosTrampolim(cidade);
-      cursos.forEach(function(c){
-        if(typeof cursoAtingeCargaMinima === 'function' && !cursoAtingeCargaMinima(c.carga)) return;
-        if(typeof trampolimPermitido === 'function' && !trampolimPermitido(c)) return;   // mesmo filtro de perfil do portal
-        var online = /online/i.test(c.modalidade || '') && !/presencial/i.test(c.modalidade || '');
-        if(online){
-          var k = c._id != null ? 'id:' + c._id : 'n:' + normal(c.nome);
-          if(trampolimOnlineVistos[k]) return;
-          trampolimOnlineVistos[k] = 1;
-        }
-        addCurso({
-          municipio:online ? 'Online' : cidade, curso:c.nome, inst:c.inst || 'Trampolim SP',
-          modalidade:c.modalidade || '', carga:c.carga || '',
-          area:nomeArea(areaDoCurso.apply(null, [c.nome].concat(c._rotulos || []))),
-          fonte:'Trampolim SP', link:c.link || '', ate:''
-        });
-      });
-    }catch(e){
-      log2('falha no Trampolim para ' + cidade + ': ' + (e && e.message));
-    }
-  }
-
-  async function coletar(){
-    coletando = true;
-    $('btColetar').disabled = true;
-    $('btPararColeta').disabled = false;
-    $('resultadosCompleto').classList.remove('oculto');
-
-    if(!onlineJaColetado){
-      $('statusCompleto').textContent = 'Coletando os cursos online (Sebrae, EVG, Bradesco e planilha)...';
-      await coletarOnline();
-      desenharCatalogo();
-    }
-
-    while(coletando && indiceCat < cidadesCat.length){
-      var cidade = cidadesCat[indiceCat];
-      $('statusCompleto').textContent = 'Consultando ' + cidade + '  ·  ' +
-        (indiceCat+1) + ' de ' + cidadesCat.length;
-      await coletarCidade(cidade);
-      indiceCat++;
-      $('progresso2').style.width = Math.round((indiceCat/cidadesCat.length)*100) + '%';
-      if(indiceCat % 5 === 0 || indiceCat === cidadesCat.length) desenharCatalogo();
-      await new Promise(function(r){ setTimeout(r, 250); });
-    }
-
-    coletando = false;
-    $('btColetar').disabled = false;
-    $('btPararColeta').disabled = true;
-    desenharCatalogo();
-    $('statusCompleto').textContent = (indiceCat >= cidadesCat.length)
-      ? 'Catálogo montado: ' + fmt(catalogo.length) + ' cursos de ' + cidadesCat.length + ' municípios.'
-      : 'Parado em ' + indiceCat + ' de ' + cidadesCat.length + '. Clique em Montar catálogo para continuar.';
-  }
-
-  function opcoes(sel, valores, atual){
-    var el = $(sel);
-    var anterior = atual !== undefined ? atual : el.value;
-    var primeira = el.options[0].outerHTML;
-    el.innerHTML = primeira + valores.map(function(v){
-      return '<option value="' + esc(v) + '">' + esc(v) + '</option>';
-    }).join('');
-    if(anterior) el.value = anterior;
-  }
-
-  function filtrados(){
-    var mun = $('fMunicipio').value;
-    var mod = $('fModalidade').value;
-    var are = $('fArea').value;
-    var fon = $('fFonte').value;
-    var bus = normal($('fBusca').value);
-    return catalogo.filter(function(c){
-      if(mun && c.municipio !== mun) return false;
-      if(mod && classeModalidade(c.modalidade) !== mod) return false;
-      if(are && c.area !== are) return false;
-      if(fon && c.fonte !== fon) return false;
-      if(bus && normal(c.curso).indexOf(bus) === -1) return false;
-      return true;
-    });
-  }
-
-  function unicos(campo){
-    var s = {};
-    catalogo.forEach(function(c){ if(c[campo]) s[c[campo]] = 1; });
-    return Object.keys(s).sort(function(a,b){ return a.localeCompare(b,'pt-BR'); });
-  }
-
-  function desenharCatalogo(){
-    opcoes('fMunicipio', unicos('municipio'));
-    opcoes('fArea', unicos('area'));
-    opcoes('fFonte', unicos('fonte'));
-
-    var lista = filtrados();
-    $('contagemCatalogo').innerHTML = '<b>' + fmt(lista.length) + '</b> curso(s) no recorte atual, de <b>' +
-      fmt(catalogo.length) + '</b> coletados' +
-      (lista.length > 400 ? '. Exibindo os 400 primeiros na tela, o CSV traz todos.' : '.');
-
-    var mostra = lista.slice(0, 400);
-    var html = '<thead><tr><th>Município</th><th>Curso</th><th>Instituição</th>' +
-               '<th>Modalidade</th><th>Carga</th><th>Área</th><th>Origem</th><th>Link</th></tr></thead><tbody>';
-    mostra.forEach(function(c){
-      var cl = classeModalidade(c.modalidade);
-      html += '<tr>' +
-        '<td>' + esc(c.municipio) + '</td>' +
-        '<td class="trunc">' + esc(c.curso) + '</td>' +
-        '<td class="trunc">' + esc(c.inst) + '</td>' +
-        '<td><span class="tag ' + (cl === 'presencial' ? 'pres' : (cl === 'online' ? 'onl' : '')) + '">' +
-          esc(c.modalidade || 'não informada') + '</span></td>' +
-        '<td>' + esc(c.carga) + '</td>' +
-        '<td>' + esc(c.area) + '</td>' +
-        '<td>' + esc(c.fonte) + '</td>' +
-        '<td>' + (c.link ? '<a href="' + esc(c.link) + '" target="_blank" rel="noopener">abrir</a>' : '') + '</td>' +
-      '</tr>';
-    });
-    $('tabelaCatalogo').innerHTML = html + '</tbody>';
-  }
-
-  ['fMunicipio','fModalidade','fArea','fFonte'].forEach(function(id){
-    $(id).addEventListener('change', desenharCatalogo);
-  });
-  $('fBusca').addEventListener('input', desenharCatalogo);
-
-  $('btCsvCatalogo').addEventListener('click', function(){
-    var lista = filtrados();
-    var recorte = [];
-    if($('fMunicipio').value) recorte.push('município: ' + $('fMunicipio').value);
-    if($('fModalidade').value) recorte.push('modalidade: ' + $('fModalidade').options[$('fModalidade').selectedIndex].text);
-    if($('fArea').value) recorte.push('área: ' + $('fArea').value);
-    if($('fFonte').value) recorte.push('origem: ' + $('fFonte').value);
-    if($('fBusca').value) recorte.push('busca: ' + $('fBusca').value);
-
-    var l = ['Municipio;Curso;Instituicao;Modalidade;Carga;Area;Origem;Inscricoes ate;Link'];
-    lista.forEach(function(c){
-      l.push([c.municipio, c.curso, c.inst, c.modalidade, c.carga, c.area, c.fonte, c.ate, c.link]
-        .map(function(v){ return '"' + String(v == null ? '' : v).replace(/"/g,'""') + '"'; })
-        .join(';'));
-    });
-    baixarCSV('superacao-catalogo-completo', l,
-      fmt(lista.length) + ' cursos' + (recorte.length ? '  ·  filtros aplicados: ' + recorte.join(', ') : '  ·  sem filtros'));
-  });
-
-  $('btColetar').addEventListener('click', async function(){
-    if(typeof AREAS === 'undefined' || typeof buscarCursosTrampolim !== 'function'){
-      $('semScripts2').classList.remove('oculto');
-      $('controlesCompleto').classList.add('oculto');
-      return;
-    }
-    if(!cidadesCat.length){
-      $('statusCompleto').textContent = 'Lendo a lista de municípios do portal...';
-      var lista = cidades.length ? cidades : await lerCidadesDoPortal();
-      if(!lista){
-        $('statusCompleto').textContent = 'Não consegui ler a lista de municípios. Use a aba Vazios do catálogo para informá-la manualmente.';
-        return;
-      }
-      cidadesCat = lista;
-    }
-    coletar();
-  });
-
-  $('btPararColeta').addEventListener('click', function(){
-    coletando = false;
-    $('statusCompleto').textContent = 'Parando após o município atual...';
-  });
-
-  $('btLimparColeta').addEventListener('click', function(){
-    coletando = false; indiceCat = 0; catalogo = []; cidadesCat = []; onlineJaColetado = false; trampolimOnlineVistos = {};
-    $('progresso2').style.width = '0';
-    $('resultadosCompleto').classList.add('oculto');
-    $('log2').textContent = ''; $('log2').classList.add('oculto');
-    $('statusCompleto').textContent = 'Aguardando início.';
-    $('btColetar').disabled = false;
   });
 
   /* ---------- início ---------- */

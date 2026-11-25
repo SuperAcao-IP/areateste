@@ -42,18 +42,22 @@ function janela(j){
   const cidades = {}; (j.cidades || []).forEach(x => { if(x.cidade) cidades[x.cidade] = (cidades[x.cidade] || 0) + (x.buscas || 0); });
   const lacunas = {}; (j.lacunas || []).forEach(x => { const k = (x.cidade || "?") + "|" + (x.area || "?"); lacunas[k] = (lacunas[k] || 0) + (x.vezes || 0); });
   const cursos = {}; (j.cursos || []).forEach(x => { const k = (x.item || "Sem nome") + "|" + (x.fonte || ""); cursos[k] = (cursos[k] || 0) + (x.cliques || 0); });
-  return { sessoes: sessoesPorEv.visitou || 0, eventos, cidades, lacunas, cursos };
+  const vagas = {}; (j.vagas || []).forEach(x => { const k = (x.item || "Sem nome") + "|" + (x.fonte || ""); vagas[k] = (vagas[k] || 0) + (x.cliques || 0); });   // só existe se o Worker enviar (docs/PEDIDO-WORKER.md)
+  return { sessoes: sessoesPorEv.visitou || 0, eventos, cidades, lacunas, cursos, vagas };
 }
 /* a − b, campo a campo, sem negativos */
 const menos = (a, b) => { const o = {}; Object.keys(a).forEach(k => { const v = (a[k] || 0) - ((b && b[k]) || 0); if(v > 0) o[k] = v; }); return o; };
 function semana(fimMs, atual, anterior, aproximado){
   const d = anterior ? {
     sessoes: Math.max(0, atual.sessoes - anterior.sessoes), eventos: menos(atual.eventos, anterior.eventos),
-    cidades: menos(atual.cidades, anterior.cidades), lacunas: menos(atual.lacunas, anterior.lacunas), cursos: menos(atual.cursos, anterior.cursos)
+    cidades: menos(atual.cidades, anterior.cidades), lacunas: menos(atual.lacunas, anterior.lacunas), cursos: menos(atual.cursos, anterior.cursos), vagas: menos(atual.vagas, anterior.vagas)
   } : atual;
   const lacunas = Object.entries(d.lacunas).map(([k, v]) => { const [cidade, area] = k.split("|"); return { cidade, area, vezes: v }; }).sort((x, y) => y.vezes - x.vezes);
   const cursos = Object.entries(d.cursos).map(([k, v]) => { const [item, fonte] = k.split("|"); return { item, fonte, cliques: v }; }).sort((x, y) => y.cliques - x.cliques).slice(0, 20);
-  return { inicio: dataISO(fimMs - 6 * 864e5), fim: dataISO(fimMs), aproximado: !!aproximado, sessoes: d.sessoes, eventos: d.eventos, cidades: d.cidades, lacunas, cursos };
+  const vagas = Object.entries(d.vagas || {}).map(([k, v]) => { const [item, fonte] = k.split("|"); return { item, fonte, cliques: v }; }).sort((x, y) => y.cliques - x.cliques).slice(0, 20);
+  const o = { inicio: dataISO(fimMs - 6 * 864e5), fim: dataISO(fimMs), aproximado: !!aproximado, sessoes: d.sessoes, eventos: d.eventos, cidades: d.cidades, lacunas, cursos };
+  if(vagas.length) o.vagas = vagas;
+  return o;
 }
 
 function ler(){ return fs.existsSync(ARQ) ? JSON.parse(fs.readFileSync(ARQ, "utf8")) : { semanas: [] }; }
