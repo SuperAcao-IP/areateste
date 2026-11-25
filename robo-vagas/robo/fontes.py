@@ -78,7 +78,7 @@ def _vaga_gupy(j: dict) -> Vaga:
     )
 
 
-def buscar_gupy(termos, cidade="", estado="", limite_por_pagina=100, max_paginas=3, log=print, erros=None):
+def buscar_gupy(termos, cidade="", estado="", limite_por_pagina=100, max_paginas=3, log=print, erros=None, remoto=False):
     """Busca cada termo em todas as páginas (até max_paginas). A API aceita no máximo 100 por página."""
     vistas, vagas = set(), []
     for termo in termos:
@@ -89,6 +89,8 @@ def buscar_gupy(termos, cidade="", estado="", limite_por_pagina=100, max_paginas
                 params["state"] = estado
             if cidade:
                 params["city"] = cidade
+            if remoto:
+                params["workplaceType"] = "remote"     # vagas 100% remotas do país inteiro (sem cidade nem estado)
             try:
                 dados = json.loads(_get(f"{GUPY_API}?" + urllib.parse.urlencode(params)))
             except Exception as e:
@@ -107,7 +109,7 @@ def buscar_gupy(termos, cidade="", estado="", limite_por_pagina=100, max_paginas
             time.sleep(1)  # educado com o servidor
             if len(itens) < limite_por_pagina:
                 break
-        log(f"  Gupy '{termo}': {total} resultados ({novas} inéditas nesta busca)")
+        log(f"  Gupy{' remoto' if remoto else ''} '{termo}': {total} resultados ({novas} inéditas nesta busca)")
     return vagas
 
 

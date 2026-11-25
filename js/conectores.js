@@ -970,12 +970,17 @@ function mesclarVagasRobo(cidade, vagas){
   const vizinhas = vizinhasNoRaio(cidade);
   const alvo = normTxt(cidade);
   let n = 0;
+  const jaVista = new Set();     // cada vaga entra uma só vez na contagem da cidade, mesmo que o arquivo a repita
   vagas.forEach(v=>{
+    if(jaVista.has(String(v.id))) return;
     const mun = normTxt(v.municipio);
     const daCidade = mun===alvo;
     const deVizinha = !daCidade && vizinhas.some(x=>normTxt(x)===mun);
-    if(!daCidade && !deVizinha) return;
-    const obj = Object.assign({}, v, { _id:"robo:"+v.id, _robo:true, _via:v.fonte, _deOutraCidade: deVizinha ? v.municipio : null });
+    /* vaga 100% remota vale para todos os municípios (híbrida continua presa ao lugar dela) */
+    const remotaTotal = /remot|home office/i.test(v.modalidade || "") && !/h[ií]brid/i.test(v.modalidade || "");
+    if(!daCidade && !deVizinha && !remotaTotal) return;
+    jaVista.add(String(v.id));
+    const obj = Object.assign({}, v, { _id:"robo:"+v.id, _robo:true, _via:v.fonte, _deOutraCidade: (deVizinha && !remotaTotal) ? v.municipio : null });
     const loc = _locaisVagasRobo[String(v.id)];
     if(loc && loc.lat != null && loc.lon != null) obj._aprox = { lat: loc.lat, lon: loc.lon };      // posição aproximada: vai para o pino da região no mapa
     const id = areaDaVaga(v.cargo);

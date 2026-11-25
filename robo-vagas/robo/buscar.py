@@ -109,6 +109,8 @@ def buscar_tudo(cfg, log=print, limite_cidades=None):
         for cidade in cidades:
             achadas += fontes.buscar_gupy(cfg["busca"]["termos_gupy"], cidade=cidade, estado=cfg["local"]["estado_gupy"],
                                           max_paginas=cfg["busca"].get("max_paginas_gupy", 2), log=log, erros=erros)
+        if cfg["busca"].get("gupy_remoto", True):      # remotas do país inteiro: valem para todos os municípios
+            achadas += fontes.buscar_gupy(cfg["busca"]["termos_gupy"], max_paginas=cfg["busca"].get("max_paginas_gupy", 2), log=log, erros=erros, remoto=True)
         if not achadas:
             avisos.append("Gupy não retornou nada (fora do ar ou mudou o formato).")
         por_fonte["Gupy"] = ("OK" if achadas or not erros else "ERRO", achadas,

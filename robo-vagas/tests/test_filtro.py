@@ -61,6 +61,15 @@ class TestFiltro(unittest.TestCase):
         self.assertTrue(filtro.avaliar(y, CFG, HOJE), y.motivos)
         self.assertEqual(y.modelo, "remote")
 
+    def test_remota_de_fora_do_estado_vale_para_todos(self):
+        x = v("Atendente", "Trabalho 100% home office.", cidade="Fortaleza", modelo="remote")
+        self.assertTrue(filtro.avaliar(x, CFG, HOJE), x.motivos)
+        self.assertEqual(x.municipio, "Online")
+        y = v("Ajudante de Motorista", "Atuação na loja.", cidade="Chapecó", modelo="remote")     # etiqueta do site erra: o texto não confirma
+        self.assertFalse(filtro.avaliar(y, CFG, HOJE))
+        z = v("Atendente", cidade="Fortaleza", modelo="on-site")                                   # presencial fora da região continua cortada
+        self.assertFalse(filtro.avaliar(z, CFG, HOJE))
+
     def test_cortes(self):
         casos = {
             "fora da região": v("Auxiliar de Cozinha", cidade="São Paulo"),

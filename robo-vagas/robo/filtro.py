@@ -52,6 +52,7 @@ _FUNDAMENTAL = re.compile(r"ensino fundamental|fundamental (completo|incompleto)
 _MEDIO = re.compile(r"ensino medio|medio (completo|incompleto|cursando)|\b2o grau\b|segundo grau")
 _SUPERIOR = re.compile(r"(ensino )?superior completo|graduacao completa|graduad[oa] em|formacao superior|bacharel\w*|pos-?graduacao|curso superior completo")
 _ANOS_EXP = re.compile(r"experiencia (minima )?de ([2-9]|\d{2}) anos|([2-9]|\d{2}) anos (ou mais )?de experiencia|minimo de ([2-9]|\d{2}) anos")
+_CONFIRMA_REMOTO = re.compile(r"remot|home ?off+ic+e|trabalho em casa|a distancia")
 _REMOTO_TEXTO = re.compile(r"100% (remoto|home office)|trabalho remoto|home office integral|totalmente remot")
 
 
@@ -101,7 +102,7 @@ def precorte(vaga, cfg):
     titulo_n = normalizar(vaga.cargo)
     if excluida(cfg, vaga.empresa, vaga.cargo, vaga.link):
         return f.get("excluir_sempre_motivo", "excluída")
-    if not municipios.cidade_alvo(vaga.cidade):
+    if not municipios.cidade_alvo(vaga.cidade) and not vaga.modelo.startswith("remote"):     # remota vale para todo o estado
         return f"fora da região ({vaga.cidade or 'cidade não informada'})"
     nivel = _primeiro(titulo_n, f.get("titulo_acima_da_entrada", []))
     if nivel and not _tem(titulo_n, f.get("titulo_acima_excecoes", [])):
@@ -151,7 +152,10 @@ def avaliar(vaga, cfg, hoje=None):
         except ValueError:
             pass
 
-    vaga.municipio = municipios.cidade_alvo(vaga.cidade)
+    vaga.municipio = municipios.cidade_alvo(vaga.cidade) or ("Online" if vaga.modelo.startswith("remote") else "")
+    if vaga.municipio == "Online" and not _CONFIRMA_REMOTO.search(texto_n):     # a etiqueta "remoto" do site erra: sem o texto confirmar, não vale para todos
+        vaga.motivos.append("marcada como remota, mas o texto não confirma")
+        return False
     if _SEM_EXPERIENCIA.search(texto_n):
         vaga.experiencia = "Sem experiência"
     if _FUNDAMENTAL.search(texto_n):

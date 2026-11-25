@@ -24,7 +24,7 @@ Pessoas de famílias de baixa renda atendidas pelo SuperAção SP (Governo do Es
 
 ## Critérios
 - Local: municípios do programa (`dados/municipios.js`) e cidades vizinhas (`CIDADES_VIZINHAS`, `js/config.js`). Fora disso, corta.
-- Modelo: presencial ou híbrido. Remoto corta (risco de golpe).
+- Modelo: presencial, híbrido ou remoto. Remoto entra marcado (portal avisa: computador e internet próprios); a remota do país inteiro (Gupy, `workplaceType=remote`) vale para todos os municípios, como "Online".
 - Contrato: CLT, Jovem Aprendiz ou temporário. Estágio, trainee, PJ, autônomo e banco de talentos cortam. Não informado passa.
 - Cargo: precisa ser função de entrada (`titulo_entrada`); analista, gerente, técnico, sênior/pleno etc. cortam (`titulo_acima_da_entrada`).
 - Requisitos: ensino superior ou 2+ anos de experiência cortam.

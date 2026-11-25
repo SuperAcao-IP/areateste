@@ -96,7 +96,7 @@ def selecionar(ativas, max_por_municipio=25):
     for mun in sorted(por_mun):
         lista = sorted(por_mun[mun], key=lambda a: a.get("publicada") or a.get("entrou_em") or "", reverse=True)   # mais recente primeiro
         lista.sort(key=lambda a: -(a.get("nota") or 0))                                                          # maior nota primeiro (sort estável)
-        saida += lista[:max_por_municipio]
+        saida += lista[:max_por_municipio * 4 if mun == "Online" else max_por_municipio]     # as remotas valem para todos: cabem mais
     return saida
 
 
