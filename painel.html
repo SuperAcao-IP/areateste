@@ -401,10 +401,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
 
   <!-- ============ ABA 1: USO DO PORTAL ============ -->
   <div class="wrap oculto" id="aba-uso">
-    <div class="acoes-topo">
-      <button class="btn" id="copiar">Copiar resumo para o relatório</button>
-    </div>
-
     <div class="kpis">
       <div class="kpi"><p class="rotulo">Pessoas que usaram</p><p class="valor num" id="k-sessoes">–</p><p class="nota">sessões no período</p></div>
       <div class="kpi"><p class="rotulo">Municípios alcançados</p><p class="valor num" id="k-cidades">–</p><p class="nota">cidades pesquisadas</p></div>
@@ -454,6 +450,10 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       <div id="lista-jornada"></div>
     </div>
 
+    <div class="acoes-topo no-print" style="margin-top:18px">
+      <button class="btn" id="copiar">Copiar resumo para o relatório</button>
+    </div>
+
     <p class="rodape">
       A contagem de visitas usa um identificador aleatório que expira quando a pessoa fecha a aba. A equipe do programa não entra na contagem de cliques.<br>
       Exporte os dados a cada semestre para manter o histórico do programa.
@@ -469,10 +469,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           <h2>Vazios do catálogo · retrato automático</h2>
           <p class="sub">Em quais áreas cada município não tem curso presencial. Sai sozinho todo domingo. <span id="cobData"></span></p>
         </div>
-        <div class="linha-btn no-print">
-          <button class="btn" id="cobCsvMatriz">Baixar matriz (CSV)</button>
-          <button class="btn btn-principal" id="cobCsvVazios">Baixar lista de vazios (CSV)</button>
-        </div>
       </div>
       <div class="kpis" id="cobKpis" style="grid-template-columns:repeat(3,1fr)"></div>
       <h3 style="margin:18px 0 6px">Municípios sem nenhum curso presencial</h3>
@@ -481,6 +477,10 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         <h3 style="margin:0 0 4px">Cursos presenciais por município e área</h3>
         <p class="sub" style="margin:0 0 8px">Verde: cursos presenciais na cidade. Âmbar claro: nenhum, mas há nas vizinhas (+n). Âmbar: nenhum.</p>
         <div class="matriz-wrap"><table class="matriz" id="cobTabela"></table></div>
+        <div class="linha-btn no-print" style="margin-top:14px">
+          <button class="btn" id="cobCsvMatriz">Baixar matriz (CSV)</button>
+          <button class="btn btn-principal" id="cobCsvVazios">Baixar lista de vazios (CSV)</button>
+        </div>
       </div>
     </div>
 
