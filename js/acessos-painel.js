@@ -80,17 +80,17 @@
      A semana em andamento fica em azul claro, porque ainda não terminou. Alturas em pixels (a altura em % dependia
      do tamanho das outras peças da coluna e estourava para cima). */
   var isoLocal = function(d){ return d.getFullYear() + '-' + ('0' + (d.getMonth() + 1)).slice(-2) + '-' + ('0' + d.getDate()).slice(-2); };
-  function colunasSemana(contagem, unidade){
+  /* desde = primeira semana em que o registro existe; as anteriores aparecem como "sem registro" (e não como zero) */
+  function colunasSemana(contagem, unidade, desde){
     var atual = inicioSemana(new Date()), semanas = [];
     for(var k = 15; k >= 0; k--){ var d = new Date(atual); d.setDate(d.getDate() - 7 * k); semanas.push(isoLocal(d)); }
-    var chaves = Object.keys(contagem);
-    if(!chaves.length) return '<p class="vazio">Ainda não há registros.</p>';
-    var primeira = chaves.sort()[0];
-    semanas = semanas.filter(function(s){ return s >= primeira || semanas.indexOf(s) >= semanas.length - 4; });   // não mostra meses de nada antes do primeiro registro
+    if(!Object.keys(contagem).length) return '<p class="vazio">Ainda não há registros.</p>';
     var max = Math.max.apply(null, semanas.map(function(s){ return contagem[s] || 0; })) || 1;
     var ultima = semanas[semanas.length - 1];
     return '<div class="ac-colunas">' + semanas.map(function(s){
-      var n = contagem[s] || 0, d = s.slice(8, 10) + '/' + s.slice(5, 7);
+      var d = s.slice(8, 10) + '/' + s.slice(5, 7);
+      if(desde && s < desde) return '<div class="ac-col" title="Semana de ' + d + ': ainda não havia registro"><span class="ac-num num">–</span><span class="ac-barra vazia" style="height:2px"></span><span class="ac-rot">' + d + '</span></div>';
+      var n = contagem[s] || 0;
       return '<div class="ac-col" title="Semana de ' + d + (s === ultima ? ' (em andamento)' : '') + ': ' + n + ' ' + unidade + '"><span class="ac-num num">' + n + '</span>' +
         '<span class="ac-barra' + (s === ultima ? ' parcial' : '') + (n ? '' : ' zero') + '" style="height:' + (n ? Math.max(4, Math.round(n / max * 110)) : 2) + 'px"></span><span class="ac-rot">' + d + '</span></div>';
     }).join('') + '</div>';
@@ -114,8 +114,10 @@
     P.forEach(function(p){ if(p.primeiro){ var s = isoLocal(inicioSemana(p.primeiro)); novasPorSemana[s] = (novasPorSemana[s] || 0) + 1; } });
     var vistos = {};
     D.logins.forEach(function(l){ var s = isoLocal(inicioSemana(l.quando)); var k = s + '|' + l.email; if(!vistos[k]){ vistos[k] = 1; loginsPorSemana[s] = (loginsPorSemana[s] || 0) + 1; } });
-    $('acNovas').innerHTML = colunasSemana(novasPorSemana, 'pessoas novas');
-    $('acAtivas').innerHTML = D.logins.length ? colunasSemana(loginsPorSemana, 'pessoas que entraram')
+    $('acNovas').innerHTML = colunasSemana(novasPorSemana, 'pessoas novas', Object.keys(novasPorSemana).sort()[0]);
+    var inicioLog = Object.keys(loginsPorSemana).sort()[0] || null;
+    if($('acAtivasNota')) $('acAtivasNota').textContent = inicioLog ? 'O registro de logins começou na semana de ' + inicioLog.slice(8, 10) + '/' + inicioLog.slice(5, 7) + ': antes disso aparece –.' : '';
+    $('acAtivas').innerHTML = D.logins.length ? colunasSemana(loginsPorSemana, 'pessoas que entraram', inicioLog)
       : '<p class="vazio">Aparece depois da atualização do Apps Script para a v8: a partir dela, cada login é registrado na aba "acessos_log".</p>';
     var porMun = {};
     P.forEach(function(p){ var m = p.municipio || 'Sem município'; porMun[m] = (porMun[m] || 0) + 1; });

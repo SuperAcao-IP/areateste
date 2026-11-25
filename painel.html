@@ -166,7 +166,8 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .filtros input[type=search]{min-width:220px}
   .contagem{font-size:13px;color:var(--tinta2);margin:0 0 10px}
   .contagem b{color:var(--tinta)}
-  td.trunc{max-width:340px;white-space:normal}
+  td.trunc,table.matriz tbody td.trunc{max-width:340px;white-space:normal;text-align:left;overflow-wrap:anywhere}
+  table.matriz tbody td.trunc:first-child{width:320px;min-width:320px;max-width:320px}
   .tag{display:inline-block;font-size:11px;font-weight:600;padding:2px 7px;border-radius:99px;
        background:var(--azul-claro);color:var(--azul)}
   .tag.pres{background:var(--verde-fundo);color:var(--verde)}
@@ -268,7 +269,8 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   .ac-col{flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;height:100%;min-width:0}
   .ac-barra{display:block;width:100%;max-width:34px;background:#0C63AA;border-radius:4px 4px 0 0}
   .ac-barra.parcial{background:#7DB2DE}
-  .ac-barra.zero{background:#D7DEE8}
+  .ac-barra.zero,.ac-barra.vazia{background:#D7DEE8}
+  .ac-barra.vazia{background:repeating-linear-gradient(90deg,#D7DEE8 0 3px,transparent 3px 6px)}
   .ac-num{font-size:11px;color:var(--tinta2);margin-bottom:3px}
   .ac-rot{font-size:10.5px;color:var(--tinta3);margin-top:4px}
 
@@ -399,14 +401,13 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   <div class="wrap oculto" id="aba-uso">
     <div class="acoes-topo">
       <button class="btn" id="copiar">Copiar resumo para o relatório</button>
-      <button class="btn" id="baixar-lacunas">Baixar buscas sem resultado (CSV)</button>
     </div>
 
     <div class="kpis">
       <div class="kpi"><p class="rotulo">Pessoas que usaram</p><p class="valor num" id="k-sessoes">–</p><p class="nota">sessões no período</p></div>
       <div class="kpi"><p class="rotulo">Municípios alcançados</p><p class="valor num" id="k-cidades">–</p><p class="nota">cidades pesquisadas</p></div>
       <div class="kpi"><p class="rotulo">Cliques em cursos e vagas</p><p class="valor num" id="k-cliques">–</p><p class="nota">encaminhamentos gerados</p></div>
-      <div class="kpi"><p class="rotulo">Buscas sem resultado</p><p class="valor num" id="k-lacunas" style="color:var(--ambar)">–</p><p class="nota" id="k-lacunas-nota">do total de buscas</p></div>
+      <div class="kpi"><p class="rotulo">Cliques nos pins do mapa</p><p class="valor num" id="k-pins">–</p><p class="nota">vagas, cursos, serviços e computador</p></div>
     </div>
 
     <div class="colunas">
@@ -662,7 +663,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     <div id="acResultados" class="oculto">
       <div class="vg-grade">
         <div class="cartao fundo"><h3>Pessoas novas por semana</h3><p class="sub">Pelo primeiro acesso, nas últimas 16 semanas.</p><div id="acNovas"></div></div>
-        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub">Pessoas diferentes com login em cada semana.</p><div id="acAtivas"></div></div>
+        <div class="cartao fundo"><h3>Pessoas que entraram por semana</h3><p class="sub livre">Pessoas diferentes com login em cada semana. <span id="acAtivasNota"></span></p><div id="acAtivas"></div></div>
       </div>
       <div class="vg-grade">
         <div class="cartao fundo"><h3>Pessoas por município</h3><p class="sub">Os 20 municípios com mais gente.</p><div id="acMunicipios"></div></div>
@@ -808,7 +809,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   /* o caminho até a oportunidade, em partes. "sempre": mostra a linha mesmo com zero. */
   var PARTES = [
     { titulo: 'A visita', nota: 'Quantas visitas (sessões diferentes) chegaram em cada etapa; a barra compara com todas as visitas.',
-      evs: ['visitou','selecionou_municipio','selecionou_area','viu_resultados','busca_sem_resultado','clique_curso','clique_vaga','viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp'] },
+      evs: ['visitou','selecionou_municipio','selecionou_area','viu_resultados','clique_curso','clique_vaga','viu_aviso_senac','prosseguiu_curso_pago','clique_whatsapp'] },
     { titulo: 'O mapa', nota: 'Cliques nos pins, um por tipo (conta cada clique).', evs: ['clique_pin_vaga','clique_pin_escola','clique_pin_servico','clique_pin_computador'], sempre: true },
     { titulo: 'Preparação para o mundo do trabalho', nota: 'Cliques nos 4 passos. Não entram em "Cursos mais procurados".', prep: true },
     { titulo: 'Cadastros no próprio portal', nota: 'Feitos pela equipe no portal e confirmados na planilha.', evs: ['cadastro_curso','cadastro_vaga','cadastro_manual'], sempre: ['cadastro_curso','cadastro_vaga'] }
@@ -878,19 +879,12 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
   }
 
   function desenharUso(j){
-    var comResultado = total(j, 'viu_resultados');
-    var semResultado = total(j, 'busca_sem_resultado');
-    var buscas = comResultado + semResultado;
-
     $('k-sessoes').textContent = fmt(sessoes(j, 'visitou'));
     $('k-cidades').textContent = fmt((j.cidades || []).length);
     var cliquesPrep = (j.cursos || []).filter(function(c){ return c.fonte === 'preparacao'; })
       .reduce(function(s, c){ return s + (c.cliques || 0); }, 0);
     $('k-cliques').textContent = fmt(Math.max(0, total(j, 'clique_curso') - cliquesPrep) + total(j, 'clique_vaga'));
-    $('k-lacunas').textContent = fmt(semResultado);
-    $('k-lacunas-nota').textContent = buscas
-      ? Math.round((semResultado / buscas) * 100) + '% das buscas do período'
-      : 'nenhuma busca no período';
+    $('k-pins').textContent = fmt(['clique_pin_vaga', 'clique_pin_escola', 'clique_pin_servico', 'clique_pin_computador'].reduce(function(s, e){ return s + total(j, e); }, 0));
 
     $('tb-cidades').innerHTML = (j.cidades || []).length
       ? j.cidades.map(function(c){
@@ -997,7 +991,7 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
           var v = visita ? contagem(ev) : (totEv[ev] || 0);
           var pct = visita && base ? Math.round(v / base * 100) : null;
           var larg = visita ? (pct == null ? 0 : Math.min(pct, 100)) : Math.round(v / maxL * 100);
-          return linhaJ(ROTULOS[ev] || ev, v, pct, larg, visita && (ev === 'busca_sem_resultado' || acimaDaBase[ev]));
+          return linhaJ(ROTULOS[ev] || ev, v, pct, larg, visita && acimaDaBase[ev]);
         }).join('');
       }
       html += '<p class="sec-titulo">' + esc(p.titulo) + '</p><p class="sec-nota">' + esc(p.nota) + '</p>' + (corpo || '<p class="vazio">Ainda não há registros neste período.</p>');
@@ -1021,17 +1015,9 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       fmt(sessoes(j, 'visitou')) + ' sessões, ' + fmt((j.cidades || []).length) +
         ' municípios pesquisados, ' + fmt(total(j, 'clique_curso') + total(j, 'clique_vaga')) +
         ' cliques em cursos e vagas.',
-      'Buscas que não encontraram nenhuma oferta: ' + fmt(total(j, 'busca_sem_resultado')) + '.',
       ''
     ];
     if(window.VisaoGeral){ window.VisaoGeral.linhasResumo().forEach(function(l){ linhas.push(l); }); linhas.push(''); }
-    if((j.lacunas || []).length){
-      linhas.push('Maiores lacunas de oferta:');
-      j.lacunas.slice(0, 10).forEach(function(l, i){
-        linhas.push((i + 1) + '. ' + (l.cidade || 'Cidade não informada') + ' · ' +
-          (l.area || 'Área não informada') + ': ' + fmt(l.vezes) + ' buscas sem resultado');
-      });
-    }
     var botao = this;
     navigator.clipboard.writeText(linhas.join('\n')).then(function(){
       botao.textContent = 'Resumo copiado';
@@ -1040,15 +1026,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
       botao.textContent = 'Não foi possível copiar';
       setTimeout(function(){ botao.textContent = 'Copiar resumo para o relatório'; }, 2200);
     });
-  });
-
-  $('baixar-lacunas').addEventListener('click', function(){
-    if(!dados || !(dados.lacunas || []).length){ return; }
-    var csv = ['Municipio;Area;Buscas sem resultado'];
-    dados.lacunas.forEach(function(l){
-      csv.push('"' + (l.cidade || '') + '";"' + (l.area || '') + '";' + l.vezes);
-    });
-    baixarCSV('superacao-buscas-sem-resultado-' + dias + 'dias', csv);
   });
 
   /* ================= ABA 2 · VARREDURA DO CATÁLOGO ================= */
