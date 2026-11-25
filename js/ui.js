@@ -523,7 +523,7 @@ function montarResumoETrilha(cidade){
   cab.insertAdjacentHTML("beforebegin",
     '<nav class="trilha" id="trilhaEtapas" aria-label="Etapas do portal"><ol>'+
       '<li><a href="#secaoQualificacao" data-etapa="secaoQualificacao" aria-current="step"><span class="n">1</span>Cursos <small id="trCursos"></small></a></li>'+
-      '<li><a href="#secaoPreparacao" data-etapa="secaoPreparacao"><span class="n">2</span>Preparação <small id="trPrep"></small></a></li>'+
+      '<li><a href="#secaoPreparacao" data-etapa="secaoPreparacao"><span class="n">2</span>Preparação</a></li>'+
       '<li><a href="#secaoVagas" data-etapa="secaoVagas"><span class="n">3</span>Vagas <small id="trVagas"></small></a></li>'+
     '</ol></nav>');
   cab.insertAdjacentHTML("beforeend",
@@ -556,7 +556,6 @@ function montarResumoETrilha(cidade){
     ids.forEach(id=>{ const el=document.getElementById(id); if(el) window._trilhaObs.observe(el); });
   }
   atualizarResumo();
-  prepPintar();
 }
 function atualizarResumo(){
   if(typeof atualizarChipsModalidade === "function") atualizarChipsModalidade();
@@ -567,50 +566,24 @@ function atualizarResumo(){
   set("trCursos",nC); set("trVagas",vagasPendentes>0&&!nV?"…":nV);
 }
 
-/* ===== Progresso da preparação: guardado só neste navegador ===== */
-const PREP_CHAVE="superacao_preparacao_feitos";
-function prepLer(){ try{ const v=JSON.parse(localStorage.getItem(PREP_CHAVE)||"[]"); return Array.isArray(v)?v:[]; }catch(e){ return []; } }
-function prepGravar(v){ try{ localStorage.setItem(PREP_CHAVE,JSON.stringify(v)); }catch(e){} }
-function prepPintar(){
-  const feitos=prepLer(); let n=0;
-  document.querySelectorAll("[data-prep]").forEach(li=>{
-    const ok=feitos.indexOf(li.dataset.prep)>-1; if(ok) n++;
-    li.classList.toggle("feito",ok);
-    const b=li.querySelector(".prep-fiz"); if(b){ b.setAttribute("aria-pressed",ok?"true":"false"); b.textContent=ok?"Feito":"Marcar como feito"; }
-  });
-  const t=document.getElementById("prepProgTxt"), br=document.getElementById("prepProgBarra"), tr=document.getElementById("trPrep");
-  if(t) t.textContent=n+" de 4";
-  if(br) br.style.width=(n*25)+"%";
-  if(tr) tr.textContent=n+" de 4";
-  const et=document.querySelector('#trilhaEtapas [data-etapa="secaoPreparacao"]'); if(et) et.classList.toggle("feito",n===4);
-}
-document.addEventListener("click",e=>{
-  const b=e.target.closest&&e.target.closest(".prep-fiz"); if(!b) return;
-  const li=b.closest("[data-prep]"); if(!li) return;
-  const feitos=prepLer(), k=feitos.indexOf(li.dataset.prep);
-  if(k>-1) feitos.splice(k,1); else feitos.push(li.dataset.prep);
-  prepGravar(feitos); prepPintar();
-});
-
 /* ===== Preparação para o mundo do trabalho: texto de orientação + 4 passos em sequência ===== */
 function cartoesPreparacao(){
   const passo=(n,nome,quem,desc,link,bt)=>
     '<li class="prep-passo" data-prep="'+n+'"><span class="prep-num" aria-hidden="true">'+n+'</span>'+
     '<div class="prep-corpo"><h5>'+esc(nome)+'</h5><span class="prep-quem">'+esc(quem)+'</span><p>'+esc(desc)+'</p></div>'+
     '<div class="prep-acoes">'+(urlValida(link)?'<a class="btn-curso prep-btn" href="'+esc(link)+'" target="_blank" rel="noopener noreferrer">'+esc(bt)+'</a>':'')+
-    '<button type="button" class="prep-fiz" aria-pressed="false">Marcar como feito</button></div></li>';
+    '</div></li>';
   return '<div class="prep-topo"><div class="prep-texto">'+
-      '<p><strong>Antes de buscar emprego,</strong> o agente e a família fazem os dois cursos abaixo.</p>'+
-      '<p>Assim o agente entende o que a família vai enfrentar e consegue apoiar melhor.</p>'+
-      '<p>Depois, o agente ajuda a família a <strong>montar o currículo pelo Trampolim</strong> e a <strong>treinar a entrevista</strong>.</p></div>'+
-    '<div class="prep-progresso" aria-live="polite"><b id="prepProgTxt">0 de 4</b> <span>passos feitos</span><div class="prep-barra"><i id="prepProgBarra"></i></div></div></div>'+
-    '<h4 class="prep-fase-t">Primeiro, os dois cursos <small>agente e família</small></h4><ol class="prep-passos">'+
+      '<p><strong>Sua família já está buscando emprego?</strong></p>'+
+      '<p>Aqui reunimos estratégias e habilidades socioemocionais que podem ajudar. Indicamos que você, agente, faça os dois cursos também, e compartilhe com a família!</p>'+
+      '<p>Além disso, a família pode montar o currículo e treinar a entrevista pelo Trampolim SP. É só compartilhar o link abaixo com ela.</p></div></div>'+
+    '<h4 class="prep-fase-t">Dois cursos <small>para o agente e para a família</small></h4><ol class="prep-passos">'+
       passo(1,"Estratégia de inserção","SENAI · online e gratuito · 14 horas","Como funciona o mundo do trabalho e o que as empresas esperam de quem procura emprego.",PREPARACAO_LINKS.conceitos,"Fazer o curso")+
       passo(2,"Habilidades socioemocionais","Escola Virtual de Governo · online e gratuito · 50 horas","Comunicação, autocontrole e convivência no trabalho.",PREPARACAO_LINKS.socioemocional,"Fazer o curso")+
     '</ol>'+
-    '<h4 class="prep-fase-t">Depois, com a família, no Trampolim SP <small>o agente acompanha</small></h4><ol class="prep-passos">'+
-      passo(3,"Monte seu currículo","Trampolim SP","Crie o currículo da família passo a passo e baixe pronto para enviar.",PREPARACAO_LINKS.curriculo,"Montar currículo")+
-      passo(4,"Treine a entrevista","Trampolim SP","Simule uma entrevista com perguntas comuns e veja dicas para melhorar as respostas.",PREPARACAO_LINKS.entrevista,"Treinar entrevista")+
+    '<h4 class="prep-fase-t">Currículo e entrevista <small>a família faz no Trampolim SP</small></h4><ol class="prep-passos">'+
+      passo(3,"Monte o currículo","Trampolim SP","Passo a passo para criar o currículo e baixar pronto para enviar.",PREPARACAO_LINKS.curriculo,"Montar currículo")+
+      passo(4,"Treine a entrevista","Trampolim SP","Simulação de entrevista com perguntas comuns e dicas para melhorar as respostas.",PREPARACAO_LINKS.entrevista,"Treinar entrevista")+
     '</ol>';
 }
 function renderVagas(){

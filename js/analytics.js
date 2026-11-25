@@ -229,15 +229,6 @@
     }
   }, true);
 
-  /* "Marcar como feito" da preparação: conta só quando a pessoa MARCA (o clique roda antes do portal trocar o estado) */
-  document.addEventListener('click', function (e) {
-    var b = e.target.closest && e.target.closest('.prep-fiz');
-    if (!b || b.getAttribute('aria-pressed') !== 'false') return;
-    var passo = b.closest('[data-prep]');
-    var nomePasso = passo ? limpar((passo.querySelector('h5') || {}).textContent) : '';
-    track('preparacao_feito', ctx({ fonte: 'preparacao', item: 'Preparação · ' + (nomePasso || 'passo') }));
-  }, true);
-
   /* =====================================================================
      7. Aviso de curso pago do Senac
      ===================================================================== */

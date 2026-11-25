@@ -158,7 +158,7 @@
       kpi('Pessoas que usaram', j ? fmt(ses('visitou')) : '–', 'sessões no período') +
       kpi('Municípios alcançados', j ? fmt(alcancados.length) + ' <small>de ' + MUNICIPIOS.length + '</small>' : '–', 'pesquisaram no período') +
       kpi('Cliques em cursos e vagas', j ? fmt(Math.max(0, tot('clique_curso') - cliquesPrep) + tot('clique_vaga')) : '–', 'encaminhamentos gerados') +
-      kpi('Preparação para o trabalho', j ? fmt(cliquesPrep) : '–', j ? fmt(tot('preparacao_feito')) + ' passos marcados como feitos' : '') +
+      kpi('Preparação para o trabalho', j ? fmt(cliquesPrep) : '–', j ? 'cliques nos 4 passos' : '') +
       kpi('Buscas sem resultado', j ? fmt(tot('busca_sem_resultado')) : '–', buscas ? Math.round(tot('busca_sem_resultado') / buscas * 100) + '% das buscas' : '', AMBAR) +
       kpi('Cursos no portal', estado.cursos ? fmt(cursosNoAr.length) : '–', estado.cursos ? 'no retrato de ' + dataBR(estado.cursos.atualizado) : 'histórico não carregou') +
       kpi('Vagas no portal', estado.vagas ? fmt(vagasNoAr.length) : '–', estado.vagas ? 'no retrato de ' + dataBR(estado.vagas.atualizado) : 'o histórico de vagas começa no próximo retrato') +

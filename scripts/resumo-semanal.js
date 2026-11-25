@@ -76,7 +76,7 @@ function montar(){
     bloco(`Uso do portal (${dataBR(semana.inicio)} a ${dataBR(semana.fim)})`, tabela([
       ["Sessões", fmt(semana.sessoes)], ["Buscas", fmt(buscas)], ["Buscas sem resultado", fmt(ev("busca_sem_resultado")), true],
       ["Cliques em cursos e vagas", fmt(Math.max(0, ev("clique_curso") - cliquesPrep) + ev("clique_vaga"))],
-      ["Cliques na preparação para o trabalho", `${fmt(cliquesPrep)} (${fmt(ev("preparacao_feito"))} passos marcados como feitos)`],
+      ["Cliques na preparação para o trabalho", fmt(cliquesPrep)],
       ["Municípios que buscaram", `${fmt(municipios.length - semBusca.length)} de ${municipios.length}`]
     ]) + (semBusca.length ? `<p style="margin:10px 0 0;font:13.5px Arial,sans-serif;color:#5C5B5F">Sem nenhuma busca na semana: <b style="color:#B06F0B">${esc(semBusca.join(", "))}</b></p>` : ""));
     resumoTexto.push(`${fmt(semana.sessoes)} sessões, ${fmt(buscas)} buscas`);

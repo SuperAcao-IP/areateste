@@ -406,7 +406,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
         <thead><tr><th>Passo</th><th class="direita">Cliques</th></tr></thead>
         <tbody id="tb-prep"></tbody>
       </table></div>
-      <p class="sub" style="margin-top:8px">Passos marcados como feitos no período: <b id="prep-feitos" class="num">–</b></p>
     </div>
 
     <div class="cartao fundo" style="margin-top:14px">
@@ -931,7 +930,6 @@ window.addEventListener('load', function(){ window.__mostrarErros(); });
     $('tb-prep').innerHTML = PASSOS.map(function(p, i){
       return '<tr><td>' + (i + 1) + '. ' + esc(p) + '</td><td class="direita num">' + fmt(cliquesPasso[p] || 0) + '</td></tr>';
     }).join('');
-    $('prep-feitos').textContent = fmt(total(j, 'preparacao_feito'));
     $('tb-cursos').innerHTML = cursosSemPrep.length
       ? cursosSemPrep.map(function(c){
           return '<tr><td>' + esc(c.item || 'Sem nome') + '</td><td style="color:var(--tinta2)">' +
