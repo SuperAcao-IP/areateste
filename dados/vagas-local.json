@@ -1,5 +1,5 @@
 {
- "atualizado": "2026-11-24",
+ "atualizado": "2026-11-25",
  "locais": {
   "https://carreirasype.gupy.io/jobs/12876538": {
    "lat": -22.7,
@@ -9,16 +9,6 @@
   "https://carreirasype.gupy.io/jobs/12847666": {
    "lat": -22.7,
    "lon": -46.76,
-   "em": "2026-11-24"
-  },
-  "https://casp.gupy.io/jobs/12876687": {
-   "lat": -22.71,
-   "lon": -46.78,
-   "em": "2026-11-24"
-  },
-  "https://casp.gupy.io/jobs/12595938": {
-   "lat": -22.71,
-   "lon": -46.78,
    "em": "2026-11-24"
   },
   "https://lojastorra.gupy.io/jobs/12534868": {
@@ -56,21 +46,6 @@
    "lon": -46.35,
    "em": "2026-11-24"
   },
-  "https://roldao.gupy.io/jobs/12758374": {
-   "lat": -23.12,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
-  "https://roldao.gupy.io/jobs/11983031": {
-   "lat": -23.12,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
-  "https://roldao.gupy.io/jobs/11983044": {
-   "lat": -23.12,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
   "https://swift.gupy.io/jobs/12847226": {
    "lat": -23.12,
    "lon": -46.55,
@@ -81,19 +56,9 @@
    "lon": -46.59,
    "em": "2026-11-24"
   },
-  "https://roldao.gupy.io/jobs/12690517": {
-   "lat": -23.12,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
   "https://grupodestaque.gupy.io/jobs/12471229": {
    "lat": -23.12,
    "lon": -46.56,
-   "em": "2026-11-24"
-  },
-  "https://rededor.gupy.io/jobs/12643730": {
-   "lat": -23.12,
-   "lon": -46.54,
    "em": "2026-11-24"
   },
   "https://dexco.gupy.io/jobs/12444276": {
@@ -146,64 +111,14 @@
    "lon": -46.85,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12921403": {
-   "lat": -23.5,
-   "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12904725": {
-   "lat": -23.48,
-   "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12904908": {
-   "lat": -23.49,
-   "lon": -46.87,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12892244": {
-   "lat": -23.48,
-   "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://valgroup.gupy.io/jobs/12862456": {
-   "lat": -23.31,
-   "lon": -47.13,
-   "em": "2026-11-24"
-  },
   "https://valgroup.gupy.io/jobs/12788071": {
    "lat": -23.26,
    "lon": -47.11,
    "em": "2026-11-24"
   },
-  "https://zaraplast.gupy.io/jobs/7000572": {
-   "lat": -23.28,
-   "lon": -47.11,
-   "em": "2026-11-24"
-  },
-  "https://zaraplast.gupy.io/jobs/12622192": {
-   "lat": -23.28,
-   "lon": -47.11,
-   "em": "2026-11-24"
-  },
-  "https://hapvidandi.gupy.io/jobs/12837782": {
-   "lat": -23.36,
-   "lon": -46.74,
-   "em": "2026-11-24"
-  },
-  "https://swift.gupy.io/jobs/12835252": {
-   "lat": -23.37,
-   "lon": -46.75,
-   "em": "2026-11-24"
-  },
   "https://swift.gupy.io/jobs/12752571": {
    "lat": -23.4,
    "lon": -46.72,
-   "em": "2026-11-24"
-  },
-  "https://prumoengenharia.gupy.io/jobs/12686164": {
-   "lat": -23.36,
-   "lon": -46.74,
    "em": "2026-11-24"
   },
   "https://prumoengenharia.gupy.io/jobs/12040301": {
@@ -216,19 +131,9 @@
    "lon": -46.75,
    "em": "2026-11-24"
   },
-  "https://prumoengenharia.gupy.io/jobs/11847934": {
-   "lat": -23.36,
-   "lon": -46.74,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12912398": {
    "lat": -23.4,
    "lon": -46.86,
-   "em": "2026-11-24"
-  },
-  "https://winnerrh.gupy.io/jobs/12807647": {
-   "lat": -23.36,
-   "lon": -46.85,
    "em": "2026-11-24"
   },
   "https://gpa.gupy.io/jobs/12782281": {
@@ -239,11 +144,6 @@
   "https://aprendizoxxobrasil.gupy.io/jobs/11489377": {
    "lat": -23.36,
    "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12584969": {
-   "lat": -23.4,
-   "lon": -46.86,
    "em": "2026-11-24"
   },
   "https://assai.gupy.io/jobs/12916520": {
@@ -261,17 +161,7 @@
    "lon": -46.86,
    "em": "2026-11-24"
   },
-  "https://stmarche.gupy.io/jobs/12799309": {
-   "lat": -22.89,
-   "lon": -47.03,
-   "em": "2026-11-24"
-  },
   "https://stmarche.gupy.io/jobs/12798332": {
-   "lat": -22.89,
-   "lon": -47.03,
-   "em": "2026-11-24"
-  },
-  "https://stmarche.gupy.io/jobs/12799239": {
    "lat": -22.89,
    "lon": -47.03,
    "em": "2026-11-24"
@@ -301,29 +191,9 @@
    "lon": -47.03,
    "em": "2026-11-24"
   },
-  "https://stmarche.gupy.io/jobs/12423865": {
-   "lat": -22.89,
-   "lon": -47.03,
-   "em": "2026-11-24"
-  },
   "https://stmarche.gupy.io/jobs/12317127": {
    "lat": -22.89,
    "lon": -47.03,
-   "em": "2026-11-24"
-  },
-  "https://autoglasslojas.gupy.io/jobs/11921270": {
-   "lat": -22.88,
-   "lon": -47.07,
-   "em": "2026-11-24"
-  },
-  "https://sommarh.gupy.io/jobs/12922835": {
-   "lat": -22.93,
-   "lon": -47.07,
-   "em": "2026-11-24"
-  },
-  "https://afip.gupy.io/jobs/12755722": {
-   "lat": -23.21,
-   "lon": -46.78,
    "em": "2026-11-24"
   },
   "https://hapvidandi.gupy.io/jobs/12804831": {
@@ -351,16 +221,6 @@
    "lon": -46.84,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12870648": {
-   "lat": -23.52,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12749513": {
-   "lat": -23.52,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
   "https://petz.gupy.io/jobs/12544010": {
    "lat": -23.55,
    "lon": -46.84,
@@ -377,11 +237,6 @@
    "em": "2026-11-24"
   },
   "https://concrejato.gupy.io/jobs/12872715": {
-   "lat": -23.52,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://assai.gupy.io/jobs/12851058": {
    "lat": -23.52,
    "lon": -46.83,
    "em": "2026-11-24"
@@ -409,21 +264,6 @@
   "https://ambev.gupy.io/jobs/12801984": {
    "lat": -23.52,
    "lon": -46.86,
-   "em": "2026-11-24"
-  },
-  "https://concrejato.gupy.io/jobs/12728028": {
-   "lat": -23.52,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://assai.gupy.io/jobs/12747610": {
-   "lat": -23.52,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://assai.gupy.io/jobs/12749792": {
-   "lat": -23.52,
-   "lon": -46.83,
    "em": "2026-11-24"
   },
   "https://afip.gupy.io/jobs/12864664": {
@@ -476,16 +316,6 @@
    "lon": -46.41,
    "em": "2026-11-24"
   },
-  "https://tpc.gupy.io/jobs/12707729": {
-   "lat": -23.87,
-   "lon": -46.43,
-   "em": "2026-11-24"
-  },
-  "https://afip.gupy.io/jobs/12722266": {
-   "lat": -23.88,
-   "lon": -46.41,
-   "em": "2026-11-24"
-  },
   "https://digitalgpa.gupy.io/jobs/12905655": {
    "lat": -23.69,
    "lon": -46.59,
@@ -496,29 +326,14 @@
    "lon": -46.61,
    "em": "2026-11-24"
   },
-  "https://martgroup.gupy.io/jobs/12569872": {
-   "lat": -23.7,
-   "lon": -46.61,
-   "em": "2026-11-24"
-  },
   "https://timax.gupy.io/jobs/12920908": {
    "lat": -23.67,
    "lon": -46.62,
    "em": "2026-11-24"
   },
-  "https://assai.gupy.io/jobs/12901723": {
-   "lat": -23.69,
-   "lon": -46.59,
-   "em": "2026-11-24"
-  },
   "https://assai.gupy.io/jobs/12874925": {
    "lat": -23.69,
    "lon": -46.59,
-   "em": "2026-11-24"
-  },
-  "https://secpower.gupy.io/jobs/12857855": {
-   "lat": -23.67,
-   "lon": -46.62,
    "em": "2026-11-24"
   },
   "https://assai.gupy.io/jobs/12827642": {
@@ -529,11 +344,6 @@
   "https://petz.gupy.io/jobs/12802523": {
    "lat": -23.68,
    "lon": -46.62,
-   "em": "2026-11-24"
-  },
-  "https://piracicabana.gupy.io/jobs/12763609": {
-   "lat": -23.68,
-   "lon": -46.59,
    "em": "2026-11-24"
   },
   "https://assai.gupy.io/jobs/12722029": {
@@ -551,21 +361,6 @@
    "lon": -46.61,
    "em": "2026-11-24"
   },
-  "https://arborevagas.gupy.io/jobs/12689334": {
-   "lat": -23.7,
-   "lon": -46.59,
-   "em": "2026-11-24"
-  },
-  "https://vivaralojas.gupy.io/jobs/12150399": {
-   "lat": -23.69,
-   "lon": -46.62,
-   "em": "2026-11-24"
-  },
-  "https://leomadeiras.gupy.io/jobs/12685981": {
-   "lat": -23.68,
-   "lon": -46.63,
-   "em": "2026-11-24"
-  },
   "https://sommarh.gupy.io/jobs/12568064": {
    "lat": -23.11,
    "lon": -47.34,
@@ -573,11 +368,6 @@
   },
   "https://impaktosistemasdelimpeza.gupy.io/jobs/12922734": {
    "lat": -23.62,
-   "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12914918": {
-   "lat": -23.66,
    "lon": -46.85,
    "em": "2026-11-24"
   },
@@ -621,17 +411,7 @@
    "lon": -46.74,
    "em": "2026-11-24"
   },
-  "https://caedu.gupy.io/jobs/12864156": {
-   "lat": -23.28,
-   "lon": -46.74,
-   "em": "2026-11-24"
-  },
   "https://restaurantemc.gupy.io/jobs/12785846": {
-   "lat": -23.33,
-   "lon": -46.73,
-   "em": "2026-11-24"
-  },
-  "https://orthopride.gupy.io/jobs/12783166": {
    "lat": -23.33,
    "lon": -46.73,
    "em": "2026-11-24"
@@ -641,34 +421,9 @@
    "lon": -46.53,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12898912": {
-   "lat": -23.45,
-   "lon": -46.56,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12872693": {
-   "lat": -23.47,
-   "lon": -46.53,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12872674": {
-   "lat": -23.47,
-   "lon": -46.53,
-   "em": "2026-11-24"
-  },
-  "https://grupomoas.gupy.io/jobs/12862931": {
-   "lat": -23.46,
-   "lon": -46.45,
-   "em": "2026-11-24"
-  },
   "https://braveo.gupy.io/jobs/12898690": {
    "lat": -22.9,
    "lon": -47.21,
-   "em": "2026-11-24"
-  },
-  "https://premierpet.gupy.io/jobs/12682046": {
-   "lat": -22.9,
-   "lon": -47.2,
    "em": "2026-11-24"
   },
   "https://orthodontic.gupy.io/jobs/12613341": {
@@ -746,44 +501,9 @@
    "lon": -47.21,
    "em": "2026-11-24"
   },
-  "https://goldpao.gupy.io/jobs/12745095": {
-   "lat": -23.11,
-   "lon": -47.21,
-   "em": "2026-11-24"
-  },
-  "https://roldao.gupy.io/jobs/12330993": {
-   "lat": -23.08,
-   "lon": -47.2,
-   "em": "2026-11-24"
-  },
-  "https://eletrobidu.gupy.io/jobs/12724615": {
-   "lat": -23.09,
-   "lon": -47.19,
-   "em": "2026-11-24"
-  },
-  "https://roldao.gupy.io/jobs/11982412": {
-   "lat": -23.08,
-   "lon": -47.2,
-   "em": "2026-11-24"
-  },
-  "https://vagasconfidenciais789.gupy.io/jobs/12584367": {
-   "lat": -22.59,
-   "lon": -47.52,
-   "em": "2026-11-24"
-  },
   "https://hapvidandi.gupy.io/jobs/12830725": {
    "lat": -22.59,
    "lon": -47.52,
-   "em": "2026-11-24"
-  },
-  "https://refrio.gupy.io/jobs/6564416": {
-   "lat": -23.75,
-   "lon": -46.9,
-   "em": "2026-11-24"
-  },
-  "https://seconci-sp.gupy.io/jobs/12868572": {
-   "lat": -23.7,
-   "lon": -46.85,
    "em": "2026-11-24"
   },
   "https://apoioadministrativo.gupy.io/jobs/11411781": {
@@ -801,22 +521,12 @@
    "lon": -46.97,
    "em": "2026-11-24"
   },
-  "https://restaurantemc.gupy.io/jobs/12921715": {
-   "lat": -23.55,
-   "lon": -46.93,
-   "em": "2026-11-24"
-  },
   "https://restaurantemc.gupy.io/jobs/12864130": {
    "lat": -23.55,
    "lon": -46.93,
    "em": "2026-11-24"
   },
   "https://cacaushow-intensidade.gupy.io/jobs/12754827": {
-   "lat": -23.52,
-   "lon": -46.97,
-   "em": "2026-11-24"
-  },
-  "https://cacaushow-lojas.gupy.io/jobs/12547164": {
    "lat": -23.52,
    "lon": -46.97,
    "em": "2026-11-24"
@@ -836,11 +546,6 @@
    "lon": -46.94,
    "em": "2026-11-24"
   },
-  "https://cacaushow.gupy.io/jobs/9940219": {
-   "lat": -23.52,
-   "lon": -46.97,
-   "em": "2026-11-24"
-  },
   "https://alplacarreiras.gupy.io/jobs/12874204": {
    "lat": -23.54,
    "lon": -46.93,
@@ -852,11 +557,6 @@
    "em": "2026-11-24"
   },
   "https://cacaushow-lojas.gupy.io/jobs/12864674": {
-   "lat": -23.52,
-   "lon": -46.97,
-   "em": "2026-11-24"
-  },
-  "https://cacaushow-lojas.gupy.io/jobs/12682998": {
    "lat": -23.52,
    "lon": -46.97,
    "em": "2026-11-24"
@@ -901,21 +601,6 @@
    "lon": -46.33,
    "em": "2026-11-24"
   },
-  "https://grupolondres.gupy.io/jobs/12874015": {
-   "lat": -23.48,
-   "lon": -46.35,
-   "em": "2026-11-24"
-  },
-  "https://jsl.gupy.io/jobs/12846135": {
-   "lat": -23.46,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://jsl.gupy.io/jobs/12499400": {
-   "lat": -23.46,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
   "https://restaurantemc.gupy.io/jobs/12805965": {
    "lat": -23.49,
    "lon": -46.35,
@@ -924,21 +609,6 @@
   "https://spani.gupy.io/jobs/12787891": {
    "lat": -23.43,
    "lon": -46.33,
-   "em": "2026-11-24"
-  },
-  "https://farmetc.gupy.io/jobs/12701630": {
-   "lat": -23.44,
-   "lon": -46.27,
-   "em": "2026-11-24"
-  },
-  "https://farmetc.gupy.io/jobs/12701554": {
-   "lat": -23.44,
-   "lon": -46.27,
-   "em": "2026-11-24"
-  },
-  "https://csbrasil.gupy.io/jobs/12654123": {
-   "lat": -23.48,
-   "lon": -46.3,
    "em": "2026-11-24"
   },
   "https://offpremium.gupy.io/jobs/12519941": {
@@ -961,29 +631,9 @@
    "lon": -46.36,
    "em": "2026-11-24"
   },
-  "https://grupolondres.gupy.io/jobs/12873680": {
-   "lat": -23.48,
-   "lon": -46.35,
-   "em": "2026-11-24"
-  },
   "https://spani.gupy.io/jobs/12830739": {
    "lat": -23.43,
    "lon": -46.33,
-   "em": "2026-11-24"
-  },
-  "https://grupolondres.gupy.io/jobs/12841072": {
-   "lat": -23.48,
-   "lon": -46.35,
-   "em": "2026-11-24"
-  },
-  "https://grupolondres.gupy.io/jobs/12841252": {
-   "lat": -23.48,
-   "lon": -46.35,
-   "em": "2026-11-24"
-  },
-  "https://grupolondres.gupy.io/jobs/12838109": {
-   "lat": -23.48,
-   "lon": -46.35,
    "em": "2026-11-24"
   },
   "https://spani.gupy.io/jobs/12787869": {
@@ -999,11 +649,6 @@
   "https://grupolondres.gupy.io/jobs/12749736": {
    "lat": -23.48,
    "lon": -46.35,
-   "em": "2026-11-24"
-  },
-  "https://swift.gupy.io/jobs/12860033": {
-   "lat": -23.01,
-   "lon": -46.84,
    "em": "2026-11-24"
   },
   "https://petz.gupy.io/jobs/12780629": {
@@ -1051,26 +696,6 @@
    "lon": -47.3,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12754823": {
-   "lat": -23.26,
-   "lon": -47.3,
-   "em": "2026-11-24"
-  },
-  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12740286": {
-   "lat": -23.28,
-   "lon": -47.29,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12692468": {
-   "lat": -23.26,
-   "lon": -47.3,
-   "em": "2026-11-24"
-  },
-  "https://docedoce.gupy.io/jobs/12574347": {
-   "lat": -23.27,
-   "lon": -47.3,
-   "em": "2026-11-24"
-  },
   "https://roldao.gupy.io/jobs/12376638": {
    "lat": -23.27,
    "lon": -47.31,
@@ -1091,32 +716,12 @@
    "lon": -47.3,
    "em": "2026-11-24"
   },
-  "https://passaporte-franquias-cvc.gupy.io/jobs/5431850": {
-   "lat": -23.27,
-   "lon": -47.28,
-   "em": "2026-11-24"
-  },
-  "https://vivaralojas.gupy.io/jobs/12618101": {
-   "lat": -23.26,
-   "lon": -47.28,
-   "em": "2026-11-24"
-  },
-  "https://htn.gupy.io/jobs/4783994": {
-   "lat": -23.27,
-   "lon": -47.3,
-   "em": "2026-11-24"
-  },
   "https://kuehne-nagel.gupy.io/jobs/12912108": {
    "lat": -23.06,
    "lon": -47.05,
    "em": "2026-11-24"
   },
   "https://restaurantemc.gupy.io/jobs/12880304": {
-   "lat": -23.16,
-   "lon": -47.05,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12880297": {
    "lat": -23.16,
    "lon": -47.05,
    "em": "2026-11-24"
@@ -1129,11 +734,6 @@
   "https://r2pharma.gupy.io/jobs/12689268": {
    "lat": -23.17,
    "lon": -47.08,
-   "em": "2026-11-24"
-  },
-  "https://inbrands.gupy.io/jobs/12724397": {
-   "lat": -23.12,
-   "lon": -47.01,
    "em": "2026-11-24"
   },
   "https://farmetc.gupy.io/jobs/12672105": {
@@ -1201,19 +801,9 @@
    "lon": -46.89,
    "em": "2026-11-24"
   },
-  "https://yamaha.gupy.io/jobs/12642367": {
-   "lat": -23.52,
-   "lon": -46.91,
-   "em": "2026-11-24"
-  },
   "https://roldao.gupy.io/jobs/11176275": {
    "lat": -23.53,
    "lon": -46.89,
-   "em": "2026-11-24"
-  },
-  "https://vempramwm.gupy.io/jobs/12807228": {
-   "lat": -23.15,
-   "lon": -47,
    "em": "2026-11-24"
   },
   "https://brasifmaquinas.gupy.io/jobs/12685639": {
@@ -1241,11 +831,6 @@
    "lon": -46.94,
    "em": "2026-11-24"
   },
-  "https://dexco.gupy.io/jobs/12790517": {
-   "lat": -23.16,
-   "lon": -46.93,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12764301": {
    "lat": -23.19,
    "lon": -46.89,
@@ -1256,39 +841,9 @@
    "lon": -46.93,
    "em": "2026-11-24"
   },
-  "https://roldao.gupy.io/jobs/12740987": {
-   "lat": -23.19,
-   "lon": -46.88,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12741672": {
-   "lat": -23.2,
-   "lon": -46.89,
-   "em": "2026-11-24"
-  },
-  "https://japi-sa-industria-comercio.gupy.io/jobs/12720926": {
-   "lat": -23.16,
-   "lon": -46.96,
-   "em": "2026-11-24"
-  },
-  "https://dexco.gupy.io/jobs/12693403": {
-   "lat": -23.16,
-   "lon": -46.93,
-   "em": "2026-11-24"
-  },
-  "https://dexcoaprendiz.gupy.io/jobs/12690291": {
-   "lat": -23.16,
-   "lon": -46.93,
-   "em": "2026-11-24"
-  },
   "https://hapvidandi.gupy.io/jobs/12863410": {
    "lat": -22.56,
    "lon": -47.41,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12622108": {
-   "lat": -22.58,
-   "lon": -47.42,
    "em": "2026-11-24"
   },
   "https://estagiarioseaprendizesgpa.gupy.io/jobs/11983933": {
@@ -1296,34 +851,9 @@
    "lon": -47.42,
    "em": "2026-11-24"
   },
-  "https://imediatonexway.gupy.io/jobs/12862507": {
-   "lat": -23.08,
-   "lon": -46.97,
-   "em": "2026-11-24"
-  },
-  "https://imediatonexway.gupy.io/jobs/12805008": {
-   "lat": -23.08,
-   "lon": -46.97,
-   "em": "2026-11-24"
-  },
   "https://intralog.gupy.io/jobs/12848302": {
    "lat": -23.1,
    "lon": -46.97,
-   "em": "2026-11-24"
-  },
-  "https://alplacarreiras.gupy.io/jobs/6706529": {
-   "lat": -23.09,
-   "lon": -46.95,
-   "em": "2026-11-24"
-  },
-  "https://swift.gupy.io/jobs/12453431": {
-   "lat": -23.32,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
-  "https://tglog.gupy.io/jobs/12835731": {
-   "lat": -23.72,
-   "lon": -46.49,
    "em": "2026-11-24"
   },
   "https://rededor.gupy.io/jobs/12817130": {
@@ -1341,11 +871,6 @@
    "lon": -46.47,
    "em": "2026-11-24"
   },
-  "https://restaurantemc.gupy.io/jobs/12900233": {
-   "lat": -23.66,
-   "lon": -46.43,
-   "em": "2026-11-24"
-  },
   "https://restaurantemc.gupy.io/jobs/12899791": {
    "lat": -23.66,
    "lon": -46.43,
@@ -1361,11 +886,6 @@
    "lon": -46.49,
    "em": "2026-11-24"
   },
-  "https://tglog.gupy.io/jobs/12869736": {
-   "lat": -23.72,
-   "lon": -46.49,
-   "em": "2026-11-24"
-  },
   "https://petz.gupy.io/jobs/12861402": {
    "lat": -23.66,
    "lon": -46.47,
@@ -1374,11 +894,6 @@
   "https://rededor.gupy.io/jobs/12831399": {
    "lat": -23.67,
    "lon": -46.45,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12783487": {
-   "lat": -23.67,
-   "lon": -46.46,
    "em": "2026-11-24"
   },
   "https://vivaralojas.gupy.io/jobs/12879918": {
@@ -1476,36 +991,6 @@
    "lon": -46.77,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12904424": {
-   "lat": -23.53,
-   "lon": -46.79,
-   "em": "2026-11-24"
-  },
-  "https://petz.gupy.io/jobs/12894795": {
-   "lat": -23.55,
-   "lon": -46.78,
-   "em": "2026-11-24"
-  },
-  "https://carreirasdecathlon.gupy.io/jobs/12898427": {
-   "lat": -23.54,
-   "lon": -46.76,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896636": {
-   "lat": -23.53,
-   "lon": -46.78,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12889662": {
-   "lat": -23.53,
-   "lon": -46.79,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12846617": {
-   "lat": -23.53,
-   "lon": -46.79,
-   "em": "2026-11-24"
-  },
   "https://orizon.gupy.io/jobs/12878590": {
    "lat": -22.78,
    "lon": -47.2,
@@ -1522,11 +1007,6 @@
    "em": "2026-11-24"
   },
   "https://mills.gupy.io/jobs/12898321": {
-   "lat": -22.79,
-   "lon": -47.14,
-   "em": "2026-11-24"
-  },
-  "https://petz.gupy.io/jobs/12666694": {
    "lat": -22.79,
    "lon": -47.14,
    "em": "2026-11-24"
@@ -1571,16 +1051,6 @@
    "lon": -47.11,
    "em": "2026-11-24"
   },
-  "https://glasscamp.gupy.io/jobs/8472323": {
-   "lat": -22.79,
-   "lon": -47.11,
-   "em": "2026-11-24"
-  },
-  "https://vagasultragaz.gupy.io/jobs/12733713": {
-   "lat": -22.71,
-   "lon": -47.14,
-   "em": "2026-11-24"
-  },
   "https://fortbras.gupy.io/jobs/12799330": {
    "lat": -22.77,
    "lon": -47.16,
@@ -1616,19 +1086,9 @@
    "lon": -47.66,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12803109": {
-   "lat": -22.73,
-   "lon": -47.64,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12768625": {
    "lat": -22.73,
    "lon": -47.66,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12604124": {
-   "lat": -22.73,
-   "lon": -47.64,
    "em": "2026-11-24"
   },
   "https://vagasmaispetoficial.gupy.io/jobs/12923026": {
@@ -1666,27 +1126,12 @@
    "lon": -47.65,
    "em": "2026-11-24"
   },
-  "https://swift.gupy.io/jobs/12835190": {
-   "lat": -22.71,
-   "lon": -47.65,
-   "em": "2026-11-24"
-  },
-  "https://shoulder.gupy.io/jobs/12508536": {
-   "lat": -22.7,
-   "lon": -47.65,
-   "em": "2026-11-24"
-  },
   "https://caedu.gupy.io/jobs/12907207": {
    "lat": -23.52,
    "lon": -46.34,
    "em": "2026-11-24"
   },
   "https://fortbras.gupy.io/jobs/12826050": {
-   "lat": -23.52,
-   "lon": -46.34,
-   "em": "2026-11-24"
-  },
-  "https://fortbras.gupy.io/jobs/11952226": {
    "lat": -23.52,
    "lon": -46.34,
    "em": "2026-11-24"
@@ -1701,11 +1146,6 @@
    "lon": -46.49,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12900901": {
-   "lat": -24.04,
-   "lon": -46.51,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12898685": {
    "lat": -24.03,
    "lon": -46.48,
@@ -1716,11 +1156,6 @@
    "lon": -46.48,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12895858": {
-   "lat": -24.04,
-   "lon": -46.51,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12899416": {
    "lat": -24.01,
    "lon": -46.43,
@@ -1729,46 +1164,6 @@
   "https://gpa.gupy.io/jobs/12895663": {
    "lat": -24.01,
    "lon": -46.41,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896801": {
-   "lat": -24.02,
-   "lon": -46.46,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895355": {
-   "lat": -24.01,
-   "lon": -46.42,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895838": {
-   "lat": -24.02,
-   "lon": -46.4,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12897534": {
-   "lat": -24.02,
-   "lon": -46.4,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896341": {
-   "lat": -24.01,
-   "lon": -46.41,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896657": {
-   "lat": -24.03,
-   "lon": -46.48,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12897361": {
-   "lat": -24.02,
-   "lon": -46.46,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896219": {
-   "lat": -24.01,
-   "lon": -46.42,
    "em": "2026-11-24"
   },
   "https://gpa.gupy.io/jobs/12743811": {
@@ -1786,54 +1181,9 @@
    "lon": -46.41,
    "em": "2026-11-24"
   },
-  "https://swift.gupy.io/jobs/12895705": {
-   "lat": -22.42,
-   "lon": -47.57,
-   "em": "2026-11-24"
-  },
   "https://restaurantemc.gupy.io/jobs/12915100": {
    "lat": -22.41,
    "lon": -47.55,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12914596": {
-   "lat": -22.41,
-   "lon": -47.55,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12914626": {
-   "lat": -22.41,
-   "lon": -47.55,
-   "em": "2026-11-24"
-  },
-  "https://vemserbrascabos.gupy.io/jobs/12865140": {
-   "lat": -22.39,
-   "lon": -47.56,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12897588": {
-   "lat": -22.39,
-   "lon": -47.56,
-   "em": "2026-11-24"
-  },
-  "https://centaurotalentos.gupy.io/jobs/12879711": {
-   "lat": -22.42,
-   "lon": -47.55,
-   "em": "2026-11-24"
-  },
-  "https://assai.gupy.io/jobs/12858441": {
-   "lat": -22.42,
-   "lon": -47.59,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12905839": {
-   "lat": -23.2,
-   "lon": -47.3,
-   "em": "2026-11-24"
-  },
-  "https://eucatex.gupy.io/jobs/12753886": {
-   "lat": -23.21,
-   "lon": -47.28,
    "em": "2026-11-24"
   },
   "https://passaporte-franquias-cvc.gupy.io/jobs/12738367": {
@@ -1891,11 +1241,6 @@
    "lon": -46.88,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12890581": {
-   "lat": -23.46,
-   "lon": -46.88,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12882332": {
    "lat": -23.46,
    "lon": -46.88,
@@ -1916,37 +1261,12 @@
    "lon": -46.87,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12835572": {
-   "lat": -23.46,
-   "lon": -46.88,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12759657": {
-   "lat": -23.46,
-   "lon": -46.88,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12759174": {
-   "lat": -23.46,
-   "lon": -46.88,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12736384": {
    "lat": -23.46,
    "lon": -46.88,
    "em": "2026-11-24"
   },
-  "https://implacil.gupy.io/jobs/12649889": {
-   "lat": -23.47,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
   "https://cinemark.gupy.io/jobs/12915177": {
-   "lat": -23.66,
-   "lon": -46.51,
-   "em": "2026-11-24"
-  },
-  "https://vemprotime.gupy.io/jobs/12913692": {
    "lat": -23.66,
    "lon": -46.51,
    "em": "2026-11-24"
@@ -1981,49 +1301,14 @@
    "lon": -46.51,
    "em": "2026-11-24"
   },
-  "https://vagasjobsconfidenciais.gupy.io/jobs/12799881": {
-   "lat": -23.67,
-   "lon": -46.51,
-   "em": "2026-11-24"
-  },
   "https://rededor.gupy.io/jobs/12816935": {
    "lat": -23.63,
    "lon": -46.52,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12779798": {
-   "lat": -23.67,
-   "lon": -46.54,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12779852": {
    "lat": -23.67,
    "lon": -46.54,
-   "em": "2026-11-24"
-  },
-  "https://rededor.gupy.io/jobs/12727348": {
-   "lat": -23.63,
-   "lon": -46.52,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12705207": {
-   "lat": -23.67,
-   "lon": -46.55,
-   "em": "2026-11-24"
-  },
-  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12682413": {
-   "lat": -23.67,
-   "lon": -46.54,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12661398": {
-   "lat": -23.65,
-   "lon": -46.54,
-   "em": "2026-11-24"
-  },
-  "https://rededor.gupy.io/jobs/12552281": {
-   "lat": -23.66,
-   "lon": -46.53,
    "em": "2026-11-24"
   },
   "https://stmarche.gupy.io/jobs/12900908": {
@@ -2056,134 +1341,14 @@
    "lon": -46.31,
    "em": "2026-11-24"
   },
-  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12904585": {
-   "lat": -23.94,
-   "lon": -46.37,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12908594": {
    "lat": -23.98,
    "lon": -46.3,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12902205": {
-   "lat": -23.97,
-   "lon": -46.34,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895645": {
-   "lat": -23.98,
-   "lon": -46.32,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12892233": {
    "lat": -23.98,
    "lon": -46.32,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895692": {
-   "lat": -23.97,
-   "lon": -46.34,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895659": {
-   "lat": -23.98,
-   "lon": -46.32,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12896703": {
-   "lat": -23.98,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12891957": {
-   "lat": -23.97,
-   "lon": -46.34,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895508": {
-   "lat": -23.95,
-   "lon": -46.32,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12895920": {
-   "lat": -23.97,
-   "lon": -46.34,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12882844": {
-   "lat": -23.97,
-   "lon": -46.33,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12891953": {
-   "lat": -23.99,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12892246": {
-   "lat": -23.99,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12808642": {
-   "lat": -23.98,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12891577": {
-   "lat": -23.98,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
-  "https://validcarreiras-jovenstalentos.gupy.io/jobs/12916501": {
-   "lat": -23.54,
-   "lon": -47.52,
-   "em": "2026-11-24"
-  },
-  "https://validcarreiras-jovenstalentos.gupy.io/jobs/12913929": {
-   "lat": -23.54,
-   "lon": -47.52,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12887913": {
-   "lat": -23.52,
-   "lon": -47.46,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12889572": {
-   "lat": -23.48,
-   "lon": -47.46,
-   "em": "2026-11-24"
-  },
-  "https://petz.gupy.io/jobs/12877924": {
-   "lat": -23.49,
-   "lon": -47.45,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12874506": {
-   "lat": -23.48,
-   "lon": -47.46,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12812055": {
-   "lat": -23.48,
-   "lon": -47.46,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12784854": {
-   "lat": -23.49,
-   "lon": -47.44,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12775247": {
-   "lat": -23.49,
-   "lon": -47.41,
-   "em": "2026-11-24"
-  },
-  "https://martgroup.gupy.io/jobs/12724606": {
-   "lat": -23.44,
-   "lon": -47.39,
    "em": "2026-11-24"
   },
   "https://mills.gupy.io/jobs/12913302": {
@@ -2216,11 +1381,6 @@
    "lon": -47.27,
    "em": "2026-11-24"
   },
-  "https://lojasrenner.gupy.io/jobs/12661186": {
-   "lat": -22.83,
-   "lon": -47.27,
-   "em": "2026-11-24"
-  },
   "https://casadoconstrutortriade19.gupy.io/jobs/12096735": {
    "lat": -22.83,
    "lon": -47.27,
@@ -2241,11 +1401,6 @@
    "lon": -46.31,
    "em": "2026-11-24"
   },
-  "https://passaporte-franquias-cvc.gupy.io/jobs/5401926": {
-   "lat": -23.54,
-   "lon": -46.31,
-   "em": "2026-11-24"
-  },
   "https://htn.gupy.io/jobs/12808038": {
    "lat": -23.54,
    "lon": -46.31,
@@ -2254,11 +1409,6 @@
   "https://3cservices.gupy.io/jobs/12862960": {
    "lat": -23.67,
    "lon": -46.59,
-   "em": "2026-11-24"
-  },
-  "https://autoglasslojas.gupy.io/jobs/11264110": {
-   "lat": -23.72,
-   "lon": -46.56,
    "em": "2026-11-24"
   },
   "https://vemseroxxo.gupy.io/jobs/12833805": {
@@ -2301,11 +1451,6 @@
    "lon": -46.55,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12168184": {
-   "lat": -23.66,
-   "lon": -46.57,
-   "em": "2026-11-24"
-  },
   "https://cinemark.gupy.io/jobs/11395734": {
    "lat": -23.67,
    "lon": -46.57,
@@ -2321,41 +1466,6 @@
    "lon": -46.57,
    "em": "2026-11-24"
   },
-  "https://restaurantemc.gupy.io/jobs/12915599": {
-   "lat": -23.71,
-   "lon": -46.6,
-   "em": "2026-11-24"
-  },
-  "https://localiza.gupy.io/jobs/12903355": {
-   "lat": -23.69,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12916890": {
-   "lat": -23.71,
-   "lon": -46.6,
-   "em": "2026-11-24"
-  },
-  "https://restaurantemc.gupy.io/jobs/12916936": {
-   "lat": -23.71,
-   "lon": -46.6,
-   "em": "2026-11-24"
-  },
-  "https://swift.gupy.io/jobs/12896202": {
-   "lat": -23.71,
-   "lon": -46.58,
-   "em": "2026-11-24"
-  },
-  "https://rededor.gupy.io/jobs/12908507": {
-   "lat": -23.71,
-   "lon": -46.55,
-   "em": "2026-11-24"
-  },
-  "https://hapvidandi.gupy.io/jobs/12896966": {
-   "lat": -23.67,
-   "lon": -46.56,
-   "em": "2026-11-24"
-  },
   "https://atento.gupy.io/jobs/12912612": {
    "lat": -23.61,
    "lon": -46.57,
@@ -2364,11 +1474,6 @@
   "https://vemseroxxo.gupy.io/jobs/12825906": {
    "lat": -23.62,
    "lon": -46.56,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12862531": {
-   "lat": -23.65,
-   "lon": -46.58,
    "em": "2026-11-24"
   },
   "https://stmarche.gupy.io/jobs/12881458": {
@@ -2471,16 +1576,6 @@
    "lon": -46.35,
    "em": "2026-11-24"
   },
-  "https://gpa.gupy.io/jobs/12892436": {
-   "lat": -23.95,
-   "lon": -46.47,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12892428": {
-   "lat": -23.95,
-   "lon": -46.47,
-   "em": "2026-11-24"
-  },
   "https://gpa.gupy.io/jobs/12897679": {
    "lat": -23.95,
    "lon": -46.47,
@@ -2521,11 +1616,6 @@
    "lon": -46.78,
    "em": "2026-11-24"
   },
-  "https://hgp.gupy.io/jobs/12792831": {
-   "lat": -23.64,
-   "lon": -46.81,
-   "em": "2026-11-24"
-  },
   "https://hgp.gupy.io/jobs/12920631": {
    "lat": -23.64,
    "lon": -46.81,
@@ -2536,34 +1626,14 @@
    "lon": -46.76,
    "em": "2026-11-24"
   },
-  "https://restaurantemc.gupy.io/jobs/12762765": {
-   "lat": -23.61,
-   "lon": -46.76,
-   "em": "2026-11-24"
-  },
-  "https://petz.gupy.io/jobs/12550688": {
-   "lat": -23.61,
-   "lon": -46.76,
-   "em": "2026-11-24"
-  },
   "https://hgp.gupy.io/jobs/12916709": {
    "lat": -23.64,
    "lon": -46.81,
    "em": "2026-11-24"
   },
-  "https://cinpal.gupy.io/jobs/12849731": {
-   "lat": -23.62,
-   "lon": -46.78,
-   "em": "2026-11-24"
-  },
   "https://unifecaf.gupy.io/jobs/12901119": {
    "lat": -23.61,
    "lon": -46.77,
-   "em": "2026-11-24"
-  },
-  "https://unifecaf.gupy.io/jobs/12728006": {
-   "lat": -23.61,
-   "lon": -46.76,
    "em": "2026-11-24"
   },
   "https://unifecaf.gupy.io/jobs/12623873": {
@@ -2577,11 +1647,6 @@
    "em": "2026-11-24"
   },
   "https://gpa.gupy.io/jobs/12877881": {
-   "lat": -22.98,
-   "lon": -47.01,
-   "em": "2026-11-24"
-  },
-  "https://gpa.gupy.io/jobs/12877843": {
    "lat": -22.98,
    "lon": -47.01,
    "em": "2026-11-24"
@@ -2611,22 +1676,7 @@
    "lon": -46.99,
    "em": "2026-11-24"
   },
-  "https://contactus.gupy.io/jobs/12895146": {
-   "lat": -22.97,
-   "lon": -47,
-   "em": "2026-11-24"
-  },
-  "https://vivaralojas.gupy.io/jobs/12746707": {
-   "lat": -22.98,
-   "lon": -47.01,
-   "em": "2026-11-24"
-  },
   "https://megag.gupy.io/jobs/12873529": {
-   "lat": -23.63,
-   "lon": -47,
-   "em": "2026-11-24"
-  },
-  "https://megag.gupy.io/jobs/12791288": {
    "lat": -23.63,
    "lon": -47,
    "em": "2026-11-24"
@@ -2643,11 +1693,6 @@
   },
   "https://afpesp.gupy.io/jobs/12833546": {
    "lat": -23.06,
-   "lon": -46.98,
-   "em": "2026-11-24"
-  },
-  "https://ancoragroup.gupy.io/jobs/12680687": {
-   "lat": -23.03,
    "lon": -46.98,
    "em": "2026-11-24"
   },
@@ -2671,29 +1716,9 @@
    "lon": -47,
    "em": "2026-11-24"
   },
-  "https://cencosudbrasil.gupy.io/jobs/12899804": {
-   "lat": -23.2,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://cencosudbrasil.gupy.io/jobs/12770365": {
-   "lat": -23.21,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
   "https://estagiarioseaprendizesgpa.gupy.io/jobs/12838449": {
    "lat": -23.21,
    "lon": -46.85,
-   "em": "2026-11-24"
-  },
-  "https://cencosudbrasil.gupy.io/jobs/12725292": {
-   "lat": -23.21,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://cencosudbrasil.gupy.io/jobs/12722710": {
-   "lat": -23.21,
-   "lon": -46.83,
    "em": "2026-11-24"
   },
   "https://cencosudbrasil.gupy.io/jobs/12725288": {
@@ -2702,11 +1727,6 @@
    "em": "2026-11-24"
   },
   "https://cencosudbrasil.gupy.io/jobs/12744814": {
-   "lat": -23.21,
-   "lon": -46.83,
-   "em": "2026-11-24"
-  },
-  "https://cencosudbrasil.gupy.io/jobs/12744813": {
    "lat": -23.21,
    "lon": -46.83,
    "em": "2026-11-24"
@@ -2720,25 +1740,649 @@
    "lat": -23.2,
    "lon": -46.84,
    "em": "2026-11-24"
+  },
+  "https://swift.gupy.io/jobs/12940587": {
+   "lat": -22.7,
+   "lon": -46.77,
+   "em": "2026-11-25"
+  },
+  "https://carreirasype.gupy.io/jobs/12934541": {
+   "lat": -22.7,
+   "lon": -46.76,
+   "em": "2026-11-25"
+  },
+  "https://unimed-amparo.gupy.io/jobs/12931075": {
+   "lat": -22.71,
+   "lon": -46.77,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938737": {
+   "lat": -23.41,
+   "lon": -46.32,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938712": {
+   "lat": -23.41,
+   "lon": -46.32,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938775": {
+   "lat": -23.41,
+   "lon": -46.32,
+   "em": "2026-11-25"
+  },
+  "https://leomadeiras.gupy.io/jobs/12262579": {
+   "lat": -23.14,
+   "lon": -46.55,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12924148": {
+   "lat": -23.49,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12924122": {
+   "lat": -23.5,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12923976": {
+   "lat": -23.5,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12924128": {
+   "lat": -23.5,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12924266": {
+   "lat": -23.49,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12924269": {
+   "lat": -23.49,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://valgroup.gupy.io/jobs/12936258": {
+   "lat": -23.31,
+   "lon": -47.13,
+   "em": "2026-11-25"
+  },
+  "https://timax.gupy.io/jobs/12936919": {
+   "lat": -23.33,
+   "lon": -46.84,
+   "em": "2026-11-25"
+  },
+  "https://timax.gupy.io/jobs/12936729": {
+   "lat": -23.33,
+   "lon": -46.84,
+   "em": "2026-11-25"
+  },
+  "https://viveo.gupy.io/jobs/12767629": {
+   "lat": -23.35,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://stmarche.gupy.io/jobs/12928958": {
+   "lat": -22.89,
+   "lon": -47.03,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12941300": {
+   "lat": -22.89,
+   "lon": -47.06,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12942714": {
+   "lat": -22.89,
+   "lon": -47.08,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936352": {
+   "lat": -22.9,
+   "lon": -47.04,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936828": {
+   "lat": -22.91,
+   "lon": -47.05,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12939209": {
+   "lat": -22.9,
+   "lon": -47.04,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938661": {
+   "lat": -22.89,
+   "lon": -47.06,
+   "em": "2026-11-25"
+  },
+  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12939676": {
+   "lat": -23.56,
+   "lon": -46.83,
+   "em": "2026-11-25"
+  },
+  "https://bidfood.gupy.io/jobs/12927525": {
+   "lat": -23.54,
+   "lon": -46.82,
+   "em": "2026-11-25"
+  },
+  "https://afip.gupy.io/jobs/12928790": {
+   "lat": -23.53,
+   "lon": -46.84,
+   "em": "2026-11-25"
+  },
+  "https://concrejato.gupy.io/jobs/12767392": {
+   "lat": -23.52,
+   "lon": -46.84,
+   "em": "2026-11-25"
+  },
+  "https://komforthouse.gupy.io/jobs/12747773": {
+   "lat": -23.52,
+   "lon": -46.84,
+   "em": "2026-11-25"
+  },
+  "https://afip.gupy.io/jobs/12835927": {
+   "lat": -23.53,
+   "lon": -46.83,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12933890": {
+   "lat": -23.88,
+   "lon": -46.42,
+   "em": "2026-11-25"
+  },
+  "https://spdmpaisdiadema.gupy.io/jobs/12941553": {
+   "lat": -23.66,
+   "lon": -46.62,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12925140": {
+   "lat": -23.69,
+   "lon": -46.62,
+   "em": "2026-11-25"
+  },
+  "https://sodramar.gupy.io/jobs/12734194": {
+   "lat": -23.7,
+   "lon": -46.61,
+   "em": "2026-11-25"
+  },
+  "https://hed.gupy.io/jobs/12851549": {
+   "lat": -23.7,
+   "lon": -46.61,
+   "em": "2026-11-25"
+  },
+  "https://hed.gupy.io/jobs/12834663": {
+   "lat": -23.7,
+   "lon": -46.61,
+   "em": "2026-11-25"
+  },
+  "https://vivsaude.gupy.io/jobs/12851963": {
+   "lat": -23.63,
+   "lon": -46.88,
+   "em": "2026-11-25"
+  },
+  "https://impaktosistemasdelimpeza.gupy.io/jobs/11593692": {
+   "lat": -23.62,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://impaktosistemasdelimpeza.gupy.io/jobs/12791754": {
+   "lat": -23.62,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938924": {
+   "lat": -23.46,
+   "lon": -46.49,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12939023": {
+   "lat": -23.46,
+   "lon": -46.49,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936224": {
+   "lat": -23.75,
+   "lon": -46.78,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936336": {
+   "lat": -23.75,
+   "lon": -46.78,
+   "em": "2026-11-25"
+  },
+  "https://swift.gupy.io/jobs/12930977": {
+   "lat": -23.71,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://seconci-sp.gupy.io/jobs/12927119": {
+   "lat": -23.7,
+   "lon": -46.85,
+   "em": "2026-11-25"
+  },
+  "https://institutoeurofarma.gupy.io/jobs/12927466": {
+   "lat": -23.55,
+   "lon": -46.93,
+   "em": "2026-11-25"
+  },
+  "https://cacaushow-intensidade.gupy.io/jobs/12924447": {
+   "lat": -23.52,
+   "lon": -46.97,
+   "em": "2026-11-25"
+  },
+  "https://jsl.gupy.io/jobs/12925371": {
+   "lat": -23.46,
+   "lon": -46.31,
+   "em": "2026-11-25"
+  },
+  "https://jsl.gupy.io/jobs/12911862": {
+   "lat": -23.46,
+   "lon": -46.31,
+   "em": "2026-11-25"
+  },
+  "https://tfcarreiralojas.gupy.io/jobs/12707656": {
+   "lat": -23.44,
+   "lon": -46.27,
+   "em": "2026-11-25"
+  },
+  "https://tfcarreiralojas.gupy.io/jobs/12707549": {
+   "lat": -23.44,
+   "lon": -46.27,
+   "em": "2026-11-25"
+  },
+  "https://tfcarreiralojas.gupy.io/jobs/12707798": {
+   "lat": -23.44,
+   "lon": -46.27,
+   "em": "2026-11-25"
+  },
+  "https://grupocrm.gupy.io/jobs/12671175": {
+   "lat": -23.44,
+   "lon": -46.27,
+   "em": "2026-11-25"
+  },
+  "https://albierieassociados.gupy.io/jobs/12782280": {
+   "lat": -23.27,
+   "lon": -47.3,
+   "em": "2026-11-25"
+  },
+  "https://refrigerantesconvencao.gupy.io/jobs/12846761": {
+   "lat": -23.26,
+   "lon": -47.3,
+   "em": "2026-11-25"
+  },
+  "https://casadoconstrutor.gupy.io/jobs/11939459": {
+   "lat": -23.26,
+   "lon": -47.3,
+   "em": "2026-11-25"
+  },
+  "https://farm.gupy.io/jobs/12516381": {
+   "lat": -23.11,
+   "lon": -47.01,
+   "em": "2026-11-25"
+  },
+  "https://walsywa.gupy.io/jobs/12942380": {
+   "lat": -23.19,
+   "lon": -46.97,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12937387": {
+   "lat": -23.2,
+   "lon": -46.89,
+   "em": "2026-11-25"
+  },
+  "https://catagua.gupy.io/jobs/12912089": {
+   "lat": -23.19,
+   "lon": -46.9,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12937395": {
+   "lat": -23.2,
+   "lon": -46.89,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12937284": {
+   "lat": -23.2,
+   "lon": -46.89,
+   "em": "2026-11-25"
+  },
+  "https://swift.gupy.io/jobs/12919614": {
+   "lat": -22.19,
+   "lon": -47.4,
+   "em": "2026-11-25"
+  },
+  "https://jsl.gupy.io/jobs/12831703": {
+   "lat": -23.54,
+   "lon": -47.18,
+   "em": "2026-11-25"
+  },
+  "https://tglog.gupy.io/jobs/12927634": {
+   "lat": -23.68,
+   "lon": -46.47,
+   "em": "2026-11-25"
+  },
+  "https://tglog.gupy.io/jobs/12930873": {
+   "lat": -23.68,
+   "lon": -46.47,
+   "em": "2026-11-25"
+  },
+  "https://gruposc.gupy.io/jobs/12804128": {
+   "lat": -22.76,
+   "lon": -47.25,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12927455": {
+   "lat": -23.53,
+   "lon": -46.78,
+   "em": "2026-11-25"
+  },
+  "https://catagua.gupy.io/jobs/12835385": {
+   "lat": -22.79,
+   "lon": -47.14,
+   "em": "2026-11-25"
+  },
+  "https://isl.gupy.io/jobs/12219791": {
+   "lat": -22.72,
+   "lon": -47.15,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12942419": {
+   "lat": -22.73,
+   "lon": -47.64,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934097": {
+   "lat": -22.71,
+   "lon": -47.64,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934089": {
+   "lat": -22.71,
+   "lon": -47.64,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934094": {
+   "lat": -22.71,
+   "lon": -47.64,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12942586": {
+   "lat": -24.01,
+   "lon": -46.42,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936042": {
+   "lat": -24.04,
+   "lon": -46.5,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12935895": {
+   "lat": -24.01,
+   "lon": -46.42,
+   "em": "2026-11-25"
+  },
+  "https://carreirasdecathlon.gupy.io/jobs/12938365": {
+   "lat": -23.99,
+   "lon": -46.41,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12926034": {
+   "lat": -24.02,
+   "lon": -46.46,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12926411": {
+   "lat": -24.01,
+   "lon": -46.42,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12912830": {
+   "lat": -24.02,
+   "lon": -46.46,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936747": {
+   "lat": -23.2,
+   "lon": -47.3,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12941408": {
+   "lat": -23.47,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12591689": {
+   "lat": -23.46,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12512460": {
+   "lat": -23.46,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12278418": {
+   "lat": -23.46,
+   "lon": -46.87,
+   "em": "2026-11-25"
+  },
+  "https://restaurantemc.gupy.io/jobs/12929641": {
+   "lat": -23.47,
+   "lon": -46.9,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12933240": {
+   "lat": -23.63,
+   "lon": -46.55,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12933230": {
+   "lat": -23.63,
+   "lon": -46.55,
+   "em": "2026-11-25"
+  },
+  "https://vemprotime.gupy.io/jobs/12923536": {
+   "lat": -23.66,
+   "lon": -46.51,
+   "em": "2026-11-25"
+  },
+  "https://vemprotime.gupy.io/jobs/12923278": {
+   "lat": -23.66,
+   "lon": -46.51,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12939682": {
+   "lat": -23.97,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12937409": {
+   "lat": -23.97,
+   "lon": -46.35,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938728": {
+   "lat": -23.97,
+   "lon": -46.35,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938913": {
+   "lat": -23.99,
+   "lon": -46.3,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12933641": {
+   "lat": -23.98,
+   "lon": -46.31,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936940": {
+   "lat": -23.95,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12936534": {
+   "lat": -23.94,
+   "lon": -46.33,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12922939": {
+   "lat": -23.97,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12927212": {
+   "lat": -23.97,
+   "lon": -46.31,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12931454": {
+   "lat": -23.97,
+   "lon": -46.3,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12927101": {
+   "lat": -23.97,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12927215": {
+   "lat": -23.97,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12930820": {
+   "lat": -23.97,
+   "lon": -46.34,
+   "em": "2026-11-25"
+  },
+  "https://redemoura.gupy.io/jobs/12892655": {
+   "lat": -23.96,
+   "lon": -46.32,
+   "em": "2026-11-25"
+  },
+  "https://validcarreiras-jovenstalentos.gupy.io/jobs/12924785": {
+   "lat": -23.52,
+   "lon": -47.47,
+   "em": "2026-11-25"
+  },
+  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12939237": {
+   "lat": -23.49,
+   "lon": -47.44,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12935452": {
+   "lat": -23.53,
+   "lon": -47.48,
+   "em": "2026-11-25"
+  },
+  "https://aprendizoxxobrasil.gupy.io/jobs/12897964": {
+   "lat": -23.65,
+   "lon": -46.57,
+   "em": "2026-11-25"
+  },
+  "https://swift.gupy.io/jobs/12928043": {
+   "lat": -23.72,
+   "lon": -46.57,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934098": {
+   "lat": -23.72,
+   "lon": -46.56,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934092": {
+   "lat": -23.72,
+   "lon": -46.56,
+   "em": "2026-11-25"
+  },
+  "https://assai.gupy.io/jobs/12936762": {
+   "lat": -23.67,
+   "lon": -46.57,
+   "em": "2026-11-25"
+  },
+  "https://rededor.gupy.io/jobs/12938232": {
+   "lat": -23.7,
+   "lon": -46.57,
+   "em": "2026-11-25"
+  },
+  "https://grupovigorito.gupy.io/jobs/12928792": {
+   "lat": -23.73,
+   "lon": -46.55,
+   "em": "2026-11-25"
+  },
+  "https://tecnogera.gupy.io/jobs/12922115": {
+   "lat": -23.69,
+   "lon": -46.58,
+   "em": "2026-11-25"
+  },
+  "https://atentocorporate.gupy.io/jobs/12941614": {
+   "lat": -23.61,
+   "lon": -46.57,
+   "em": "2026-11-25"
+  },
+  "https://stmarche.gupy.io/jobs/12937335": {
+   "lat": -23.62,
+   "lon": -46.58,
+   "em": "2026-11-25"
+  },
+  "https://swift.gupy.io/jobs/12912646": {
+   "lat": -23.53,
+   "lon": -47.13,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12938767": {
+   "lat": -23.95,
+   "lon": -46.41,
+   "em": "2026-11-25"
+  },
+  "https://gpa.gupy.io/jobs/12937389": {
+   "lat": -23.62,
+   "lon": -46.78,
+   "em": "2026-11-25"
+  },
+  "https://petz.gupy.io/jobs/12934103": {
+   "lat": -23.61,
+   "lon": -46.76,
+   "em": "2026-11-25"
+  },
+  "https://unifecaf.gupy.io/jobs/12872283": {
+   "lat": -23.61,
+   "lon": -46.76,
+   "em": "2026-11-25"
+  },
+  "https://casadoconstrutor.gupy.io/jobs/12409524": {
+   "lat": -23.62,
+   "lon": -46.79,
+   "em": "2026-11-25"
+  },
+  "https://hapvidandi.gupy.io/jobs/12929328": {
+   "lat": -23.61,
+   "lon": -46.75,
+   "em": "2026-11-25"
+  },
+  "https://localiza.gupy.io/jobs/12835311": {
+   "lat": -22.97,
+   "lon": -46.99,
+   "em": "2026-11-25"
   }
  },
  "falhas": {
   "https://imediatonexway.gupy.io/jobs/12905067": "2026-11-24",
-  "https://imediatonexway.gupy.io/jobs/12796413": "2026-11-24",
-  "https://loxambr.gupy.io/jobs/12854741": "2026-11-24",
   "https://carreirasype.gupy.io/jobs/12900316": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12880436": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829767": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12783923": "2026-11-24",
   "https://afpesp.gupy.io/jobs/12725039": "2026-11-24",
   "https://afpesp.gupy.io/jobs/12725397": "2026-11-24",
   "https://afpesp.gupy.io/jobs/12725519": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12513289": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/11315238": "2026-11-24",
   "https://grupojbs.gupy.io/jobs/11132693": "2026-11-24",
   "https://arterisoperacional.gupy.io/jobs/12749452": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12830059": "2026-11-24",
-  "https://fho.gupy.io/jobs/12758815": "2026-11-24",
   "https://casadoconstrutor.gupy.io/jobs/11636043": "2026-11-24",
   "https://terraverdegrupo.gupy.io/jobs/11440347": "2026-11-24",
   "https://brnpar.gupy.io/jobs/10988315": "2026-11-24",
@@ -2748,42 +2392,24 @@
   "https://semparar.gupy.io/jobs/12864963": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12827906": "2026-11-24",
   "https://gpa.gupy.io/jobs/12765108": "2026-11-24",
-  "https://damasiomotopecas.gupy.io/jobs/4843796": "2026-11-24",
   "https://deluna.gupy.io/jobs/12916510": "2026-11-24",
   "https://estagiarioseaprendizesgpa.gupy.io/jobs/12922080": "2026-11-24",
-  "https://tenda.gupy.io/jobs/12913095": "2026-11-24",
   "https://gpa.gupy.io/jobs/12847202": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12847330": "2026-11-24",
-  "https://tenda.gupy.io/jobs/12787861": "2026-11-24",
-  "https://tenda.gupy.io/jobs/12788077": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12588596": "2026-11-24",
   "https://gpa.gupy.io/jobs/12588183": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12827955": "2026-11-24",
   "https://vemserigua.gupy.io/jobs/12768204": "2026-11-24",
   "https://ziliatech.gupy.io/jobs/12747429": "2026-11-24",
   "https://vemserigua.gupy.io/jobs/12858381": "2026-11-24",
   "https://grupoalthaia.gupy.io/jobs/12858431": "2026-11-24",
-  "https://carreirasdecathlon.gupy.io/jobs/12899692": "2026-11-24",
   "https://renner.gupy.io/jobs/12625695": "2026-11-24",
   "https://lojasrennersaplural.gupy.io/jobs/12531948": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12828706": "2026-11-24",
   "https://zaraplast.gupy.io/jobs/12890067": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/12747334": "2026-11-24",
   "https://zaraplast.gupy.io/jobs/12700359": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/12314410": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/7039274": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/6352871": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/4797715": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/4524930": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/3734160": "2026-11-24",
   "https://zaraplast.gupy.io/jobs/12878415": "2026-11-24",
   "https://zaraplast.gupy.io/jobs/12839315": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/12840394": "2026-11-24",
   "https://albierieassociados.gupy.io/jobs/12824006": "2026-11-24",
   "https://zaraplast.gupy.io/jobs/12745180": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/12196676": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/11610826": "2026-11-24",
-  "https://zaraplast.gupy.io/jobs/11539456": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12666355": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12821106": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12784338": "2026-11-24",
@@ -2792,38 +2418,23 @@
   "https://semparar.gupy.io/jobs/11523402": "2026-11-24",
   "https://refrigerantesconvencao.gupy.io/jobs/12816320": "2026-11-24",
   "https://refrigerantesconvencao.gupy.io/jobs/12773460": "2026-11-24",
-  "https://sutextil.gupy.io/jobs/12746101": "2026-11-24",
   "https://confidencialvagasselecao.gupy.io/jobs/12730584": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12678553": "2026-11-24",
-  "https://sutextil.gupy.io/jobs/12603209": "2026-11-24",
-  "https://sutextil.gupy.io/jobs/12603327": "2026-11-24",
-  "https://tpc.gupy.io/jobs/12745788": "2026-11-24",
   "https://tpc.gupy.io/jobs/12729287": "2026-11-24",
-  "https://grupojbs.gupy.io/jobs/12723455": "2026-11-24",
   "https://grupojbs.gupy.io/jobs/12332735": "2026-11-24",
   "https://gruposc.gupy.io/jobs/12923073": "2026-11-24",
   "https://gruposc.gupy.io/jobs/12923472": "2026-11-24",
-  "https://gruposc.gupy.io/jobs/12923363": "2026-11-24",
-  "https://gruposc.gupy.io/jobs/12892434": "2026-11-24",
   "https://gruposc.gupy.io/jobs/12888597": "2026-11-24",
   "https://impactabrazil.gupy.io/jobs/12848183": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12828860": "2026-11-24",
   "https://impactabrazil.gupy.io/jobs/12804328": "2026-11-24",
-  "https://tpc.gupy.io/jobs/12855763": "2026-11-24",
-  "https://obahortifruti.gupy.io/jobs/8832880": "2026-11-24",
-  "https://obahortifruti.gupy.io/jobs/8644292": "2026-11-24",
-  "https://omatuto.gupy.io/jobs/12922643": "2026-11-24",
-  "https://grupobel.gupy.io/jobs/12905055": "2026-11-24",
   "https://confidencialjundiai.gupy.io/jobs/12921265": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829081": "2026-11-24",
   "https://prensajundiai.gupy.io/jobs/12855217": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829106": "2026-11-24",
   "https://aprendizrededor.gupy.io/jobs/12378201": "2026-11-24",
-  "https://cencosudbrasil.gupy.io/jobs/12807630": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12795242": "2026-11-24",
-  "https://cencosudbrasil.gupy.io/jobs/12590428": "2026-11-24",
   "https://rededor.gupy.io/jobs/12682728": "2026-11-24",
-  "https://rededor.gupy.io/jobs/12552995": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829144": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829154": "2026-11-24",
   "https://stmarche.gupy.io/jobs/12798629": "2026-11-24",
@@ -2841,17 +2452,12 @@
   "https://assai.gupy.io/jobs/12923315": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12898465": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12892424": "2026-11-24",
-  "https://restaurantemc.gupy.io/jobs/12872093": "2026-11-24",
-  "https://restaurantemc.gupy.io/jobs/12874095": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12904914": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829182": "2026-11-24",
   "https://usiminas.gupy.io/jobs/12705612": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12648116": "2026-11-24",
   "https://armac.gupy.io/jobs/12859804": "2026-11-24",
   "https://afip.gupy.io/jobs/12825807": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12796651": "2026-11-24",
   "https://gpa.gupy.io/jobs/12903629": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12895480": "2026-11-24",
   "https://spdmpaisdiadema.gupy.io/jobs/12810886": "2026-11-24",
   "https://vivaralojas.gupy.io/jobs/12640171": "2026-11-24",
   "https://cacaushow-lojas.gupy.io/jobs/12917015": "2026-11-24",
@@ -2859,43 +2465,24 @@
   "https://artwalk.gupy.io/jobs/12794970": "2026-11-24",
   "https://artwalk.gupy.io/jobs/11556738": "2026-11-24",
   "https://rdsaude-cd.gupy.io/jobs/12829804": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12908038": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12896680": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12892101": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829205": "2026-11-24",
   "https://rdsaude-cd.gupy.io/jobs/12828670": "2026-11-24",
   "https://rdsaude-cd.gupy.io/jobs/12829901": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12790040": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12760935": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12745254": "2026-11-24",
   "https://intralog.gupy.io/jobs/12730143": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12413667": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/10635185": "2026-11-24",
   "https://vigoralimentos.gupy.io/jobs/12880043": "2026-11-24",
   "https://vempralibbs.gupy.io/jobs/12836830": "2026-11-24",
-  "https://vempralibbs.gupy.io/jobs/12419739": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829233": "2026-11-24",
   "https://assai.gupy.io/jobs/12852688": "2026-11-24",
   "https://assai.gupy.io/jobs/12686170": "2026-11-24",
   "https://rposolutions.gupy.io/jobs/12742901": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12892230": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12899367": "2026-11-24",
-  "https://vagasgrupofit.gupy.io/jobs/12884536": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12899246": "2026-11-24",
   "https://petz.gupy.io/jobs/12871986": "2026-11-24",
   "https://sejaelgin.gupy.io/jobs/12861162": "2026-11-24",
   "https://austernutri.gupy.io/jobs/12670960": "2026-11-24",
   "https://sejaelgin.gupy.io/jobs/12882111": "2026-11-24",
-  "https://assai.gupy.io/jobs/12897466": "2026-11-24",
-  "https://assai.gupy.io/jobs/12898587": "2026-11-24",
-  "https://confidencialcarreiras.gupy.io/jobs/12744713": "2026-11-24",
-  "https://transterralheiro.gupy.io/jobs/8362017": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12922085": "2026-11-24",
-  "https://kuehne-nagel.gupy.io/jobs/12771175": "2026-11-24",
-  "https://kuehne-nagel.gupy.io/jobs/12413175": "2026-11-24",
   "https://arterisoperacional.gupy.io/jobs/12874747": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829316": "2026-11-24",
-  "https://jsl.gupy.io/jobs/12838869": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829335": "2026-11-24",
   "https://swift.gupy.io/jobs/12791536": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829347": "2026-11-24",
@@ -2907,28 +2494,21 @@
   "https://hapvidandi.gupy.io/jobs/12863907": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829350": "2026-11-24",
   "https://cristalia.gupy.io/jobs/11709814": "2026-11-24",
-  "https://cristalia.gupy.io/jobs/12777044": "2026-11-24",
   "https://cristalia.gupy.io/jobs/12630017": "2026-11-24",
   "https://caedu.gupy.io/jobs/12914269": "2026-11-24",
-  "https://votorantimcimentos.gupy.io/jobs/12582775": "2026-11-24",
   "https://cixcitizenexperience.gupy.io/jobs/12908744": "2026-11-24",
   "https://vedacitcarreiras.gupy.io/jobs/12867105": "2026-11-24",
   "https://vedacitcarreiras.gupy.io/jobs/12839521": "2026-11-24",
   "https://vedacitcarreiras.gupy.io/jobs/12835269": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829353": "2026-11-24",
-  "https://fortlev.gupy.io/jobs/12824482": "2026-11-24",
   "https://assai.gupy.io/jobs/12690383": "2026-11-24",
   "https://fortlev.gupy.io/jobs/12686610": "2026-11-24",
-  "https://fortlev.gupy.io/jobs/12656959": "2026-11-24",
   "https://vedacitcarreiras.gupy.io/jobs/12837551": "2026-11-24",
-  "https://vedacitcarreiras.gupy.io/jobs/12719354": "2026-11-24",
   "https://estagiarioseaprendizesgpa.gupy.io/jobs/12878596": "2026-11-24",
   "https://cacaushow-parques.gupy.io/jobs/12790271": "2026-11-24",
   "https://cacaushow-parques.gupy.io/jobs/12788987": "2026-11-24",
   "https://confidecial-12.gupy.io/jobs/12920179": "2026-11-24",
-  "https://cacaushow-parques.gupy.io/jobs/12861977": "2026-11-24",
   "https://viaappia.gupy.io/jobs/12775572": "2026-11-24",
-  "https://sommarh.gupy.io/jobs/12763660": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12584251": "2026-11-24",
   "https://cacaushow-parques.gupy.io/jobs/12901833": "2026-11-24",
   "https://rdsaude-cd.gupy.io/jobs/12833346": "2026-11-24",
@@ -2936,7 +2516,6 @@
   "https://restaurantemc.gupy.io/jobs/12877934": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12856638": "2026-11-24",
   "https://lojasshoesbags.gupy.io/jobs/12851837": "2026-11-24",
-  "https://lojasshoesbags.gupy.io/jobs/12834006": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829362": "2026-11-24",
   "https://rdsaude-cd.gupy.io/jobs/12829889": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12828671": "2026-11-24",
@@ -2946,7 +2525,6 @@
   "https://cacaushow-lojas.gupy.io/jobs/12770025": "2026-11-24",
   "https://awbr.gupy.io/jobs/12676302": "2026-11-24",
   "https://fisiatalentos.gupy.io/jobs/12425369": "2026-11-24",
-  "https://cacaushow-lojas.gupy.io/jobs/12596606": "2026-11-24",
   "https://alea.gupy.io/jobs/12862867": "2026-11-24",
   "https://biotropbr.gupy.io/jobs/12881279": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829371": "2026-11-24",
@@ -2956,7 +2534,6 @@
   "https://restaurantemc.gupy.io/jobs/12833107": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829376": "2026-11-24",
   "https://stmarche.gupy.io/jobs/12819470": "2026-11-24",
-  "https://foodservice.gupy.io/jobs/12748099": "2026-11-24",
   "https://foodservice.gupy.io/jobs/12698666": "2026-11-24",
   "https://foodservice.gupy.io/jobs/12879963": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12678922": "2026-11-24",
@@ -2965,27 +2542,17 @@
   "https://mcassab.gupy.io/jobs/12843863": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829387": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12709654": "2026-11-24",
-  "https://kuehne-nagel.gupy.io/jobs/12697918": "2026-11-24",
-  "https://gruposbftalentos.gupy.io/jobs/12582792": "2026-11-24",
-  "https://mcassabdistribuicao.gupy.io/jobs/12562675": "2026-11-24",
   "https://foodservice.gupy.io/jobs/12834133": "2026-11-24",
-  "https://autoglasslojas.gupy.io/jobs/11587517": "2026-11-24",
   "https://transpanorama.gupy.io/jobs/12446345": "2026-11-24",
-  "https://roldao.gupy.io/jobs/12846595": "2026-11-24",
   "https://motiva.gupy.io/jobs/12835987": "2026-11-24",
-  "https://dexco.gupy.io/jobs/12693458": "2026-11-24",
   "https://semparar.gupy.io/jobs/12872458": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829427": "2026-11-24",
-  "https://assai.gupy.io/jobs/12477302": "2026-11-24",
-  "https://emergentcoldlatam.gupy.io/jobs/12846336": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12531742": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12368102": "2026-11-24",
   "https://swift.gupy.io/jobs/12834235": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829443": "2026-11-24",
-  "https://intralog.gupy.io/jobs/12699344": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12702835": "2026-11-24",
   "https://kuehne-nagel.gupy.io/jobs/12368146": "2026-11-24",
-  "https://alplacarreiras.gupy.io/jobs/12078362": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829458": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829457": "2026-11-24",
   "https://semparar.gupy.io/jobs/12197445": "2026-11-24",
@@ -3001,46 +2568,32 @@
   "https://allohafibra.gupy.io/jobs/12774363": "2026-11-24",
   "https://confidencialoportunidade.gupy.io/jobs/12745229": "2026-11-24",
   "https://ambev.gupy.io/jobs/12802137": "2026-11-24",
-  "https://allohafibra.gupy.io/jobs/12745812": "2026-11-24",
   "https://randoncorp.gupy.io/jobs/12776356": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829498": "2026-11-24",
   "https://randoncorp.gupy.io/jobs/12785894": "2026-11-24",
   "https://allonda.gupy.io/jobs/12502203": "2026-11-24",
-  "https://randoncorp.gupy.io/jobs/12596074": "2026-11-24",
   "https://randoncorp.gupy.io/jobs/10921353": "2026-11-24",
   "https://vilanova.gupy.io/jobs/12844035": "2026-11-24",
   "https://randoncorp.gupy.io/jobs/12832299": "2026-11-24",
-  "https://randoncorp.gupy.io/jobs/12303546": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829497": "2026-11-24",
   "https://swift.gupy.io/jobs/12640128": "2026-11-24",
-  "https://cloroetil.gupy.io/jobs/11928788": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12862470": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829503": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12922919": "2026-11-24",
   "https://alaresinternet.gupy.io/jobs/12772072": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12581341": "2026-11-24",
-  "https://sommarh.gupy.io/jobs/12572910": "2026-11-24",
-  "https://sommarh.gupy.io/jobs/12736657": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829535": "2026-11-24",
   "https://cba.gupy.io/jobs/12777015": "2026-11-24",
   "https://cba.gupy.io/jobs/12777093": "2026-11-24",
-  "https://cba.gupy.io/jobs/12547862": "2026-11-24",
-  "https://fitasprogresso.gupy.io/jobs/12753377": "2026-11-24",
   "https://feelalive.gupy.io/jobs/12838180": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12896027": "2026-11-24",
   "https://carreirascopaenergia.gupy.io/jobs/12895136": "2026-11-24",
   "https://carreirascopaenergia.gupy.io/jobs/12887845": "2026-11-24",
-  "https://casakm.gupy.io/jobs/12807540": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829580": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12648038": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12905329": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829588": "2026-11-24",
   "https://localiza.gupy.io/jobs/12869118": "2026-11-24",
   "https://terraverdegrupo.gupy.io/jobs/12880007": "2026-11-24",
-  "https://vagasmaispetoficial.gupy.io/jobs/12876544": "2026-11-24",
-  "https://terraverdegrupo.gupy.io/jobs/12843472": "2026-11-24",
-  "https://centaurotalentos.gupy.io/jobs/12670693": "2026-11-24",
-  "https://genteraizen.gupy.io/jobs/12726886": "2026-11-24",
   "https://renner.gupy.io/jobs/11441701": "2026-11-24",
   "https://karsten.gupy.io/jobs/12923977": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829629": "2026-11-24",
@@ -3051,28 +2604,18 @@
   "https://jhsf-ni.gupy.io/jobs/12748764": "2026-11-24",
   "https://armac.gupy.io/jobs/12691312": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829617": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12912497": "2026-11-24",
   "https://gpa.gupy.io/jobs/12900909": "2026-11-24",
   "https://gpa.gupy.io/jobs/12904711": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12900906": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12908069": "2026-11-24",
   "https://vagasconfidenciaisvarejo.gupy.io/jobs/12877189": "2026-11-24",
   "https://gpa.gupy.io/jobs/12895250": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12897471": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12896857": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829662": "2026-11-24",
   "https://ceunsp.gupy.io/jobs/12900189": "2026-11-24",
   "https://carreirasype.gupy.io/jobs/12851336": "2026-11-24",
   "https://carreirasype.gupy.io/jobs/12840371": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12145634": "2026-11-24",
   "https://ceunsp.gupy.io/jobs/12900183": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12871518": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12839953": "2026-11-24",
-  "https://carreirasype.gupy.io/jobs/12165206": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829702": "2026-11-24",
   "https://gpa.gupy.io/jobs/12912812": "2026-11-24",
   "https://gpa.gupy.io/jobs/12897892": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12867835": "2026-11-24",
   "https://gpa.gupy.io/jobs/12836890": "2026-11-24",
   "https://gpa.gupy.io/jobs/12836319": "2026-11-24",
   "https://grupojbs.gupy.io/jobs/12801129": "2026-11-24",
@@ -3082,35 +2625,21 @@
   "https://logisticagpa.gupy.io/jobs/12897931": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829722": "2026-11-24",
   "https://gpa.gupy.io/jobs/12913094": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12891588": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12891781": "2026-11-24",
-  "https://nsggroup.gupy.io/jobs/12611488": "2026-11-24",
   "https://confidencial-job.gupy.io/jobs/12850670": "2026-11-24",
   "https://log-adm.gupy.io/jobs/12827272": "2026-11-24",
   "https://3coracoes.gupy.io/jobs/12787991": "2026-11-24",
   "https://caedu.gupy.io/jobs/12686265": "2026-11-24",
   "https://sommarh.gupy.io/jobs/12076702": "2026-11-24",
-  "https://vagastemporarias-cocacolafemsabr.gupy.io/jobs/11500459": "2026-11-24",
   "https://vivaralojas.gupy.io/jobs/12786082": "2026-11-24",
   "https://drogaosuper.gupy.io/jobs/12907856": "2026-11-24",
-  "https://grupotrust.gupy.io/jobs/12854566": "2026-11-24",
-  "https://assai.gupy.io/jobs/11585714": "2026-11-24",
   "https://ecolab.gupy.io/jobs/11957958": "2026-11-24",
-  "https://jsl.gupy.io/jobs/12758131": "2026-11-24",
-  "https://jsl.gupy.io/jobs/12779051": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829801": "2026-11-24",
   "https://hrat.gupy.io/jobs/12771075": "2026-11-24",
   "https://leomadeiras.gupy.io/jobs/12803828": "2026-11-24",
-  "https://jsl.gupy.io/jobs/12672736": "2026-11-24",
   "https://gpa.gupy.io/jobs/12785697": "2026-11-24",
   "https://gpa.gupy.io/jobs/12776520": "2026-11-24",
-  "https://localiza.gupy.io/jobs/12908216": "2026-11-24",
-  "https://restaurantemc.gupy.io/jobs/12906288": "2026-11-24",
   "https://aprendizoxxobrasil.gupy.io/jobs/11663374": "2026-11-24",
-  "https://restaurantemc.gupy.io/jobs/12914795": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12914772": "2026-11-24",
-  "https://movida.gupy.io/jobs/12852467": "2026-11-24",
-  "https://offpremium.gupy.io/jobs/12748083": "2026-11-24",
   "https://grupobel.gupy.io/jobs/12891738": "2026-11-24",
   "https://cacaushow-lojas.gupy.io/jobs/12912774": "2026-11-24",
   "https://caedu.gupy.io/jobs/12785076": "2026-11-24",
@@ -3123,35 +2652,22 @@
   "https://farmetc.gupy.io/jobs/12694291": "2026-11-24",
   "https://farmetc.gupy.io/jobs/12699093": "2026-11-24",
   "https://farmetc.gupy.io/jobs/12693959": "2026-11-24",
-  "https://caedu.gupy.io/jobs/12574620": "2026-11-24",
   "https://grupocrm.gupy.io/jobs/12791691": "2026-11-24",
-  "https://jhsf.gupy.io/jobs/12857913": "2026-11-24",
   "https://bynv.gupy.io/jobs/12843958": "2026-11-24",
-  "https://jhsf-malls.gupy.io/jobs/12731842": "2026-11-24",
   "https://heringextranatal.gupy.io/jobs/12649995": "2026-11-24",
-  "https://oficina.gupy.io/jobs/12591619": "2026-11-24",
   "https://lojasrenner.gupy.io/jobs/12382710": "2026-11-24",
   "https://loccitanelojas.gupy.io/jobs/12188195": "2026-11-24",
   "https://bynv.gupy.io/jobs/12880509": "2026-11-24",
   "https://bynv.gupy.io/jobs/12880478": "2026-11-24",
-  "https://bynv.gupy.io/jobs/12781125": "2026-11-24",
-  "https://gpa.gupy.io/jobs/12897458": "2026-11-24",
   "https://gpa.gupy.io/jobs/12893553": "2026-11-24",
-  "https://roldao.gupy.io/jobs/12725416": "2026-11-24",
-  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12615123": "2026-11-24",
   "https://rededor.gupy.io/jobs/12859825": "2026-11-24",
-  "https://motiva.gupy.io/jobs/12832905": "2026-11-24",
   "https://rededor.gupy.io/jobs/11581855": "2026-11-24",
   "https://cinpal.gupy.io/jobs/12841811": "2026-11-24",
   "https://cinpal.gupy.io/jobs/12819565": "2026-11-24",
   "https://rededor.gupy.io/jobs/12813017": "2026-11-24",
-  "https://grupobel.gupy.io/jobs/12788527": "2026-11-24",
-  "https://restaurantemc.gupy.io/jobs/12757265": "2026-11-24",
   "https://rededor.gupy.io/jobs/12471317": "2026-11-24",
-  "https://centaurotalentos.gupy.io/jobs/12896752": "2026-11-24",
   "https://grupocrm.gupy.io/jobs/12791282": "2026-11-24",
   "https://grupocrm.gupy.io/jobs/12739609": "2026-11-24",
-  "https://vivaralojas.gupy.io/jobs/12732082": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12899164": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12889043": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12879026": "2026-11-24",
@@ -3162,14 +2678,79 @@
   "https://restaurantemc.gupy.io/jobs/12790917": "2026-11-24",
   "https://restaurantemc.gupy.io/jobs/12783056": "2026-11-24",
   "https://semparar.gupy.io/jobs/11717345": "2026-11-24",
-  "https://colegioportoseguro.gupy.io/jobs/12773347": "2026-11-24",
-  "https://eurofarma.gupy.io/jobs/5112317": "2026-11-24",
-  "https://veigaepostal.gupy.io/jobs/12811442": "2026-11-24",
   "https://rdsaude-farmacia.gupy.io/jobs/12829864": "2026-11-24",
   "https://ebeg.gupy.io/jobs/12506191": "2026-11-24",
   "https://ebeg.gupy.io/jobs/12613286": "2026-11-24",
   "https://scania.gupy.io/jobs/12850322": "2026-11-24",
   "https://scania.gupy.io/jobs/12794309": "2026-11-24",
-  "https://rdsaude-farmacia.gupy.io/jobs/12829865": "2026-11-24"
+  "https://rdsaude-farmacia.gupy.io/jobs/12829865": "2026-11-24",
+  "https://restaurantemc.gupy.io/jobs/12937138": "2026-11-25",
+  "https://petz.gupy.io/jobs/12927625": "2026-11-25",
+  "https://petz.gupy.io/jobs/12927617": "2026-11-25",
+  "https://grupoalthaia.gupy.io/jobs/12901851": "2026-11-25",
+  "https://grupoalthaia.gupy.io/jobs/12905301": "2026-11-25",
+  "https://rededor.gupy.io/jobs/12749920": "2026-11-25",
+  "https://gruposc.gupy.io/jobs/12936103": "2026-11-25",
+  "https://dexco.gupy.io/jobs/12929904": "2026-11-25",
+  "https://gruposc.gupy.io/jobs/12722341": "2026-11-25",
+  "https://impactabrazil.gupy.io/jobs/12625073": "2026-11-25",
+  "https://impactabrazil.gupy.io/jobs/12613200": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12929864": "2026-11-25",
+  "https://anhangueraferramentas.gupy.io/jobs/12934405": "2026-11-25",
+  "https://anhangueraferramentas.gupy.io/jobs/12934499": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12937093": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12932222": "2026-11-25",
+  "https://prensajundiai.gupy.io/jobs/12747924": "2026-11-25",
+  "https://rededor.gupy.io/jobs/12097024": "2026-11-25",
+  "https://cencosudbrasil.gupy.io/jobs/11649880": "2026-11-25",
+  "https://stmarche.gupy.io/jobs/12930235": "2026-11-25",
+  "https://swift.gupy.io/jobs/12929099": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12936824": "2026-11-25",
+  "https://armac.gupy.io/jobs/12769910": "2026-11-25",
+  "https://intralog.gupy.io/jobs/12426790": "2026-11-25",
+  "https://vempralibbs.gupy.io/jobs/12434249": "2026-11-25",
+  "https://vempralibbs.gupy.io/jobs/12715142": "2026-11-25",
+  "https://vamos.gupy.io/jobs/12838781": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12938101": "2026-11-25",
+  "https://vagasgrupofit.gupy.io/jobs/12928460": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12938732": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12927812": "2026-11-25",
+  "https://sommarh.gupy.io/jobs/12934901": "2026-11-25",
+  "https://petz.gupy.io/jobs/11822763": "2026-11-25",
+  "https://orizon.gupy.io/jobs/12919709": "2026-11-25",
+  "https://swift.gupy.io/jobs/12791563": "2026-11-25",
+  "https://swift.gupy.io/jobs/12762395": "2026-11-25",
+  "https://vemprasabesp.gupy.io/jobs/12923742": "2026-11-25",
+  "https://ibiobi.gupy.io/jobs/12937098": "2026-11-25",
+  "https://lojasshoesbags.gupy.io/jobs/12942673": "2026-11-25",
+  "https://grupocrm.gupy.io/jobs/12779762": "2026-11-25",
+  "https://oficina.gupy.io/jobs/12907806": "2026-11-25",
+  "https://restaurantemc.gupy.io/jobs/12940249": "2026-11-25",
+  "https://restaurantemc.gupy.io/jobs/12930104": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12927354": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12927356": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12149216": "2026-11-25",
+  "https://falcoesetalentos.gupy.io/jobs/12284562": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12940024": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12941119": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12934814": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12936624": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12904825": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12927220": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12923951": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12926350": "2026-11-25",
+  "https://carreirasype.gupy.io/jobs/12851048": "2026-11-25",
+  "https://viaappia.gupy.io/jobs/12931382": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12928194": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12923853": "2026-11-25",
+  "https://centaurotalentos.gupy.io/jobs/12879815": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12938921": "2026-11-25",
+  "https://nubevagasefetivas.gupy.io/jobs/12939168": "2026-11-25",
+  "https://marilan.gupy.io/jobs/12939602": "2026-11-25",
+  "https://estagiarioseaprendizesgpa.gupy.io/jobs/12935884": "2026-11-25",
+  "https://gpa.gupy.io/jobs/12938638": "2026-11-25",
+  "https://interfile.gupy.io/jobs/12930259": "2026-11-25",
+  "https://spani.gupy.io/jobs/12922973": "2026-11-25",
+  "https://spani.gupy.io/jobs/12927672": "2026-11-25"
  }
 }
